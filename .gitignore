@@ -22,5 +22,5 @@ renv/
 site_libs/
 
 # ✅ Exceptions
-!docs/
+!/docs/
 /.quarto/
