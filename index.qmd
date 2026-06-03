@@ -83,12 +83,12 @@ Swedres-Svarm 2025. Sales of antibiotics and occurrence of antibiotic resistance
 
 ``` bibtex
 @report{SwedresSvarm2025,
-title     = {Swedres-Svarm 2025: Consumption of Antibiotics and Occurrence of Antibiotic Resistance in Sweden},
-author    = {{Public Health Agency of Sweden & The Swedish Veterinary Agency of Sweden}},
-year      = {2025},
-institution = {Folkhälsomyndigheten},
-address   = {Stockholm, Sweden},
-url       = {https://folkhalsomyndigheten-rapporter.github.io/swedres-svarm-2025}
+ title     = {Swedres-Svarm 2025: Consumption of Antibiotics and Occurrence of Antibiotic Resistance in Sweden},
+ author    = {{Public Health Agency of Sweden & The Swedish Veterinary Agency of Sweden}},
+ year      = {2025},
+ institution = {Folkhälsomyndigheten},
+ address   = {Stockholm, Sweden},
+ url       = {https://folkhalsomyndigheten-rapporter.github.io/swedres-svarm-2025}
 }
 ```
 
