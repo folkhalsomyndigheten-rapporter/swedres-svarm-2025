@@ -8,7 +8,7 @@ toc: false
 #| warning: false
 #| message: false
 source("_common.R")
-status(type = "drafting")
+status(type = "ready2publish")
 ```
 
 # Welcome {.unnumbered}
