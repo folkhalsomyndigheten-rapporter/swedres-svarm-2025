@@ -143,8 +143,8 @@ format:
     repo-actions: false
     smooth-scroll: true
     
-    #include-in-header:
-    #- file: includes/header.html
+    include-in-header:
+      - file: includes/header.html
     knitr:
       opts_chunk: 
         dev: png
