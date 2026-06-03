@@ -16,11 +16,6 @@ renv/
 # 📊 Data
 **/data/
 
-# 🏗️ Rendered outputs
-**/*.html
-**/*_files/
-site_libs/
-
 # ✅ Exceptions
-!/docs/
+
 /.quarto/
