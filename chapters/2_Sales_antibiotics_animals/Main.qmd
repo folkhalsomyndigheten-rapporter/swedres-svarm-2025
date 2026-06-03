@@ -1,0 +1,15 @@
+---
+format: html
+author: 
+  - name: "SVA name "
+    affiliations: "Swedish Veterinary Agency"
+---
+
+# Sales of antibiotics in animals {#sec-asa}
+
+{{< include Sales_of_antibiotics_for_animals.qmd >}}
+
+{{< include Comments_on_data_by_animal_species.qmd >}}
+
+
+

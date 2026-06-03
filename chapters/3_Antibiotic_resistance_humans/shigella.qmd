@@ -1,0 +1,129 @@
+---
+format:
+  html:
+    embed-resources: false
+
+execute:
+  cache: false
+  echo: false
+  warnings: false
+  error: false
+---
+
+```{r}
+#| results: "asis"
+#| echo: false
+#| warning: false
+#| message: false
+source("../../_common.R")
+status(type = "polishing")
+```
+
+## *Shigella* species
+
+### Mandatory reporting of Shigella
+
+#### Results 
+
+-	Total number of reported cases: 829 (previous year: 789)
+-	Number of bloodstream infections: 0 (previous year: 0)
+
+#### Comments
+
+The number of reported Shigella cases in 2025 remained stable compared to 2024. However, the incidence of Shigella infection has shown a clear upward trend over the past decade, both among domestically acquired cases and among cases acquired abroad. In 2025, 79% of the cases were reported as having been acquired abroad, while 16% were reported as having been acquired in Sweden. The number of reported cases increased before 2020, partly due to changes in diagnostic practices, with nucleic acid amplification tests becoming increasingly widly used. 
+In 2025, 66 cases with Shigella were also notified as carrying ESBL-producing Enterobacterales. Of the 47 cases with known ESBL type, all were identified as ESBL~A~. No cases with Shigella carrying ESBL~CARBA~ were reported during 2025. 
+
+
+### *Shigella* spp., from faecal samples
+
+In 2025, 203 isolates of Shigella in feacal samples were reported in Svebar and AST results were available for 194 isolates. The majority of isolates with AST were *S. sonnei* and *S. flexneri*, with 53 % and 24 % of the isolates, respectively. None of the isolates was carbapenem resistant (@fig-3-shigella). The number of isolates with an AST available for analysis was low. Hence, results should be interpreted with caution. The increase in cefotaxime resistance indicates a higher presence of ESBL among the tested isolates.
+
+@fig-3-shigella is Table_3.12_ShigellaSpp_21_25
+
+```{r}
+#| message: false
+#| warning: false
+data <- load_from_excel(path_file = "data/Table_3.12_ShigellaSpp_21_25.xlsx")
+
+df <- data$fig_data |> 
+  mutate(across(c(3:4), as.numeric)) |> 
+ # rename(antibiotic = Antibiotic,
+#         year = Year,
+#         r_perc = `% R`,
+ #        ci = `95% CI`) |> 
+  janitor::clean_names() |> 
+  
+  ## confidence interval
+  rename(r_perc = percent_r,
+         tot_antal = n_tested) |> 
+  mutate(r_antal = round(tot_antal*(r_perc/100),0)) |> 
+  group_by(antibiotic, year) %>%
+  na.omit() |> 
+  get_wilson_ci()
+```
+
+::: panel-tabset
+
+###### Figure
+
+```{r}
+#| label: fig-3-shigella
+#| fig-cap: !expr glue::glue("{data$fig_cap}")
+#| fig-alt: !expr glue::glue("{data$fig_alt}")
+#| message: false
+#| warning: false
+p <- df |> 
+  mutate(data_id=row_number(),
+tooltip_p = glue::glue('<b>Year:</b> {year}
+                          <b>Antibiotic:</b> {antibiotic}
+                          <b>Resistance:</b> {round(r_perc,2)}%
+                          <b>Confidence interval:</b> {ci}'
+                                ),
+         tooltip_l = glue::glue('{antibiotic}')) |> 
+  ggplot(aes(x=factor(year),
+             y=r_perc,
+             color = antibiotic,
+             data_id = antibiotic)
+  ) +
+  geom_line_interactive(aes(group=antibiotic, tooltip=tooltip_l),
+                        lwd=0.5) +
+  geom_point_interactive(aes(tooltip = tooltip_p),hover_nearest = TRUE) +
+  geom_errorbar_interactive(aes(ymin = r_perc - felstapel_low,
+                                ymax = r_perc + felstapel_high,
+                                tooltip = tooltip_p), 
+                            width=.15,
+                            linewidth = .5
+  ) +
+  scale_x_discrete(expand = c(0,0.2)) +
+    scale_y_continuous(breaks = perc_100, #fohm_perc_breaks,#scales::pretty_breaks(), 
+                       limits=c(0,100)) +
+    guides(color=guide_legend(nrow=3)) +
+
+  labs(x="Year",
+       y="Resistance (%)") +
+  scale_color_SweSva() +
+  theme_SweSva() +
+  theme(plot.subtitle = element_text(vjust = -15),
+        legend.text = element_text(size = 10)) +
+  add_fohm_caption()
+
+make_dynamic_plot(plot = p, 
+                  filename = "Fig-3-shigella")
+```
+
+###### Data
+```{r}
+df |> 
+  make_table_data_tab(file_name = "Fig-3-shigella")
+```
+:::
+
+
+### Microbiological surveillance programme, *Shigella sonnei* and *Shigella spp*.
+
+In total, 20 isolates were received in 2025 within the microbiological surveillance program for *Shigella sonnei* and *Shigella* spp. with resistance to ciprofloxacin and cefotaxime and/or ceftazidime.
+
+Whole genome sequencing and subsequent SNP-analysis confirmed that 6 of the 20 received isolates belonged to a cluster with a total of 34 isolates. The cluster is genetically related to a multidrug-resistant and internationally spread *S. sonnei* carrying a bla~CTX~-M-15 gene, reported by the Netherlands on June 2023 and the United Kingdom on December 2023, mainly affecting men who have sex with men @ECDC2025CDTR49.
+
+
+

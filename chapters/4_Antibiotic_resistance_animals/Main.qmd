@@ -1,0 +1,24 @@
+---
+format: 
+  html:
+    toc: true
+    toc-location: right
+    toc-depth: 4 # Shows up to ### sub-sections
+    toc-expand: true
+    toc-highlight: true
+author: 
+  - name: "SVA name "
+    affiliations: "Swedish Veterinary Agency"
+---
+
+# Antibiotic resistance in animals {#sec-ara}
+
+{{< include Notifiable_diseases.qmd >}}
+
+{{< include Zoonotic_pathogens.qmd >}}
+
+{{< include Clinical_isolates_from_animals.qmd >}}
+
+{{< include Indicator_bacteria_from_animals.qmd >}}
+
+

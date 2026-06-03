@@ -1,0 +1,230 @@
+---
+format:
+  html:
+    embed-resources: false
+
+execute:
+  cache: false
+  echo: false
+  warnings: false
+  error: false
+---
+
+```{r}
+#| results: "asis"
+#| echo: false
+#| warning: false
+#| message: false
+source("../../_common.R")
+status(type = "polishing")
+```
+## *Haemophilus influenzae*
+
+### *Haemophilus influenzae*, from blood and nasopharynx cultures
+
+-   Number of mandatory reported cases of invasive *H. influenzae*: 279
+
+##### Comments
+
+Invasive isolates of *H. influenzae* are notifiable according to the Communicable Disease Act regardless of antibiotic resistance. Cefotaxime resistance among invasive isolates remains low (@fig-3-30 and @tbl-3-hin). Among respiratory isolates, resistance levels to penicillin, ampicillin/amoxicillin, trimethoprim-sulfamethoxazole and cefotaxime increased during 2025 (@fig-3-28). 
+
+
+
+
+@fig-3-hin-blood-ny is Figure_3._NY_Hin_blood
+
+::: panel-tabset
+```{r}
+data <- load_from_excel(path_file = "data/Figure_3._NY_Hin_blood.xlsx")
+
+df <- data$fig_data |> 
+  #pivot_longer(-Antibiotic,names_to = "year")
+   mutate(across(everything(), as.character)) |> 
+  pivot_longer(cols = -Antibiotic, names_to = "year_tmp") |> 
+  separate(year_tmp,into = c("year","feat"),sep = " - ") |> 
+  mutate(value = as.numeric(value)) |> 
+  pivot_wider(names_from = feat, values_from = value) |> 
+janitor::clean_names() |> 
+## confidence interval
+  rename(r_perc =percent_r,
+         tot_antal = n_tested) |> 
+  mutate(r_antal = round(tot_antal*(r_perc/100),0)) |> 
+  group_by(antibiotic, year) %>%
+  na.omit() |> 
+    get_wilson_ci()
+
+```
+
+###### Figure
+```{r}
+#| label: fig-3-hin-blood-ny
+#| fig-cap: !expr glue::glue("{data$fig_cap}")
+#| fig-alt: !expr glue::glue("{data$fig_alt}")
+#| warning: false
+
+
+p <- df |>
+  mutate(data_id=row_number(),
+   tooltip_p = glue::glue('<b>Year:</b> {year}
+                          <b>Antibiotic:</b> {antibiotic}
+                          <b>Resistance:</b> {round(r_perc,2)}%
+                          <b>Confidence interval:</b> {ci}'
+                                ),
+         tooltip_l = glue::glue('{antibiotic}')) |> 
+  ggplot(aes(x= year,
+             y=r_perc,
+             color = antibiotic,
+             data_id = antibiotic)
+  ) +
+  geom_line_interactive(aes(group=antibiotic, tooltip=tooltip_l)) + #,tooltip = line_lab)) +
+  geom_point_interactive(aes(tooltip = tooltip_p),hover_nearest = TRUE) +
+  geom_errorbar_interactive(aes(ymin = r_perc - felstapel_low,
+                                ymax = r_perc + felstapel_high,
+                                tooltip = tooltip_p), 
+                            width=.15,linewidth = .5
+  ) +
+
+  scale_x_discrete(expand = c(0,0.2)) +
+  scale_y_continuous(breaks = perc_100,
+                     limits=c(0,100)) +
+  labs(x="Year",
+       y="Resistance (%)") +
+  scale_color_SweSva()+
+  theme_SweSva() +
+  add_fohm_caption() +
+  guides(color=guide_legend(nrow=3)) +
+  theme(plot.subtitle = element_text(vjust = -15))
+
+
+make_dynamic_plot(plot = p, filename = "ny_hin_blood")
+```
+###### Data
+```{r}
+df |> 
+  transmute(antibiotic,
+            year,
+            "number of total tests" = tot_antal,
+            "number of resistent tests" = r_antal,
+            "% resistent" = r_perc,
+            "Confidence interval" = ci) |> 
+  make_table_data_tab(file_name = "ny_hin_blood")
+```
+:::
+
+
+@fig-3-28 is Figure_3.28_Hin_nph
+
+::: panel-tabset
+```{r}
+data <- load_from_excel(path_file = "data/Figure_3.28_Hin_nph.xlsx")
+
+df <- data$fig_data |> 
+  #pivot_longer(-Antibiotic,names_to = "year")
+  mutate(across(everything(), as.character)) |> 
+  pivot_longer(cols = -Antibiotic, names_to = "year_tmp") |> 
+  separate(year_tmp,into = c("year","feat"),sep = " - ") |> 
+  mutate(value = as.numeric(value)) |> 
+  pivot_wider(names_from = feat, values_from = value) |> 
+  janitor::clean_names() |> 
+  ## confidence interval
+  rename(r_perc =percent_r,
+         tot_antal = n_tested) |> 
+  mutate(r_antal = round(tot_antal*(r_perc/100),0)) |> 
+  group_by(antibiotic, year) %>%
+  na.omit() |> 
+    get_wilson_ci()
+
+```
+
+###### Figure
+```{r}
+#| label: fig-3-28
+#| fig-cap: !expr glue::glue("{data$fig_cap}")
+#| fig-alt: !expr glue::glue("{data$fig_alt}")
+#| warning: false
+
+
+p <- df |>
+  mutate(data_id=row_number(),
+   tooltip_p = glue::glue('<b>Year:</b> {year}
+                          <b>Antibiotic:</b> {antibiotic}
+                          <b>Resistance:</b> {round(r_perc,2)}%
+                          <b>Confidence interval:</b> {ci}'
+                                ),
+         tooltip_l = glue::glue('{antibiotic}')) |> 
+  ggplot(aes(x= year,
+             y=r_perc,
+             color = antibiotic,
+             data_id = antibiotic)
+  ) +
+  geom_line_interactive(aes(group=antibiotic, tooltip=tooltip_l)) + #,tooltip = line_lab)) +
+  geom_point_interactive(aes(tooltip = tooltip_p),hover_nearest = TRUE) +
+  geom_errorbar_interactive(aes(ymin = r_perc - felstapel_low,
+                                ymax = r_perc + felstapel_high,
+                                tooltip = tooltip_p), 
+                            width=.15,
+                            linewidth = .5
+                            ) +
+   # scale_y_continuous(expand = c(0,0),
+  #                     minor_breaks = c(0,10,20,30,40,50,60,80),
+  #                     breaks=c(0,25,50,75,100), 
+  #                     limits = c(0,50)) +
+  scale_x_discrete(expand = c(0,0.2)) +
+    scale_y_continuous(breaks = perc_100,
+                     limits=c(0,100)) +
+  labs(x="Year",
+       y="Resistance (%)") +
+  scale_color_manual(values = col_SweSva_9) +# c(fohmR::fohm_pal("diagram_discrete"),fohmR::fohm_pal("main")[3])) + #scale_color_SweSva("red") +
+  theme_SweSva() +
+  add_fohm_caption() +
+  guides(color=guide_legend(nrow=3)) +
+  theme(legend.text=element_text(size=10),
+        plot.subtitle = element_text(vjust = -15))
+
+
+make_dynamic_plot(plot = p, filename = "ny_hin_nph")
+```
+###### Data
+```{r}
+df |> 
+  transmute(antibiotic,
+            year,
+            "number of total tests" = tot_antal,
+            "number of resistent tests" = r_antal,
+            "% resistent" = r_perc,
+            "Confidence interval" = ci) |> 
+  make_table_data_tab(file_name = "ny_hin_nph")
+```
+:::
+
+
+@tbl-3-hin is Table_3.8_Hin
+
+::: panel-tabset
+
+```{r}
+#| message: false
+#| warning: false
+data <- load_from_excel(path_file = "data/Table_3.8_Hin.xlsx")
+
+df <- data$fig_data |> 
+  mutate(across(c(2:3), as.numeric))
+```
+
+###### Table
+```{r}
+#| label: tbl-3-hin
+#| tbl-cap: !expr glue::glue("{data$fig_cap}")
+df |> 
+  gt()|> 
+ gt_theme_SweSva()
+```
+
+###### Data
+```{r}
+df |> 
+  make_table_data_tab(file_name = "Table3-8hin")
+```
+:::
+
+

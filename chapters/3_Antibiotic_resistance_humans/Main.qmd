@@ -1,0 +1,47 @@
+---
+#title: "Antibiotic resistance in humans"
+format: html
+author: 
+  - name: "Hanna Billström"
+    affiliations: "Public Health Agency of Sweden"
+---
+# Antibiotic resistance in humans {#sec-arh}
+
+{{< include Overview_of_surveillance_systems_and_methods_for_ast.qmd >}}
+
+{{< include Overview_of_sampling_and_culture_results.qmd >}}
+
+{{< include Ecoli_Kpneum_Entero_ESBL_ESBLcarba.qmd >}}
+
+{{< include Saureus_MRSA.qmd >}}
+
+{{< include Enterococcus_faecalis_faecium_VRE.qmd >}}
+
+{{< include Spneumoniae_PRP.qmd >}}
+
+{{< include Hinfluenzae.qmd >}} 
+
+{{< include Paeruginosa.qmd >}}
+
+{{< include Acinetobacter.qmd >}}
+
+{{< include Spyogenes.qmd >}}
+
+{{< include Sagalactiae.qmd >}}
+
+{{< include Shigella.qmd >}} 
+
+{{< include Mtuberculosis.qmd >}}
+
+{{< include Ngonorrhoeae.qmd >}} 
+
+{{< include Nmeningitidis.qmd >}} 
+
+{{< include Cdifficile.qmd >}}
+
+{{< include Cauris.qmd >}}
+
+{{< include Zoonotic_Campylobacter.qmd >}}
+
+{{< include Zoonotic_Salmonella.qmd >}}
+

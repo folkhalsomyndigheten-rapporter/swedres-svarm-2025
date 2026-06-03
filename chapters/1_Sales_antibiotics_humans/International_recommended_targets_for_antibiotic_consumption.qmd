@@ -1,0 +1,283 @@
+---
+format:
+  html:
+    embed-resources: false
+    fig-cap-location: top
+
+execute:
+  cache: false
+  echo: false
+  warnings: false
+  error: false
+---
+
+```{r}
+#| results: "asis"
+#| echo: false
+#| warning: false
+#| message: false
+source("../../_common.R")
+status(type = "polishing")
+```
+
+## International recommended targets for antibiotic consumption
+
+
+### Swedish antibiotic prescribing according to the WHO AWaRe classification
+
+#### WHO AWaRe classification
+
+The WHO has set a target for at least 60% of all antibiotics consumed in each country to be from the Access group @WHO2025. There are no separate targets for hospital and community consumption based on the AWaRe classification. In 2023, the Council of the European Union (EU) adopted new recommendations aimed at increasing efforts to combat antimicrobial resistance @EUCouncil2023. The recommendation set a slightly more ambitious national target: at least 65% of all antibiotics consumed should be from the Access group in the AWaRe classification. 
+
+
+#### Consumption of Access, Watch, and Reserve antibiotics in Sweden
+
+76.5% of antibiotics (J01 excluding methenamine J01XX05) sold in 2025 were Access antibiotics, while Watch antibiotics made up 23.2% of all antibiotics sold and the remaining 0.3% consisted of antibiotics from the Reserve group. As expected, the proportion of Watch antibiotics was higher in inpatient care than in outpatient care, i.e. 31.8% versus 21.7% @fig-1-19. Most Reserve antibiotics were sold to inpatient care, but a small proportion was also prescribed in outpatient care and consisted mainly of linezolid, colistin and aztreonam. The sector classified as “inpatient care” also includes antibiotics supplied to other care providers than hospitals, such as some elderly homes and dental care. Thus, it is reasonable to assume that the proportions of Watch and Reserve antibiotics used in hospitals may be higher in reality than the estimates presented here. In addition, since certain antibiotics prescribed and sold on license could not be included (see **Methods section**), it is reasonable to assume that the overall proportions of prescription for these antibiotics may be somewhat underestimated.
+
+
+Over the last 20 years, the proportion of Access antibiotics has stayed somewhat stable between 77-80%, @fig-1-20. Simultaneously, the proportion of Watch antibiotics increased, while the prescribing of Reserve antibiotics has gradually increased since the early 2000s, as these proportions are smaller in general (@fig-1-21 and @fig-1-22). In 2025, the proportion of Access antibiotics sold was substantially unchanged while the sales of Watch as well as Reserve antibiotics increased. 
+
+Sweden exceeds the WHO minimum target for Access antibiotics of 60%, the Council of the EU recommended national target for Access antibiotics of at least 65% as well as the new national target of maintaining a level above 75% according to the new national strategy against antimicrobial resistance in Sweden @SwedishGovernment2026. Note that the Council of the EU uses data from ESAC-Net, which includes methenamine (J01XX05) in AWaRe analysis @ECDC2023. Including methenamine, Sweden continues to exceed the Council of the EU recommended target of at least 65% Access group antibiotics. Although the consumption of Reserve group antibiotics seems to be low, the increased prescribing of these substances merits further review. 
+
+
+
+::: panel-tabset
+```{r}
+# Medskick: Medskick får gärna vara från max 100%, och visa procent access (de mindre behövs inte, har inte funnits plats). 
+
+data <- load_from_excel(path_file = "data/fig-1-19.xlsx")
+
+df <- data$fig_data |> 
+  dplyr::select(category,"Total":"Outpatient care") |> 
+  pivot_longer(-category,names_to = "group")|> 
+  mutate(value = value*100)
+```
+
+###### Figure
+```{r}
+#| label: fig-1-19
+#| fig-cap: !expr glue::glue("{data$fig_cap}")
+#| fig-alt: !expr glue::glue("{data$fig_alt}")
+#| warning: false
+p <-  df |> 
+   mutate(data_id = row_number(),
+          tooltip_b = glue::glue('<b>Category:</b> {category}
+                                    <b>Group:</b> {group}
+                                    <b>Proportion:</b> {round(value,2)}%')) |> 
+
+  ggplot(aes(x = group,
+             y = value, 
+             fill=factor(category),
+             data_id = data_id)) +
+      geom_bar_interactive(aes(tooltip = tooltip_b),width=0.5,position="stack", stat="identity") +
+
+    #geom_col_interactive(aes(tooltip = tooltip_b),width = 0.5, position = position_dodge(0.7)) +
+  labs(x=NULL,
+       y = "Proportion (%)") +
+  scale_y_continuous(expand=c(0,.1)) +
+    scale_x_discrete(expand=c(0,0.2)) +
+
+  scale_fill_SweSva() + 
+  theme_SweSva() +
+  add_fohm_caption()
+
+make_dynamic_plot(plot = p, filename = "Fig1-19")
+```
+###### Data
+```{r}
+df |> 
+  make_table_data_tab(file_name = "Fig1-19")
+```
+:::
+
+
+::: panel-tabset
+###### Figure
+```{r}
+#| message: false
+#| warning: false
+
+
+data <- load_from_excel(path_file = "data/fig-1-20.xlsx")
+
+df <- data$fig_data |> 
+  rename(year = Year) |> 
+    dplyr::select(year,"Total":"Outpatient care") |> 
+    mutate(across(-year, ~as.numeric(.))) |> 
+  pivot_longer(-year,names_to = "group") 
+```
+
+```{r}
+#| label: fig-1-20
+#| fig-cap: !expr glue::glue("{data$fig_cap}")
+#| fig-alt: !expr glue::glue("{data$fig_alt}")
+#| warning: false
+p <- df |> 
+  mutate(data_id = row_number(),
+         tooltip_l = glue::glue('{group}'),
+         tooltip_p  = glue::glue('<b>Year:</b> {year}
+                                   <b>Group:</b> {group}
+                                   <b>Proportion:</b> {round(value,2)}%')) |> 
+  ggplot(aes(x=as.character(year),
+             y=value,
+             color=group,
+             group=group, 
+             data_id = data_id)) +
+  geom_line_interactive(aes(tooltip=tooltip_l),
+                        lwd=.5) +
+  geom_point_interactive(aes(tooltip=tooltip_p),
+                         hover_nearest = TRUE,
+                         size=.5) +
+  scale_y_continuous(expand = c(0,0.2), limits=c(0,100)) + #,limits=c(0,round(max(df$value)*1.1,-2))) +
+    scale_x_discrete(expand=c(0,0.2)) +
+
+  labs(y= "Proportion (%)",
+       x="Year") +
+ # guides(color=guide_legend(nrow=1)) +
+  scale_color_SweSva() + 
+  add_fohm_caption() +
+  theme_SweSva() +
+  theme_SweSva_rotate() #+
+  #theme(plot.subtitle = element_text(vjust = -6)) 
+
+    #theme_SweSva_full_legend()
+
+make_dynamic_plot(plot = p, filename = "Fig1-20")
+```
+
+###### Data
+```{r}
+df |> 
+  make_table_data_tab(file_name = "Fig1-20")
+```
+:::
+
+::: panel-tabset
+###### Figure
+```{r}
+#| message: false
+#| warning: false
+data <- load_from_excel(path_file = "data/fig-1-21.xlsx")
+
+df <- data$fig_data |> 
+  rename(year = Year) |> 
+    dplyr::select(year,"Total":"Outpatient care") |> 
+   # mutate(across(-year, ~as.numeric(.))) |> 
+  pivot_longer(-year,names_to = "group") 
+```
+
+```{r}
+#| label: fig-1-21
+#| fig-cap: !expr glue::glue("{data$fig_cap}")
+#| fig-alt: !expr glue::glue("{data$fig_alt}")
+#| warning: false
+p <- df |> 
+  mutate(data_id = row_number(),
+         tooltip_l = glue::glue('{group}'),
+         tooltip_p  = glue::glue('<b>Year:</b> {year}
+                                   <b>Group:</b> {group}
+                                   <b>Proportion:</b> {round(value,2)}%')) |> 
+  ggplot(aes(x=as.character(year),
+             y=value,
+             color=group,
+             group=group, 
+             data_id = data_id)) +
+  geom_line_interactive(aes(tooltip=tooltip_l),
+                        lwd=.5) +
+  geom_point_interactive(aes(tooltip=tooltip_p),
+                         hover_nearest = TRUE,
+                         ) +
+  scale_y_continuous(expand = c(0,0), limits = c(0,40)) + #,limits=c(0,round(max(df$value)*1.1,-2))) +
+    scale_x_discrete(expand=c(0,0.2)) +
+
+  labs(y= "Proportion (%)",
+       x="Year") +
+  #guides(color=guide_legend(nrow=2)) +
+  scale_color_SweSva() + 
+  add_fohm_caption() +
+  theme_SweSva() +
+  theme_SweSva_rotate() 
+
+make_dynamic_plot(plot = p, filename = "Fig1-21")
+```
+
+###### Data
+```{r}
+df |> 
+  make_table_data_tab(file_name = "Fig1-21")
+```
+:::
+
+
+
+::: panel-tabset
+```{r}
+#| message: false
+#| warning: false
+data <- load_from_excel(path_file = "data/fig-1-22.xlsx")
+
+df <- data$fig_data |> 
+  rename(year = Year) |> 
+    dplyr::select(year,"Total":"Outpatient care") |> 
+   # mutate(across(-year, ~as.numeric(.))) |> 
+  pivot_longer(-year,names_to = "group") 
+```
+###### Figure
+```{r}
+#| label: fig-1-22
+#| fig-cap: !expr glue::glue("{data$fig_cap}")
+#| fig-alt: !expr glue::glue("{data$fig_alt}")
+#| warning: false
+p <- df |> 
+  mutate(data_id = row_number(),
+         tooltip_l = glue::glue('{group}'),
+         tooltip_p  = glue::glue('<b>Year:</b> {year}
+                                   <b>Group:</b> {group}
+                                   <b>Proportion:</b> {round(value,2)}%')) |> 
+  ggplot(aes(x=as.character(year),
+             y=value,
+             color=group,
+             group=group, 
+             data_id = data_id)) +
+  geom_line_interactive(aes(tooltip=tooltip_l),
+                        lwd=.5) +
+  geom_point_interactive(aes(tooltip=tooltip_p),
+                         hover_nearest = TRUE) +
+  scale_y_continuous(expand = c(0,0), limits = c(0,2)) + #,limits=c(0,round(max(df$value)*1.1,-2))) +
+    scale_x_discrete(expand=c(0,0.2)) +
+
+  labs(y= "Proportion (%)",
+       x="Year") +
+  #guides(color=guide_legend(nrow=2)) +
+  scale_color_SweSva() + 
+  add_fohm_caption() +
+  theme_SweSva() +
+  theme_SweSva_rotate() #+
+  #theme(plot.subtitle = element_text(vjust = -6)) 
+
+    #theme_SweSva_full_legend()
+
+make_dynamic_plot(plot = p, filename = "Fig1-22")
+```
+
+###### Data
+```{r}
+df |> 
+  make_table_data_tab(file_name = "Fig1-22")
+```
+:::
+
+
+
+### Swedish antibiotic consumption based on the EU Council recommendation on stepping up EU actions to combat antimicrobial resistance in a One Health approach
+
+
+#### EU Council recommendations
+
+In 2023, the Council recommendation on stepping up EU action to combat antimicrobial resistance was adopted. One of the recommendation’s targets is to ensure that, by 2030, Access antibiotics make up at least 65% of the total antibiotic consumption in humans, as defined in the AWaRe classification of the WHO. Antibiotic consumption according to the WHO AWaRe classification in Sweden is described in the previous section. 
+
+#### Consumption of antibiotics in Sweden from 2019-2025
+
+Another of the recommendation’s targets is that by 2030, the total consumption of antibiotics in humans (in DDD per 1 000 inhabitants per day) is reduced by 20% in the Union compared with the baseline year 2019. The national target for Sweden is a 3% reduction by 2030. Since 2019, the total consumption of antibiotics in humans in Sweden has decreased by 4%. This report excludes methenamine (J01XX05).
+
+

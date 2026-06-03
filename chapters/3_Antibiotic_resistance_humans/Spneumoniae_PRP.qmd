@@ -1,0 +1,260 @@
+---
+format:
+  html:
+    embed-resources: false
+
+execute:
+  cache: false
+  echo: false
+  warnings: false
+  error: false
+---
+
+```{r}
+#| results: "asis"
+#| echo: false
+#| warning: false
+#| message: false
+source("../../_common.R")
+status(type = "polishing")
+```
+
+## *Streptococcus pneumoniae* including PRP
+
+
+### Mandatory reporting of penicillin-resistant *Streptococcus pneumoniae*
+
+#### Results
+
+-	Number of reported cases: 211 (previous year 148), relative change 43%
+-	Number of bloodstream infections: 13 (previous year 12)	
+
+
+#### Trends
+
+In 2025, the incidence of PRP increased to 2.0 cases per 100 000 inhabitants from 1.4 cases per 100 000 inhabitants in 2024. Among reported cases, 127 (60%) were clinical infections and 27 (13%) were carriers (@fig-3-25). Most isolates were from nasopharynx samples (n=93, 44%), while 36% (n=75) came from sputum or bronchoalveolar lavage samples. The majority of cases (n=130, 62%) were acquired domestically, while 8% were acquired abroad; for the remaining 30%, no country of acquisition was specified. The median age for PRP cases was 56 years (range: 0–94 years), and PRP remains most common among men (58%). The highest incidence was observed in the age group 70–79 years (n=41, incidence 4.1), followed by children in the age group 1–4 years (n=15, incidence 3.5). In 2025, the incidence increased primarily among individuals over 30 years, while it decreased among children under five years.
+
+### Microbiological surveillance programme, *S. pneumoniae*
+
+PHAS collects all PRP isolates for serotyping as part of the national microbiological surveillance programme. This enables monitoring and evaluating the effectiveness of vaccination against pneumococcal disease, as well as identifying the spread of antibiotic-resistant clones. Since autumn 2023, the 15-valent conjugate vaccine (PCV15) has been used in the childhood vaccination programme, replacing the 10-valent vaccine (PCV10). In 2025, isolates from 195 of the 211 reported cases (92%) were sent to PHAS for serotyping within the national microbiological surveillance programme. Of these isolates, 40% (n=77) belonged to serotypes included in PCV15, @fig-3-26. The corresponding figures for 2024 and 2023 were 35% and 42%, respectively. In 2025, serotype 19F (n=28) was the most common, followed by 19A (n=24), 11A (n=20), and 9N (n=19). Seventeen cases were caused by non-typeable PRP (NT; without capsule). Among the typed isolates from children under five years (n=15), serotype 11A (n=3) was the most common, followed by 19A (n=2). Among the 13 invasive cases, five were caused by serotype 19A, which is covered by PCV15. Notably, none of these serotype 19A cases occurred in children under 10 years. The remaining eight cases were caused by serotypes not included in the PCV15: 9A (n=3), 6C (n=1), 9N (n=1), 11A (n=1), 23B (n=1) and 29 (n=1). 
+
+Sine 2025, EUCAST introduced new breakpoints for benzylpenicillin for pneumococci (for indications other than meningitis). According to the new breakpoints, pneumococcal strains with MIC >1 mg/L are classified as penicillin-resistant pneumococci (PRP), and are notifiable under the Infection Control Act. The susceptibility testing recommendation was also updated: laboratories are now encouraged to use disc diffusion (SIR) instead of MIC determination for benzylpenicillin.
+
+PHAS collects all pneumococcal isolates with oxacillin 1 µg < 9 mm (according to disc diffusion) for serotyping. In 2025, 254 isolates with reduce susceptibility to penicillin were collected (including the 211 isolates from cases of PRP). The serotype distribution was, in descending order: 19F (11%), NT (11%), 19A (10%), 11A (9%), 35B (7%). 9N (6%), 23B (5%), 15A (5%), 23A (4%), 6C and 3 (3%). 
+
+#### Clusters and outbreaks
+No PRP clusters were identified in 2025. 
+
+#### Comments
+In summary, the number of PRP cases continued to increase in 2025. However, the number of invasive cases remained stable. Over the past decade, the PRP incidence has risen in Sweden. Changes in diagnostics may have contributed to this trend. 
+
+
+
+@fig-3-25 is Figure_3.25_PRP_type_infection
+
+::: panel-tabset
+###### Figure
+```{r}
+data <- load_from_excel(path_file = "data/Figure_3.25_PRP_type_infection.xlsx")
+
+df <- data$fig_data |>
+  #rename(year = Year) |>
+  dplyr::select(1:5) |> 
+  pivot_longer(cols = -year, names_to = "feature")
+```
+
+```{r}
+#| label: fig-3-25
+#| fig-cap: !expr glue::glue("{data$fig_cap}")
+#| fig-alt: !expr glue::glue("{data$fig_alt}")
+#| warning: false
+p <- df |> 
+  mutate(data_id = row_number(),
+         tooltip_l = glue::glue('{feature}'),
+         tooltip_p  = glue::glue('<b>Year:</b> {year}
+                                   <b>Infection type:</b> {feature}
+                                   <b>Incidens:</b> {round(value,2)} cases/100 000 inhabitants)')) |> 
+  ggplot(aes(x=factor(year),
+             y=value,
+             color=feature,
+             group=feature, 
+             data_id = data_id)) +
+  geom_line_interactive(aes(tooltip=tooltip_l),
+                        lwd=.5) +
+  geom_point_interactive(aes(tooltip=tooltip_p),
+                         hover_nearest = TRUE,
+                         #size=.5
+                         ) +
+    scale_y_continuous(expand = c(0,0),limits=c(0,round(max(df$value)*1.2,0))) +
+ scale_x_discrete(expand = c(0,0.2)) +
+  labs(y= "Incidence (cases/100 000 inhabitants)",
+       x= "Year") +
+#    guides(color=guide_legend(nrow=2)) +
+  scale_color_SweSva() + 
+  add_fohm_caption() +
+  theme_SweSva() #+
+    #theme(plot.subtitle = element_text(vjust = -15))# +
+  #theme_SweSva_rotate()
+
+make_dynamic_plot(plot = p, filename = "Fig3-25")
+```
+###### Data
+```{r}
+df |> 
+  rename("Infection type" = feature,
+         "Incidens (cases/100 000 inhabitants)" = value) |> 
+  make_table_data_tab(file_name = "Fig3-25")
+```
+:::
+
+
+@fig-3-26 is Figure_3.26_PRP_serotype_distribution
+
+::: panel-tabset
+```{r}
+#| message: false
+#| warning: false
+data <- load_from_excel(path_file = "data/Figure_3.26_PRP_serotype_distribution.xlsx")
+df <- data$fig_data |> 
+  pivot_longer(cols = -serotype, names_to = "year") |> 
+  mutate(year_lab = year) |>
+  mutate(serotype = factor(serotype)) |> 
+  separate(year, into=c("year","isolates_tot"), sep = " ",remove = F) |> 
+  mutate(isolates_tot = extract_numeric(isolates_tot),
+         pcv_group = case_when(serotype %in% c("6B", "9V","14","19F","23F") ~ "PCV10",
+                               serotype %in% c("3","6A","19A") ~"PCV15",
+                               .default=NA))
+
+spec_ordning <- data$fig_data |> pull(serotype)
+```
+
+###### Figure
+```{r}
+#| label: fig-3-26
+#| fig-cap: !expr glue::glue("{data$fig_cap}")
+#| fig-alt: !expr glue::glue("{data$fig_alt}")
+#| warning: false
+p <- df |> 
+  
+   mutate(serotype = factor(serotype, levels = spec_ordning),
+          data_id = row_number(),
+          tooltip_b = glue::glue('<b>Year:</b> {year}
+                                    <b>Number of total isolates:</b> {isolates_tot}
+                                    <b>Proportion of isolates:</b> {round(value,0)}%')) |> 
+  
+  ggplot(aes(x = serotype,
+             y = value,
+             fill=as.factor(year_lab),
+             data_id = year_lab)) +
+  geom_col_interactive(aes(tooltip = tooltip_b),width = 0.5, position = position_dodge(0.7)) +
+  labs(x="Serotypes",
+       y = "Proportion of isolates (%)") +
+  scale_y_continuous(expand = c(0,0),limits=c(0,30)) +
+  #facet_grid(~pcv_group, scales="free_x") +
+  scale_x_discrete(expand=c(0,0.2)) +
+  scale_fill_SweSva() + 
+  theme_SweSva() +
+  #theme_SweSva_facet() +
+  add_fohm_caption() 
+
+
+make_dynamic_plot(plot = p, filename = "Fig3-26")
+```
+###### Data
+```{r}
+df |> 
+  transmute(year,
+            serotype,
+            "Total number of isolates" = isolates_tot,
+         "Proportion of isolates (%)" = value) |> 
+  make_table_data_tab(file_name = "Fig3-26")
+```
+:::
+
+------------------------------------------------------------------------
+
+### *Streptococcus pneumoniae*, from blood
+
+Among invasive infections, the proportion of PcG non-susceptible isolates was 8.0% in 2025 (@fig-3-27).
+
+
+@fig-3-27 is Figure_3.27_SPN_blood
+
+```{r}
+#| message: false
+#| warning: false
+data <- load_from_excel(path_file = "data/Figure_3.27_SPN_blood.xlsx")
+
+df <- data$fig_data |>  
+  mutate(across(everything(), as.character)) |>
+    rename(antibiotic = Antibiotic) |> 
+
+  pivot_longer(cols = -antibiotic, names_to = "year_tmp") |> 
+  separate(year_tmp, into = c("year","feat"),sep = "-") |> 
+  mutate(feat = str_remove(feat,"\r\n")) |> 
+  mutate(value = as.numeric(value)) |> 
+  pivot_wider(names_from = feat, values_from = value) |> 
+    janitor::clean_names() |> 
+
+## confidence interval
+  rename(r_perc = percent_r,
+         tot_antal = n_tested) |> 
+  mutate(r_antal = round(tot_antal*(r_perc/100),0)) |> 
+  group_by(antibiotic, year) %>%
+  na.omit() |> 
+  get_wilson_ci()
+```
+::: panel-tabset
+###### Figure
+```{r}
+#| label: fig-3-27
+#| fig-cap: !expr glue::glue("{data$fig_cap}")
+#| fig-alt: !expr glue::glue("{data$fig_alt}")
+#| warning: false
+
+p <- df |>
+  mutate(data_id=row_number(),
+         tooltip_p = glue::glue('<b>Year:</b> {year}
+                          <b>Antibiotic:</b> {antibiotic}
+                          <b>Resistance:</b> {round(r_perc,2)}%
+                          <b>Confidence interval:</b> {ci}'
+                                ),
+         tooltip_l = glue::glue('{antibiotic}')) |> 
+  ggplot(aes(x= year,
+             y=r_perc,
+             color = antibiotic,
+             data_id = antibiotic)
+  ) +
+  geom_line_interactive(aes(group=antibiotic, tooltip=tooltip_l),
+                        lwd=0.5) +
+  geom_point_interactive(aes(tooltip = tooltip_p),hover_nearest = TRUE) +
+  geom_errorbar_interactive(aes(ymin = r_perc - felstapel_low,
+                                ymax = r_perc + felstapel_high,
+                                tooltip = tooltip_p), 
+                            width=.15,linewidth = .5
+  ) +
+  scale_x_discrete(expand = c(0,0.2)) +
+    scale_y_continuous(breaks = perc_25,#scales::pretty_breaks(),
+                       limits=c(0,25)) +
+  guides(color=guide_legend(nrow=3)) +
+
+  labs(x="Year",
+       y="Resistance (%)") +
+  scale_color_SweSva() +
+  theme_SweSva() +
+    theme(plot.subtitle = element_text(vjust = -15),
+          legend.text = element_text(size=10)) +
+
+  add_fohm_caption()
+
+
+make_dynamic_plot(plot = p, 
+                  filename = "fig-3-27")
+```
+###### Data
+```{r}
+df |> 
+  make_table_data_tab(file_name = "fig-3-27")
+```
+:::
+

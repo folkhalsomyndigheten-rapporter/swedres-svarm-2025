@@ -1,0 +1,152 @@
+---
+format:
+  html:
+    embed-resources: false
+    fig-cap-location: top
+
+execute:
+  cache: false
+  echo: false
+  warnings: false
+  error: false
+---
+
+
+```{r}
+#| results: "asis"
+#| echo: false
+#| warning: false
+#| message: false
+source("../../_common.R")
+status(type = "polishing")
+```
+
+## Antibiotics in inpatient care
+
+Data in this section include sales to all Swedish hospitals, some but not all nursing homes, and other institutions within health- and social care that procure antibiotics for dispensing to patients or residents. Of the total sales in inpatient care, the proportion of antibiotics dispensed to acute care hospitals varies from region to region. Some challenges associated with this procurement data are further described in Guidance to readers. Due to regulations regarding confidentiality of sales data, detailed data for specific substances and groups cannot be shown. However, relevant trends over time are described in the text. 
+
+
+### Antibiotic sales in hospitals and other health- and social care facilities
+
+#### Results
+
+- Total sales of antibiotics (J01 excl. methenamine) to hospitals and other health- and social care facilities were 1.5 DDD/1 000 inhabitants per day in 2025, a 2.5% increase compared to 2024, @fig-1-17.
+
+#### Comments
+
+Sales of all antibiotics to hospitals and other health- and social care facilities increased in 2025. The trend analysis for the period 2000-2025 shows an increase until the year 2015, followed by a decrease thereafter. However, trends in sales varied for different antibiotic classes. For example, sales of combinations of penicillins, specifically piperacillin-tazobactam, have shown a significant increase through the years 2000-2025 (data not shown). For the antibiotic groups beta-lactamase resistant penicillins, aminoglycosides, fluoroquinolones, beta-lactamase sensitive penicillins, carbapenems and vancomycin, the trend analysis first shows an upward trend during an initial period, followed by a downward trend in a subsequent period. For the antibiotic group cephalosporins, the trend differs with an upward trend during the period 2021–2025.
+
+
+
+
+
+::: panel-tabset
+```{r}
+data <- load_from_excel(path_file = "data/fig-1-17.xlsx")
+
+df <- data$fig_data |> 
+  dplyr::select("Antibiotic group":"2025") |> 
+  rename(antibiotic_group = "Antibiotic group") |> 
+  head(n=1) |> 
+  pivot_longer(-antibiotic_group,names_to = "year") 
+```
+
+###### Figure
+```{r}
+#| label: fig-1-17
+#| fig-cap: !expr glue::glue("{data$fig_cap}")
+#| fig-alt: !expr glue::glue("{data$fig_alt}")
+#| warning: false
+p <- df |> 
+  mutate(data_id = row_number(),
+         tooltip_l = glue::glue('{antibiotic_group}'),
+         tooltip_p  = glue::glue('<b>Year:</b> {year}
+                                   <b>Antibiotic group:</b> {antibiotic_group}
+                                   <b>DDD/1000 inhabitants per day:</b> {round(value,2)}')) |> 
+  ggplot(aes(x=factor(year),
+             y=value,
+             color=antibiotic_group,
+             group=antibiotic_group, 
+             data_id = data_id)) +
+  geom_line_interactive(aes(tooltip=tooltip_l),
+                        lwd=.5) +
+  geom_point_interactive(aes(tooltip=tooltip_p),
+                         hover_nearest = TRUE) +
+    scale_y_continuous(expand=c(0,0.01),
+                       labels = scales::label_number(),
+                     limits = c(0,1.8)) +
+  scale_x_discrete(expand=c(0,0.2)) +
+    #scale_y_continuous(expand = c(0,0.2), limits=c(0,2)) + #,limits=c(0,round(max(df$value)*1.1,-2))) +
+  labs(x="Year",
+       y = "DDD/1 000 inhabitants per day") +
+ # scale_y_continuous(expand=c(0,.1)) +
+  scale_color_SweSva() + 
+  theme_SweSva() +
+  theme_SweSva_rotate() +
+  #theme(plot.subtitle = element_text(vjust = +2)) +
+  add_fohm_caption()
+
+make_dynamic_plot(plot = p, filename = "Fig1-17")
+
+```
+###### Data
+```{r}
+df |> 
+  make_table_data_tab(file_name = "Fig1-17")
+```
+:::
+
+
+
+```{r}
+#| eval: false
+#| include: false
+# Medskick: Benchmarking, fallande ordning från högst till minst. Obs vi kanske tar bort denna efter diskussion med extern referensgrup
+
+data <- load_from_excel(path_file = "data/fig-1-18.xlsx")
+
+df <- data$fig_data |> 
+  rename(region = Region) |> 
+  dplyr::select(region,"2021":"2025") |> 
+  pivot_longer(-region,names_to = "year") 
+```
+
+```{r}
+#| label: fig-1-18
+#| fig-cap: !expr glue::glue("{data$fig_cap}")
+#| fig-alt: !expr glue::glue("{data$fig_alt}")
+#| warning: false
+#| eval: false
+#| include: false
+
+order <- df |> filter(year==max(year)) |> arrange(-value) |> pull(region)
+p <- df |> 
+   mutate(data_id = row_number(),
+          tooltip_b = glue::glue('<b>Year:</b> {year}
+                                    <b>Region:</b> {region}
+                                    <b>DDD/1000 inhabitants per day:</b> {round(value,2)}'),
+          region = factor(region, levels = order)) |> 
+
+  ggplot(aes(x = region,
+             y = value, 
+             fill=factor(year),
+             data_id = data_id)) +
+    geom_col_interactive(aes(tooltip = tooltip_b),width = 0.5, position = position_dodge(0.7)) +
+  labs(x=NULL,
+       y = "DDD/1000 inhabitants per day") +
+  scale_y_continuous(expand=c(0,0)) +
+    scale_x_discrete(expand=c(0,0.2)) +
+
+  scale_fill_SweSva() + 
+  theme_SweSva() +
+  theme_SweSva_rotate() +
+  add_fohm_caption()
+
+make_dynamic_plot(plot = p, filename = "Fig1-18")
+```
+```{r}
+#| eval: false
+#| include: false
+df |> 
+  make_table_data_tab(file_name = "Fig1-18")
+```

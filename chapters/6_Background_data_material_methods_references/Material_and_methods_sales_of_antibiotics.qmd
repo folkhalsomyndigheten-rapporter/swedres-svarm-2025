@@ -1,0 +1,86 @@
+---
+format:
+  html:
+    embed-resources: false
+
+execute:
+  cache: false
+  echo: false
+  warnings: false
+  error: false
+---
+
+```{r}
+#| results: "asis"
+#| echo: false
+#| warning: false
+#| message: false
+source("../../_common.R")
+status(type = "drafting")
+```
+
+
+## Materials and methods, sales of antibiotics {#sec-mms}
+
+### Legal framework and distribution of drugs 
+
+Marketing of drugs in Sweden is regulated by the Medicinal Products Act, which applies both to human and veterinary medicinal products. According to this Act, a medicinal product may not be sold unless it has been granted marketing authorisation by the Medical Products Agency (MPA). In case there are no authorised medicinal products for a certain condition, the MPA can permit sales on special license for a pharmacy to sell a product that is otherwise not authorised in Sweden. There are several different license types based on whether it is for an individual, an animal or a whole clinic. The medical product can be prescribed and obtained from any pharmacy or ordered to clinics using requisitions.  
+
+Medicinal and veterinary medicinal products in which an antibiotic is the active substance are only dispensed through pharmacies, which are supplied by drug wholesalers or manufacturers. In outpatient care, antibiotic drugs (including veterinary medicinal premixes for production of medicated feed) may only be sold on prescriptions, automated dose dispensing (individually packed doses of drugs often dispensed to the elderly) or requisitions. Prescribers (veterinarians or medical doctors) are not permitted to own a pharmacy or to otherwise sell medicinal products for profit. In hospital care, both for humans and animals, antibiotics are usually bought on requisition from pharmacies, although some regions manage drug supplies to human hospitals independently. Veterinarians may deliver products to the animal caretaker in relation to the examination of a case for self-cost (no profit) and such products are also bought on requisition.    
+
+All pharmacies in Sweden are required to provide statistics on sales of all products on a regular basis to the Swedish eHealth Agency (eHälsomyndigheten). This agency maintains a national database with sales statistics for all drugs and provides statistics to the competent national and regional authorities and, on a commercial basis, to others. These data are protected by the Public Access to Information and Secrecy Ordinance and publication of data needs to be carefully reviewed to avoid risk of disclosure of sensitive information. For this publication, measures for protection of information have been taken and for sales of antibiotics for humans, consent has been obtained from the legal entities concerned. 
+
+### The ATC classification system and defined daily doses (DDD) 
+
+Since 1988, the Anatomical Therapeutic Chemical (ATC) and ATCvet classification systems recommended by the WHO are used in Sweden for national drug statistics. For drugs sold for use in humans, to facilitate drug utilisation studies from a medical point of view, the measure defined daily dose (DDD) is used as a unit of comparison in drug statistics. The DDD for a drug is established on the basis of the assumed average dose per day for the drug given to adults for its main indication. If possible, the DDD is given as the amount of active substance. The DDDs are usually equal for all dosage forms of a preparation. The statistical data systems of the Swedish eHealth Agency are upgraded annually according to the recommendations made by the WHO Collaborating Centre for Drug Statistics Methodology in Oslo, Norway. Sales figures are presented as number of DDDs per 1 000 inhabitants per day, which gives an estimate of the proportion of the population daily exposed to a particular drug. This number is a rough estimate and should be interpreted with caution. 
+
+All data on the number of DDDs in this report are displayed in the 2025 version of the ATC/DDD index, available at https://www.whocc.no/atc_ddd_index/. 
+
+### Antibiotic sales in humans 
+
+Sales statistics on medications have been monitored and compiled since 1975, initially by the National Corporation of Swedish Pharmacies. The sales are registered as number of DDDs, cash value and number of packages. Outpatient care data include information on the sales of prescribed drugs from all Swedish pharmacies by the prescription survey, running since 1974. The statistical material was until 1995 based on samples of dispensed prescriptions. From 1996, all prescriptions dispensed by pharmacies are included. From 1999, individually packed doses of drugs dispensed e.g. to the elderly are also included in the survey. Recorded data are trade name, quantity, patient fee, total cost, sex and year of birth of the patient. Data can be expressed as DDD per 1 000 inhabitants per day or number of prescriptions per 1 000 inhabitants per year. Inpatient care data include drugs delivered by all hospital pharmacies to the hospital departments (see the section “Completeness of data” below). The sales are expressed as cash value, number of packages and number of defined daily doses. 
+
+Following the de-monopolisation of the pharmacy market in Sweden in July 2009, the responsibility for collection of drug statistics was transferred to the core infrastructure supplier for all pharmacies, Apotekens Service. In January 2014, the activities in the state-owned company Apotekens Service were transferred to the Swedish eHealth Agency. The Swedish eHealth Agency aims to contribute to improved health care, improved public health and better caring by pursuing development of a national e-health infrastructure. The agency is also responsible for Sweden’s national drug statistics. 
+
+### Completeness of data reported to the Swedish eHealth Agency 
+
+In Sweden, pharmacies are required by law to report sales statistics to the Swedish eHealth Agency. Concerns have been raised that after the re-regulation of the pharmacy market, the statistics on sales of medical products to hospitals in Sweden is less complete than before. After the re-regulation, regions can choose to manage drug supplies to hospitals independently. If so, the regions are not required to report data to the national database. However, to the best of our knowledge, all regions are currently reporting data to the Swedish eHealth Agency. 
+
+### Data sources and inclusion criteria 
+
+Data on sales of antibiotics in outpatient and inpatient care as well as population data were obtained from the Swedish eHealth Agency during the period of February to March of 2026. For the overall statistics, the data include all antibacterial products marketed in Sweden in the ATC class J01. The data on sales of antibiotics for humans include all sales, even if the antibacterial (J01) is prescribed by a veterinarian. Throughout this report, methenamine is excluded in all displays of J01 as a group. Measures used are defined daily dose per 1 000 inhabitants per day (DDD/1 000 inhabitants per day) and prescriptions per 1 000 inhabitants per year. Every purchase of a drug prescribed in outpatient care is also recorded in the Prescribed Drug Register, maintained by the Swedish National Board of Health and Welfare. This register provides the opportunity to link each prescription to an individual, which makes it possible to study the actual number of individuals or the fraction of the population treated with a specific drug. Thus, some of the data are presented as treated inhabitants per 1 000 total inhabitants per year. Data on the age-adjusted average body weight of the population in Sweden were obtained from Statistics Sweden, the agency responsible for official statistics in Sweden. Antibiotic sales to inpatient care are measured in DDD per 1 000 inhabitants per day. The number of DDDs is obtained from the Swedish eHealth Agency.  
+
+For antibiotics sold in Sweden on a special license, information regarding strength and package size may be incomplete, preventing proper DDD calculation. Therefore, when data is obtained from the Swedish eHealth Agency in DDD, these products sold on special license are not properly included and usage of certain antibiotics could be underestimated. For most antibiotic classes, this difference is negligible. However, for some antibiotic substances, such as several cephalosporins, this underestimation has a notable effect on data represented in DDD.  
+
+### Trend analysis 
+
+In the report, some general regression models were executed in the @sec-ash (Sales of antibiotics in humans). Time was used as explanatory variable and the outcome was the sales of antibiotics, adjusted for population size in Sweden, data on population provided by the eHealth Agency. The analyses were executed on a basis of a negative binomial distribution. 
+
+### The Swedish Prescribed Drug Register 
+
+Since July 2005 the National Board of Health and Welfare supplies an individual based register on all drugs prescribed and dispensed in outpatient care. The register includes information on the number of individuals treated with at least one course of antibiotics during a specific period, i.e. number of treated inhabitants per 1 000 total inhabitants per year (Inhabitants/1 000/year). It is also possible to follow the number of purchases per person.  
+
+
+### Definitions of DDD 2025
+
+
+```{r}
+#| message: false
+#| warning: false
+data <- load_from_excel(path_file = "data/Kap6_MM_table_6_7_2025_260511.xlsx")
+
+df <- data$fig_data #|> mutate(across(-1, as.numeric)) 
+```
+
+
+```{r}
+#| label: tbl-6-7
+#| tbl-cap: !expr glue::glue("{data$fig_cap}")
+df |>
+  make_table_data_tab()
+  #gt()|> 
+  #gt_theme_SweSva() 
+```
+
+
+

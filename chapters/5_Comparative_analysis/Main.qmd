@@ -1,0 +1,14 @@
+---
+format: html
+author: 
+  - name: "SVA name "
+    affiliations: "Swedish Veterinary Agency"
+  - name: "FOHM name"
+    affiliation: "Public Health Agency of Sweden"
+---
+
+# Comparative analysis {#sec-ca}
+
+{{< include Comparison_of_antibiotics_sales_in_humans_and_veterinary_medicine.qmd >}}
+
+{{< include Comp_of_amr_in_humans_and_veterinary_medicine.qmd >}}

@@ -1,0 +1,1763 @@
+---
+format:
+  html:
+    embed-resources: false
+
+execute:
+  cache: false
+  echo: false
+  warnings: false
+  error: false
+#bibliography: ../../references.bib
+---
+
+```{r}
+#| results: "asis"
+#| echo: false
+#| warning: false
+#| message: false
+source("../../_common.R")
+status(type = "drafting")
+```
+
+## Clinical isolates from animals
+
+Isolates tested are from clinical submissions of samples to SVA, if not otherwise stated. For many samples information on the indication for sampling was not available but the vast majority of submissions were likely from animals with infections. Therefore, data may be biased towards samples from treated animals or from herds where antibiotic treatment is common. Any assessments of trends are based on the assumption that this bias is inherent throughout the observation period. Furthermore, in some cases there are more than one animal sampled from the same herd. Likewise, regarding horses, dogs and cats, duplicates based on animal identity have not been excluded. 
+
+In Svarm, isolates are, when possible, classified as susceptible or resistant by ECOFFs issued by EUCAST (see @sec-NEEDS-TO-BE-ADDED-WHEN-SECTION-IS-READY Guidance for readers for details). This classifies isolates with acquired reduced susceptibility as resistant, which is relevant for monitoring purposes, but it should be understood that this does not always imply clinical resistance.
+
+### Pigs {#sec-clinical-pigs}
+#### *Escherichia coli* 
+
+Isolates of *E. coli* are from clinical submissions of faecal samples or samples taken post-mortem from the gastro-intestinal tract. The isolates are tested by PCR for genes coding for the virulence factors heat-labile enterotoxin (LT), heat-stable enterotoxin a and b (STa and STb), verocytotoxin (VT2e) and adhesion factors F4, F5, F6, F18 and F41. Only isolates with any of the mentioned virulence factors are included in @tbl-410.  
+
+::: {.panel-tabset}
+###### Table
+```{r}
+#| label: tbl-410
+#| echo: false
+#| message: false
+#| warning: false
+
+# Read source data from the Excel sheet
+tbl <- make_mic_table_from_excel("data/Table 4.10 ETEC pigs.xlsx")
+
+make_mic_gt(data = tbl$data,
+            mic_cols = tbl$mic_cols,
+            breakpoint_col = "Cut-off value (mg/L)",
+            tested_range_col = "Tested range (mg/L)",
+            footnotes = c("Concentration of trimethoprim given, tested in concentration ratio 1/20 (trimethoprim-sulphamethoxazole)."))
+
+
+```
+
+###### Data
+```{r}
+data <- load_from_excel(path_file = "data/Table 4.10 ETEC pigs.xlsx",  sheet = "data")
+df <- data$fig_data
+df |>
+  make_table_data_tab(file_name = "tab410")
+```
+:::
+
+As in previous years, resistance to ampicillin, tetracycline and trimethoprim-sulphamethoxazole were the most common resistance traits. Resistance to ampicillin and to trimethoprim-sulphamethoxazole has increased considerably from 1995 with a peak in 2015-2016 but from 2019 there is a downward trend for trimethoprim-sulphamethoxazole (@fig-44). Resistance to neomycin was comparatively low throughout this period (1995-2025) despite increased sales of veterinary medicinal products aimed at treating post-weaning diarrhoea in later years (see Sales of antibiotics for animals, comments on data by animal species). This differs from data displayed in @fig-45, taken from [SVA’s interactive resistance monitoring tool SvarmIT](https://www.sva.se/en/what-we-do/antibiotics/svarm-resistance-monitoring/svarmit/){target="_blank"}, which includes all susceptibility-tested *E. coli* from pigs (i.e. not limited to ETEC). The occurrence of resistance to trimethoprim-sulphamethoxazole is also higher in the material in SvarmIT. The reason for the observed differences is unclear; however, it should be noted that the number of isolates is relatively small for both materials. 
+
+
+```{r}
+#| include: false
+# hidden chunk to read captions
+dat_44 <- load_from_excel("data/Fig 4.4 E.coli from pigs.xlsx", sheet = "data")
+fig_44_cap <- dat_44$fig_cap
+fig_44_alt <- dat_44$fig_alt 
+```
+
+
+::: {.panel-tabset}
+###### Figure
+```{r}
+#| label: fig-44
+#| echo: false
+#| message: false
+#| warning: false
+#| fig-cap: !expr fig_44_cap
+#| fig-alt: !expr fig_44_alt
+
+
+dat_44_long <- dat_44$fig_data |> 
+  pivot_longer(cols = -1, names_to = "original_col", values_to = "Value",  values_drop_na = TRUE) |>
+  # Identify if the row is a moving average
+  mutate(Type = ifelse(grepl("3 year moving average", original_col), "MA_Value", "Raw_Value"),
+  # Clean the antibiotic name
+  Antibiotic = trimws(gsub("3 year moving average", "", original_col))) |>
+  # Raw_Value and MA_Value to separate columns for the same row
+  tidyr::pivot_wider(id_cols = c(Year, Antibiotic), names_from = Type, values_from = Value) |>
+  # Changing names for the legend presentation
+  mutate(Antibiotic = factor(Antibiotic, levels = c("Ampicillin", "Tetracycline", "Trim-Sulph.", "Neomycin"), 
+                             labels = c("Ampicillin\n(data and 3-year moving average)", 
+                                        "Tetracycline\n(data and 3-year moving average)",
+                                        "Trim-Sulph.\n(data and 3-year moving average)",
+                                        "Neomycin\n(data and 3-year moving average)")))
+
+# tooltips
+# same data_id for both so that hovering over a dot highlights the corresponding line/MA point.
+df_fig_44 <- dat_44_long |>
+  mutate(
+    # Raw Dots
+    tooltip_raw = paste0("Year: ", Year, "<br>Antibiotic: ", Antibiotic, "<br>Value: ", Raw_Value),
+    # Moving Average Points (rounded to 2 decimal)
+    tooltip_ma = paste0("<b>Year:</b> ", Year, "<br><b>Antibiotic:</b> ", Antibiotic, "<br><b>Moving average:</b> ", round(MA_Value, 2)),
+    data_id = paste(Antibiotic, Year, sep = "_"))
+
+#yrs <- sort(unique(df_fig_44$Year))
+
+p_44 <- ggplot(df_fig_44, 
+               aes(x = factor(Year),
+                   y=MA_Value,
+                   data_id = data_id,
+                   color = Antibiotic,
+                   group = Antibiotic,
+                   tooltip = tooltip_ma)) +
+  # moving average as line
+  geom_line_interactive(lwd = 0.5, na.rm = TRUE) + 
+  
+  # interactive points for the line, smaller shape than the dots 
+  ggiraph::geom_point_interactive(aes(y = MA_Value), na.rm = TRUE) +
+  
+  # raw data dots
+  ggiraph::geom_point_interactive(aes(y = Raw_Value, 
+                                      tooltip = tooltip_raw), 
+                                  size = 0.8,
+                                  position = position_jitter(width = 0.1, height = 0), na.rm = TRUE) +
+  
+  scale_x_discrete(expand=c(0,0.2)) +
+  scale_y_continuous(breaks = perc_100,
+                     limits = c(0, 100)) +
+  scale_color_SweSva() +
+  labs(x = "Year",
+       y = "Resistance (%)", color = NULL) +
+  theme_SweSva() +
+  theme_SweSva_rotate()+
+ # theme(axis.text.x = element_text(angle = 45, hjust = 1, vjust = 1), legend.box = "horizontal") +
+  guides(color = guide_legend(nrow = 2, byrow = TRUE)) +
+  add_sva_caption() +
+     theme(plot.subtitle = element_text(vjust = -15)) 
+
+
+make_dynamic_plot(plot = p_44, filename = "fig-44")
+
+```
+
+###### Data
+```{r}
+dat_44_long |> 
+  make_table_data_tab()
+```
+:::
+
+
+```{r}
+#| include: false
+# hidden chunk to read captions
+dat_45 <- load_from_excel("data/Fig 4.5 Escherichia coli from pigs.xlsx", sheet = "data")
+fig_45_cap <- dat_45$fig_cap
+fig_45_alt <- dat_45$fig_alt 
+```
+
+
+::: {.panel-tabset}
+###### Figure
+```{r}
+#| label: fig-45
+#| echo: false
+#| message: false
+#| warning: false
+#| fig-cap: !expr fig_45_cap
+#| fig-alt: !expr fig_45_alt
+
+
+dat_45_long <- dat_45$fig_data |> 
+  pivot_longer(cols = -1, 
+               names_to = "original_col",
+               values_to = "Value",
+               values_drop_na = TRUE) |>
+  # Identify if the row is a moving average
+  mutate(Type = ifelse(grepl("3 year moving average", original_col), "MA_Value", "Raw_Value"),
+  # Clean the antibiotic name
+  Antibiotic = trimws(gsub("3 year moving average", "", original_col))) |>
+  # Raw_Value and MA_Value to separate columns for the same row
+  tidyr::pivot_wider(id_cols = c(Year, Antibiotic), 
+                     names_from = Type, values_from = Value) |>
+  mutate(Antibiotic = factor(Antibiotic, levels = c("Ampicillin", "Neomycin", "Tetracycline", "Trim-Sulph."), 
+                             labels = c("Ampicillin\n(data and 3-year moving average)", 
+                                        "Neomycin\n(data and 3-year moving average)",
+                                        "Tetracycline\n(data and 3-year moving average)",
+                                        "Trim-Sulph.\n(data and 3-year moving average)")))
+
+# tooltips
+# same data_id for both so that hovering over a dot highlights the corresponding line/MA point.
+#df_fig_45 <- 
+
+#yrs <- sort(unique(df_fig_45$Year))
+
+p_45 <- #df_fig_45 |> 
+  dat_45_long |>
+  mutate(
+    # Raw Dots
+    tooltip_raw = paste0("<b>Year:</b> ", Year, "<br><b>Antibiotic:</b> ", 
+                         Antibiotic, "<br><b>Value:</b> ", Raw_Value),
+    # Moving Average Points (rounded to 2 decimal)
+    tooltip_ma = paste0("<b>Year:</b> ", Year, "<br><b>Antibiotic:</b> ", 
+                        Antibiotic, "<br><b>Moving average:</b> ", round(MA_Value, 2)),
+    data_id = paste(Antibiotic, Year, sep = "_")) |> 
+  
+  ggplot(aes(x = factor(Year),
+             color = Antibiotic,
+             group = Antibiotic,
+             data_id = data_id)) +
+  # moving average as line
+  geom_line_interactive(aes(y = MA_Value), linewidth = 0.5, na.rm = TRUE) + 
+  
+  # interactive points for the line, smaller shape than the dots 
+  ggiraph::geom_point_interactive(aes(y = MA_Value, tooltip = tooltip_ma ), na.rm = TRUE) +
+  
+  # raw data dots
+  ggiraph::geom_point_interactive(aes(y = Raw_Value, tooltip = tooltip_raw), 
+                                  size = 0.5, position = position_jitter(width = 0.1, height = 0), na.rm = TRUE) +
+  
+  scale_x_discrete(expand=c(0,0.2)) +
+  scale_y_continuous(breaks=perc_100,
+                     limits = c(0, 100)) +
+  scale_color_SweSva() +
+  labs(x = "Year",
+       y = "Resistance (%)",
+       color = NULL) +
+  theme_SweSva() +
+  #theme(axis.text.x = element_text(angle = 45, hjust = 1, vjust = 1), legend.box = "horizontal") +
+  guides(color = guide_legend(nrow = 2, byrow = TRUE))+
+  add_sva_caption() +
+    theme(plot.subtitle = element_text(vjust = -15))
+
+make_dynamic_plot(plot = p_45, filename = "fig-45")
+
+```
+
+###### Data
+```{r}
+dat_45_long |> 
+  make_table_data_tab()
+```
+:::
+
+#### *Brachyspira hyodysenteriae* 
+
+Isolates of *Brachyspira hyodysenteriae* are from clinical submissions of faecal samples. The number of isolates each year varies (n=4-29, 2025 n=9). In routine diagnostics at SVA clinical breakpoints at >2 mg/L for tiamulin and >16 mg/L for tylosin are used. Analysis of antibiotic susceptibility data from isolates of *B. hyodysenteriae* from Sweden 1990-2010 resulted in a proposal for wild type cut-off values [@pringle2012antimicrobial]. In @tbl-411 these cut-off values are used on all data. With the suggested wild type cut-off value >0.25 mg/L for tiamulin, resistance is detected throughout the period. During 2016 and 2017, therapeutic failure of tiamulin was observed in an outbreak of swine dysentery that involved several herds. The outbreak was shown to be caused by a *B. hyodysenteriae* clone with MIC of tiamulin above the clinical breakpoint. Fortunately, the clone was susceptible to macrolides and could be eradicated. Tylosin resistance has decreased over the years but increased slightly in 2018-2025. 
+
+::: {.panel-tabset}
+###### Table
+
+```{r}
+#| label: tbl-411
+#| echo: false
+#| message: false
+#| warning: false
+
+tbl <- make_mic_table_from_excel("data/Table 4.11 Brachy hyo pigs.xlsx")
+
+make_mic_gt(data = tbl$data,
+            mic_cols = tbl$mic_cols,
+            breakpoint_col = "Cut-off value (mg/L)",
+            tested_range_col = "Tested range (mg/L)",
+            footnotes = c("Five isolates with MICs above 2 mg/L from a defined outbreak in 2016-2017. "))
+
+
+```
+
+###### Data
+```{r}
+data <- load_from_excel(path_file = "data/Table 4.11 Brachy hyo pigs.xlsx",  sheet = "data")
+df <- data$fig_data
+df |>
+  make_table_data_tab(file_name = "tab411")
+```
+:::
+
+#### *Brachyspira pilosicoli* 
+
+Isolates of *Brachyspira pilosicoli* are from clinical submissions of faecal samples. ECOFFs for *B. pilosicoli* are not defined for the antibiotics tested. The assessed percentage of resistance using the same wild type cut-off value as for *B. hyodysenteriae* is shown in @tbl-412.  
+
+If clinical breakpoints for *Brachyspira hyodysenteriae* are used as guide for the choice of antibiotic for treatment of spirochaetal diarrhoea, 9% are resistant to tiamulin (>2 mg/L). 
+
+::: {.panel-tabset}
+###### Table
+```{r}
+#| label: tbl-412
+#| echo: false
+#| message: false
+#| warning: false
+
+# Read source data from the Excel sheet
+tbl <- make_mic_table_from_excel("data/Table 4.12 Brachy pilo pigs.xlsx")
+
+make_mic_gt(data = tbl$data,
+            mic_cols = tbl$mic_cols,
+            breakpoint_col = "Cut-off value (mg/L)",
+            tested_range_col = "Tested range (mg/L)",
+            footnotes = c("Assessed percentage of resistance using wild type cut-off values for *B. hyodysenteriae.*"))
+
+
+
+
+```
+
+###### Data
+```{r}
+data <- load_from_excel(path_file = "data/Table 4.12 Brachy pilo pigs.xlsx",  sheet = "data")
+df <- data$fig_data
+df |>
+  make_table_data_tab(file_name = "tab412")
+```
+:::
+
+Resistance to tylosin has decreased from a high level (60-70%) around 2010 to 2015, then there was an increase from 2016 that now seems to have stopped, whereas resistance to tiamulin has remained at a steady level during the same time period (@fig-46). However, the number of isolates analysed per year is low. In 2025, two isolates were resistant to tiamulin and valnemulin as well as tylosin and tylvalosin. 
+
+```{r}
+#| include: false
+# hidden chunk to read captions
+dat_46 <- load_from_excel("data/Fig 4.6 Brachyspira pilosicoli.xlsx", sheet = "data")
+fig_46_cap <- dat_46$fig_cap
+fig_46_alt <- dat_46$fig_alt 
+```
+
+
+::: {.panel-tabset}
+###### Figure
+```{r}
+#| label: fig-46
+#| echo: false
+#| message: false
+#| warning: false
+#| fig-cap: !expr fig_46_cap
+#| fig-alt: !expr fig_46_alt
+
+
+dat_46_long <- dat_46$fig_data |> 
+  pivot_longer(cols = -1, names_to = "original_col", values_to = "Value",  values_drop_na = TRUE) |>
+  # Identify if the row is a moving average
+  mutate(Type = ifelse(grepl("3 year moving average", original_col), "MA_Value", "Raw_Value"),
+  # Clean the antibiotic name
+  Antibiotic = trimws(gsub("3 year moving average", "", original_col))) |>
+  # Raw_Value and MA_Value to separate columns for the same row
+  tidyr::pivot_wider(id_cols = c(Year, Antibiotic), names_from = Type, values_from = Value) |>
+  mutate(Antibiotic = factor(Antibiotic, levels = c("Tylosin", "Tiamulin"), 
+                           labels = c("Tylosin\n(data and 3-year moving average)", 
+                                      "Tiamulin\n(data and 3-year moving average)")))
+
+# tooltips
+# same data_id for both so that hovering over a dot highlights the corresponding line/MA point.
+df_fig_46 <- dat_46_long |>
+  mutate(
+    # Raw Dots
+    tooltip_raw = paste0("Year: ", Year, "<br>Antibiotic: ", Antibiotic, "<br>Value: ", Raw_Value),
+    # Moving Average Points (rounded to 2 decimal)
+    tooltip_ma = paste0("Year: ", Year, "<br>Antibiotic: ", Antibiotic, "<br>Moving average: ", round(MA_Value, 2)),
+    data_id = paste(Antibiotic, Year, sep = "_"))
+
+#yrs <- sort(unique(df_fig_46$Year))
+
+p_46 <- ggplot(df_fig_46,
+               aes(x = factor(Year), 
+                   color = Antibiotic,
+                   group = Antibiotic, data_id = data_id)) +
+  # moving average as line
+  geom_line(aes(y = MA_Value), 
+            linewidth = .5, na.rm = TRUE) + 
+  
+  # interactive points for the line, smaller shape than the dots 
+  ggiraph::geom_point_interactive(aes(y = MA_Value, tooltip = tooltip_ma),  na.rm = TRUE) +
+  
+  # raw data dots
+  ggiraph::geom_point_interactive(aes(y = Raw_Value, tooltip = tooltip_raw), 
+                                  size = 0.8, 
+                                  position = position_jitter(width = 0.1, height = 0), na.rm = TRUE) +
+  
+  scale_x_discrete(expand=c(0,0.2)) + #continuous(breaks = yrs) +
+  scale_y_continuous(breaks=perc_100,
+                     limits = c(0, 100)) +
+  scale_color_SweSva() +
+  labs(x = "Year",
+       y = "Resistance (%)",
+       color = NULL) +
+  theme_SweSva() +
+  #theme(axis.text.x = element_text(angle = 45, hjust = 1, vjust = 1)) +
+  add_sva_caption()
+
+make_dynamic_plot(plot = p_46, filename = "fig-46")
+
+```
+
+###### Data
+```{r}
+dat_46_long |> 
+  make_table_data_tab()
+```
+:::
+
+#### *Actinobacillus pleuropneumoniae*
+
+Isolates of *Actinobacillus pleuropneumoniae* are mostly from post-mortem investigations of lungs. Isolates from 2024 and 2025 were included in the MIC distribution. From 2024, seventeen isolates were collected in a SvarmPat project (see @sec-crossref-InFocusSvarmPat-WillBeFixedLater) where acute lesions in lungs and pericardium were sampled at slaughter. Data from 2025 and back to 2005 show that the resistance situation is favourable and almost no resistance has been detected to tested antibiotics including penicillin during this period (@tbl-413). Since pneumonia caused by *A. pleuropneumoniae* is an important disease in pigs, sampling and susceptibility testing is desirable if emerging resistance is to be detected early. For treatment of *Actinobacillus pleuropneumoniae* with MICs within the wild type distribution of penicillin (MIC 0.12 – 0.5 mg/L), increased exposure to penicillin is required [@medical2022dosage]. Exposure includes e.g. administration route, dose, and dosing interval. 
+
+::: {.panel-tabset}
+###### Table
+```{r}
+#| label: tbl-413
+#| echo: false
+#| message: false
+#| warning: false
+
+# Read source data from the Excel sheet
+tbl <- make_mic_table_from_excel("data/Table 4.13 APP pigs.xlsx")
+
+make_mic_gt(data = tbl$data,
+            mic_cols = tbl$mic_cols,
+            breakpoint_col = "Cut-off value (mg/L)",
+            tested_range_col = "Tested range (mg/L)",
+            footnotes = c("Concentration of trimethoprim given, tested in concentration ratio 1/20 (trimethoprim/sulphamethoxazole)."))
+
+
+```
+
+###### Data
+```{r}
+data <- load_from_excel(path_file = "data/Table 4.13 APP pigs.xlsx",  sheet = "data")
+df <- data$fig_data
+df |>
+  make_table_data_tab(file_name = "tab413")
+```
+:::
+
+#### *Pasteurella multocida* 
+
+Clinical isolates of *Pasteurella multocida* are mostly from the respiratory tract. Eight of the isolates from 2024 were collected in a SvarmPat project (see @sec-crossref-InFocusSvarm-WillBeFixedLater) where acute lesions in lungs and pericardium were sampled at slaughter. All tested isolates were susceptible to relevant antibiotics including penicillin, however three isolates were resistant to trimetoprim-sulphamethoxazole (@tbl-414).  
+
+::: {.panel-tabset}
+###### Table
+```{r}
+#| label: tbl-414
+#| echo: false
+#| message: false
+#| warning: false
+
+# Read source data from the Excel sheet
+tbl <- make_mic_table_from_excel("data/Table 4.14 Past multocida pigs.xlsx")
+
+make_mic_gt(data = tbl$data,
+            mic_cols = tbl$mic_cols,
+            breakpoint_col = "Cut-off value (mg/L)",
+            tested_range_col = "Tested range (mg/L)",
+            footnotes = c("Concentration of trimethoprim given, tested in concentration ratio 1/20 (trimethoprim/sulphamethoxazole)."))
+
+
+```
+
+###### Data
+```{r}
+data <- load_from_excel(path_file = "data/Table 4.14 Past multocida pigs.xlsx",  sheet = "data")
+df <- data$fig_data
+df |>
+  make_table_data_tab(file_name = "tab414")
+```
+:::
+
+#### *Streptococcus suis* 
+
+Isolates of *Streptococcus suis* are from post-mortem examination of different organs in diseased pigs from 2022-2025 (n=47) (@tbl-415). Resistance to penicillin has become a more common trait in recent years.  
+
+::: {.panel-tabset}
+###### Table
+```{r}
+#| label: tbl-415
+#| echo: false
+#| message: false
+#| warning: false
+
+# Read source data from the Excel sheet
+tbl <- make_mic_table_from_excel("data/Table 4.15 Strept suis pigs.xlsx")
+
+make_mic_gt(data = tbl$data,
+            mic_cols = tbl$mic_cols,
+            breakpoint_col = "Cut-off value (mg/L)",
+            tested_range_col = "Tested range (mg/L)",
+            footnotes = c("Concentration of trimethoprim given, tested in concentration ratio 1/20 (trimethoprim/sulphamethoxazole)."))
+
+
+```
+
+###### Data
+```{r}
+data <- load_from_excel(path_file = "data/Table 4.15 Strept suis pigs.xlsx",  sheet = "data")
+df <- data$fig_data
+df |>
+  make_table_data_tab(file_name = "tab415")
+```
+:::
+
+### Cattle
+
+#### *Escherichia coli* from milk samples  
+
+Isolates of *E. coli* are from clinical submissions of milk samples from dairy cows. It is likely that most sampled cows had clinical mastitis.  
+
+Most of the isolates (70%, 34/49) were susceptible to all antibiotics tested, which is less than previous years (78% 2024, 89% 2023, 85% 2022). Resistance to ampicillin and trimethoprim-sulphamethoxazole was the most common profile, followed by ampicillin and tetracycline and a combination of all three. (@tbl-416). Four isolates (8%) were multiresistant, i.e. resistant to three or more antibiotics: two isolates resistant to ampicillin, tetracycline and trimethoprim-sulphamethoxazole, one isolate resistant to ampicillin, neomycin and trimethoprim-sulphamethoxazole, and one isolate resistant to ampicillin, cefalexin, cefotaxime and enrofloxacin. The isolate resistant to cefotaxime was found to carry the *bla*~CTX-M-15~ gene. To our knowledge it is the first ESBL producing *E. coli* isolate from mastitis in Sweden. 
+
+::: {.panel-tabset}
+###### Table
+```{r}
+#| label: tbl-416
+#| echo: false
+#| message: false
+#| warning: false
+
+# Read source data from the Excel sheet
+tbl <- make_mic_table_from_excel("data/Table 4.16 E. coli mastitis.xlsx")
+
+make_mic_gt(data = tbl$data,
+            mic_cols = tbl$mic_cols,
+            breakpoint_col = "Cut-off value (mg/L)",
+            tested_range_col = "Tested range (mg/L)",
+            footnotes = c("Concentration of trimethoprim given, tested in concentration ratio 1/20 (trimethoprim/sulphamethoxazole)."))
+
+
+```
+
+###### Data
+```{r}
+data <- load_from_excel(path_file = "data/Table 4.16 E. coli mastitis.xlsx",  sheet = "data")
+df <- data$fig_data
+df |>
+  make_table_data_tab(file_name = "tab416")
+```
+:::
+
+#### *Klebsiella pneumoniae* from milk samples  
+
+Isolates of *Klebsiella pneumoniae* are from clinical submissions of milk samples from dairy cows (@tbl-417). It is likely that most sampled cows had clinical mastitis. *Klebsiella pneumoniae* has an inherent low susceptibility to ampicillin but there is no available ECOFF. Excluding ampicillin, 37 of 38 isolates were susceptible to all tested antibiotics. One isolate was resistant to gentamicin. 
+
+::: {.panel-tabset}
+###### Table
+```{r}
+#| label: tbl-417
+#| echo: false
+#| message: false
+#| warning: false
+
+# Read source data from the Excel sheet
+tbl <- make_mic_table_from_excel("data/Table 4.17 Klebsiella mastitis cow.xlsx")
+
+make_mic_gt(data = tbl$data,
+            mic_cols = tbl$mic_cols,
+            breakpoint_col = "Cut-off value (mg/L)",
+            tested_range_col = "Tested range (mg/L)",
+            footnotes = c("Concentration of trimethoprim given, tested in concentration ratio 1/20 (trimethoprim/sulphamethoxazole)."))
+
+
+```
+
+###### Data
+```{r}
+data <- load_from_excel(path_file = "data/Table 4.17 Klebsiella mastitis cow.xlsx",  sheet = "data")
+df <- data$fig_data
+df |>
+  make_table_data_tab(file_name = "tab417")
+```
+:::
+
+#### *Staphylococcus aureus* from milk samples  
+
+Isolates of *Staphylococcus aureus* are from clinical submissions of milk samples from dairy cows with clinical mastitis. In 2025, 629 isolates of *S. aureus* were analysed for penicillinase production, and 1.7% (n=11) were positive. Between 2019 and 2025 the numbers have varied between 1.2% and 3.1%. 
+
+#### *Pasteurella multocida*  
+
+Most isolates of *Pasteurella multocida* are from nasal swabs from calves with respiratory disease or from post-mortem investigations of lungs. Because of a change of panel design, direct comparison with data from earlier years is not possible. For older data see [earlier Swedres-Svarm reports](https://www.sva.se/en/what-we-do/antibiotics/svarm-resistance-monitoring/swedres-svarm-reports/){target="_blank"}.  
+
+Antibiotic resistance was generally rare among isolates of *P. multocida* (@tbl-418), but beta-lactamase producing *P. multocida* have been isolated every year since 2016 (@fig-47). In 2025, one isolate was resistant to penicillin and ampicillin and was positive in the beta-lactamase test. Further, five other isolates from different farms were trimethoprim-sulphamethoxazole resistant. Penicillin is considered the first-choice antibiotic for treating pneumonia in cattle in Sweden. Sampling and susceptibility testing is important for early detection of resistance, especially in cases of therapeutic failure. 
+
+::: {.panel-tabset}
+###### Table
+```{r}
+#| label: tbl-418
+#| echo: false
+#| message: false
+#| warning: false
+
+tbl <- make_mic_table_from_excel("data/Table 4.18 Past mult calves.xlsx")
+
+make_mic_gt(data = tbl$data,
+            mic_cols = tbl$mic_cols,
+            breakpoint_col = "Cut-off value (mg/L)",
+            tested_range_col = "Tested range (mg/L)",
+            footnotes = c("Concentration of trimethoprim given, tested in concentration ratio 1/20 (trimethoprim/sulphamethoxazole)."))
+
+
+```
+
+###### Data
+```{r}
+data <- load_from_excel(path_file = "data/Table 4.18 Past mult calves.xlsx",  sheet = "data")
+df <- data$fig_data
+df |>
+  make_table_data_tab(file_name = "tab418")
+```
+:::
+
+
+```{r}
+#| include: false
+# hidden chunk to read captions
+dat_47 <- load_from_excel("data/Fig 4.7 Pasteurella calves.xlsx", sheet = "data")
+fig_47_cap <- dat_47$fig_cap
+fig_47_alt <- dat_47$fig_alt 
+```
+
+
+::: {.panel-tabset}
+###### Figure
+```{r}
+#| label: fig-47
+#| echo: false
+#| message: false
+#| warning: false
+#| fig-cap: !expr fig_47_cap
+#| fig-alt: !expr fig_47_alt
+
+
+dat_47_long <- dat_47$fig_data |>
+  pivot_longer(cols = -1, names_to = "original_col", values_to = "Value",  values_drop_na = TRUE) |>
+  # Identify if the row is a moving average
+  mutate(Type = ifelse(grepl("3 year moving average", original_col), "MA_Value", "Raw_Value"),
+  # Clean the antibiotic name
+  Antibiotic = trimws(gsub("3 year moving average", "", original_col))) |>
+  # Raw_Value and MA_Value to separate columns for the same row
+  tidyr::pivot_wider(id_cols = c(Year, Antibiotic), names_from = Type, values_from = Value) |>
+  mutate(Antibiotic = factor(Antibiotic, levels = c("Penicillin"), 
+                           labels = c("Penicillin (data and 3-year moving average)")))
+  
+
+# tooltips
+# same data_id for both so that hovering over a dot highlights the corresponding line/MA point.
+df_fig_47 <- dat_47_long |>
+  mutate(
+    # Raw Dots
+    tooltip_raw = paste0("<b>Year:</b> ", Year, "<br><b>Antibiotic:</b> ", Antibiotic, "<br><b>Value:</b> ", Raw_Value),
+    # Moving Average Points (rounded to 2 decimal)
+    tooltip_ma = paste0("Year: ", Year, "<br><b>Antibiotic:</b> ", Antibiotic, "<br><b>Moving average:</b> ", round(MA_Value, 2)),
+    data_id = paste(Antibiotic, Year, sep = "_"))
+
+yrs <- sort(unique(df_fig_47$Year))
+
+
+p_47 <- ggplot(df_fig_47, aes(x = factor(Year), color = Antibiotic, group = Antibiotic, data_id = data_id)) +
+  # moving average as line
+  geom_line_interactive(aes(y = MA_Value), linewidth = 0.5, na.rm = TRUE) +
+
+  # interactive points for the line, smaller shape than the dots
+  geom_point_interactive(aes(y = MA_Value, tooltip = tooltip_ma), na.rm = TRUE) +
+
+  # raw data dots
+  geom_point_interactive(aes(y = Raw_Value, tooltip = tooltip_raw),
+                                  size = 0.8, position = position_jitter(width = 0.1, height = 0), na.rm = TRUE) +
+
+  scale_x_discrete(expand=c(0,0.2)) + #ontinuous(breaks = yrs) +
+  scale_y_continuous(breaks=perc_25,
+                     limits = c(0, 25),
+                     expand=c(0,0.2)) +
+  scale_color_SweSva() +
+  labs(x = "Year",
+       y = "Resistance (%)",
+       color = NULL) +
+  theme_SweSva() +
+  #theme(axis.text.x = element_text(angle = 45, hjust = 1, vjust = 1)) +
+  add_sva_caption()
+
+make_dynamic_plot(plot = p_47, filename = "fig-47")
+
+
+```
+
+###### Data
+```{r}
+dat_47_long |> 
+  make_table_data_tab()
+```
+:::
+
+#### *Mycoplasma bovis* 
+
+Isolates of *Mycoplasma bovis* are from clinical submissions of nasal swabs or post-mortem investigations of lungs from calves with respiratory disease from 2024-2025. Recently published ECOFFs for enrofloxacin and florfenicol are used in @tbl-419. All isolates were susceptible to enrofloxacin, and one isolate (2%) was resistant to florfenicol. In the isolates from 2020-2023 no florfenicol resistance was detected ([see Swedres-Svarm 2023](https://www.sva.se/media/cegdew24/swedres-svarm-2023.pdf){target="_blank"}). For tetracycline and gamithromycin, the MICs were higher than the tested range in 81% and 92% of the isolates, respectively. Mycoplasmas are intrinsically resistant to beta-lactams due to their lack of cell wall. 
+
+::: {.panel-tabset}
+###### Table
+```{r}
+#| label: tbl-419
+#| echo: false
+#| message: false
+#| warning: false
+
+tbl <- make_mic_table_from_excel("data/Table 4.19 Mycoplasma bovis.xlsx")
+
+make_mic_gt(data = tbl$data,
+            mic_cols = tbl$mic_cols,
+            breakpoint_col = "Cut-off value (mg/L)",
+            tested_range_col = "Tested range (mg/L)")
+
+
+```
+
+###### Data
+```{r}
+data <- load_from_excel(path_file = "data/Table 4.19 Mycoplasma bovis.xlsx",  sheet = "data")
+df <- data$fig_data
+df |>
+  make_table_data_tab(file_name = "tab419")
+```
+:::
+
+<!-- No text or table for 2025, therefore the id-numbering for tables will not match what will be shown in the website -->
+<!-- ### Sheep -->
+
+<!-- Table 4.20 -->
+
+### Farmed fish
+
+#### *Flavobacterium psychrophilum* 
+
+Isolates of *Flavobacterium psychrophilum* are from clinical submissions of farmed fish, most of them from outbreaks of disease. More than one isolate can be analysed from the same outbreak. More than one phenotype is detected in more than half of such cases (data not shown). Data from 2021-2025 are compiled and presented as distributions of MICs in [@tbl-421]. Most isolates are from rainbow trout. Epidemiological cut-offs issued by CLSI are used [@clsi2020b] when available. Resistance to oxolinic acid and oxytetracycline was high in this material whereas no resistance to florfenicol was detected.  
+
+In @fig-48 resistance to tetracycline and quinolones (nalidixic acid or oxolinic acid) in *F. psychrophilum* 2005-2025 is shown. A three-year moving average is used. There is a marked increase in resistance to these antibiotics over the years despite a limited use up until recently (See Sales of antibiotics for animals, comments on data by animal species). For nalidixic acid/oxolinic acid a downward trend was seen after a peak in 2012, however this downward trend has turned in the latest years. Genome sequencing was used for analysis of a temporally and geographically representative set of *F. psychrophilum* isolates from outbreaks among Swedish farmed salmonid fish. The results indicate repeated nationwide introductions of new clones, presumably by trade of fish and eggs. It is probable that such introductions have contributed to the observed increase in resistance [@soderlund2018genome]. 
+
+::: {.panel-tabset}
+###### Table
+```{r}
+#| label: tbl-421
+#| echo: false
+#| message: false
+#| warning: false
+
+tbl <- make_mic_table_from_excel("data/Table 4.21 Flavobact psychr fisk.xlsx")
+
+make_mic_gt(data = tbl$data,
+            mic_cols = tbl$mic_cols,
+            breakpoint_col = "Cut-off value (mg/L)",
+            tested_range_col = "Tested range (mg/L)",
+            footnotes = c("Concentration of trimethoprim given, tested in concentration ratio 1/20 (trimethoprim/sulphamethoxazole)."))
+
+
+```
+
+###### Data
+```{r}
+data <- load_from_excel(path_file = "data/Table 4.21 Flavobact psychr fisk.xlsx",  sheet = "data")
+df <- data$fig_data
+df |>
+  make_table_data_tab(file_name = "tab421")
+```
+:::
+
+```{r}
+#| include: false
+# hidden chunk to read captions
+dat_48 <- load_from_excel("data/Fig 4.8 Flavobact psycrophilum fish.xlsx", sheet = "data")
+fig_48_cap <- dat_48$fig_cap
+fig_48_alt <- dat_48$fig_alt 
+```
+
+
+::: {.panel-tabset}
+###### Figure
+```{r}
+#| label: fig-48
+#| echo: false
+#| message: false
+#| warning: false
+#| fig-cap: !expr fig_48_cap
+#| fig-alt: !expr fig_48_alt
+
+
+dat_48_long <- dat_48$fig_data |>
+  pivot_longer(cols = -1, names_to = "original_col", values_to = "Value",  values_drop_na = TRUE) |>
+  # Identify if the row is a moving average
+  mutate(Type = ifelse(grepl("3 year moving average", original_col), "MA_Value", "Raw_Value"),
+  # Clean the antibiotic name
+  Antibiotic = trimws(gsub("3 year moving average", "", original_col))) |>
+  # Raw_Value and MA_Value to separate columns for the same row
+  tidyr::pivot_wider(id_cols = c(Year, Antibiotic), names_from = Type, values_from = Value) |>
+  mutate(Antibiotic = factor(Antibiotic, levels = c("Tetracycline", "Nalidixic acid/Oxolinic acid"), 
+                           labels = c("Tetracycline\n(data and 3-year moving average)",
+                                      "Nalidixic acid/Oxolinic acid\n(data and 3-year moving average)")))
+  
+
+# tooltips
+# same data_id for both so that hovering over a dot highlights the corresponding line/MA point.
+df_fig_48 <- dat_48_long |>
+  mutate(
+    # Raw Dots
+    tooltip_raw = paste0("Year: ", Year, "<br>Antibiotic: ", Antibiotic, "<br>Value: ", Raw_Value),
+    # Moving Average Points (rounded to 2 decimal)
+    tooltip_ma = paste0("Year: ", Year, "<br>Antibiotic: ", Antibiotic, "<br>Moving average: ", round(MA_Value, 2)),
+    data_id = paste(Antibiotic, Year, sep = "_"))
+
+yrs <- sort(unique(df_fig_48$Year))
+
+p_48 <- ggplot(df_fig_48, aes(x = Year, color = Antibiotic, group = Antibiotic)) +
+  # moving average as line
+  geom_line(aes(y = MA_Value), linewidth = 1, na.rm = TRUE) +
+
+  # interactive points for the line, smaller shape than the dots
+  ggiraph::geom_point_interactive(aes(y = MA_Value, tooltip = tooltip_ma, data_id = data_id), size = 0.8,  na.rm = TRUE) +
+
+  # raw data dots
+  ggiraph::geom_point_interactive(aes(y = Raw_Value, tooltip = tooltip_raw, data_id = data_id),
+                                  size = 2.5, position = position_jitter(width = 0.1, height = 0), na.rm = TRUE) +
+
+  scale_x_discrete(expand=c(0,0.2)) + #continuous(breaks = yrs) +
+  scale_y_continuous(limits = c(0, 100),
+                     breaks=perc_100) +
+  scale_color_SweSva() +
+  labs(x = "Year",
+       y = "Resistance (%)", 
+       color = NULL) +
+  theme_SweSva() +
+  #theme(axis.text.x = element_text(angle = 45, hjust = 1, vjust = 1), legend.box = "horizontal") +
+  guides(color = guide_legend(nrow = 2, byrow = TRUE))+
+  add_sva_caption()
+
+make_dynamic_plot(plot = p_48, filename = "fig-48")
+
+
+```
+
+###### Data
+```{r}
+dat_48_long |> 
+  make_table_data_tab()
+```
+:::
+
+#### *Flavobacterium columnare* 
+
+Isolates of *Flavobacterium columnare* are from clinical submissions of farmed fish. Data from 2020-2025 are compiled and presented as distributions of MICs in @tbl-422. Most isolates of *F. columnare* are from rainbow trout and brown trout. Epidemiological cut-offs issued by CLSI are used [@clsi2020b] except for trimethoprim-sulphamethoxazole.  
+
+::: {.panel-tabset}
+###### Table
+```{r}
+#| label: tbl-422
+#| echo: false
+#| message: false
+#| warning: false
+
+tbl <- make_mic_table_from_excel("data/Table 4.22 Flavobact columnare.xlsx")
+
+make_mic_gt(data = tbl$data,
+            mic_cols = tbl$mic_cols,
+            breakpoint_col = "Cut-off value (mg/L)",
+            tested_range_col = "Tested range (mg/L)",
+            footnotes = c("Concentration of trimethoprim given, tested in concentration ratio 1/20 (trimethoprim/sulphamethoxazole)."))
+
+
+```
+
+###### Data
+```{r}
+data <- load_from_excel(path_file = "data/Table 4.22 Flavobact columnare.xlsx",  sheet = "data")
+df <- data$fig_data
+df |>
+  make_table_data_tab(file_name = "tab422")
+```
+:::
+
+#### *Aeromonas salmonicida* var. *salmonicida*  
+
+Isolates of *Aeromonas salmonicida* var. *salmonicida* are from clinical submissions of farmed fish. Data from 2021-2025 are compiled and presented as distributions of MICs in @tbl-423. Most isolates are from trout. Epidemiological cut-offs issued by CLSI are used [@clsi2020b] except for trimethoprim-sulphamethoxazole.  
+
+::: {.panel-tabset}
+###### Table
+```{r}
+#| label: tbl-423
+#| echo: false
+#| message: false
+#| warning: false
+
+tbl <- make_mic_table_from_excel("data/Table 4.23 Aeromonas SS fisk.xlsx")
+
+make_mic_gt(data = tbl$data,
+            mic_cols = tbl$mic_cols,
+            breakpoint_col = "Cut-off value (mg/L)",
+            tested_range_col = "Tested range (mg/L)",
+            footnotes = c("Concentration of trimethoprim given, tested in concentration ratio 1/20 (trimethoprim/sulphamethoxazole)."))
+
+
+```
+
+###### Data
+```{r}
+data <- load_from_excel(path_file = "data/Table 4.23 Aeromonas SS fisk.xlsx",  sheet = "data")
+df <- data$fig_data
+df |>
+  make_table_data_tab(file_name = "tab423")
+```
+:::
+
+### Laying hens
+
+#### *Escherichia coli* 
+
+Isolates of *Escherichia coli* are from samples taken at post-mortem examination of laying hens from commercial farms. 
+
+Usually more than one hen from the same farm is submitted for examination in disease outbreaks. Resistance to enrofloxacin has decreased in recent years, from 39% in 2017–2018 [Swedres-Svarm 2018](https://www.sva.se/media/cybn3jip/rapport_swedres-svarm_2018.pdf){target="_blank"} to 12% in 2024–2025. (@tbl-424).
+
+
+::: {.panel-tabset}
+###### Table
+```{r}
+#| label: tbl-424
+#| echo: false
+#| message: false
+#| warning: false
+
+tbl <- make_mic_table_from_excel("data/Table 4.24 E coli laying hens.xlsx")
+
+make_mic_gt(data = tbl$data,
+            mic_cols = tbl$mic_cols,
+            breakpoint_col = "Cut-off value (mg/L)",
+            tested_range_col = "Tested range (mg/L)",
+            footnotes = c("Concentration of trimethoprim given, tested in concentration ratio 1/20 (trimethoprim/sulphamethoxazole)."))
+
+
+```
+
+###### Data
+```{r}
+data <- load_from_excel(path_file = "data/Table 4.24 E coli laying hens.xlsx",  sheet = "data")
+df <- data$fig_data
+df |>
+  make_table_data_tab(file_name = "tab424")
+```
+:::
+
+### Horses
+
+#### *Escherichia coli*
+
+Isolates of *Escherichia coli* are from clinical submissions of samples from the genital tract of mares. As in previous years, resistance to trimethoprim-sulphamethoxazole was the most common trait in 2025 (@fig-49 and @tbl-425). Occurrence of resistance to gentamicin has been  continuously low from 2013 and onwards ≤5% (@fig-49). However, this resistance has varied somewhat over the years and trends are difficult to estimate. 
+
+Eighty five percent (178/210) of the isolates were susceptible to all the tested antibiotics. The proportion of multiresistance was 2% (4/210). Two of the four multiresistant isolates were resistant to three antibiotics, one isolate to four antibiotics and one isolate to five antibiotics. The most common phenotype was resistance to ampicillin, gentamicin and trimethoprim-sulphamethoxazole. For comparison of resistance in *E. coli* of different origin see @sec-NEEDS-TO-BE-ADDED-WHEN-SECTION-IS-READY Comparative analysis. 
+
+One of the isolates was resistant to cefotaxime and one to colistin, both were available for further testing. Genes conferring transferable ESC resistance were not detected in the one isolate resistant to cefotaxime (MIC >0.25mg/L) and PCR analysis of the *mcr-1* to *mcr-9* genes in the isolate resistant to colistin was found negative. No isolate was resistant to meropenem. 
+
+```{r}
+#| include: false
+# hidden chunk to read captions
+dat_49 <- load_from_excel("data/Fig 4.9 E.coli häst.xlsx", sheet = "data")
+fig_49_cap <- dat_49$fig_cap
+fig_49_alt <- dat_49$fig_alt 
+```
+
+
+::: {.panel-tabset}
+###### Figure
+```{r}
+#| label: fig-49
+#| echo: false
+#| message: false
+#| warning: false
+#| fig-cap: !expr fig_49_cap
+#| fig-alt: !expr fig_49_alt
+
+
+dat_49_long <- dat_49$fig_data |> 
+  pivot_longer(cols = -Year, names_to = "Antibiotic", values_to = "Value", values_drop_na = TRUE)
+
+df_fig_49 <- dat_49_long |>
+  mutate(tooltip = paste0("Year: ", Year, "<br>Antibiotic: ", Antibiotic, 
+                          "<br>Value: ", Value), data_id = paste(Antibiotic, Year, sep = "_"))
+
+yrs <- sort(unique(df_fig_49$Year))
+
+p_49 <- ggplot(df_fig_49, aes(x = factor(Year), 
+                              y = Value,
+                              color = Antibiotic, 
+                              group = Antibiotic,
+                              data_id = data_id)) +
+  geom_line() +
+  ggiraph::geom_point_interactive(aes(tooltip = tooltip), size = 2.5, 
+                                  position = position_jitter(width = 0.10, height = 0)) +
+  scale_x_discrete(expand=c(0,0.2)) + #continuous(breaks = yrs, minor_breaks = NULL) +
+  scale_y_continuous(limits = c(0, 25),
+                     breaks=perc_25) +
+  scale_color_SweSva() +
+  labs(x = "Year",
+       y = "Resistance (%)", color = NULL) +
+  theme_SweSva() +
+  #theme(axis.text.x = element_text(angle = 45, hjust = 1, vjust = 1)) +
+  add_sva_caption()
+
+make_dynamic_plot(plot = p_49, filename = "fig-49")
+```
+
+###### Data
+```{r}
+dat_49_long |> 
+  make_table_data_tab()
+```
+:::
+
+::: {.panel-tabset}
+###### Table
+```{r}
+#| label: tbl-425
+#| echo: false
+#| message: false
+#| warning: false
+
+# Read source data from the Excel sheet
+tbl <- make_mic_table_from_excel("data/Table 4.25 E.coli häst.xlsx")
+
+make_mic_gt(data = tbl$data,
+            mic_cols = tbl$mic_cols,
+            breakpoint_col = "Cut-off value (mg/L)",
+            tested_range_col = "Tested range (mg/L)",
+            footnotes = c("Concentration of trimethoprim given, tested in concentration ratio 1/20 (trimethoprim-sulphamethoxazole)."))
+
+
+```
+
+###### Data
+```{r}
+data <- load_from_excel(path_file = "data/Table 4.25 E.coli häst.xlsx",  sheet = "data")
+df <- data$fig_data
+df |>
+  make_table_data_tab(file_name = "tab425")
+```
+:::
+
+#### *Streptococcus equi* ssp. *zooepidemicus* 
+
+Isolates of *Streptococcus equi* ssp. *zooepidemicus* are from clinical submissions mainly from the respiratory tract (72%) of horses. 
+
+Over the years, most of the isolates (91% in 2025) have been susceptible to all relevant tested antibiotics, gentamicin and tetracycline not included. *Streptococcus equi* ssp. *zooepidemicus* has a low inherent susceptibility to aminoglycosides (e.g. gentamicin) and tetracyclines. 
+
+In 2025, resistance to clindamycin and trimethoprim-sulphamethoxazole was detected. None of the isolates were resistant to penicillin. Any reduced susceptibility to penicillin in beta-hemolytic streptococci should be controlled, i.e. if tested on pure culture and ensuring that organism identification and antimicrobial susceptibility test are accurate and reproducible. All isolates were screened for erythromycin induced clindamycin resistance, no isolates displayed such resistance (@tbl-426). The number of isolates is low and varies each year (n=43-102, 2025 n=74), which could cause minor variations between years. 
+
+::: {.panel-tabset}
+###### Table
+```{r}
+#| label: tbl-426
+#| echo: false
+#| message: false
+#| warning: false
+
+# Read source data from the Excel sheet
+tbl <- make_mic_table_from_excel("data/Table 4.26 Str.zooep häst.xlsx")
+
+make_mic_gt(data = tbl$data,
+            mic_cols = tbl$mic_cols,
+            breakpoint_col = "Cut-off value (mg/L)",
+            tested_range_col = "Tested range (mg/L)",
+            footnotes = c("Denotes resistance, including inducible resistance (0 isolates).",
+                          "Concentration of trimethoprim given, tested in concentration ratio 1/20 (trimethoprim/sulphamethoxazole)."))
+
+
+```
+
+###### Data
+```{r}
+data <- load_from_excel(path_file = "data/Table 4.26 Str.zooep häst.xlsx",  sheet = "data")
+df <- data$fig_data
+df |>
+  make_table_data_tab(file_name = "tab426")
+```
+:::
+
+#### *Staphylococcus aureus* 
+
+Isolates of *Staphylococcus aureus* are from clinical submissions of samples from skin lesions, excluding wounds and abscesses, from horses. Due to the introduction of an AMR panel with substances and cut-off values for topical treatment, the number of isolates tested for systemic treatment has declined during the past years. 
+
+Resistance to penicillin due to penicillinase production is still the most common trait (25%). A new routine has been implemented in the diagnostic lab in 2024 – all *Staphylococcus aureus* isolates from horses are tested for penicillinase production as in previous years, but not all of the negative isolates are tested on the full AMR panel for staphylococci. Instead, they are followed by a comment to the clinician that the isolate does not produce beta-lactamase and can be treated with penicillin. Isolates tested on the full AMR panel are reported in @tbl-427. 
+
+::: {.panel-tabset}
+###### Table
+```{r}
+#| label: tbl-427
+#| echo: false
+#| message: false
+#| warning: false
+
+tbl <- make_mic_table_from_excel("data/Table 4.27 S.aureus häst.xlsx")
+
+make_mic_gt(data = tbl$data,
+            mic_cols = tbl$mic_cols,
+            breakpoint_col = "Cut-off value (mg/L)",
+            tested_range_col = "Tested range (mg/L)",
+            footnotes = c("Denotes resistance, including inducible resistance (1 isolate).",
+                          "Denotes beta-lactamase production, all tested isolates included (n=85).",
+                          "Concentration of trimethoprim given, tested in concentration ratio 1/20 (trimethoprim/sulphamethoxazole)."))
+
+
+```
+
+###### Data
+```{r}
+data <- load_from_excel(path_file = "data/Table 4.27 S.aureus häst.xlsx",  sheet = "data")
+df <- data$fig_data
+df |>
+  make_table_data_tab(file_name = "tab427")
+```
+:::
+
+
+```{r}
+#| include: false
+# hidden chunk to read captions
+dat_410 <- load_from_excel("data/Fig 4.10 S.aureus HÄST.xlsx", sheet = "data")
+fig_410_cap <- dat_410$fig_cap
+fig_410_alt <- dat_410$fig_alt 
+```
+
+
+The proportions of resistance to gentamicin, tetracycline and trimethoprim-sulphamethoxazole have differed slightly over the years and trends are difficult to estimate (@fig-410). Resistance to fusidic acid has varied and increased to 6% in 2025 (@tbl-427 and [previous Swedres-Svarm reports](https://www.sva.se/en/what-we-do/antibiotics/svarm-resistance-monitoring/swedres-svarm-reports/){target="_blank"}). 
+
+::: {.panel-tabset}
+###### Figure
+```{r}
+#| label: fig-410
+#| echo: false
+#| message: false
+#| warning: false
+#| fig-cap: !expr fig_410_cap
+#| fig-alt: !expr fig_410_alt
+
+
+dat_410_long <- dat_410$fig_data |> 
+  pivot_longer(cols = -Year, names_to = "Antibiotic", values_to = "Value", values_drop_na = TRUE)
+
+df_fig_410 <- dat_410_long |>
+  mutate(tooltip = paste0("<b>Year:</b> ", Year, "<br><b>Antibiotic:</b> ", Antibiotic, 
+                          "<br><b>Value:</b<> ", Value),
+         data_id = paste(Antibiotic, Year, sep = "_"))
+
+#yrs <- sort(unique(df_fig_410$Year))
+
+p_410 <- ggplot(df_fig_410, 
+                aes(x = factor(Year), 
+                    y = Value,
+                    color = Antibiotic, 
+                    group = Antibiotic,
+                    data_id = data_id)) +
+  geom_line() +
+  ggiraph::geom_point_interactive(aes(tooltip = tooltip), size = 2.5, 
+                                  position = position_jitter(width = 0.10, height = 0)) +
+  scale_x_discrete(expand=c(0,0.2)) + #continuous(breaks = yrs, minor_breaks = NULL) +
+  scale_y_continuous(limits = c(0, 100),
+                     breaks=perc_100) +
+  scale_color_SweSva() +
+  labs(x = "Year",
+       y = "Resistance (%)",
+       color = NULL) +
+  theme_SweSva() +
+  #theme(axis.text.x = element_text(angle = 45, hjust = 1, vjust = 1)) +
+  add_sva_caption()
+
+make_dynamic_plot(plot = p_410, filename = "fig-410")
+```
+
+###### Data
+```{r}
+dat_410_long |> 
+  make_table_data_tab()
+```
+:::
+
+Forty-seven percent (25/53) were susceptible to all the tested antibiotics. Four isolates (8%) were resistant to three or more of the tested antibiotics (i.e. multiresistant), compared to the figures in 2015-2024 (0-5%) (see [previous Swedres-Svarm reports](https://www.sva.se/en/what-we-do/antibiotics/svarm-resistance-monitoring/swedres-svarm-reports/){target="_blank"}). No isolate was resistant to cefoxitin (MIC >4 mg/L). For more information on MRSA isolated from horses in Sweden, see “Notifiable diseases”, Methicillin-resistant *Staphylococcus aureus* (MRSA). 
+
+The isolates were screened for erythromycin-induced clindamycin resistance; one isolate displayed such resistance. 
+
+#### *Actinobacillus* 
+
+Isolates of *Actinobacillus* spp. are from clinical submissions of samples from various anatomical sites, of which the most common are wounds (39%) and the respiratory tract (16%). Nine percent of the samples are from abscesses. For *Actinobacillus* spp. isolated from horses, ECOFFs for *A. pleuropneumoniae* have been used regarding penicillin, tetracycline, enrofloxacin and trimethoprim-sulphamethoxazole. For other antibiotics clinical breakpoints have been applied (@tbl-428). 
+
+::: {.panel-tabset}
+###### Table
+```{r}
+#| label: tbl-428
+#| echo: false
+#| message: false
+#| warning: false
+
+# Read source data from the Excel sheet
+tbl <- make_mic_table_from_excel("data/Table 4.28 Actino häst.xlsx")
+
+make_mic_gt(data = tbl$data,
+            mic_cols = tbl$mic_cols,
+            breakpoint_col = "Cut-off value (mg/L)",
+            tested_range_col = "Tested range (mg/L)",
+            footnotes = c("Concentration of trimethoprim given, tested in concentration ratio 1/20 (trimethoprim/sulphamethoxazole)."))
+
+
+```
+
+###### Data
+```{r}
+data <- load_from_excel(path_file = "data/Table 4.28 Actino häst.xlsx",  sheet = "data")
+df <- data$fig_data
+df |>
+  make_table_data_tab(file_name = "tab428")
+```
+:::
+
+Eighty one percent (92/114) of the isolates were susceptible to all the tested antibiotics. Seven percent (8/114) were resistant to penicillin, MIC>1 and two percent to trimethoprim-sulphamethoxazole. All but one isolate with MIC >0.25 mg/L for penicillin (n=37), were tested for penicillinase production. Five were positive, one with MIC 0.5 mg/L and four with MIC >1 mg/L. The *Actinobacillus* spp. wild type distribution of penicillin (MIC 0.03 - 1 mg/L) requires increased exposure for successful treatment [@medical2015lakemedelsbehandling]. Exposure includes e.g. administration route, dose, and dose interval. 
+
+#### *Rhodococcus equi* 
+
+Isolates of *Rhodococcus equi* (n=11) are from various anatomical sites of which the most common was the respiratory tract of foals. 
+
+*Rhodococcus equi* has inherent low susceptibility to most antimicrobials. However, none of the isolates investigated in 2025 showed resistance to rifampicin, clarithromycin or erythromycin.  
+
+One isolate resistant to rifampicin (October 2024) was sequenced and a mutation was detected in rpoB causing an amino acid switch in RpoB (S531L). An amino acid switch in this position is a commonly described mechanism for rifampicin resistance. 
+
+<!-- No table for Rhodococcus Equi on 2025 (therefore the table IDs won't match the text starting from here) -->
+
+### Dogs
+#### *Escherichia coli* 
+
+Isolates of *Escherichia coli* are from clinical submissions of urine from dogs, submitted either as urine, swab dipped in urine or cultures from dip-slides or other agar plates.  
+
+As in previous years, resistance to ampicillin was the most common trait in 2025, at 15% (@fig-411 and @tbl-430). Although the proportion of resistance in the tested isolates has varied somewhat between 2005 and 2025 there is still a slight decline in resistance for the four antibiotics ampicillin, enrofloxacin, nitrofurantoin and trimethoprim-sulphamethoxazole (@fig-411). 
+
+Eighty percent (679/846) of the isolates were susceptible to all the tested antibiotics, and the proportion of multiresistance was 4% (35/846). Fifty-one percent (18/35) of the multiresistant isolates were resistant to three antibiotics, 14% (5/35) to four, and 11% (4/35) to five antibiotics. 
+
+For comparison of resistance in *E. coli* of different origin see “Comparative analysis”. The most common phenotype, resistance to ampicillin, tetracycline and trimethoprim-sulphamethoxazole, was detected in 65% (23/35) of the multiresistant isolates. Of the eleven isolates resistant to four or more antibiotics, all but one had this phenotype.
+ 
+Seventeen (2%) of the *E. coli* isolates were resistant to cefotaxime (MIC >0.25mg/L), and all were available for further testing. Genes conferring transferable ESC resistance were detected in four of the isolates. All four carried the gene *bla*~CTX-M-15~. For more information about ESBL-producing Enterobacterales isolated from dogs in Sweden, see “Notifiable diseases” ESBL-producing Enterobacterales. One of the isolates was resistant to colistin (MIC >2mg/L) but found negative in PCR analysis of the *mcr-1* to *mcr-9* genes. None of the isolates were resistant to meropenem (MIC>0.12mg/L). 
+
+```{r}
+#| include: false
+# hidden chunk to read captions
+dat_411 <- load_from_excel("data/Fig 4.11 E.coli HUND.xlsx", sheet = "data")
+fig_411_cap <- dat_411$fig_cap
+fig_411_alt <- dat_411$fig_alt 
+```
+
+
+::: {.panel-tabset}
+###### Figure
+```{r}
+#| label: fig-411
+#| echo: false
+#| message: false
+#| warning: false
+#| fig-cap: !expr fig_411_cap
+#| fig-alt: !expr fig_411_alt
+
+
+dat_411_long <- dat_411$fig_data |> 
+  pivot_longer(cols = -Year, names_to = "Antibiotic", values_to = "Value", values_drop_na = TRUE)
+
+df_fig_411 <- dat_411_long |>
+  mutate(tooltip = paste0("Year: ", Year, "<br>Antibiotic: ", Antibiotic, 
+                          "<br>Value: ", Value), data_id = paste(Antibiotic, Year, sep = "_"))
+
+#yrs <- sort(unique(df_fig_411$Year))
+
+p_411 <- ggplot(df_fig_411, aes(x = factor(Year),
+                                y = Value,
+                                color = Antibiotic,
+                                group = Antibiotic)) +
+  geom_line() +
+  ggiraph::geom_point_interactive(aes(tooltip = tooltip, data_id = data_id), size = 2.5, 
+                                  position = position_jitter(width = 0.10, height = 0)) +
+  scale_x_discrete(expand=c(0,0.2)) + #breaks = yrs, minor_breaks = NULL) +
+  scale_y_continuous(limits = c(0, 25),
+                     breaks=perc_25) +
+  scale_color_SweSva() +
+  labs(x = "Year",
+       y = "Resistance (%)", 
+       color = NULL) +
+  theme_SweSva() +
+  #theme(axis.text.x = element_text(angle = 45, hjust = 1, vjust = 1)) +
+  add_sva_caption()
+
+make_dynamic_plot(plot = p_411, filename = "fig-411")
+```
+
+###### Data
+```{r}
+dat_411_long |> 
+  make_table_data_tab()
+```
+:::
+
+::: {.panel-tabset}
+###### Table
+```{r}
+#| label: tbl-430
+#| echo: false
+#| message: false
+#| warning: false
+
+# Read source data from the Excel sheet
+tbl <- make_mic_table_from_excel("data/Table 4.30.xlsx")
+
+make_mic_gt(data = tbl$data,
+            mic_cols = tbl$mic_cols,
+            breakpoint_col = "Cut-off value (mg/L)",
+            tested_range_col = "Tested range (mg/L)",
+            footnotes = c("All isolates (n=17) with MIC >0.25 mg/L were available for verification. Genes conferring transferable ESC resistance were detected in four of them.",
+                          "Concentration of trimethoprim given, tested in concentration ratio 1/20 (trimethoprim/sulphamethoxazole)."))
+
+
+```
+
+###### Data
+```{r}
+data <- load_from_excel(path_file = "data/Table 4.30.xlsx",  sheet = "data")
+df <- data$fig_data
+df |>
+  make_table_data_tab(file_name = "tab430")
+```
+:::
+
+#### *Staphylococcus pseudintermedius* 
+
+Isolates of *Staphylococcus pseudintermedius* are from clinical submissions of samples from skin lesions from dogs. Due to the implementation of an AMR panel for topical treatment (see [Swedres Svarm 2022](https://www.sva.se/media/s3ggt1ny/swedres-svarm-2022-edit-230808.pdf){target="_blank"} In Focus p. 89, and @tbl-432) the number of isolates tested for systemic treatment has declined during 2023-2025. 
+
+Resistance to penicillin due to penicillinase production is high at 67% (@tbl-431), compared to other staphylococci in companion animals (@tbl-427 *S. aureus* in horses 25% and @tbl-436 *S. felis* in cats 13%). Although still high, the proportion of resistance to penicillin for isolates from skin lesions has declined from 90% in 2009 to 67% in 2025. Compared to penicillin, resistance to clindamycin and tetracycline remains at lower levels, and has also declined since 2007 (see [previous Swedres-Svarm reports](https://www.sva.se/en/what-we-do/antibiotics/svarm-resistance-monitoring/swedres-svarm-reports/){target="_blank"}). The proportion of resistance to fusidic acid is not comparable before 2015, due to a change in the tested range of concentrations and cut-off but has, since 2015, declined (@tbl-431 and @fig-412). In 2025 a new cut-off was set for trimethoprim-sulphamethoxazole at 0.25 (compared to 0.5 earlier years) explaining the rise from 7% resistance in 2024 to 36% in 2025 (@tbl-431). Compared to other staphylococci isolated from companion animals, the proportion of resistance is high in the tested isolates. Only 25% (99/395) of the isolates were susceptible to all the tested antibiotics. 
+
+The proportion of multiresistance was 25% (97/395). This could be compared to 8% in *S. aureus* from horses and 2% in *S. felis* from cats. Fifty-nine percent (57/97) of the multiresistant isolates were resistant to three antibiotics; 21% (20/97) to four; 11% (11/97) to five; and 4% (4/97) to six antibiotics. One isolate was resistant to nine antibiotics. The proportion of isolates resistant to five or more antibiotics has declined over the years. In 2016, almost one third of the multiresistant isolates were resistant to five or more antibiotics, compared to 14-22% in 2017-2024. In 2025, the proportion was 21% (20/97). Of the multiresistant isolates, resistance to penicillin, clindamycin and erythromycin was the most common phenotype 55% (53/97).  
+
+Six of the isolates were resistant to oxacillin (MIC >0.25 mg/L). All were tested with PCR for detection of the *mecA* and *mecC* genes and all were positive for the *mecA* gene. For more information on MRSP isolated from dogs in Sweden, see @sec-MRSP-animals. The isolates were screened for erythromycin-induced clindamycin resistance. Two isolates displayed such resistance. 
+
+::: {.panel-tabset}
+###### Table
+```{r}
+#| label: tbl-431
+#| echo: false
+#| message: false
+#| warning: false
+
+# Read source data from the Excel sheet
+tbl <- make_mic_table_from_excel("data/Table 4.31 S.pseudintermedius hund HUD.xlsx")
+
+make_mic_gt(data = tbl$data,
+            mic_cols = tbl$mic_cols,
+            breakpoint_col = "Cut-off value (mg/L)",
+            tested_range_col = "Tested range (mg/L)",
+            footnotes = c("No cut-off available for *S. pseudintermedius*.", 
+                          "Denotes resistance, including inducible resistance (2 isolates).",
+                          "The six isolates with MIC>0.25 for oxacillin were tested with PCR for detection of the *mecA* and *mecC* genes, all were positive.",
+                          "Denotes beta-lactamase production.",
+                          "Concentration of trimethoprim given, tested in concentration ratio 1/20 (trimethoprim/sulphamethoxazole)."))
+
+
+```
+
+###### Data
+```{r}
+data <- load_from_excel(path_file = "data/Table 4.31 S.pseudintermedius hund HUD.xlsx",  sheet = "data")
+df <- data$fig_data
+df |>
+  make_table_data_tab(file_name = "tab431")
+```
+:::
+
+
+```{r}
+#| include: false
+# hidden chunk to read captions
+dat_412 <- load_from_excel("data/Fig 4.12 S.pseudintermedius HUND.xlsx", sheet = "data")
+fig_412_cap <- dat_412$fig_cap
+fig_412_alt <- dat_412$fig_alt 
+```
+
+
+::: {.panel-tabset}
+###### Figure
+```{r}
+#| label: fig-412
+#| echo: false
+#| message: false
+#| warning: false
+#| fig-cap: !expr fig_412_cap
+#| fig-alt: !expr fig_412_alt
+
+dat_412_long <- dat_412$fig_data |> 
+  pivot_longer(cols = -Year, names_to = "Antibiotic", values_to = "Value", values_drop_na = TRUE)
+
+dat_412_long$Year <- as.numeric(dat_412_long$Year) 
+
+df_fig_412 <- dat_412_long |>
+  mutate(tooltip = paste0("Year: ", Year, "<br>Antibiotic: ", Antibiotic, 
+                          "<br>Value: ", Value), data_id = paste(Antibiotic, Year, sep = "_"))
+
+yrs <- sort(unique(df_fig_412$Year))
+
+p_412 <- ggplot(df_fig_412, aes(x = Year, y = Value, color = Antibiotic, group = Antibiotic)) +
+  geom_line() +
+  ggiraph::geom_point_interactive(aes(tooltip = tooltip, data_id = data_id), size = 2.5, 
+                                  position = position_jitter(width = 0.10, height = 0)) +
+  scale_x_discrete(expand=c(0,0.2)) + #(breaks = yrs, minor_breaks = NULL) +
+  scale_y_continuous(limits = c(0, 100),
+                     breaks=perc_100) +
+  scale_color_SweSva() +
+  labs(x = "Year",
+       y = "Resistance (%)",
+       color = NULL) +
+  theme_SweSva() +
+  #theme(axis.text.x = element_text(angle = 45, hjust = 1, vjust = 1)) +
+  add_sva_caption()
+
+make_dynamic_plot(plot = p_412, filename = "fig-412")
+```
+
+###### Data
+```{r}
+dat_412_long |> 
+  make_table_data_tab()
+```
+:::
+
+#### Susceptibility test for topical treatment 
+
+At SVA, it is possible to request antibiotic susceptibility testing of bacteria that is tailored for topical treatment. Both the antibiotics included in the test and the interpretation of the results differ from traditional testing for systemic treatment. The design of the panel for topical use covers substances included in veterinary medicinal products authorised for topical use and sold on veterinary prescription in Sweden, mainly for treatment of external ear and eye infections. In addition, some substances are included for the sole purpose of screening for methicillin resistance in coagulase positive staphylococci and ESBL in Enterobacterales.  
+
+It has been suggested by EUCAST that ECOFFs could be used to exclude acquired resistance to topical agents. They acknowledge that such an approach might underestimate the activity of the agents in some cases. However, it will at least demonstrate the presence of phenotypically detectable resistance mechanisms, which may result in a higher probability of clinical failure. Therefore, when bacteria are tested against substances for topical treatment at SVA, the breakpoints for interpretation are either EUCAST ECOFFs or, when no ECOFF is available, based on MIC distributions in Swedres-Svarm or other publications. As pharmacokinetic data have not been taken into consideration, the interpretation cannot be applied for systemic treatment. 
+ 
+Some combinations of antibiotic substance and bacterial species are not reported to the clinician for systemic treatment. For example, gentamicin for *Pasteurella* spp. or streptococci, and fusidic acid for streptococci. This is because it is not possible to reach therapeutic concentrations systemically against these bacteria whereas with topical treatment the concentration at the site of the infection is much higher. Furthermore, some substances, such as chloramphenicol and tobramycin, are not tested for systemic treatment because they are only used for topical treatment. Occurrence of resistance varies among bacterial species and substances. However, in most cases there are products available on the Swedish market that would be effective if topical antibiotic treatment is considered necessary. See @sec-crossref-InFocusTopicals-WillBeFixedLater. 
+
+#### *Staphylococcus pseudintermedius* - **susceptibility test for topical treatment** 
+
+Isolates of *Staphylococcus pseudintermedius* are from clinical submissions of samples from external ear canal from dogs in 2025. 
+
+Resistance to tetracycline (19%) was the most common trait in 2025, followed by neomycin (13%), chloramphenicol (10%) and fusidic acid (8%) (@tbl-432). The proportion of multiresistance was 4% (25/596). Sixty percent (15/25) of the multiresistant isolates were resistant to three antibiotics; 16% (4/25) to four, and 20% (5/25) to five. One isolate was resistant to six antibiotics. Of the multiresistant isolates, resistance to tetracycline, neomycin, and chloramphenicol was the most common phenotype 52% (13/25). 
+
+Four of the isolates were resistant to oxacillin (MIC >0.25 mg/L). All were tested with PCR for detection of the *mecA* and *mecC* genes, three were positive and one was negative. For more information on MRSP isolated from dogs in Sweden, see @sec-MRSP-animals. 
+
+::: {.panel-tabset}
+###### Table
+```{r}
+#| label: tbl-432
+#| echo: false
+#| message: false
+#| warning: false
+
+# Read source data from the Excel sheet
+tbl <- make_mic_table_from_excel("data/Table 4.32 S.pseudintermedius hund ÖRON.xlsx")
+
+make_mic_gt(data = tbl$data,
+            mic_cols = tbl$mic_cols,
+            breakpoint_col = "Cut-off value (mg/L)",
+            tested_range_col = "Tested range (mg/L)",
+            footnotes = c("No cut-off available for *S. pseudintermedius*.", 
+                          "The four isolates with MIC >0.25 for oxacillin were tested with PCR for detection of the *mecA* and *mecC* genes, three were positive and one was negative."))
+
+
+```
+
+###### Data
+```{r}
+data <- load_from_excel(path_file = "data/Table 4.32 S.pseudintermedius hund ÖRON.xlsx",  sheet = "data")
+df <- data$fig_data
+df |>
+  make_table_data_tab(file_name = "tab432")
+```
+:::
+
+#### *Pseudomonas aeruginosa* - **susceptibility test for topical treatment** 
+
+Isolates of *Pseudomonas aeruginosa* are from clinical submissions of samples from the external ear canal in dogs. 
+
+*Pseudomonas aeruginosa* is inherently resistant to trimethoprim-sulphonamides, tetracyclines and aminopenicillins (including combinations with clavulanic acid). 
+
+Resistance to enrofloxacin is the most common trait but the proportion of resistance to both enrofloxacin and gentamicin is still low (@tbl-433 and [previous Swedres-Svarm reports](https://www.sva.se/en/what-we-do/antibiotics/svarm-resistance-monitoring/swedres-svarm-reports/){target="_blank"}). Three isolates were resistant to two antibiotics – gentamicin and tobramycin. One isolate was resistant to polymyxin B. 
+
+::: {.panel-tabset}
+###### Table
+```{r}
+#| label: tbl-433
+#| echo: false
+#| message: false
+#| warning: false
+
+# Read source data from the Excel sheet
+tbl <- make_mic_table_from_excel("data/Table 4.33 P.aeruginosa hund.xlsx")
+
+make_mic_gt(data = tbl$data,
+            mic_cols = tbl$mic_cols,
+            breakpoint_col = "Cut-off value (mg/L)",
+            tested_range_col = "Tested range (mg/L)")
+
+
+```
+
+###### Data
+```{r}
+data <- load_from_excel(path_file = "data/Table 4.33 P.aeruginosa hund.xlsx",  sheet = "data")
+df <- data$fig_data
+df |>
+  make_table_data_tab(file_name = "tab433")
+```
+:::
+
+#### *Pasteurella canis/oralis* 
+
+Isolates of *Pasteurella* spp. are from clinical submissions of samples from various anatomical sites from dogs, mainly wounds (52%), abscesses (15%), and skin and external ear canal (11%).  
+ 
+*Pasteurella canis/oralis* was the most common *Pasteurella* sp. isolated in samples from dogs, 87% (328/378). The isolates were species identified with MALDI-TOF MS and *P. canis* and *P. oralis* cannot be separated by the method. 
+
+The cut-off values for *Pasteurella multocida* have been applied for all *Pasteurella* spp. *Pasteurella* spp. have a low inherent susceptibility to aminoglycosides, e.g. gentamicin. If not including gentamicin, 96% (273/283) of the isolates were susceptible to all antibiotics tested. 
+
+The proportion of resistance to enrofloxacin is generally low, with variations between <1% (2014), 4% (2020) and 2% (2025). Resistance to trimethoprim-sulphamethoxazole has been detected in one isolate each year 2020-2021. In 2022 it was detected in two isolates, in 2023 in seven isolates, in 2024 in six isolates and in 2025 in three isolates (@tbl-434 and [previous Swedres-Svarm reports](https://www.sva.se/en/what-we-do/antibiotics/svarm-resistance-monitoring/swedres-svarm-reports/){target="_blank"}). Before 2020, all tested isolates were susceptible to trimethoprim-sulphamethoxazole (see [previous Swedres-Svarm reports](https://www.sva.se/en/what-we-do/antibiotics/svarm-resistance-monitoring/swedres-svarm-reports/){target="_blank"}). Out of three resistant isolates, one was resistant to both enrofloxacin and trimethoprim-sulphamethoxazole, the other two were resistant to trimethoprim-sulphamethoxazole only. 
+
+::: {.panel-tabset}
+###### Table
+```{r}
+#| label: tbl-434
+#| echo: false
+#| message: false
+#| warning: false
+
+# Read source data from the Excel sheet
+tbl <- make_mic_table_from_excel("data/Table 4.34 P.canis.oralis hund.xlsx")
+
+make_mic_gt(data = tbl$data,
+            mic_cols = tbl$mic_cols,
+            breakpoint_col = "Cut-off value (mg/L)",
+            tested_range_col = "Tested range (mg/L)",
+            footnotes = c("Concentration of trimethoprim given, tested in concentration ratio 1/20 (trimethoprim/sulphamethoxazole)."))
+
+
+```
+
+###### Data
+```{r}
+data <- load_from_excel(path_file = "data/Table 4.34 P.canis.oralis hund.xlsx",  sheet = "data")
+df <- data$fig_data
+df |>
+  make_table_data_tab(file_name = "tab434")
+```
+:::
+
+### Cats
+#### *Escherichia coli* 
+
+Isolates are from clinical sampling of urine, submitted either as urine or cultures from dip-slides or other agar plates. As in previous years, and in *Escherichia coli* isolated from dog urine (@tbl-430), resistance to ampicillin was the most common trait in 2025 (@tbl-435 and @fig-413). In comparison, in *E. coli* isolated from the genital tract of horses (mares) resistance to trimethoprim-sulphamethoxazole was most common (@tbl-425 and @fig-49). The proportions of resistance in the *E. coli* isolated from cat urine have differed somewhat throughout the years and trends are difficult to estimate (@fig-413). 
+
+::: {.panel-tabset}
+###### Table
+```{r}
+#| label: tbl-435
+#| echo: false
+#| message: false
+#| warning: false
+
+# Read source data from the Excel sheet
+tbl <- make_mic_table_from_excel("data/Table 4.35 E.coli katt.xlsx")
+
+make_mic_gt(data = tbl$data,
+            mic_cols = tbl$mic_cols,
+            breakpoint_col = "Cut-off value (mg/L)",
+            tested_range_col = "Tested range (mg/L)",
+            footnotes = c("Nine isolates with MIC >0.25mg/L were available for verification. A gene conferring transferable ESC resistance was detected in one of the isolates.",
+                          "Concentration of trimethoprim given, tested in concentration ratio 1/20 (trimethoprim/sulphamethoxazole)."))
+
+
+```
+
+###### Data
+```{r}
+data <- load_from_excel(path_file = "data/Table 4.35 E.coli katt.xlsx",  sheet = "data")
+df <- data$fig_data
+df |>
+  make_table_data_tab(file_name = "tab435")
+```
+:::
+
+```{r}
+#| include: false
+# hidden chunk to read captions
+dat_413 <- load_from_excel("data/Fig 4.13 E.coli KATT.xlsx", sheet = "data")
+fig_413_cap <- dat_413$fig_cap
+fig_413_alt <- dat_413$fig_alt 
+```
+
+
+::: {.panel-tabset}
+###### Figure
+```{r}
+#| label: fig-413
+#| echo: false
+#| message: false
+#| warning: false
+#| fig-cap: !expr fig_413_cap
+#| fig-alt: !expr fig_413_alt
+
+
+dat_413_long <- dat_413$fig_data |> 
+  pivot_longer(cols = -Year, names_to = "Antibiotic", values_to = "Value", values_drop_na = TRUE)
+
+df_fig_413 <- dat_413_long |>
+  mutate(tooltip = paste0("Year: ", Year, "<br>Antibiotic: ", Antibiotic, 
+                          "<br>Value: ", Value), data_id = paste(Antibiotic, Year, sep = "_"))
+
+yrs <- sort(unique(df_fig_413$Year))
+
+p_413 <- ggplot(df_fig_413, aes(x = factor(Year),
+                                y = Value, 
+                                color = Antibiotic,
+                                group = Antibiotic,
+                                data_id = data_id)) +
+  geom_line() +
+  ggiraph::geom_point_interactive(aes(tooltip = tooltip), size = 2.5, 
+                                  position = position_jitter(width = 0.10, height = 0)) +
+  scale_x_discrete(expand=c(0,0.2)) + #continuous(breaks = yrs, minor_breaks = NULL) +
+  scale_y_continuous(breaks = perc_25,
+                     limits=c(0,25)) +
+  scale_color_SweSva() +
+  labs(x = "Year",
+       y = "Resistance (%)",
+       color = NULL) +
+  theme_SweSva() +
+  #theme(axis.text.x = element_text(angle = 45, hjust = 1, vjust = 1)) +
+  add_sva_caption()
+
+make_dynamic_plot(plot = p_413, filename = "fig-413")
+```
+
+###### Data
+```{r}
+dat_413_long |> 
+  make_table_data_tab()
+```
+:::
+
+Seventy-six percent (324/428) of the *E. coli* isolates were susceptible to all the tested antibiotics. The proportion of multiresistance was 2% (10/428). Six of the multiresistant isolates were resistant to three antibiotics, two to four and two to five antibiotics. All of them were resistant to ampicillin and all but one were also resistant to trimethoprim-sulphamethoxazole. For comparison of resistance in *E. coli* of different origin see “Comparative analysis”. 
+
+Nine of the *E. coli* isolates were resistant to cefotaxime (MIC >0.25 mg/L) and all were available for further testing. A gene conferring transferable ESC resistance was detected in one of the isolates (*bla*~CTX-M-15~). For more information on ESBL isolated from cats in Sweden, see “Notifiable diseases”, ESBL-producing Enterobacterales. One isolate was resistant to colistin (MIC >2mg/L) but found negative in PCR analysis of the *mcr-1* to *mcr-9* genes. No isolate was resistant to meropenem (MIC >0.12mg/L). 
+
+
+#### *Staphylococcus felis* 
+
+Isolates of *Staphylococcus felis* are from clinical submissions of samples from various anatomical sites, mainly abscesses and wounds (36%), the external ear canal (18%) and urine (29%) in cats.  
+
+The proportions of resistance to the tested antibiotics in isolates of *S. felis* (@tbl-436) were, as in previous years, lower than for *S. pseudintermedius* in dogs (@tbl-431 and [previous Swedres-Svarm reports](https://www.sva.se/en/what-we-do/antibiotics/svarm-resistance-monitoring/swedres-svarm-reports/){target="_blank"}). Resistance to penicillin due to penicillinase production was 13% in *S. felis*, compared to 67% in *S. pseudintermedius* in dogs.  
+
+::: {.panel-tabset}
+###### Table
+```{r}
+#| label: tbl-436
+#| echo: false
+#| message: false
+#| warning: false
+
+# Read source data from the Excel sheet
+tbl <- make_mic_table_from_excel("data/Table 4.36 S.felis katt.xlsx")
+
+make_mic_gt(data = tbl$data,
+            mic_cols = tbl$mic_cols,
+            breakpoint_col = "Cut-off value (mg/L)",
+            tested_range_col = "Tested range (mg/L)",
+            footnotes = c("No cut-off available for *S. felis*.",
+                          "Denotes resistance, including inducible resistance (2 isolates).",
+                          "Denotes beta-lactamase production.",
+                          "Concentration of trimethoprim given, tested in concentration ratio 1/20 (trimethoprim/sulphamethoxazole)."))
+
+
+```
+
+###### Data
+```{r}
+data <- load_from_excel(path_file = "data/Table 4.36 S.felis katt.xlsx",  sheet = "data")
+df <- data$fig_data
+df |>
+  make_table_data_tab(file_name = "tab436")
+```
+:::
+
+Eighty-one percent (252/313) of the *S. felis* isolates were susceptible to all the tested antibiotics. The proportion of multiresistance has varied between <1 and 7% during 2015-2024 (see [previous Swedres-Svarm reports](https://www.sva.se/en/what-we-do/antibiotics/svarm-resistance-monitoring/swedres-svarm-reports/){target="_blank"}). In 2025, multiresistance was detected in 2% (6/313) of the isolates. The most common phenotype was resistance to penicillin, clindamycin, and erythromycin (5/6). The isolates were screened for erythromycin-induced clindamycin resistance. Two isolates displayed such resistance. 
+
+#### *Pasteurella multocida* 
+
+Isolates of *Pasteurella* spp. are from clinical submissions of samples from various anatomical sites, but mainly from wounds or skin lesions, abscesses, and the external ear canal (85%) in cats. 
+
+*Pasteurella multocida* was the most common *Pasteurella* sp. isolated in samples from cats, 93%. The proportion of resistance was low in the tested isolates except for trimethoprim-sulphamethoxazole (10%, @tbl-437).This is however a decrease from 16% in 2024 but an increase from 2022 (4%) and 2023 (6%).  
+ 
+No resistance to penicillin was detected. *Pasteurella* spp. have a low inherent susceptibility to aminoglycosides, e.g. gentamicin. 
+
+::: {.panel-tabset}
+###### Table
+```{r}
+#| label: tbl-437
+#| echo: false
+#| message: false
+#| warning: false
+
+tbl <- make_mic_table_from_excel("data/Table 4.37.xlsx")
+
+# thick right border is placed per row at the MIC column matching ECOFF/Breakpoint
+make_mic_gt(data = tbl$data,
+            mic_cols = tbl$mic_cols,
+            breakpoint_col = "Cut-off value (mg/L)",
+            tested_range_col = "Tested range (mg/L)",
+            footnotes = c("Concentration of trimethoprim given, tested in concentration ratio 1/20 (trimethoprim/sulphamethoxazole)."))
+
+
+```
+###### Data
+```{r}
+data <- load_from_excel(path_file = "data/Table 4.37.xlsx")
+df <- data$fig_data
+df |>
+  make_table_data_tab(file_name = "tab437")
+```
+:::
+
+#### *Streptococcus canis/equisimilis* (beta-haemolytic streptococci) 
+
+Isolates of *Streptococcus canis/equisimilis* are from clinical submissions of samples from various anatomical sites, but mainly (75%) from wounds/skin lesions and abscesses in cats. The isolates were species identified with MALDI-TOF MS and *S. canis* and *S. equisimilis* cannot be separated by the method. The same cut-offs as for *Streptococcus equi* subsp. *zooepidemicus* have been applied for the tested beta-haemolytic streptococci isolates. 
+
+Resistance data for beta-haemolytic streptococci isolated from cats were included in Swedres-Svarm 2011 (n=184), 2022 (n=128), 2023 (n=96), 2024 (n=94) and in 2025 (n=97). As in earlier years, all the tested isolates were susceptible to penicillin in 2025. (@tbl-438). 
+
+Any reduced susceptibility to penicillin in beta-hemolytic streptococci should be confirmed, i.e. if tested on pure culture and ensuring that organism identification and antimicrobial susceptibility test are accurate and reproducible. 
+
+The isolates were screened for erythromycin-induced clindamycin resistance. One isolate displayed such resistance. 
+
+Beta-haemolytic streptococci have a low inherent susceptibility to fluoroquinolones (e.g. enrofloxacin), aminoglycosides (e.g. gentamicin) and tetracyclines. 
+
+::: {.panel-tabset}
+###### Table
+```{r}
+#| label: tbl-438
+#| echo: false
+#| message: false
+#| warning: false
+
+# Read source data from the Excel sheet
+tbl <- make_mic_table_from_excel("data/Table 4.38 betahem.strept katt.xlsx")
+
+make_mic_gt(data = tbl$data,
+            mic_cols = tbl$mic_cols,
+            breakpoint_col = "Cut-off value (mg/L)",
+            tested_range_col = "Tested range (mg/L)",
+            footnotes = c("Denotes resistance, including isolates with inducible resistance (1 isolate).",
+                          "Concentration of trimethoprim given, tested in concentration ratio 1/20 (trimethoprim/sulphamethoxazole)."))
+
+
+```
+
+###### Data
+```{r}
+data <- load_from_excel(path_file = "data/Table 4.38 betahem.strept katt.xlsx",  sheet = "data")
+df <- data$fig_data
+df |>
+  make_table_data_tab(file_name = "tab438")
+```
+:::
+

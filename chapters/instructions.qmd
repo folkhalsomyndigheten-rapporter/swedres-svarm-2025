@@ -1,0 +1,90 @@
+---
+format:
+  html:
+    embed-resources: false
+    toc: true
+execute:
+  echo: false
+  warnings: false
+  error: false
+---
+
+# How to Contribute to the Swedres-Svarm Report  {.unnumbered}
+
+Welcome to the **Swedres-Svarm 2025** collaborative report. Below are instructions for contributing your content.
+
+---
+
+## Folder and File Structure
+- Each **chapter** is a folder within the `content/` directory.
+- Edit the text directly in the `.qmd` files of your assigned chapter.
+- Place all data files in the `data/` folder within your chapter’s directory.
+
+---
+
+## Naming and Organizing Data Files
+-   Place all data files in the `data/` folder within your chapter’s directory.
+-   **Naming Convention**
+    -  please name the files for the figure/table using a brief and unique name. It may be good to include the overall chapter number. Please use _ and - instead of blank spaces.
+    -  fig_[#]_[short-name].ext (e.g., `fig_3_esbl-trends.xlsx`)
+-   **Excel File Structure**:
+    -   **Cell B1**: Figure/table caption.
+    -   **Cell B2**: Alternative text for accessibility.
+    -   **Data**: Place the data directly below these cells (starting from A3).
+    -   **Optional**: Include a rough Excel figure (e.g., draft chart/table) to illustrate intended visualizations.
+
+---
+
+## Chapters Overview
+The report is organized into the following parts and chapters:
+
+### 1. Sales of Antibiotics for Humans
+
+### 2. Sales of Antibiotics for Animals
+
+### 3. Antibiotic Resistance in Humans
+
+### 4. Antibiotic Resistance in Animals
+
+### 5. Comparative Analysis
+
+### 6. Background, Data, Material, Methods, and References
+
+---
+
+## General Guidelines
+- **Text**: Edit only the `.qmd` files in your assigned chapter folder.
+- **Data**: Ensure data files are up-to-date and correctly named.
+- **Consistency**: Follow the structure and style of previous reports.
+
+---
+
+## References
+
+- Add your references to the `references.bib` file in **BibTeX format**. Example entries:
+
+  ```bibtex
+  @report{swedres2024,
+    title     = {Swedres-Svarm 2024: Consumption of Antibiotics and Occurrence of Antibiotic Resistance in Sweden},
+    author    = {{Public Health Agency of Sweden & The Swedish Veterinary Agency of Sweden}},
+    year      = {2024},
+    institution = {Folkhälsomyndigheten},
+    address   = {Stockholm, Sweden},
+    url       = {https://www.folkhalsomyndigheten.se/swedres}
+  }
+```
+---
+
+## Need Help?
+
+> "There is no stupid question." --- Julius 
+
+- For technical issues, contact the report coordinator.
+- For content questions, reach out to your section lead.
+
+---
+Thank you for your contribution!
+
+
+
+

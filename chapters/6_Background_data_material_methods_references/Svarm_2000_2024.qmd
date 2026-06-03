@@ -1,0 +1,25 @@
+---
+format:
+  html:
+    embed-resources: false
+
+execute:
+  cache: false
+  echo: false
+  warnings: false
+  error: false
+---
+
+```{r}
+#| results: "asis"
+#| echo: false
+#| warning: false
+#| message: false
+source("../../_common.R")
+status(type = "polishing")
+```
+
+## Svarm 2000-2025
+
+The number of isolates of different matrices reported in Svarm since 2000 is available as supplementary material on the 
+[SVA web page](https://www.sva.se/en/what-we-do/antibiotics/svarm-resistance-monitoring/supplementary-material/).

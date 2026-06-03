@@ -1,0 +1,293 @@
+---
+format:
+  html:
+    embed-resources: false
+
+execute:
+  cache: false
+  echo: false
+  warnings: false
+  error: false
+---
+
+```{r}
+#| results: "asis"
+#| echo: false
+#| warning: false
+#| message: false
+source("../../_common.R")
+status(type = "polishing")
+```
+
+## *Staphylococcus aureus* including MRSA
+
+### Mandatory reporting of methicillin-resistant *Staphylococcus aureus*
+
+#### Results
+
+-	Number of reported cases: 4 147 (previous year 3 937), relative change +5%
+-	Number of bloodstream infections: 131 (previous year 123)
+
+####  Trends
+In 2025, the incidence of MRSA was 39 cases per 100 000 inhabitants, compared to 37 cases per 100 000 inhabitants in 2024 (@fig-3-16). The number of cases reported with clinical infections was 2 303 (56%), while 1 703 cases (41%) were listed as carriers. 
+
+There was almost equal distribution between women and men, with a median age of 36 for all cases. Among the domestic MRSA cases (n=2 614, 63%), children below one year of age (n=211, 215 cases/100 000 inhabitants) had the highest incidence, followed by the elderly, 85 years or older (n=237, 78 cases/100 000 inhabitants). The high incidence of MRSA among the young children is likely due to screening practices at neonatal- and maternal care units in combination with contact tracing around new cases.  
+
+Community-acquired infections continue to be the most prominent route of acquiring MRSA. Among MRSA cases acquired in Sweden, 25% (n=655) were reported as acquired from family/household contacts and 23% as community-acquired (n=598). The proportion of domestic cases with MRSA acquired in hospital as well as healthcare/care outside hospital was 5% and 8% respectively (n=123 and n=213), which is nearly the same as in previous years. More than a third (n=1 025) of domestic cases lacked information on the route of transmission.
+
+
+### Microbiological surveillance programme, MRSA
+Epidemiological typing of MRSA includes species identification, mecA/C and PVL detection, *spa*-typing, sequence typing (MLST) and genetic relatedness analysis, based on whole genome sequencing. The overall analyses for the national surveillance program 2025 are delayed. Below are preliminary results based on those reported to Sminet and from the analyses performed at the Public Health Agency so far.
+*Spa*-type (n=1 483) or sequence type (ST, n=1 702) was reported to Sminet for 3 134 cases (76%). At the Public Health Agency, *spa*-typing was performed for about 450 isolates in addition to those included in the national microbiological surveillance program. For a few cases, both *spa*-type and sequence type were reported. Over the past five years, the same 13 *spa*-types have consistently been among the top ten most common each year. These 13 types constituted 56% of all typed clinical isolates in 2025. While the ranking of the most common *spa*-types somewhat varied over time, t304 was the most prevalent every year for the past seven years. Additionally, the proportion of PVL-positive isolates was higher in clinical infection than in carriers. Among whole-genome sequenced isolates from clinical cases with ST reported to Sminet (n=1 002), the most common type was ST22 (14%, n=372), followed by ST8 and ST6.
+
+#### Clusters and outbreaks
+
+In 2025, the Public Health Agency sequenced 100 isolates for regions as part of outbreak investigations and/or within the national microbial surveillance program for children in neonatal care. Of these, 69 were part of 22 distinct clusters, each containing 2–8 isolates. The remaining 31 isolates showed no genetic relationship to any previously sequenced isolate at the Public Health Agency. Among the 37 isolates from neonatal units, 17 were not genetically related to any other sequenced isolate.  
+
+#### Comments
+In summary, the incidence of MRSA increased in 2025, surpassing pre-pandemic levels from the three prior years. The increase was most pronounced in domestically acquired cases and in cases with clinical infections. Additionally, the number of cases with MRSA in bloodstream infections continued to increase.
+
+
+
+@fig-3-16 is Figure_3.16_25.xlsx
+
+::: panel-tabset
+###### Figure
+```{r}
+data <- load_from_excel(path_file = "data/Figure_3.16_25.xlsx")
+
+df <- data$fig_data |>
+  rename(year = Year) |>
+  dplyr::select(1:5) |> 
+  pivot_longer(cols = -year, names_to = "feature")
+```
+
+```{r}
+#| label: fig-3-16
+#| fig-cap: !expr glue::glue("{data$fig_cap}")
+#| fig-alt: !expr glue::glue("{data$fig_alt}")
+#| warning: false
+p <- df |> 
+  mutate(data_id = row_number(),
+         tooltip_l = glue::glue('{feature}'),
+         tooltip_p  = glue::glue('<b>Year:</b> {year}
+                                   <b>Infection type:</b> {feature}
+                                   <b>Incidens:</b> {round(value,2)} cases/100 000 inhabitants)')) |> 
+  ggplot(aes(x=factor(year),
+             y=value,
+             color=feature,
+             group=feature, 
+             data_id = data_id)) +
+  geom_line_interactive(aes(tooltip=tooltip_l),
+                        lwd=.5) +
+  geom_point_interactive(aes(tooltip=tooltip_p),
+                         hover_nearest = TRUE) +
+    scale_y_continuous(expand = c(0,0),
+                       limits=c(0,50)) +
+scale_x_discrete(expand=c(0,0.2)) +
+  labs(y= "Incidence (cases/100 000 inhabitants)",
+       x= "Year") +
+    guides(color=guide_legend(nrow=1)) +
+  scale_color_SweSva() + 
+  add_fohm_caption() +
+  theme_SweSva() #+
+    #theme(plot.subtitle = element_text(vjust = -15)) #+
+  #theme_SweSva_rotate()
+
+make_dynamic_plot(plot = p, filename = "Fig3-16")
+```
+###### Data
+```{r}
+df |> 
+  rename("Infection type" = feature,
+         "Incidens (cases/100 000 inhabitants)" = value) |> 
+  make_table_data_tab(file_name = "Fig3-16")
+```
+:::
+
+
+
+
+### *Staphylococcus aureus* from blood and skin and soft tissue cultures
+
+The proportion of MRSA from blood and in skin and soft tissue infections is 2.4% and 2.9% respectively (@tbl-3-6, @fig-3-18 and @fig-3-19). Susceptibility testing to vancomycin is not routinely performed on cefoxitin-susceptible *S. aureus* and in 2025, 239 of 7 177 (3,3%) isolates from blood were tested for vancomycin resistance with no resistance detected.
+
+
+
+@fig-3-18 is Figure_3.18_Sau_blod
+
+```{r}
+#| message: false
+#| warning: false
+data <- load_from_excel(path_file = "data/Figure_3.18_Sau_blod.xlsx")
+
+df <- data$fig_data |>  
+  mutate(across(everything(), as.character)) |>
+    rename(antibiotic = Antibiotic) |> 
+
+  pivot_longer(cols = -antibiotic, names_to = "year_tmp") |> 
+  separate(year_tmp, into = c("year","feat"),sep = "-") |> 
+  mutate(feat = str_remove(feat,"\r\n")) |> 
+  mutate(value = as.numeric(value)) |> 
+  pivot_wider(names_from = feat, values_from = value) |> 
+    janitor::clean_names() |> 
+
+## confidence interval
+  rename(r_perc = percent_r,
+         tot_antal = n_tested) |> 
+  mutate(r_antal = round(tot_antal*(r_perc/100),0)) |> 
+  group_by(antibiotic, year) %>%
+  na.omit() |> 
+  get_wilson_ci()
+```
+
+::: panel-tabset
+###### Figure
+```{r}
+#| label: fig-3-18
+#| fig-cap: !expr glue::glue("{data$fig_cap}")
+#| fig-alt: !expr glue::glue("{data$fig_alt}")
+#| warning: false
+
+p <- df |>
+  filter(antibiotic != "Vancomycin") |> 
+  mutate(data_id=row_number(),
+       tooltip_p = glue::glue('<b>Year:</b>{year}
+                          <b>Antibiotic:</b>{antibiotic}
+                          <b>Resistance:</b> {round(r_perc,2)}%
+                          <b>Confidence interval:</b> {ci}'
+                                ),
+         tooltip_l = glue::glue('{antibiotic}')) |> 
+  ggplot(aes(x= year,
+             y=r_perc,
+             color = antibiotic,
+             data_id = antibiotic)
+  ) +
+  geom_line_interactive(aes(group=antibiotic, tooltip=tooltip_l),
+                        lwd=0.5) +
+  geom_point_interactive(aes(tooltip = tooltip_p),hover_nearest = TRUE) +
+  geom_errorbar_interactive(aes(ymin = r_perc - felstapel_low,
+                                ymax = r_perc + felstapel_high,
+                                tooltip = tooltip_p), 
+                            width=.15,linewidth = .5
+  ) +
+  scale_x_discrete(expand = c(0,0.2)) +
+    scale_y_continuous(breaks = perc_25,
+                       limits=c(0,25) #scales::pretty_breaks(), limits=c(0,8)
+                       ) +
+  guides(color=guide_legend(nrow=3)) +
+  scale_color_manual(values =  col_SweSva_9) +# c(fohmR::fohm_pal("diagram_discrete"),fohmR::fohm_pal("main")[3])) +   # scale_color_SweSva() +
+  labs(x="Year",
+       y="Resistance (%)") +
+ # scale_color_SweSva() +
+  theme_SweSva() +
+    theme(plot.subtitle = element_text(vjust = -15),
+          legend.text = element_text(size=8)) +
+  add_fohm_caption()
+
+
+make_dynamic_plot(plot = p, 
+                  filename = "fig-3-18")
+```
+###### Data
+```{r}
+df |> 
+  make_table_data_tab(file_name = "fig-3-18")
+```
+:::
+
+
+
+@fig-3-19 is Figure_3.19_SAU_Skin_2016_2025
+
+::: panel-tabset
+##### Figure 
+```{r}
+#| message: false
+#| warning: false
+data <- load_from_excel(path_file = "data/Figure_3.19_SAU_Skin_2016_2025.xlsx")
+
+df <- data$fig_data |>  
+  janitor::clean_names() |> 
+  rename(r_perc = percent_r,
+         felstapel_low = felstapel_lag,
+         felstapel_high = felstapel_hog) |> 
+  mutate(ci = paste0(felstapel_low,"-",felstapel_high))
+```
+
+```{r}
+#| label: fig-3-19
+#| fig-cap: !expr glue::glue("{data$fig_cap}")
+#| fig-alt: !expr glue::glue("{data$fig_alt}")
+#| warning: false
+p <- df |>
+  mutate(data_id=row_number(),
+    tooltip_p = glue::glue('<b>Year:</b> {year}
+                          <b>Antibiotic:</b> {antibiotic}
+                          <b>Resistance:</b> {round(r_perc,2)}%
+                          <b>Confidence interval:</b> {ci}'
+                                ),
+         tooltip_l = glue::glue('{antibiotic}')) |> 
+  ggplot(aes(x= year,
+             y=r_perc,
+             color = antibiotic,
+             data_id = antibiotic)
+  ) +
+  geom_line_interactive(aes(group=antibiotic, tooltip=tooltip_l),
+                        lwd=0.5) +
+  geom_point_interactive(aes(tooltip = tooltip_p),hover_nearest = TRUE) +
+  geom_errorbar_interactive(aes(ymin = r_perc - felstapel_low,
+                                ymax = r_perc + felstapel_high,
+                                tooltip = tooltip_p), 
+                            width=.15,linewidth = .5
+  ) +
+  scale_x_discrete(expand = c(0,0.2)) +
+    scale_y_continuous(breaks = perc_25,
+                       limits=c(0,25)
+) +
+  labs(x="Year",
+       y="Resistance (%)") +
+  scale_color_SweSva() +
+  theme_SweSva() +
+  add_fohm_caption()
+
+make_dynamic_plot(plot = p, 
+                  filename = "Fig3.19_Saureus_skin")
+```
+##### Data
+```{r}
+df |> 
+   make_table_data_tab(file_name = "Fig3.19_Saureus_skin")
+```
+:::
+
+
+@tbl-3-6 is Table_3.6_SAU_blod_hud_jmf2025.xlsx
+
+```{r}
+#| message: false
+#| warning: false
+data <- load_from_excel(path_file = "data/Table_3.6_SAU_blod_hud_jmf2025.xlsx")
+
+df <- data$fig_data |> 
+  mutate(across(c(2:3), as.numeric))
+```
+
+::: panel-tabset
+
+###### Table
+```{r}
+#| label: tbl-3-6
+#| tbl-cap: !expr glue::glue("{data$fig_cap}")
+df |> 
+  gt()|> 
+  gt_theme_SweSva() 
+```
+
+###### Data
+```{r}
+df |> 
+  make_table_data_tab(file_name = "Table3-6")
+```
+:::
+

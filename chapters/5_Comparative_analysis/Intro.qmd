@@ -1,0 +1,43 @@
+---
+format:
+  html:
+    embed-resources: false
+
+execute:
+  cache: false
+  echo: false
+  warnings: false
+  error: false
+---
+
+```{r}
+#| results: "asis"
+#| echo: false
+#| warning: false
+#| message: false
+source("../../_common.R")
+status(type = "drafting")
+```
+
+## Overview {.unnumbered}
+
+This chapter provides an overview of the current trends in ...
+
+---
+
+## Key Findings {.unnumbered}
+
+::: {.callout-tip}
+- **Point 1:** short summary here.
+- **Point 2:** short summary here.
+- **Point 3:** short summary here.
+- **Point 4:** short summary here.
+:::
+
+---
+
+## What to Expect in This Chapter {.unnumbered}
+
+- **Section 1:** Subheadline 1
+- **Section 2:** Subheadline 2
+- **Section 3:** Subheadline 3

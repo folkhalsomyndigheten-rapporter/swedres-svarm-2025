@@ -1,0 +1,96 @@
+---
+format:
+  html:
+    embed-resources: false
+
+execute:
+  cache: false
+  echo: false
+  warnings: false
+  error: false
+---
+
+```{r}
+#| results: "asis"
+#| echo: false
+#| warning: false
+#| message: false
+source("../../_common.R")
+status(type = "polishing")
+```
+
+## *Clostridioides difficile*
+
+#### Incidence of *Clostridioides difficile* infections
+
+In 2025, 6 067 new CDI cases were reported corresponding to an incidence of 60 cases per 100 000 inhabitants (total number and incidence corrected for missing data from one laboratory). A case is considered new if at least eight weeks have elapsed since the previous positive test, otherwise it is counted as an ongoing illness episode or recurrence . The incidence, is similar to the average incidence observed in the last three years (incidence 61). As in previous years, there are major differences between regions (spread 26-119 cases per 100 000 inhabitants; @fig-3-35).
+
+@fig-3-35 is Figure_3.35_25.xlsx
+
+::: panel-tabset
+```{r}
+ 
+data <- load_from_excel(path_file = "data/Figure_3.35_25.xlsx")
+
+df <- data$fig_data |> 
+  
+  pivot_longer(-region,names_to = "year") |> 
+  mutate(sort_fct.tmp = case_when(region=="Sweden" ~ 1,
+                              .default = 2),
+         year = factor(year,levels=c("Average 2022-2024","2025")))
+```
+
+
+###### Figure
+
+```{r}
+#| label: fig-3-35
+#| fig-cap: !expr glue::glue("{data$fig_cap}")
+#| fig-alt: !expr glue::glue("{data$fig_alt}")
+#| message: false
+#| warning: false
+
+p <- df |> 
+    mutate(data_id = row_number(),
+          tooltip_b = glue::glue('<b>Year:</b> {year}
+                                    <b>Region:</b> {region}
+                                    <b>Incidence:</b> {round(value,2)} cases/100 000 inhabitants')) |> 
+
+  ggplot(aes(x=value,
+             y=fct_reorder(region, value,.desc = F),
+             fill=factor(year),
+             data_id = data_id)) +
+  geom_bar_interactive(aes(tooltip = tooltip_b),
+           position="dodge", stat="identity",width = .9) +
+  labs(y = "Region",
+       x = "Incidence (cases/100 000 inhabitants)") +
+  #scale_y_discrete(expand=c(0,.1)) +
+  scale_x_continuous(expand=c(0,.1)) + # 0,.1
+  scale_fill_SweSva() + 
+  #  fohm_theme() +
+  #theme(axis.text.x = element_text(angle=90, vjust=0.5,hjust=1)) +
+  theme_SweSva() +
+  add_fohm_caption() +
+  theme(axis.text.x = element_text(angle=0, vjust = 0, hjust = 0.5),
+        panel.spacing.x = unit(1, "lines"),
+        panel.grid.major.x = element_line(linetype = "solid", linewidth = 0.25, 
+                                          color = "#999999"),
+        panel.grid.major.y = element_blank(),
+        axis.text.y = element_text(hjust=1),
+        plot.margin = margin(0, .4, 0, 0, "cm")  # Top, Right, Bottom, Left
+  )
+
+  
+make_dynamic_plot(plot = p, filename = "fig-3-35")
+```
+
+
+
+###### Data
+
+```{r}
+df |>
+  make_table_data_tab(file_name = "fig-3-35")
+```
+:::
+

@@ -1,0 +1,215 @@
+---
+format:
+  html:
+    embed-resources: false
+   # toc: true
+   # toc-depth: 2
+    #toc-expand: true
+execute:
+  cache: false
+  echo: false
+  warnings: false
+  error: false
+---
+
+```{r}
+#| results: "asis"
+#| echo: false
+#| warning: false
+#| message: false
+source("../../_common.R")
+status(type = "polishing")
+```
+
+
+## *Pseudomonas aeruginosa*
+
+ Resistance levels are stable for most antibiotics in both blood isolates and non-respiratory isolates (@tbl-3-10, @fig-3-29 and @fig-3-30). Resistance to ceftazidime is most often due to efflux pumps and porin loss, not ESBL production. Tobramycin has replaced gentamicin as the recommended aminoglycoside. Colistin resistance is occasionally seen in *P. aeruginosa* and is mainly tested in multiresistant isolates, most of which have a link to healthcare abroad. 
+
+
+### Microbiological surveillance programme, *Pseudomonas* spp. 
+
+In total, 56 unique (per patient, year, species and sequence type) *Pseudomonas* spp. isolates were analysed in 2025, of which 15 belonged to the microbiological surveillance program for ESBL~CARBA~-producing *Pseudomonas* spp. Eight of these isolates carried a bla~NDM~-gene, three bla~NDM~, two bla~VIM~ and two bla~IMP~. Three clusters were active during 2025, with four patients in the two largest clusters (bla~NDM~, bla~GES~), and two patients in the remaining cluster (bla~NDM~).
+
+
+@tbl-3-10 is Figure_3.29_Pae_blood.xlsx
+
+::: panel-tabset
+###### Figure
+```{r}
+#| message: false
+#| warning: false
+data <- load_from_excel(path_file = "data/Figure_3.29_Pae_blood.xlsx")
+
+df <- data$fig_data |>  
+  mutate(across(everything(), as.character)) |> 
+  pivot_longer(cols = -`Antibiotic (ntest_%R)`, names_to = "year_tmp") |> 
+  separate(year_tmp,into = c("year","feat"),sep = "_") |> 
+  mutate(value = as.numeric(value)) |> 
+  pivot_wider(names_from = feat, values_from = value) |> 
+  rename(antibiotic = `Antibiotic (ntest_%R)`) |> 
+  
+## confidence interval
+  rename(r_perc = R,
+         tot_antal = ntest) |> 
+  mutate(r_antal = round(tot_antal*(r_perc/100),0)) |> 
+  group_by(antibiotic, year) %>%
+  na.omit() |> 
+    get_wilson_ci()
+```
+
+```{r}
+#| label: fig-3-29
+#| fig-cap: !expr glue::glue("{data$fig_cap}")
+#| fig-alt: !expr glue::glue("{data$fig_alt}")
+#| warning: false
+
+p <- df |>
+  mutate(data_id=row_number(),
+ tooltip_p = glue::glue('<b>Year:</b>{year}
+                          <b>Antibiotic:</b>{antibiotic}
+                          <b>Resistance:</b> {round(r_perc,2)}% resistance
+                          <b>Confidence interval:</b> {ci}'
+                                ),
+         tooltip_l = glue::glue('{antibiotic}')) |> 
+  ggplot(aes(x= year,
+             y=r_perc,
+             color = antibiotic,
+             data_id = antibiotic)
+  ) +
+  geom_line_interactive(aes(group=antibiotic, tooltip=tooltip_l)) + 
+  geom_point_interactive(aes(tooltip = tooltip_p),hover_nearest = TRUE) +
+  geom_errorbar_interactive(aes(ymin = r_perc - felstapel_low,
+                                ymax = r_perc + felstapel_high,
+                                tooltip = tooltip_p), 
+                            width=.15,linewidth = .5
+  ) +
+  scale_x_discrete(expand = c(0,0.2)) +
+    scale_y_continuous(breaks = perc_25,#scales::pretty_breaks(),
+                       limits=c(0,25)) +
+  guides(color=guide_legend(nrow=3)) +
+
+  labs(x="Year",
+       y="Resistance (%)") +
+  scale_color_SweSva() +
+  theme_SweSva() +
+      theme(plot.subtitle = element_text(vjust = -15)) +
+
+  add_fohm_caption()
+
+make_dynamic_plot(plot = p, 
+                  filename = "Hannas_1st_plot")
+```
+###### Data
+```{r}
+df |> 
+  transmute(antibiotic,
+            year,
+            "number of total tests" = tot_antal,
+            "number of resistent tests" = r_antal,
+            "% resistent" = r_perc,
+            "Confidence interval" = ci) |> 
+  make_table_data_tab(file_name = "Hannas_1st_plot_data")
+```
+:::
+
+
+@fig-3-30 is Figure_3.30_PAE_Othr_2016_2025
+
+::: panel-tabset
+##### Figure 
+```{r}
+#| message: false
+#| warning: false
+data <- load_from_excel(path_file = "data/Figure_3.30_PAE_Othr_2016_2025.xlsx")
+
+df <- data$fig_data |>  
+  janitor::clean_names() |> 
+  rename(r_perc = proportion_of_resistant_isolates,
+         felstapel_low = felstapel_lag,
+         felstapel_high = felstapel_hog) |> 
+  mutate(ci = paste0(felstapel_low,"-",felstapel_high),
+         r_perc = r_perc*100)
+```
+
+```{r}
+#| label: fig-3-30
+#| fig-cap: !expr glue::glue("{data$fig_cap}")
+#| fig-alt: !expr glue::glue("{data$fig_alt}")
+#| warning: false
+p <- df |>
+  mutate(data_id=row_number(),
+         tooltip_p = glue::glue('<b>Year:</b>{year}
+                          <b>Antibiotic:</b>{antibiotic}
+                          <b>Resistance:</b> {round(r_perc,2)}% resistance
+                          <b>Confidence interval:</b> {ci}'
+                                ),
+         tooltip_l = glue::glue('{antibiotic}')) |> 
+  ggplot(aes(x= factor(year),
+             y=r_perc,
+             color = antibiotic,
+             data_id = antibiotic)
+  ) +
+  geom_line_interactive(aes(group=antibiotic, tooltip=tooltip_l)) +
+  geom_point_interactive(aes(tooltip = tooltip_p),hover_nearest = TRUE) +
+  geom_errorbar_interactive(aes(ymin = r_perc - felstapel_low,
+                                ymax = r_perc + felstapel_high,
+                                tooltip = tooltip_p), 
+                            width=.15,linewidth = .5
+  ) +
+  scale_x_discrete(expand = c(0,0.2)) +
+   # scale_y_continuous(breaks = c(-1,1)) + #scales::pretty_breaks()) +
+    scale_y_continuous(breaks = perc_25,
+                       limits=c(0,25)) +
+
+  labs(x="Year",
+       y="Resistance (%)") +
+  scale_color_SweSva() +
+  theme_SweSva() +
+  theme(plot.subtitle = element_text(vjust = -15)) +
+  add_fohm_caption()
+
+make_dynamic_plot(plot = p, 
+                  filename = "Fig3.30_PAE_other")
+```
+
+##### Data
+```{r}
+df |> 
+   make_table_data_tab(file_name = "Fig3.30_PAE_other")
+```
+:::
+
+
+
+
+@tbl-3-10 is Table_3.10_Pae
+
+```{r}
+#| message: false
+#| warning: false
+data <- load_from_excel(path_file = "data/Table_3.10_Pae.xlsx")
+
+df <- data$fig_data |> 
+  mutate(across(c(2:3), as.numeric))
+```
+
+::: panel-tabset
+
+###### Table
+```{r}
+#| label: tbl-3-10
+#| tbl-cap: !expr glue::glue("{data$fig_cap}")
+df |> 
+  gt()|> 
+  gt_theme_SweSva() 
+```
+
+###### Data
+```{r}
+df |> 
+  make_table_data_tab(file_name = "Table3-10")
+```
+:::
+
+

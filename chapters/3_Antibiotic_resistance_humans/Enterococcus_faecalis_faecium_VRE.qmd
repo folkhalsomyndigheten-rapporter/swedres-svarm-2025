@@ -1,0 +1,425 @@
+---
+format:
+  html:
+    embed-resources: false
+
+execute:
+  cache: false
+  echo: false
+  warnings: false
+  error: false
+---
+
+```{r}
+#| results: "asis"
+#| echo: false
+#| warning: false
+#| message: false
+source("../../_common.R")
+status(type = "polishing")
+```
+
+
+## *Enterococcus faecalis* and *Enterococcus faecium* including VRE
+
+### Mandatory reporting of vancomycin-resistant enterococci
+
+#### Results
+
+-	Total number of reported cases: 516 (previous year: 390), relative change +32%.
+-	Number of reported cases of *E. faecium* with vancomycin resistance: 502 (previous year: 372), relative change +35%
+-	Number of reported cases of *E. faecalis* with vancomycin resistance: 14 (previous year: 18)
+-	There were eight cases infected with both *E. faecium* and *E. faecalis*
+-	Number of bloodstream infections: 10 (previous year: 6)
+
+
+#### Trends
+
+In 2025, the incidence of VRE increased to 4.9 cases per 100 000 inhabitants from 3.7 cases per 100 000 inhabitants in 2024. Eighteen of the 21 regions reported cases of VRE in 2025. Of these cases, 77% (n=395) were healthcare-related. The majority of the isolates (n=449, 87%) were from faecal, rectal and perineal samples, while only 7% were from urine, abscess or wound samples (@fig-3-20). Ten invasive VRE infections were reported in 2025. The majority of cases (n=398, 77%) were reported as acquired in Sweden. Of these, 50% were identified through contact tracing and 34% through screening. Among cases acquired abroad (n=104), most were detected through screening (81%). The median age for VRE cases was 71 (range: 0–95+ years) and VRE remains most common among men (61%). In 2025, 502 cases of *E. faecium* and 14 cases of *E. faecalis* were reported. The *van*A genotype was most common among *E. faecium* (n=441) (@fig-3-21). In some cases, mulitple genotypes of VRE were detected in the same patient. Thus, a few more isolates than cases were epidemiologically typed. 
+
+### Microbiological surveillance programme, VRE
+
+Whole genome sequencing (WGS) with single nucleotide polymorphism (SNP)-based analysis and multilocus sequence typing (MLST) are used for epidemiological typing of VRE. The national VRE cluster nomenclature is as follows: species (Efm = *E. faecium*, Efs = *E. faecalis*) followed by *van*-gene (A or B), year of detection and a consecutive number for each type found each year, e.g. SE-EfmB-2503. Isolates with no relation to other VRE isolates in the national database are denoted as unique (EfmA unique).
+In 2025, there were seven large hospital-related outbreaks, each involving 10-80 cases (@fig-3-22). Of these, three outbreaks (SE-EfmA-2404, SE-EfmB-2408 and SE-EfmA-2424) were identified in 2024 and continued to spread in 2025. Additionally, 29 smaller clusters (each with 2-5 cases) were reported in 2025, all *E. faecium*.
+
+Among the ten invasive cases, nine cases were caused by *E. faecium* with vanA (belonging to the outbreak strains SE-EfmA-2404, SE-EfmA-2424, SE-EfmA-2502, SE-EfmA-2503, SE-EfmA-2516, and two unique isolates), and one case was *E. faecium* with vanB (SE-EfmB-2510). 
+During the year, vancomycin-variable enterococci (VVE) were detected in two clusters: SE-EfmA-2502 (ST117) and SE-EfmA-2503 (ST1421). The SE-EfmA-2503 cluster included five cases, all of which were VVE, while SE-EfmA-2502 comprised 31 cases, 10 of which were VVE. Additionally, a single VVE isolate was identified in cluster SE-EfmA-2424 (ST80), which otherwise contained vancomycin-resistant isolates. VVE classification was based on laboratory reports indicating phenotypic susceptibility to vancomycin despite the presence of the *van*A gene. Genes and/or mutations associated with linezolid resistance were detected in eight isolates.
+
+#### Comments
+
+In summary, the number of VRE cases increased by 32% in 2025. This increase was primarily driven by multiple outbreaks in hospitals. This highlights the importance of preventing VRE transmission in healthcare settings. Epidemiological typing provides a critical tool for monitoring and investigating VRE spread. Culture and typing results are often required to initiate and justify the extensive measures required to control VRE outbreaks.
+
+
+@fig-3-20 is Figure_3.20_SA_VRE_type_infection
+
+```{r}
+#| message: false
+#| warning: false
+data <- load_from_excel(path_file = "data/Figure_3.20_SA_VRE_type_infection.xlsx")
+
+df <- data$fig_data |>  
+ # mutate(across(everything(), as.character)) |>
+  pivot_longer(cols = -year, names_to = "type", values_to = "value") 
+```
+::: panel-tabset
+###### Figure
+```{r}
+#| label: fig-3-20
+#| fig-cap: !expr glue::glue("{data$fig_cap}")
+#| fig-alt: !expr glue::glue("{data$fig_alt}")
+#| warning: false
+
+p <- df |>
+  mutate(data_id=row_number(),
+         tooltip_l = glue::glue('{type}'),
+         tooltip_p  = glue::glue('<b>Year:</b> {year}
+                                  <b>Type of infection:</b> {type}
+                                  <b>Incidence:</b> {round(value,2)} cases/100 000 inhabitants')) |>
+
+  ggplot(aes(x= factor(year),
+             y=value,
+             color = type,
+             data_id = type)
+  ) +
+  geom_line_interactive(aes(group=type, tooltip=tooltip_l),
+                        lwd=0.5) +
+  geom_point_interactive(aes(tooltip = tooltip_p), hover_nearest = TRUE) +
+
+  scale_x_discrete(expand = c(0,0.2)) +
+    scale_y_continuous(breaks = scales::pretty_breaks()) +
+
+  labs(x="Year",
+       y="Incidence (cases/100 000 inhabitants)") +
+  scale_color_SweSva() +
+  theme_SweSva() +
+  add_fohm_caption() #+
+  #theme_SweSva_rotate()
+
+make_dynamic_plot(plot = p, 
+                  filename = "fig-3-20")
+```
+###### Data
+```{r}
+df |> 
+  make_table_data_tab(file_name = "fig-3-20")
+```
+:::
+
+
+
+@fig-3-21 is Figure_3.21_VRE_van_type
+
+```{r}
+#| message: false
+#| warning: false
+data <- load_from_excel(path_file = "data/Figure_3.21_VRE_van_type.xlsx")
+
+df <- data$fig_data |>  
+ # mutate(across(everything(), as.character)) |>
+  pivot_longer(cols = -year, names_to = "type", values_to = "value") 
+```
+::: panel-tabset
+###### Figure
+```{r}
+#| label: fig-3-21
+#| fig-cap: !expr glue::glue("{data$fig_cap}")
+#| fig-alt: !expr glue::glue("{data$fig_alt}")
+#| warning: false
+
+p <- df |>
+   mutate(data_id=row_number(),
+         tooltip_l = glue::glue('{type}'),
+         tooltip_p  = glue::glue('<b>Year:</b> {year}
+                                  <b>Type of case:</b> {type}
+                                  <b>Number of cases:</b> {round(value,2)}')) |>
+  ggplot(aes(x= factor(year),
+             y=value,
+             color = type,
+             data_id = type)
+  ) +
+  geom_line_interactive(aes(group=type, tooltip=tooltip_l),
+                        lwd=0.5) +
+  geom_point_interactive(aes(tooltip = tooltip_p), hover_nearest = TRUE) +
+
+  scale_x_discrete(expand = c(0,0.2)) +
+    scale_y_continuous(breaks = scales::pretty_breaks()) +
+
+  labs(x="Year",
+       y="Number of cases") +
+    guides(color=guide_legend(nrow=2)) +
+  scale_color_SweSva() +
+ # theme_SweSva() +
+  theme_SweSva(markdown = c("legend.text")) +
+  add_fohm_caption() +
+      theme(plot.subtitle = element_text(vjust = -15)) #+
+
+  #theme_SweSva_rotate()
+
+make_dynamic_plot(plot = p, 
+                  filename = "fig-3-21")
+```
+###### Data
+```{r}
+df |> 
+  make_table_data_tab(file_name = "fig-3-21")
+```
+:::
+
+
+@fig-3-22 is Figure_3.22_VRE_outbreaks
+
+::: panel-tabset
+###### Figure
+```{r}
+data <- load_from_excel(path_file = "data/Figure_3.22_VRE_outbreaks.xlsx")
+
+df <- data$fig_data |>
+  pivot_longer(cols = -cluster, names_to = "feature") |> 
+  na.omit()
+spec_ordning <- data$fig_data |> pull(cluster)
+```
+
+```{r}
+#| label: fig-3-22
+#| fig-cap: !expr glue::glue("{data$fig_cap}")
+#| fig-alt: !expr glue::glue("{data$fig_alt}")
+#| warning: false
+p <- df |> 
+  mutate(cluster = factor(cluster, levels=rev(spec_ordning)),
+         data_id = row_number(),
+         tooltip_b = glue::glue('<b>Cluster:</b> {cluster}
+                                    <b>Gene:</b> {feature}
+                                     <b>Numer of cases:</b> {value}')) |> 
+  
+  ggplot(aes(x = value,
+             y = factor(cluster), 
+             fill=factor(feature),
+             data_id = feature)) +
+  geom_col_interactive(aes(tooltip = tooltip_b),
+                       width = 0.9,
+                       position = position_dodge(0.7)) +
+  labs(x = "Number of cases",
+       y="Cluster") +
+  scale_x_continuous(expand=c(0,.1)) +
+  scale_y_discrete(expand=c(0,0.1)) +
+
+  scale_fill_SweSva() + 
+  theme_SweSva() +
+ # theme_SweSva_facet() +
+  add_fohm_caption() +
+  theme(axis.text.x = element_text(angle=0, vjust = 0, hjust = 0.5),
+        axis.text.y = element_text(hjust=1),
+        panel.spacing.x = unit(1, "lines"),
+        panel.grid.major.x = element_line(linetype = "solid", 
+                                          linewidth = 0.25, 
+                                          color = "#999999"),
+        panel.grid.major.y = element_blank(),
+        plot.margin = margin(0, .4, 0, 0, "cm")  # Top, Right, Bottom, Left
+  )
+
+make_dynamic_plot(plot = p, filename = "Fig3-22")
+```
+###### Data
+```{r}
+df |> 
+  make_table_data_tab(file_name = "Fig3-22")
+```
+:::
+
+
+
+## *Enterococcus faecalis* and *Enterococcus faecium*, from blood cultures
+
+#### Results
+
+The vancomycin resistance among invasive isolates remains low and was 2.2% for *E. faecium* and 0.1% for *E. faecalis*. High-level aminoglycoside resistance (HLAR) has increased since 2023 for *E. faecium* (@tbl-3-7, @fig-3-23 and @fig-3-24).
+
+
+@tbl-3-7 is Table_3.7_Enterococcus.xlsx
+
+```{r}
+#| message: false
+#| warning: false
+data <- load_from_excel(path_file = "data/Table_3.7_Enterococcus.xlsx")
+
+df <- data$fig_data #|> 
+  #mutate(across(c(2:3), as.numeric))
+```
+
+::: panel-tabset
+###### Table
+```{r}
+#| label: tbl-3-7
+#| tbl-cap: !expr glue::glue("{data$fig_cap}")
+df |> 
+  gt()|> 
+  gt_theme_SweSva() |> 
+   fmt_markdown(columns = everything())
+```
+
+
+###### Data
+```{r}
+df |> 
+  make_table_data_tab(file_name = "Table3-7")
+```
+:::
+
+
+@fig-3-23 is Figure_3.23_Efs_blood.xlsx
+
+::: panel-tabset
+##### Figure 
+```{r}
+#| message: false
+#| warning: false
+data <- load_from_excel(path_file = "data/Figure_3.23_Efs_blood.xlsx")
+
+df <- data$fig_data |>  
+   mutate(across(everything(), as.character)) |>
+  rename(antibiotic = Antibiotic) |> 
+  
+  pivot_longer(cols = -antibiotic, names_to = "year_tmp") |> 
+  separate(year_tmp, into = c("year","feat"),sep = "-") |> 
+  mutate(feat = str_remove(feat,"\r\n")) |> 
+  mutate(value = as.numeric(value)) |> 
+  pivot_wider(names_from = feat, values_from = value) |> 
+  janitor::clean_names() |> 
+   
+  ## confidence interval
+  rename(r_perc = percent_r,
+         tot_antal = n_tested) |> 
+  mutate(r_antal = round(tot_antal*(r_perc/100),0)) |> 
+  group_by(antibiotic, year) %>%
+  na.omit() |> 
+  get_wilson_ci()
+
+#  rename(r_perc = percent_r,
+#         felstapel_low = felstapel_lag,
+#         felstapel_high = felstapel_hog) |> 
+#  mutate(ci = paste0(felstapel_low,"-",felstapel_high))
+```
+
+```{r}
+#| label: fig-3-23
+#| fig-cap: !expr glue::glue("{data$fig_cap}")
+#| fig-alt: !expr glue::glue("{data$fig_alt}")
+#| warning: false
+p <- df |>
+  mutate(data_id=row_number(),
+    tooltip_p = glue::glue('<b>Year:</b> {year}
+                          <b>Antibiotic:</b> {antibiotic}
+                          <b>Resistance:</b> {round(r_perc,2)}%
+                          <b>Confidence interval:</b> {ci}'
+                                ),
+         tooltip_l = glue::glue('{antibiotic}')) |> 
+  ggplot(aes(x= year,
+             y=r_perc,
+             color = antibiotic,
+             data_id = antibiotic)
+  ) +
+  geom_line_interactive(aes(group=antibiotic, tooltip=tooltip_l),
+                        lwd=0.5) +
+  geom_point_interactive(aes(tooltip = tooltip_p),hover_nearest = TRUE) +
+  geom_errorbar_interactive(aes(ymin = r_perc - felstapel_low,
+                                ymax = r_perc + felstapel_high,
+                                tooltip = tooltip_p), 
+                            width=.15,linewidth = .5
+  ) +
+  scale_x_discrete(expand = c(0,0.2)) +
+    scale_y_continuous(breaks = perc_25,#scales::pretty_breaks(),
+                       limits=c(0,25)
+) +
+  labs(x="Year",
+       y="Resistance (%)") +
+  scale_color_SweSva() +
+  theme_SweSva() +
+  add_fohm_caption()
+
+make_dynamic_plot(plot = p, 
+                  filename = "Fig3-23")
+```
+##### Data
+```{r}
+df |> 
+   make_table_data_tab(file_name = "Fig3-23")
+```
+:::
+
+@fig-3-24 is Figure_3.24_Efm_blood.xlsx
+
+::: panel-tabset
+##### Figure 
+```{r}
+#| message: false
+#| warning: false
+data <- load_from_excel(path_file = "data/Figure_3.24_Efm_blood.xlsx")
+
+df <- data$fig_data |>  
+   mutate(across(everything(), as.character)) |>
+  rename(antibiotic = Antibiotic) |> 
+  
+  pivot_longer(cols = -antibiotic, names_to = "year_tmp") |> 
+  separate(year_tmp, into = c("year","feat"),sep = "-") |> 
+  mutate(feat = str_remove(feat,"\r\n")) |> 
+  mutate(value = as.numeric(value)) |> 
+  pivot_wider(names_from = feat, values_from = value) |> 
+  janitor::clean_names() |> 
+   
+  ## confidence interval
+  rename(r_perc = percent_r,
+         tot_antal = n_tested) |> 
+  mutate(r_antal = round(tot_antal*(r_perc/100),0)) |> 
+  group_by(antibiotic, year) %>%
+  na.omit() |> 
+  get_wilson_ci()
+
+```
+
+```{r}
+#| label: fig-3-24
+#| fig-cap: !expr glue::glue("{data$fig_cap}")
+#| fig-alt: !expr glue::glue("{data$fig_alt}")
+#| warning: false
+p <- df |>
+  mutate(data_id=row_number(),
+    tooltip_p = glue::glue('<b>Year:</b> {year}
+                          <b>Antibiotic:</b> {antibiotic}
+                          <b>Resistance:</b> {round(r_perc,2)}%
+                          <b>Confidence interval:</b> {ci}'
+                                ),
+         tooltip_l = glue::glue('{antibiotic}')) |> 
+  ggplot(aes(x= year,
+             y=r_perc,
+             color = antibiotic,
+             data_id = antibiotic)
+  ) +
+  geom_line_interactive(aes(group=antibiotic, tooltip=tooltip_l),
+                        lwd=0.5) +
+  geom_point_interactive(aes(tooltip = tooltip_p),hover_nearest = TRUE) +
+  geom_errorbar_interactive(aes(ymin = r_perc - felstapel_low,
+                                ymax = r_perc + felstapel_high,
+                                tooltip = tooltip_p), 
+                            width=.15,linewidth = .5
+  ) +
+  scale_x_discrete(expand = c(0,0.2)) +
+    scale_y_continuous(breaks = perc_100,#scales::pretty_breaks(),
+                       limits=c(0,100)
+) +
+  labs(x="Year",
+       y="Resistance (%)") +
+  scale_color_SweSva() +
+  theme_SweSva() +
+  add_fohm_caption()
+
+make_dynamic_plot(plot = p, 
+                  filename = "Fig3-24")
+```
+##### Data
+```{r}
+df |> 
+   make_table_data_tab(file_name = "Fig3-24")
+```
+:::
+
+

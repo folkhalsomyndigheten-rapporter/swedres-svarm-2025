@@ -1,0 +1,380 @@
+---
+format:
+  html:
+    embed-resources: false
+
+execute:
+  cache: false
+  echo: false
+  warnings: false
+  error: false
+#bibliography: ../../references.bib
+---
+
+```{r}
+#| results: "asis"
+#| echo: false
+#| warning: false
+#| message: false
+source("../../_common.R")
+status(type = "polishing")
+```
+
+
+## Notifiable diseases {#sec-notifiable}
+
+In Sweden, findings of carbapenemase-producing Enterobacterales (ESBL~CARBA~) and methicillin-resistant coagulase-positive staphylococci in animals are notifiable (SJVFS 2021:10 and previously SJVFS 2012:24 with amendments). In the monitoring, the attention regarding methicillin-resistant coagulase-positive staphylococci is mainly directed towards methicillin-resistant *Staphylococcus aureus* (MRSA) and *Staphylococcus pseudintermedius* (MRSP). Furthermore, as Enterobacterales producing classical ESBLs (ESBL~A~) or plasmid-mediated AmpC (ESBL~M~) as well as vancomycin resistant enterococci (VRE) are notifiable when detected in humans, specific attention is also paid to these bacteria in animals. 
+
+### ESBL-producing Enterobacterales
+
+#### Healthy farm animals 
+
+##### *Escherichia coli* 
+
+In Sweden, ESBL~CARBA~ in animals are notifiable but not ESBL~A~ or ESBL~M~. During 2025, various samples from healthy farm animals were screened for *Escherichia coli* resistant to ESCs and carbapenems using selective media. Isolates with reduced susceptibility were further investigated by genome sequencing for presence of transferable genes coding for ESC resistance (@sec-NEEDS-TO-BE-ADDED-WHEN-SECTION-IS-READY for details see Material and methods, resistance in bacteria from animals).  
+
+Active screening for *E. coli* resistant to ESCs in healthy farm animals using faecal samples collected at slaughter has been performed since 2008. The proportions of samples positive for *E. coli* with ESBL~A~ or ESBL~M~ in screenings of healthy animals are available as supplementary material on [the SVA web page](https://www.sva.se/en/what-we-do/antibiotics/svarm-resistance-monitoring/supplementary-material/){target="_blank"}. 
+ 
+###### Fattening pigs 
+
+Samples from fattening pigs were collected at slaughter under the supervision of the National Food Agency (SLV) at six abattoirs that together processed more than 85% of the total number of pigs slaughtered in Sweden 2025. The number of samples from each abattoir was roughly proportional to the annual slaughter volume of the abattoir. Each sample was randomly selected but represented a unique herd per day. Samples were sent to SVA for culture the same day or the next day after collecting and in meantime kept refrigerated. 
+
+Carbapenem resistant *E. coli* was not isolated from any of the 301 investigated samples. 
+
+*Escherichia coli* with ESC-resistance was isolated from 6 (2%) of the 301 investigated samples and a transferable gene coding for ESC resistance was detected in 5 isolates, i.e. 2% of the samples (@tbl-41). All five isolates with a transferable gene had an ESBL~A~ phenotype and carried *bla*~CTX-M-15~ (n=2), *bla*~CTX-M-14~ (n=1), *bla*~CTX-M-55~ (n=1), and *bla*~SHV-12~ (n=1). The remaining isolate with ESC-resistance had an AmpC phenotype and genome sequencing revealed a mutation causing hyper-production of AmpC beta-lactamases, i.e. a shift from C to T at position 42 of the *ampC* promoter. 
+
+All the isolates with transferable ESC-resistance were also resistant to ciprofloxacin and tetracycline. Furthermore, resistance to sulfamethoxazole and trimethoprim were detected in four isolates respectively, resistance to azithromycin and chloramphenicol were detected in two isolates respectively, and resistance to gentamicin was detected in one isolate.  
+
+The proportion of samples with ESC-resistant *E. coli* (2%) is comparable to 2023 (3%) but lower than in previous years (8% in 2021 and 12-13% in 2015-2019). The reason(s) for this change is not known. The proportion of samples with transferable ESC resistance has always been lower and hence the difference is less visible for this subset.
+
+###### Broilers 
+
+Samples from broilers were randomly selected among caeca collected at slaughter within the Swedish Campylobacter programme, in which whole caeca are collected from each batch of broilers slaughtered. From these samples, 50 were selected in April-May and 50 in October-December. Each sample was from a unique flock but not always from a unique production site. Samples cultured were collected at seven abattoirs that in 2025 accounted for approximately 98% of the total volume of broilers slaughtered. The number of samples from each abattoir was roughly proportional to the annual slaughter volume of the abattoir and the sampling was distributed over the year.  
+
+Carbapenem resistant *E. coli* was not isolated from any of the 100 investigated samples. 
+
+*Escherichia coli* with ESC-resistance was not isolated from any of the 100 investigated samples (@tbl-41). This is the first time since selective methods to detect *E. coli* with ESC-resistance among broilers was introduced in the Svarm monitoring in 2010 that all samples are negative. However, only a limited number of samples were investigated in 2025, and it is uncertain if the situation will remain when a larger number of samples are investigated in 2026. 
+
+Due to differences in methodology over the years, changes in the proportion of positive samples over the whole time period cannot be directly assessed. However, some comparison with earlier years is possible as the samples from 2015 and the first half of 2016 as well as the samples from 2021 were cultured in duplicate with both methods that were relevant for the respective years (@sec-NEEDS-TO-BE-ADDED-WHEN-SECTION-IS-READY for details on methodology see Material and methods, resistance in bacteria from animals in relevant Swedres-Svarm reports). The difference in the proportion of broiler caecal samples positive for *E. coli* with ESBL~A~ or ESBL~M~ since 2016 is statistically significant (p<0.01, X^2^; @fig-41). This decrease is most likely explained by decreased occurrence of such bacteria in the breeding pyramid [@nilsson2020decreased]. 
+
+```{r}
+#| include: false
+# hidden chunk to read captions
+dat_41 <- load_from_excel("data/Figure 4.1 - Development ESBL broiler 3 odlingar.xlsx", sheet = "Data utveckling ESBL")
+fig_41_cap <- dat_41$fig_cap
+fig_41_alt <- dat_41$fig_alt 
+```
+
+
+::: {.panel-tabset}
+###### Figure
+```{r}
+#| label: fig-41
+#| echo: false
+#| message: false
+#| warning: false
+#| fig-cap: !expr fig_41_cap
+#| fig-alt: !expr fig_41_alt
+
+
+
+dat_41_long <- dat_41$fig_data |> 
+  pivot_longer(cols = -Year, names_to = "method", values_to = "value", values_drop_na = TRUE)
+
+df_fig_41 <- dat_41_long |>
+  mutate(tooltip_l = glue::glue('{method}'),
+         tooltip_p = paste0("<b>Year:</b> ", Year, "<br><b>Method:</b> ", method, 
+                          "<br><b>Value:</b> ", value), data_id = paste(method, Year, sep = "_"))
+
+yrs <- sort(unique(df_fig_41$Year))
+
+p_41 <- ggplot(df_fig_41, 
+               aes(x = factor(Year),
+                   y = value,
+                   color = method,
+                   group = method,
+                    data_id = data_id)) +
+  geom_line_interactive(aes(tooltip = tooltip_l)) +
+  ggiraph::geom_point_interactive(aes(tooltip = tooltip_p)) +#, size = 2.5, 
+                                  #position = position_jitter(width = 0.10, height = 0)) +
+  scale_x_discrete(expand = c(0,0.2)) +
+  scale_y_continuous(limits = c(0, 80),expand=c(0,0)) +
+  scale_color_SweSva() +
+  guides(color=guide_legend(nrow=3)) +
+
+  labs(x = "Year",
+       y = "Proportion (%) of samples with ESBL", color = NULL) +
+  theme_SweSva() +
+  #theme(axis.text.x = element_text(angle = 45, hjust = 1, vjust = 1)) +
+  add_sva_caption() +
+    theme(plot.subtitle = element_text(vjust = -15))# 
+
+make_dynamic_plot(plot = p_41, filename = "fig-41")
+```
+
+###### Data
+```{r}
+dat_41_long |> 
+  make_table_data_tab()
+```
+:::
+
+#### Meat samples 
+##### *Escherichia coli* 
+
+In Sweden, neither carbapenemase-producing Enterobacterales (ESBL~CARBA~), nor classical ESBLs (ESBL~A~) or plasmid-mediated AmpC (ESBL~M~) are notifiable in food. Active screening for *Escherichia coli* resistant to ESCs in meat samples collected at retail has been performed since 2008. During 2025, pig and cattle meat samples were screened for *E. coli* resistant to ESCs and carbapenems using selective media (@sec-NEEDS-TO-BE-ADDED-WHEN-SECTION-IS-READY for details see Material and methods, resistance in bacteria from animals).  
+
+Samples from pig and cattle meat were collected at retail by municipal environmental departments in nine different municipalities in Sweden. The samples were distributed throughout the year and among the municipalities in order to get a representative sampling. Furthermore, consignments of pig and cattle meat from countries outside EU imported via border control posts in Sweden were sampled by personnel from the National Food Agency (SLV). 
+
+The proportions of samples positive for *E. coli* with ESBL~A~ or ESBL~M~ in screenings of meat sampled at retail are available as supplementary material on [the SVA web page](https://www.sva.se/en/what-we-do/antibiotics/svarm-resistance-monitoring/supplementary-material/){target="_blank"}. 
+
+###### Pig meat 
+
+A total of 300 samples of fresh pig meat were collected at retail. The samples comprised meat originating both from Sweden (n=277) and other EU countries (n=23).  
+
+*Escherichia coli* with carbapenem resistance was not isolated from any of the samples of pig meat collected at retail. 
+
+*Escherichia coli* with ESC-resistance was isolated from 1 (<1%) of 300 investigated samples (@tbl-41). The sample was of Swedish origin, and the isolate had an ESBL~M~ phenotype and carried *bla*~DHA-1~. In addition, one consignment of pig meat from a country outside EU was sampled at border control post. From this consignment, three samples were analysed. 
+
+*Escherichia coli* with carbapenem resistance or ESC-resistance were not isolated from any of the samples of pig meat collected at border control post. 
+
+###### Cattle meat 
+
+A total of 300 samples of fresh cattle meat were collected at retail. The samples comprised meat originating both from Sweden (n=274), other EU countries (n=21), and from outside EU (n=5).  
+
+*Escherichia coli* with carbapenem resistance was not isolated from any of the samples of cattle meat collected at retail. 
+
+*Escherichia coli* with ESC-resistance was isolated from 1 (<1%) of 300 investigated samples (@tbl-41). The sample was of non-Swedish origin, and the isolate had an ESBL~A~ phenotype and carried *bla*~CTX-M-27~. 
+
+In addition, four consignments of cattle meat from countries outside EU were sampled at border control posts. From these consignments, nine samples were analysed. *Escherichia coli* with carbapenem resistance or ESC-resistance were not isolated from any of the samples of cattle meat collected at border control posts. 
+
+::: {.panel-tabset}
+###### Table
+```{r}
+#| label: tbl-41
+#| echo: false
+#| message: false
+#| warning: false
+
+# Read source data from the Excel sheet
+src_41 <- load_from_excel("data/Table 4.1 proportion of ESBL different samples.xlsx",
+                            sheet = "data")
+
+# Build gt table 
+tab_41 <- make_qt_table_from_excel("data/Table 4.1 proportion of ESBL different samples.xlsx", sheet = "data")
+tab_41$table
+
+```
+
+###### Data
+```{r}
+df <- src_41$fig_data
+df |>
+  make_table_data_tab(file_name = "tab41")
+```
+:::
+
+#### Clinical isolates from companion animals and horses
+
+In Svarm, there are no recurring active screenings for ESBL-producing Enterobacterales in healthy companion animals or horses. However, results of the screenings for ESC resistant *E. coli* that have been performed are available as supplementary material on [the SVA web page](https://www.sva.se/en/what-we-do/antibiotics/svarm-resistance-monitoring/supplementary-material/){target="_blank"}. 
+
+For a number of years, funding from the Swedish Board of Agriculture has enabled SVA to perform confirmation of suspected ESC-resistance in clinical isolates of Enterobacterales free of charge for referring laboratories. During 2025, 38 submitted isolates of Enterobacterales with phenotypic resistance to ESCs from companion animals and horses were confirmed to produce ESBL~A~ and/or ESBL~M~ by genome sequencing (@tbl-42). The isolates were from cats (n=6), dogs (n=14), and horses (n=18). The majority of the isolates from cats and dogs were *E. coli* and the most common gene was *bla*~CTX-M-15~. For horses, the majority of the isolates belonged to the *Enterobacter* sp. cloacae complex and the most common gene was *bla*~SHV-12~. Data regarding clinical isolates from cats, dogs and horses confirmed to produce ESBL~A~ and/or ESBL~M~ is available as supplementary material on [the SVA web page](https://www.sva.se/en/what-we-do/antibiotics/svarm-resistance-monitoring/supplementary-material/){target="_blank"}.  
+
+About three quarters of the investigated isolates were resistant to at least two antibiotics besides beta-lactams, i.e. multiresistant. The most common resistances were against trimethoprim-sulphonamides (65%) and gentamicin (54%). Resistance to quinolones and tetracycline were also common traits. For the years 2021-2025 the occurrence of resistance to quinolones was higher among isolates from companion animals than among isolates from horses. On the contrary, the occurrence of resistance to gentamicin and trimethoprim-sulphonamides was higher among isolates from horses than among isolates from companion animals (@tbl-43). 
+
+
+::: {.panel-tabset}
+###### Table
+```{r}
+#| label: tbl-42
+#| echo: false
+#| message: false
+#| warning: false
+
+# Read source data from the Excel sheet
+src_42 <- load_from_excel("data/Table 4.2.xlsx",
+                            sheet = "Table 4.2")
+
+# Build gt table 
+tab_42 <- make_qt_table_from_excel("data/Table 4.2.xlsx", sheet = "Table 4.2")
+tab_42$table
+
+```
+
+###### Data
+```{r}
+df <- src_42$fig_data
+df |>
+  make_table_data_tab(file_name = "tab42")
+```
+:::
+
+::: {.panel-tabset}
+###### Table
+```{r}
+#| label: tbl-43
+#| echo: false
+#| message: false
+#| warning: false
+
+# Read source data from the Excel sheet
+src_43 <- load_from_excel("data/Table 4.3.xlsx",
+                            sheet = "Table 4.3")
+
+# Build gt table 
+tab_43 <- make_qt_table_from_excel("data/Table 4.3.xlsx", sheet = "Table 4.3")
+tab_43$table
+
+```
+
+###### Data
+```{r}
+df <- src_43$fig_data
+df |>
+  make_table_data_tab(file_name = "tab43")
+```
+:::
+
+
+### Methicillin-resistant *Staphylococcus aureus* (MRSA)
+
+In Sweden, methicillin-resistant *Staphylococcus aureus* (MRSA) in animals was first verified in 2006 and made notifiable in 2008 (SJVFS 2021:10 and previous legislation). Since then, most cases in domesticated animals have been detected in passive monitoring of clinical sampling in infected animals. Isolates of *S. aureus* with resistance to oxacillin or cefoxitin have been further analysed with confirmatory tests. Screening studies for active monitoring have been performed in pigs, cattle, horses, dogs, and hedgehogs during different years (see below). Cases from 2025 are presented in @tbl-44 and data regarding index cases of clinical isolates and isolates from screenings are shown as supplementary material on [the SVA web](https://www.sva.se/en/what-we-do/antibiotics/svarm-resistance-monitoring/supplementary-material/){target="_blank"}. 
+
+::: {.panel-tabset}
+###### Table
+```{r}
+#| label: tbl-44
+#| echo: false
+#| message: false
+#| warning: false
+
+# Read source data from the Excel sheet
+src_44 <- load_from_excel("data/Table 4.4 MRSA.xlsx",
+                            sheet = "data")
+
+# Build gt table (caption is taken from src_439a$fig_cap inside the function)
+tab_44 <- make_qt_table_from_excel("data/Table 4.4 MRSA.xlsx",
+                                     sheet = "data")
+tab_44$table
+
+```
+
+###### Data
+```{r}
+df <- src_44$fig_data
+df |>
+  make_table_data_tab(file_name = "tab44")
+```
+:::
+
+#### Farm animals 
+
+Screening studies in pigs have been performed five times since 2006, with two positive samples from pigs at slaughter in 2010. A screening was performed in all 39 nucleus and multiplying herds present in 2014, and all samples were negative. In 2025, an EU-wide baseline study on the prevalence of MRSA in pigs at slaughterhouses was performed. MRSA was detected in 60 (29%) of investigated slaughter groups. All the investigated isolates carried *mecA* and belonged to CC398. 
+
+In dairy cattle, active monitoring of selected isolates of beta-lactamase-producing *S. aureus* from milk samples has been ongoing since 2010, and about 1 540 isolates have been tested up to and including 2025. The monitoring is performed on isolates with anonymised origin. Since 2010, five PVL-negative isolates with *mecC*, two PVL-negative isolates with *mecA* and one PVL-positive isolate with *mecA* have been detected. In 2012, PVL-positive MRSA with *mecA* was isolated from several animals in a dairy herd [@unnerstad2018suspected]. In 2025, no MRSA was detected among the 44 isolates screened for occurrence of *mecA* and *mecC*. 
+
+In 2016 and early 2017, there was an outbreak of MRSA with *mecC* among goats and sheep connected to a zoo. In addition, MRSA with *mecC* was found in eight out of twenty-one sampled goats in a herd in 2017 and in one goat sold from the same herd. In 2019 an additional goat herd with MRSA was identified. The farm had an epidemiological link to the herd detected in 2017 and shared the same *spa*-type, t373. In total six goats were sampled, and samples were pooled two and two for cultivation, with all pools being positive for *mecC*-MRSA. In 2019, twenty-two dairy goat herds were screened for occurrence of MRSA, using bulk-milk samples and pooled swabs, with no positive samples found [@persson2021no]. 
+
+#### Companion animals and horses
+
+Up to and including 2025, a total of 309 cases of MRSA in companion animals and horses have been confirmed. These include 91 dogs, 66 cats, 4 rabbits, one parrot and 144 horses. In these animal species, there is currently no regular active monitoring of MRSA, but screenings in dogs were performed in 2006, 2012 and 2017-2018 without detection of MRSA [@borjesson2020low]. Screening studies in horses have been performed twice, in 2007 and 2010, with one positive sample in 2007.
+
+In 2025, MRSA was detected in clinical samples from wound infections and abscesses in ten dogs and six cats (@tbl-44). During the years the identified *spa*-types have varied, and most have previously been detected in humans. In 2025 one dog carried the horse-related t011, and two dogs carried the livestock-associated t034 ([supplementary material](https://www.sva.se/en/what-we-do/antibiotics/svarm-resistance-monitoring/supplementary-material/){target="_blank"}, @tbl-44). 
+
+In 2025, MRSA was isolated from seven horses, which are fewer cases compared to the figures in 2020-2024, and the number of cases is back to the level during the years 2007-2019 when between one and nine cases were notified per year ([supplementary material](https://www.sva.se/en/what-we-do/antibiotics/svarm-resistance-monitoring/supplementary-material/){target="_blank"}, @tbl-44). In 2020 and 2021 the increase was partly explained by outbreaks of MRSA in equine hospitals (*spa*-type t1971, t034 and t011). Historically, MRSA *spa*-type t011 has been dominating among horses in Sweden and in 2025 the *spa*-type was detected in five of the seven cases. The remaining two MRSA isolates were one each of *spa*-types t1257 and t1451 (@tbl-44). All the mentioned *spa*-types have also been detected more or less frequently in MRSA from humans.
+
+#### Wild animals
+
+High occurrence of *mecC*-MRSA has been described in hedgehogs in Sweden (64%), Denmark (61%) [@bengtsson2017high; @rasmussen2019european] as well as in other countries. Recent studies suggest that *mecC*-MRSA probably originates from hedgehogs, as the result of selective pressure from beta-lactams produced by dermatophytes, and that this occurred long before the introduction of clinically used antibiotics [@larsen2022emergence]. 
+
+### Methicillin-resistant *Staphylococcus pseudintermedius* (MRSP) {#sec-MRSP-animals}
+
+In 2025, there were 45 MRSP cases from 43 dogs, 1 cat, and 1 guinea pig reported to the Swedish Board of Agriculture. This number is roughly the same level as in previous years (@fig-42). 
+
+
+```{r}
+#| include: false
+# hidden chunk to read captions
+dat_42 <- load_from_excel("data/Figure 4.2 MRSP.xlsx", sheet = "data")
+fig_42_cap <- dat_42$fig_cap
+fig_42_alt <- dat_42$fig_alt 
+```
+
+
+::: {.panel-tabset}
+###### Figure
+```{r}
+#| label: fig-42
+#| echo: false
+#| message: false
+#| warning: false
+#| fig-cap: !expr fig_42_cap
+#| fig-alt: !expr fig_42_alt
+
+
+df_fig_42 <- dat_42$fig_data |>
+  mutate(tooltip = paste0("<b>Year:</b> ", Year, "<br><b>Total number of MRSP:</b> ", Total), data_id = paste(Total, Year, sep = "_"),
+         one_col = "one_color_SweSva")
+
+yrs <- sort(unique(df_fig_42$Year))
+
+#need to manually set the color to not have a black line
+p_42 <- ggplot(df_fig_42,
+               aes(x = factor(Year),
+                   y = Total,
+                    group=one_col,
+                   color=one_col,
+                    data_id = data_id)) +
+  geom_line_interactive(aes(tooltip=glue::glue('{Year}')),
+                        lwd=0.5) +
+  ggiraph::geom_point_interactive(aes(tooltip = tooltip)) +
+  scale_x_discrete(expand=c(0,0.2)) +# breaks = yrs, minor_breaks = NULL) +
+  scale_y_continuous(limits=c(0,140)) +
+  scale_color_SweSva() +
+  labs(x = "Year",
+       y = "Number of cases with MRSP", color = NULL) +
+  theme_SweSva() +
+  add_sva_caption() +
+  theme(legend.position = "none") +
+      theme(plot.subtitle = element_text(vjust = +2)) 
+
+make_dynamic_plot(plot = p_42, filename = "fig-42")
+```
+
+###### Data
+```{r}
+dat_42$fig_data |> 
+  make_table_data_tab()
+```
+:::
+
+All but one isolate were available for further susceptibility testing and genome sequencing. Information on the sampling site was available for 36 cases; wounds 13 cases, skin 9 cases, external ear canal 6 cases, urine 3 cases, and the remaining 5 were isolated from various other sites. For resistance phenotypes, see @tbl-45. 
+
+The results of the genome sequencing of 44 isolates, divided the isolates into 22 different multi-locus sequence types, of which ST551 was the most common type with 19 isolates. The ST551 was first detected in Sweden in 2016 and was also the most common ST in the last seven years. The other sequence types occurring in 2025 were three isolates with ST496, two isolates each with ST258 and ST1095, and single isolates of ST155, ST535, ST690, ST727, ST826, ST1054, ST1055, ST1832, ST2636, ST2684, ST2685, ST2859, ST2962 and 5 new STs, named ST3049-3053. In earlier years, ST71 dominated among Swedish isolates but no isolate of this type was found in neither 2024 nor 2025.
+
+::: {.panel-tabset}
+###### Table
+```{r}
+#| label: tbl-45
+#| echo: false
+#| message: false
+#| warning: false
+
+# Read source data from the Excel sheet
+src_45 <- load_from_excel("data/Table 4.5 MRSP.xlsx",
+                            sheet = "data")
+
+# Build gt table (caption is taken from src_439a$fig_cap inside the function)
+tab_45 <- make_qt_table_from_excel("data/Table 4.5 MRSP.xlsx",
+                                     sheet = "data")
+tab_45$table
+
+```
+
+###### Data
+```{r}
+df <- src_45$fig_data
+df |>
+  make_table_data_tab(file_name = "tab45")
+```
+:::

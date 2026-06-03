@@ -1,0 +1,9 @@
+---
+format: html
+---
+
+# Acknowledgement of technical tools used {.unnumbered}
+
+This report was build using `quarto` and contains elements build with `ggplot2`, `ggiraph`, `DT` among others.
+
+SCB data was retrieved via `pxweb` @pxweb.

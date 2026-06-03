@@ -1,0 +1,1051 @@
+---
+format:
+  html:
+    embed-resources: false
+
+execute:
+  cache: false
+  echo: false
+  warnings: false
+  error: false
+---
+
+```{r}
+#| results: "asis"
+#| echo: false
+#| warning: false
+#| message: false
+source("../../_common.R")
+status(type = "polishing")
+```
+
+## Antibiotics in outpatient care
+
+### Total sales in outpatient care
+
+#### Results
+
+- In 2025, 256 prescriptions per 1 000 inhabitants were sold in Sweden – a decrease of 5.7% compared to 2024.
+
+- Sales of antibiotics decreased in all age groups and most in the the younger age groups (0-4 and 5-14) in 2025, with the largest decrease observed for children aged 5-14 years (22.4% decrease compared to 2024, @fig-1-2). Compared to 2019, all age groups showed a decrease in sales and most in the age group 0-4, showing a decrease of 21%. 
+
+- A decrease in sales was observed for many of the antibiotic classes in 2025, however an increase was observed for amoxicillin (J01CA04), pivmecillinam (J01CA08), trimethoprim (J01EA) and trimethoprim with sulphonamides (J01EE), @fig-1-3. 
+
+- Beta-lactamase sensitive penicillins (J01CE) and pivmecillinam (J01CA08) were the most commonly sold antibiotics in 2025 measured in number of prescriptions. 
+
+- The number of prescriptions per 1 000 inhabitants varied between 216 in Västerbotten region to 294 in Blekinge region in 2025. Antibiotic sales decreased in all regions during 2025, @fig-1-4.
+
+- In 2025, 14.9% of the Swedish population was treated with at least one course of antibiotics, ranging from 16.6% in Blekinge region to 15.2% in Östergötland region, @fig-1-5.
+
+
+#### Comments
+
+The sales of antibiotics have decreased by 54% since 1992, when the prescription of antibiotics peaked. The greatest decrease during this period was observed in children aged 0-4 years, dropping from 1 328 prescriptions per 1 000 inhabitants in 1992 to 238 in 2025, a decrease of 82%. In 2020 the national long-term target of 250 prescriptions per 1 000 inhabitants per year was achieved nationally for the first time @Strama2016. Nine of 21 regions reached this annual target in 2025. The sales of fluoroquinolones (J01MA) decreased in 2023 and continued to decrease in 2024 and 2025, compared to both 2024 and 2019, which is in line with recommendations for restrictive use due to known risks of side effects @EMA2019. The increase observed in a number of antibiotic groups was greatest for for amoxicillin (J01CA04) and can be attributed to the availability of the product in the swedish market after a period of shortage. 
+
+
+::: panel-tabset
+###### Figure
+```{r}
+# Medskick: linjen alla åldersgrupper får gärna skiljas ut lite noga. 
+
+data <- load_from_excel(path_file = "data/fig-1-2.xlsx")
+
+df <- data$fig_data |>
+  head(n=5) |> 
+  mutate(across(-`Age group`, ~as.numeric(.))) |> 
+ # mutate_at(-`Age group`,as.numeric)
+  # mutate_if(is.character,as.numeric)
+  #dplyr::select("Age group","1987":"2025") |> 
+  pivot_longer(cols = -"Age group", names_to = "year") |> 
+  mutate(age_group = factor(`Age group`))
+```
+
+```{r}
+#| label: fig-1-2
+#| fig-cap: !expr glue::glue("{data$fig_cap}")
+#| fig-alt: !expr glue::glue("{data$fig_alt}")
+#| warning: false
+p <- df |> 
+  mutate(data_id = row_number(),
+         tooltip_l = glue::glue('{age_group}'),
+         tooltip_p  = glue::glue('<b>Year:</b> {year}
+                                   <b>Age group:</b> {age_group}
+                                   <b>DDD/1 000 inhabitants per day:</b> {round(value,2)}')) |> 
+  ggplot(aes(x=factor(year), 
+             y=value,
+             color=age_group,
+             group=age_group, 
+             data_id = data_id)) +
+  geom_line_interactive(aes(tooltip=tooltip_l, linetype = age_group == "All age groups"),
+                        lwd=.5) +
+  geom_point_interactive(aes(tooltip=tooltip_p),
+                         hover_nearest = TRUE,
+  ) +
+  scale_y_continuous(expand = c(0,0.2),
+                     limits=c(0,1500), #round(max(df$value)*1.1,-2)),
+                     labels = scales::label_number()) +
+  scale_x_discrete(expand=c(0,0.2))+
+  scale_linetype_manual(values = c("TRUE" = "dashed", "FALSE" = "solid")) +
+  guides(linetype = "none") +
+  labs(y= "Prescriptions/1 000 inhabitants per year",
+       x="Year") +
+  scale_color_SweSva() + 
+  add_fohm_caption() +
+  #theme_SweSva() +
+  theme_SweSva() + #_nicelabs() +
+  theme_SweSva_rotate()
+
+make_dynamic_plot(plot = p, filename = "Fig1-2")
+```
+###### Data
+```{r}
+df |> 
+  dplyr::select(-age_group) |> 
+  make_table_data_tab(file_name = "Fig1-2")
+```
+:::
+
+::: panel-tabset
+###### Figure
+```{r}
+data <- load_from_excel(path_file = "data/fig-1-3.xlsx")
+
+df <- data$fig_data |> 
+  dplyr::select(`Antibiotic classes`,"2021":"2025") |> 
+  pivot_longer(cols = -`Antibiotic classes`,names_to = "year") |> 
+  mutate(ab_classes = factor(`Antibiotic classes`, levels = rev(unique(`Antibiotic classes`)))) #|> 
+  #mutate(ab_classes = rev(ab_classes))#,ordered = T))
+```
+
+```{r}
+#| label: fig-1-3
+#| fig-cap: !expr glue::glue("{data$fig_cap}")
+#| fig-alt: !expr glue::glue("{data$fig_alt}")
+#| warning: false
+p <- df |> 
+   mutate(data_id = row_number(),
+          tooltip_b = glue::glue('<b>Year:</b> {year}
+                                    <b>Antibiotic classes:</b> {ab_classes}
+                                    <b>DDD/1 000 inhabitants per year:</b> {round(value,2)}')) |> 
+
+  ggplot(aes(y = ab_classes,
+             x = value, 
+             fill=year,
+             data_id = data_id)) +
+  geom_col_interactive(aes(tooltip = tooltip_b),width = 0.5, position = position_dodge(0.7)) +
+  #geom_bar_interactive(aes(tooltip = tooltip_b, width = .8),
+  #         position="dodge", stat="identity") +
+  labs(y=NULL,
+       x = "DDD/1 000 inhabitants per year") +
+      scale_x_continuous(expand = c(0,0),limits=c(0,round(max(df$value)*1.1,-2))) +
+#theme(axis.text.y = element_text(hjust=0))+
+#  scale_y_continuous(expand=c(0,.1)) +
+  #scale_fill_fohm() +
+  scale_fill_SweSva() + 
+  theme_SweSva() +
+  theme(axis.text.y = element_text(hjust=1)) +
+  add_fohm_caption() 
+
+
+make_dynamic_plot(plot = p, filename = "Fig1-3")
+```
+###### Data
+```{r}
+df |> 
+  dplyr::select(-ab_classes) |> 
+  make_table_data_tab(file_name = "Fig1-3")
+```
+:::
+
+::: panel-tabset
+###### Figure
+```{r}
+# Medskick: Benchmarking, fallande från högst till lägst på 2025. Vill gärna ha med linje på 250 målet (röd linje här). Obs fotnot!
+
+data <- load_from_excel(path_file = "data/fig-1-4.xlsx")
+
+df <- data$fig_data |> 
+  rename(region = Region) |> 
+  dplyr::select(region,"2021":"2025") |> 
+  pivot_longer(-region,names_to = "year") |> 
+  mutate(sort_fct.tmp = case_when(region=="Sweden" ~ 1,
+                              .default = 2))
+```
+
+```{r}
+#| label: fig-1-4
+#| fig-cap: !expr glue::glue("{data$fig_cap}")
+#| fig-alt: !expr glue::glue("{data$fig_alt}")
+#| warning: false
+
+order <- df |> filter(year==max(year)) |> arrange(-value) |> pull(region)
+p <- df |> 
+   mutate(data_id = row_number(),
+          tooltip_b = glue::glue('<b>Year:</b> {year}
+                                    <b>Region:</b> {region}
+                                    <b>DDD/1 000 inhabitants per year:</b> {round(value,2)}'),
+          region = factor(region, levels = order)) |> 
+
+  ggplot(aes(x = region,#fct_reorder(region,sort_fct.tmp),
+             y = value, 
+             fill=factor(year),
+             data_id = data_id)) +
+    geom_col_interactive(aes(tooltip = tooltip_b),width = 0.5, position = position_dodge(0.7)) +
+
+  #geom_bar_interactive(aes(tooltip = label_point,width = .9),
+  #         position="dodge", stat="identity") +
+  geom_hline_interactive(yintercept = 250,linewidth = 1.5,
+                         colour = "red",tooltip_fill = "red",
+                         alpha=.7,
+                         hover_nearest = TRUE,
+                         tooltip = "The red line indicates the national target of 250 prescriptions or less per 1 000 inhabitants per year.") +
+  labs(x=NULL,
+       y = "Prescriptions/1 000 inhabitants per year") +
+  scale_y_continuous(expand=c(0,.1)) +
+  scale_fill_SweSva() + 
+  theme_SweSva() +
+  theme_SweSva_rotate() +
+  add_fohm_caption()
+
+make_dynamic_plot(plot = p, filename = "Fig1-4")
+```
+###### Data
+```{r}
+df |> 
+  make_table_data_tab(file_name = "Fig1-4")
+```
+:::
+
+
+::: panel-tabset
+###### Figure
+```{r}
+# Medskick: Benchmarking (inte fixad just nu!), fallande högst till lägst på år 2025. 
+
+data <- load_from_excel(path_file = "data/fig-1-5.xlsx")
+
+df <- data$fig_data |> 
+  rename(region = Region) |> 
+  dplyr::select(region,"2021":"2025") |> 
+  pivot_longer(-region,names_to = "year") |> 
+  mutate(sort_fct.tmp = case_when(region=="Sweden" ~ 1,
+                              .default = 2))
+```
+
+```{r}
+#| label: fig-1-5
+#| fig-cap: !expr glue::glue("{data$fig_cap}")
+#| fig-alt: !expr glue::glue("{data$fig_alt}")
+#| warning: false
+
+order <- df |> filter(year==max(year)) |> arrange(-value) |> pull(region)
+p <- df |> 
+   mutate(data_id = row_number(),
+          tooltip_b = glue::glue('<b>Year:</b> {year}
+                                    <b>Region:</b> {region}
+                                    <b>DDD/1 000 inhabitants per year:</b> {round(value,2)}'),
+          region = factor(region, levels = order)) |> 
+
+  ggplot(aes(x = region,#fct_reorder(region,sort_fct.tmp),
+             y = value, 
+             fill=factor(year),
+             data_id = data_id)) +
+    geom_col_interactive(aes(tooltip = tooltip_b),width = 0.5, position = position_dodge(0.7)) +
+
+  #geom_bar_interactive(aes(tooltip = label_point,width = .9),
+  #         position="dodge", stat="identity") +
+  #geom_hline_interactive(yintercept = 250,linewidth = 1.5,
+  #                       colour = "red",
+  #                       alpha=.7,
+  ##                       hover_nearest = TRUE,
+  #                       tooltip = "The red line indicates the national target of 250 prescriptions or less per 1 000 inhabitants per year.") +
+  labs(x=NULL,
+       y = "Proportion (%) inhabitants") +
+   scale_y_continuous(expand=c(0,.2),
+                     limits = c(0,20)) +
+  scale_fill_SweSva() + 
+  theme_SweSva() +
+  theme_SweSva_rotate() +
+  add_fohm_caption()
+
+make_dynamic_plot(plot = p, filename = "Fig1-5")
+```
+###### Data
+```{r}
+df |> 
+  make_table_data_tab(file_name = "Fig1-5")
+```
+:::
+
+
+### Antibiotics commonly used to treat certain infections in outpatient care
+
+#### Results
+
+- Overall sales of antibiotics commonly prescribed against RTIs decreased by 9.1% in 2025 compared to 2024.
+
+- At a national level, the number of prescriptions per 1 000 inhabitants for RTIs varied between 134 in Blekinge region to 81 in Västerbotten region in 2025, @fig-1-6.
+
+#### Comments
+
+The sales for antibiotics commonly used to treat RTIs increased during 2023 and  2024. The sales decreased in 2025 and continue to remain under pre-pandemic levels. For all regions, the majority of antibiotic prescriptions during 2025 were for antibiotics commonly used to treat RTIs. Consistent with long-term observations of antibiotic sales, antibiotics commonly used to treat RTIs show larger regional variations than the remaining groups.
+
+::: panel-tabset
+###### Figure
+```{r}
+# Medskick: Exempel på figur som tidigare använts, benchmarking med fallande. Funderat, kanske bättre med staplade staplar? 
+
+data <- load_from_excel(path_file = "data/fig-1-6.xlsx")
+
+df <- data$fig_data |> 
+  rename(region = Region) |> 
+  dplyr::select(region,"RTI":"Acne") |> 
+  pivot_longer(-region,names_to = "feature") |> 
+  mutate(sort_fct.tmp = case_when(region=="Sweden" ~ 1,
+                              .default = 2))
+```
+
+```{r}
+#| label: fig-1-6
+#| fig-cap: !expr glue::glue("{data$fig_cap}")
+#| fig-alt: !expr glue::glue("{data$fig_alt}")
+#| warning: false
+
+#spec_order <- df |> 
+#  filter(feature=="RTI") |> 
+#  arrange(-value) |> pull(region)
+
+spec_order <- df |> 
+  group_by(region) |> 
+  summarise(total = sum(value)) |> 
+  arrange(-total) |> pull(region)
+
+stack_order <- c("RTI", "UTI", "SSTI",  "Acne")
+
+df_tmp <- df |> 
+    mutate(region = factor(region, levels = spec_order),
+           feature = forcats::fct_relevel(feature, stack_order)
+
+           ) |> 
+
+   mutate(data_id = row_number(),
+          tooltip_b = glue::glue('<b>Disease:</b> {feature}
+                                    <b>Region:</b> {region}
+                                    <b>DDD/1 000 inhabitants per year:</b> {round(value,2)}')) #|> 
+
+p <- df_tmp |> 
+  ggplot(aes(x = region,#fct_reorder(factor(region),value),
+             y = value, 
+             fill = feature,#factor(feature, levels = stack_order), #factor(feature, levels=stack_order),#feature,
+             data_id = data_id)) +
+  #geom_bar(stat="identity") 
+  ## COMMENT JULIUS 2026-05-27: geom_bar_interactive is not sorting
+
+      geom_bar_interactive(aes(tooltip = tooltip_b),
+                           stat="identity") +
+  labs(x=NULL,
+       y = "Prescriptions/1 000 inhabitants per year") +
+
+  scale_x_discrete(expand=c(0,0.2)) +
+  scale_y_continuous(expand=c(0,.1),
+                     labels = scales::label_number(),
+                     limits=c(0,300)
+                     ) +
+  scale_fill_SweSva() + 
+  theme_SweSva() +
+  theme_SweSva_rotate() +
+  add_fohm_caption()
+
+make_dynamic_plot(plot = p, filename = "Fig1-6")
+```
+
+
+
+###### Data
+```{r}
+df |> 
+  make_table_data_tab(file_name = "Fig1-6")
+```
+:::
+
+
+### Respiratory tract infections (RTIs)
+
+#### Results
+
+- Beta-lactamase sensitive penicillins (J01CE02) were the most sold of antibiotics commonly prescribed for RTIs in outpatient care in 2025, however a decreased by 11.9% was observed compared to 2024, @fig-1-7.
+
+- Sales of antibiotics commonly prescribed for RTIs in outpatient care decreased for most of the antibiotics and most for doxycycline (J01AA02), with a 12.3% decrease. An increase of 12.1% compared to 2024 was observed for amoxicillin (J01CA04). Sales of cephalosporins (J01DB-DE, ceftibuten excluded), for macrolides (J01FA) and for amoxicillin with clavulanic acid (J01CR02) decreased by 9.7%, 9.4% and 1.5% respectively compared to 2024, @fig-1-7.
+
+
+#### Comments
+
+The recommended first-line treatment for lower RTIs in Sweden is penicillin V (J01CE02) @Lakemedelsverket2008. In 2025, the total sales of antibiotics commonly used to treat RTIs were lower than in 2024, and remain lower than pre-pandemic levels. Trend analysis based on data during the period 2000-2025 showed a significant decrease in the sales of penicillin, cephalosporines, macrolides and doxycycline. Amoxicillin with an enzyme inhibitor (J01CR02) showed an increase since 2017. For amoxicillin, however, there is a significant increase at the beginning of the period (between the years 2000 and 2001) followed by a decrease during the period 2002–2025.
+
+::: panel-tabset
+###### Figure
+```{r}
+#| message: false
+#| warning: false
+# Medskick: Exempel på figur som tidigare använts, benchmarking med fallande. Funderat, kanske bättre med staplade staplar? 
+
+data <- load_from_excel(path_file = "data/fig-1-7.xlsx")
+
+df <- data$fig_data |> 
+  rename(antibiotic = Antibiotic) |>
+    dplyr::select(antibiotic,"2000":"2025") |> 
+    mutate(across(-antibiotic, ~as.numeric(.))) |> 
+  pivot_longer(-antibiotic,names_to = "year") 
+```
+
+```{r}
+#| label: fig-1-7
+#| fig-cap: !expr glue::glue("{data$fig_cap}")
+#| fig-alt: !expr glue::glue("{data$fig_alt}")
+#| warning: false
+p <- df |> 
+  mutate(data_id = row_number(),
+         tooltip_l = glue::glue('{antibiotic}'),
+         tooltip_p  = glue::glue('<b>Year:</b> {year}
+                                   <b>Antibiotic:</b> {antibiotic}
+                                   <b>Prescriptions/1 000 inhabitants per year:</b> {round(value,2)}')) |> 
+  ggplot(aes(x=year, y=value,
+             color=antibiotic,
+             group=antibiotic, 
+             data_id = data_id)) +
+  geom_line_interactive(aes(tooltip=tooltip_l),
+                        lwd=.5) +
+  geom_point_interactive(aes(tooltip=tooltip_p),
+                         hover_nearest = TRUE,
+                         size=.5) +
+  scale_y_continuous(expand = c(0,0),limits=c(0,200)) +
+    scale_x_discrete(expand=c(0,0.2)) + 
+
+  labs(y= "Prescriptions/1 000 inhabitants per year",
+       x="Year") +  
+  guides(color=guide_legend(nrow=3)) +
+
+  scale_color_SweSva() + 
+  add_fohm_caption() +
+  theme_SweSva() +
+  theme_SweSva_rotate() +
+  theme(plot.subtitle = element_text(vjust = -15)) 
+  #theme_SweSva_full_legend()
+
+
+make_dynamic_plot(plot = p, filename = "Fig1-7")
+```
+
+###### Data
+```{r}
+df |> 
+  make_table_data_tab(file_name = "Fig1-7")
+```
+:::
+
+
+
+### Urinary tract infections (UTIs)
+
+#### Results
+
+- Sales of antibiotics commonly used to treat UTIs decreased by 2.4% in 2025 among women aged 15-79 compared to 2024. Sales of pivmecillinam (J01CA08) and trimethoprim (J01EA) increased by 5.3% and 1.5% respectively, whereas nitrofurantoin (J01XE) and ciprofloxacin (J01MA02) decreased by 11.0% and 5.8%, @fig-1-8.
+ 
+- In men aged 65 or older, the sales of antibiotics commonly used to treat UTIs increased marginally by 0.2% in 2025 compared to 2024. The greatest relative change was observed for pivmecillinam (J01CA08) and trimethoprim (J01EA) increased by 6.8% and 5.7% respectively, @fig-1-9.
+
+- At the national level, 10.1% of the antibiotics commonly prescribed for UTIs in women aged 18-79 in 2025 consisted of ciprofloxacin. This proportion ranged from 7% in Jönköping region to 13% in Västernorrland region, @fig-1-10.
+
+
+#### Comments
+
+According to national treatment recommendations, pivmecillinam and nitrofurantoin are first-line treatments for UTIs in women aged 15 or older and in men with afebrile symptomatic UTIs @Lakemedelsverket2017.
+In line with treatment recommendations, 87% of the antibiotics commonly prescribed for UTIs that were sold to women aged 15-79 in 2025 consisted of these two antibiotics. The increase in sales of pivmecillinam (J01CA08) can be attributed to a recommendation from Strama to use it instead of nitrofurantoin (J01XE) when appropriate, due to a risk of shortage for pivmecillinam @Strama2026. This guidance has been withdrawn, as nitrofurantoin is no longer considered to be at risk for shortages.
+In men aged 65 or older, fluoroquinolones made up 32.8% of the UTI antibiotics sold in 2025. In this group, the trend analysis shows a significant increase in the sales of nitrofurantoin and trimethoprim with sulphonamides during the period 2000-2025. Sales of fluoroquinolones and trimethoprim show a significant decrease since the beginning of the 2000s. Sales of pivmecillinam increased in this population since 2005, according to trend analysis. Note that since 2021, norfloxacin (J01MA06) has been removed from the market and only ciprofloxacin (J01MA02) remains among the fluoroquinolones. 
+
+According to Strama’s quality indicator for outpatient care, a maximum of 10% of antibiotics prescribed to treat UTIs in women aged 18-79 years should consist of fluoroquinolones @Strama2016. This target was achieved by nine of 21 regions in 2025.  
+
+
+::: panel-tabset
+###### Figure
+```{r}
+#| message: false
+#| warning: false
+# Medskick: Exempel på figur som tidigare använts, benchmarking med fallande. Funderat, kanske bättre med staplade staplar? 
+
+data <- load_from_excel(path_file = "data/fig-1-8.xlsx")
+
+df <- data$fig_data |> 
+  rename(antibiotic = Antibiotic) |> 
+    dplyr::select(antibiotic,"2000":"2025") |> 
+    mutate(across(-antibiotic, ~as.numeric(.))) |> 
+  pivot_longer(-antibiotic,names_to = "year") 
+```
+
+```{r}
+#| label: fig-1-8
+#| fig-cap: !expr glue::glue("{data$fig_cap}")
+#| fig-alt: !expr glue::glue("{data$fig_alt}")
+#| warning: false
+p <- df |> 
+  mutate(data_id = row_number(),
+         tooltip_l = glue::glue('{antibiotic}'),
+         tooltip_p  = glue::glue('<b>Year:</b> {year}
+                                   <b>Antibiotic:</b> {antibiotic}
+                                   <b>Prescriptions/1 000 inhabitants per year:</b> {round(value,2)}')) |> 
+  ggplot(aes(x=factor(year),
+             y=value,
+             color=antibiotic,
+             group=antibiotic, 
+             data_id = data_id)) +
+  geom_line_interactive(aes(tooltip=tooltip_l),
+                        lwd=.5) +
+  geom_point_interactive(aes(tooltip=tooltip_p),
+                         hover_nearest = TRUE) +
+  scale_y_continuous(expand = c(0,0),
+                     limits=c(0,80)) +
+  scale_x_discrete(expand=c(0,0.2)) + 
+  labs(y= "Prescriptions/1 000 inhabitants per year",
+       x="Year") +
+  guides(color=guide_legend(nrow=2)) +
+  scale_color_SweSva() + 
+  add_fohm_caption() +
+  theme_SweSva() +
+  theme_SweSva_rotate() +
+  theme(plot.subtitle = element_text(vjust = -7)) 
+
+    #theme_SweSva_full_legend()
+
+make_dynamic_plot(plot = p, filename = "Fig1-8")
+```
+
+###### Data
+```{r}
+df |> 
+  make_table_data_tab(file_name = "Fig1-8")
+```
+:::
+
+
+::: panel-tabset
+###### Figure
+```{r}
+#| message: false
+#| warning: false
+# Medskick: Exempel på figur som tidigare använts, benchmarking med fallande. Funderat, kanske bättre med staplade staplar? 
+
+data <- load_from_excel(path_file = "data/fig-1-9.xlsx")
+
+df <- data$fig_data |> 
+  rename(antibiotic = Antibiotics) |> 
+    dplyr::select(antibiotic,"2000":"2025") |> 
+    mutate(across(-antibiotic, ~as.numeric(.))) |> 
+  head(n=5) |> 
+  pivot_longer(-antibiotic,names_to = "year") 
+```
+
+```{r}
+#| label: fig-1-9
+#| fig-cap: !expr glue::glue("{data$fig_cap}")
+#| fig-alt: !expr glue::glue("{data$fig_alt}")
+#| warning: false
+p <- df |> 
+  mutate(data_id = row_number(),
+         tooltip_l = glue::glue('{antibiotic}'),
+         tooltip_p  = glue::glue('<b>Year:</b> {year}
+                                   <b>Antibiotic:</b> {antibiotic}
+                                   <b>Prescriptions/1 000 inhabitants per year:</b> {round(value,2)}')) |> 
+  ggplot(aes(x=factor(year), 
+             y=value,
+             color=antibiotic,
+             group=antibiotic, 
+             data_id = data_id)) +
+  geom_line_interactive(aes(tooltip=tooltip_l),
+                        lwd=.5) +
+  geom_point_interactive(aes(tooltip=tooltip_p),
+                         hover_nearest = TRUE) +
+  scale_y_continuous(expand = c(0,0),
+                     limits=c(0,150)) +
+  scale_x_discrete(expand=c(0,0.2)) +
+  labs(y= "Prescriptions/1 000 inhabitants per year",
+       x="Year") +  
+  guides(color=guide_legend(nrow=3)) +
+  scale_color_SweSva() + 
+  add_fohm_caption() +
+  theme_SweSva() +
+  theme_SweSva_rotate() +
+  theme(plot.subtitle = element_text(vjust = -15)) 
+  #  theme_SweSva_full_legend()
+
+
+make_dynamic_plot(plot = p, filename = "Fig1-9")
+```
+
+###### Data
+```{r}
+df |> 
+  make_table_data_tab(file_name = "Fig1-9")
+```
+:::
+
+
+
+
+::: panel-tabset
+###### Figure
+```{r}
+#Medskick: Benchmarking, fallande ordning från högst till minst. Gärna ha med linje vid 10% (mål)
+data <- load_from_excel(path_file = "data/fig-1-10.xlsx")
+
+df <- data$fig_data |> 
+  rename(region = Region) |> 
+  dplyr::select(region,"2018-2022":"2025") |> 
+  pivot_longer(-region,names_to = "year") #|> 
+  #mutate(sort_fct.tmp = case_when(region=="Sweden" ~ 1,
+   #                           .default = 2))
+```
+
+```{r}
+#| label: fig-1-10
+#| fig-cap: !expr glue::glue("{data$fig_cap}")
+#| fig-alt: !expr glue::glue("{data$fig_alt}")
+#| warning: false
+
+#order <- df |> filter(year==max(year)) |> arrange(-value) |> pull(region)
+spec_order <- df |> 
+  filter(year==max(year)) |> 
+  arrange(-value) |> pull(region)
+
+#spec_order <- data$fig_data |> pull(Region)
+
+p <- df |> 
+    mutate(region = factor(region, levels = spec_order)) |> 
+#mutate(region = ifelse(region=="Sweden","**Sweden**",region)) |> 
+   mutate(data_id = row_number(),
+          comment = case_when(year=="*2018-2022"~"Average proportion is presented for the time period 2018-2022",
+                              .default = ""),
+          tooltip_b = glue::glue('<b>Year:</b> {year}
+                                 {comment}
+                                    <b>Region:</b> {region}
+                                    <b>DDD/1 000 inhabitants per year:</b> {round(value,2)}'),
+          
+          #region = factor(region, levels = order)
+          ) |> 
+
+  ggplot(aes(x = region, #fct_reorder(region, value,.desc = T),#region,#fct_reorder(region,sort_fct.tmp),
+             y = value, 
+             fill=factor(year),
+             data_id = data_id)) +
+    geom_col_interactive(aes(tooltip = tooltip_b),width = 0.5, position = position_dodge(0.7)) +
+
+  #geom_bar_interactive(aes(tooltip = label_point,width = .9),
+  #         position="dodge", stat="identity") +
+  geom_hline_interactive(yintercept = 10,linewidth = 1.5,
+                         colour = "red",
+                         tooltip_fill = "red",
+                         alpha=.7,
+                         hover_nearest = TRUE,
+                         tooltip = "The red line indicates Strama’s target of maximum 10% fluoroquinolones.") +
+  labs(x=NULL,
+       y = "Proportion (%)  fluoroquinolones") +
+  scale_y_continuous(expand=c(0,.2),
+                     #breaks=perc_25,
+                     limits = c(0,15)) +
+  scale_x_discrete(expand=c(0,0.2)) +
+  scale_fill_SweSva() + 
+  
+  theme_SweSva() + #markdown = c("axis.text.x")) +
+    theme_SweSva_rotate() +
+
+  #scale_x_discrete(
+    #breaks = c(100, 200, 300),
+   # labels = ifelse(spec_order=="Sweden","**Sweden**",spec_order)
+  #) +
+  theme(axis.text.x = ggtext::element_markdown()) +
+  add_fohm_caption()
+
+make_dynamic_plot(plot = p, filename = "Fig1-10")
+```
+
+###### Data
+```{r}
+df |> 
+  make_table_data_tab(file_name = "Fig1-10")
+```
+:::
+
+
+
+```{r}
+#| results: "asis"
+#| echo: false
+#| warning: false
+#| message: false
+source("../../_common.R")
+status(type = "polishing")
+```
+
+
+### Age and gender comparisons
+
+#### Results
+
+The rate of antibiotic prescriptions in outpatient care followed the same pattern as in 2024, i.e. the highest prescription rates were observed for people aged 85 years or older; 686 prescriptions per 1 000 inhabitants in women and 650 prescriptions per 1 000 inhabitants in men in 2025, @fig-1-11. 61% of all antibiotic prescriptions during 2025 were issued to women. Antibiotics commonly used to treat UTIs are mostly prescribed to women, and the prescription rate increases with age (data not shown).
+
+#### Comments
+
+In general, comparisons across age groups show that antibiotics are used more in the older age groups. As mentioned in the @sec-g4r, some of the antibiotics used among the elderly population are not included in the outpatient care statistics as some medicines are sold on requisition and included in inpatient care statistics. Therefore, a possible underestimation in the oldest age groups cannot be ruled out.
+
+
+::: panel-tabset
+```{r}
+#Medskick: Benchmarking, fallande ordning från högst till minst. Gärna ha med linje vid 10% (mål)
+data <- load_from_excel(path_file = "data/fig-1-11.xlsx")
+
+df <- data$fig_data |> 
+  janitor::clean_names() |> 
+  dplyr::select(age_group,women,men) |> 
+  pivot_longer(-age_group,names_to = "gender",
+               names_transform = str_to_title) 
+```
+###### Figure
+```{r}
+#| label: fig-1-11
+#| fig-cap: !expr glue::glue("{data$fig_cap}")
+#| fig-alt: !expr glue::glue("{data$fig_alt}")
+#| warning: false
+p <- df |> 
+   mutate(data_id = row_number(),
+         
+          tooltip_b = glue::glue('<b>Age group:</b> {age_group}
+                                 <b>Gender:</b> {gender}
+                                 <b>Prescriptions/1 000 inhabitants per year:</b> {round(value,2)}'),
+          
+          gender = factor(gender, levels = c("Women","Men"))
+          ) |> 
+  ggplot(aes(x = age_group,
+             y = value, 
+             fill=factor(gender,ordered = T),
+             data_id = data_id)) +
+    geom_col_interactive(aes(tooltip = tooltip_b),width = 0.5, position = position_dodge(0.7)) +
+  labs(x="Age categories",
+       y = "Prescriptions/1 000 inhabitants per year") +
+  scale_y_continuous(expand=c(0,.2),
+                     limits = c(0,800)) +
+  scale_x_discrete(expand=c(0,0.2)) +
+  scale_fill_SweSva() + 
+  theme_SweSva() +
+  #theme_SweSva_rotate() +
+  add_fohm_caption()
+
+make_dynamic_plot(plot = p, filename = "Fig1-11")
+```
+###### Data
+```{r}
+df |> 
+  make_table_data_tab(file_name = "test")
+```
+:::
+
+
+### Antibiotic sales in children
+
+#### Results
+
+Results
+
+- The proportion of children aged 0-6 years treated with at least one course of antibiotics decreased on a national level in 2025 compared to 2024 and was an estimated 13.9%, @fig-1-12.
+
+- At the national level, 72.5% of antibiotics commonly used to treat RTIs in children aged 0-6 consisted of penicillin V. This proportion ranged from 66.4% in Kronoberg region to 80% in Västerbotten region, @fig-1-13.
+
+#### Comments
+
+The proportion of children aged 0-6 years treated with at least one course of antibiotics decreased in all regions during 2025 compared to 2024. According to Strama’s quality indicator for outpatient care, at least 80% of antibiotics prescribed for RTIs in children aged 0-6 years should consist of penicillin V @Strama2016. To calculate this indicator, the following antibiotics are included in the denominator: amoxicillin (J01CA04), penicillin V (J01CE02), amoxicillin with clavulanic acid (J01CR02), cephalosporins (J01DB-DE excl. ceftibuten J01DD14), doxycycline (J01AA02; excluding packages larger than 50 tablets) and macrolides (J01FA). In 2025, one of the 21 regions achieved this target.
+
+
+
+
+
+::: panel-tabset
+###### Figure
+```{r}
+# Medskick: Benchmarking, fallande ordning från högst till minst. 
+
+data <- load_from_excel(path_file = "data/fig-1-12.xlsx")
+
+df <- data$fig_data |> 
+  rename(region = Region) |> 
+  dplyr::select(region,"2021":"2025") |> 
+  pivot_longer(-region,names_to = "year") 
+```
+
+```{r}
+#| label: fig-1-12
+#| fig-cap: !expr glue::glue("{data$fig_cap}")
+#| fig-alt: !expr glue::glue("{data$fig_alt}")
+#| warning: false
+
+order <- df |> filter(year==max(year)) |> arrange(-value) |> pull(region)
+p <- df |> 
+   mutate(data_id = row_number(),
+          tooltip_b = glue::glue('<b>Year:</b> {year}
+                                    <b>Region:</b> {region}
+                                    <b>DDD/1 000 inhabitants per year:</b> {round(value,2)}'),
+          region = factor(region, levels = order)) |> 
+
+  ggplot(aes(x = region,#fct_reorder(region,sort_fct.tmp),
+             y = value, 
+             fill=factor(year),
+             data_id = data_id)) +
+    geom_col_interactive(aes(tooltip = tooltip_b),width = 0.5, position = position_dodge(0.7)) +
+  labs(x=NULL,
+       y = "Proportion (%) inhabitants") +
+  scale_y_continuous(expand=c(0,.1)) +
+    scale_x_discrete(expand=c(0,0.2)) +
+
+  scale_fill_SweSva() + 
+  theme_SweSva() +
+  theme_SweSva_rotate() +
+  add_fohm_caption()
+
+make_dynamic_plot(plot = p, filename = "Fig1-12")
+```
+###### Data
+```{r}
+df |> 
+  make_table_data_tab(file_name = "Fig1-12")
+```
+:::
+
+
+
+::: panel-tabset
+###### Figure
+```{r}
+# Medskick: Benchmarking, fallande ordning från högst till minst. Gärna ha med linje vid 80% (mål)
+
+data <- load_from_excel(path_file = "data/fig-1-13.xlsx")
+
+df <- data$fig_data |> 
+  rename(region = Region) |> 
+  dplyr::select(region,"2018-22":"2025") |> 
+  pivot_longer(-region,names_to = "year") |> 
+  mutate(sort_fct.tmp = case_when(region=="Sweden" ~ 1,
+                              .default = 2))
+```
+
+```{r}
+#| label: fig-1-13
+#| fig-cap: !expr glue::glue("{data$fig_cap}")
+#| fig-alt: !expr glue::glue("{data$fig_alt}")
+#| warning: false
+
+order <- df |> filter(year==max(year)) |> arrange(-value) |> pull(region)
+p <- df |> 
+   mutate(data_id = row_number(),
+          tooltip_b = glue::glue('<b>Year:</b> {year}
+                                    <b>Region:</b> {region}
+                                    <b>DDD/1 000 inhabitants per year:</b> {round(value,2)}'),
+          region = factor(region, levels = order)) |> 
+
+  ggplot(aes(x = region,
+             y = value, 
+             fill=factor(year),
+             data_id = data_id)) +
+    geom_col_interactive(aes(tooltip = tooltip_b),width = 0.5, position = position_dodge(0.7)) +
+
+  #geom_bar_interactive(aes(tooltip = label_point,width = .9),
+  #         position="dodge", stat="identity") +
+  geom_hline_interactive(yintercept = 80,linewidth = 1.5,
+                         colour = "red",tooltip_fill = "red",
+                         alpha=.7,
+                         hover_nearest = TRUE,
+                         tooltip = "The red line indicates the national target of 80 %.") +
+  labs(x=NULL,
+       y = "Proportion (%) penicillin V") +
+  scale_y_continuous(expand=c(0,.1), limits=c(0,100)) +
+    scale_x_discrete(expand=c(0,0.2)) +
+  scale_fill_SweSva() + 
+  theme_SweSva() +
+  theme_SweSva_rotate() +
+  add_fohm_caption()
+
+make_dynamic_plot(plot = p, filename = "Fig1-13")
+```
+###### Data
+```{r}
+df |> 
+  make_table_data_tab(file_name = "Fig1-13")
+```
+:::
+
+
+### Antibiotics in dentistry
+
+#### Results
+
+- Dentists accounted for 6.14% of all systemic antibiotics (J01 excl. methenamine) prescribed in Sweden in 2025, which is a similar level as the previous year (6.04% in 2024).
+
+- Antibiotics (J01 excl. methenamine; metronidazole P01AB01) prescribed by dentists in 2025 was estimated to 17.4 prescriptions per 1 000 inhabitants, a decrease by 2.6% compared to the year before, @fig-1-14.
+
+- The most commonly prescribed antibiotic by dentists was penicillin V (83.3% of total sales in dentistry), @fig-1-14.
+
+- Compared to 2024, the sales of penicillin V decreased by 3.5%. The sales of amoxicillin (J01CA04) increased by 19% during 2025 compared to the previous year. Sales of erythromycin (J01FA01) increased by 73.1% but remain at a low level. Sales of clindamycin (J01FF01), metronidazol (P01AB01) and other antibiotics (in the group J01) decreased by 6.2%, 1.5% and 10.7%, respectively. 
+
+- Sales of antibiotics prescribed by dentists decreased in 17 of 21 regions during 2025. There were notable regional differences; dentists in Skåne region issued 22.7 prescriptions per 1 000 inhabitants, more than double that of dentists in Västerbotten region which had 9.2 prescriptions per 1 000 inhabitants, @fig-1-15.
+
+- Prescriptions decreased for all age groups except for patients in the age groups 5-19 years and 85+ years of age, where sales increased by 5,78% and 1.84% respectively. Sales decreased the most for patients aged 1-4 years (19.9%). Most antibiotics were prescribed to those aged 65-84 years, followed by those aged 45-64 years, @fig-1-16.
+
+#### Comments
+Antibiotic sales in dentistry continue to decrease since 2022. The sales levels are lower compared to a pre-pandemic level. For patients older than 85 years of age, antibiotic sales in dentistry remain higher than levels observed in 2019. Prescriptions to patients below the age of 1 are not shown, as no antibiotics were prescribed by dentists to patients in this age group during 2025. 
+Penicillin V was the most commonly prescribed antibiotic by dentists, which is in line with recommendations. Metronidazole is also recommended as first-line treatment in combination with penicillin V to attain a broader anaerobic spectrum and is therefore included in the measure of sales. The increase in the sales of amoxicillin could be explained by the availability of the product after a period of shortage in the Swedish market.
+
+
+
+::: panel-tabset
+```{r}
+data <- load_from_excel(path_file = "data/fig-1-14.xlsx")
+
+df <- data$fig_data |> 
+  rename(antibiotic = Antibiotic) |> 
+  dplyr::select(antibiotic,"2021":"2025") |> 
+  pivot_longer(-antibiotic,names_to = "year") 
+```
+
+###### Figure
+```{r}
+#| label: fig-1-14
+#| fig-cap: !expr glue::glue("{data$fig_cap}")
+#| fig-alt: !expr glue::glue("{data$fig_alt}")
+#| warning: false
+p <- df |> 
+   mutate(data_id = row_number(),
+          tooltip_b = glue::glue('<b>Year:</b> {year}
+                                    <b>Antibiotic:</b> {antibiotic}
+                                    <b>Prescriptions/1 000 inhabitants per year:</b> {round(value,2)}')) |> 
+
+  ggplot(aes(x = year,
+             y = value, 
+             fill=factor(antibiotic),
+             data_id = data_id)) +
+      geom_bar_interactive(aes(tooltip = tooltip_b),position="stack", stat="identity") +
+
+    #geom_col_interactive(aes(tooltip = tooltip_b),width = 0.5, position = position_dodge(0.7)) +
+  labs(x="Year",
+       y = "Prescriptions/1 000 inhabitants per year") +
+  guides(fill=guide_legend(nrow=3)) +
+  scale_y_continuous(expand=c(0,.1), limits = c(0,20)) +
+  scale_x_discrete(expand=c(0,0.2)) +
+  scale_fill_SweSva() + 
+  theme_SweSva() +
+  theme(plot.subtitle = element_text(vjust = -15)) +
+  add_fohm_caption()
+
+make_dynamic_plot(plot = p, filename = "Fig1-14")
+```
+###### Data
+```{r}
+df |> 
+  make_table_data_tab(file_name = "Fig1-14")
+```
+:::
+
+
+::: panel-tabset
+###### Figure
+```{r}
+# Medskick: Benchmarking, fallande ordning från högst till minst. 
+data <- load_from_excel(path_file = "data/fig-1-15.xlsx")
+
+df <- data$fig_data |> 
+  rename(region = Region) |> 
+  dplyr::select(region,"2021":"2025") |> 
+  pivot_longer(-region,names_to = "year") 
+```
+
+```{r}
+#| label: fig-1-15
+#| fig-cap: !expr glue::glue("{data$fig_cap}")
+#| fig-alt: !expr glue::glue("{data$fig_alt}")
+#| warning: false
+
+order <- df |> filter(year==max(year)) |> arrange(-value) |> pull(region)
+p <- df |> 
+   mutate(data_id = row_number(),
+          tooltip_b = glue::glue('<b>Year:</b> {year}
+                                    <b>Region:</b> {region}
+                                    <b>Prescriptions/1 000 inhabitants per year:</b> {round(value,2)}'),
+          region = factor(region, levels = order)) |> 
+
+  ggplot(aes(x = region,#fct_reorder(region,sort_fct.tmp),
+             y = value, 
+             fill=factor(year),
+             data_id = data_id)) +
+    geom_col_interactive(aes(tooltip = tooltip_b),width = 0.5, position = position_dodge(0.7)) +
+  labs(x=NULL,
+       y = "Prescriptions/1 000 inhabitants per year") +
+  scale_y_continuous(expand=c(0,.1),limits=c(0,25)) +
+    scale_x_discrete(expand=c(0,0.2)) +
+
+  scale_fill_SweSva() + 
+  theme_SweSva() +
+  theme_SweSva_rotate() +
+  add_fohm_caption()
+
+make_dynamic_plot(plot = p, filename = "Fig1-15")
+```
+###### Data
+```{r}
+df |> 
+  make_table_data_tab(file_name = "Fig1-15")
+```
+:::
+
+
+::: panel-tabset
+###### Figure
+```{r}
+data <- load_from_excel(path_file = "data/fig-1-16.xlsx")
+
+df <- data$fig_data |> 
+  dplyr::select(Year:"85 - years") |> 
+  pivot_longer(-Year,names_to = "group") 
+```
+
+```{r}
+#| label: fig-1-16
+#| fig-cap: !expr glue::glue("{data$fig_cap}")
+#| fig-alt: !expr glue::glue("{data$fig_alt}")
+#| warning: false
+
+p <- df |> 
+   mutate(data_id = row_number(),
+          tooltip_b = glue::glue('<b>Year:</b> {Year}
+                                    <b>Group:</b> {group}
+                                    <b>Prescriptions/1 000 inhabitants and year :</b> {round(value,2)}'),
+          group = factor(group, levels = c("All age groups","<1 years","1-4 years","5-19 years","20-44 years", "45-64 years","65-84 years","85 - years"))
+          ) |> 
+
+  ggplot(aes(x = group,
+             y = value, 
+             fill=factor(Year),
+             data_id = data_id)) +
+    geom_col_interactive(aes(tooltip = tooltip_b),width = 0.5, position = position_dodge(0.7)) +
+  labs(x="Age categories",
+       y = "Prescriptions/1 000 inhabitants and year ") +
+    scale_y_continuous(expand=c(0,.2),
+                     limits = c(0,40)) +
+  scale_x_discrete(expand=c(0,0.2)) +
+  scale_fill_SweSva() + 
+  theme_SweSva() +
+  add_fohm_caption()
+
+make_dynamic_plot(plot = p, filename = "Fig1-16")
+```
+###### Data
+```{r}
+df |> 
+  make_table_data_tab(file_name = "Fig1-16")
+```
+:::
+
+

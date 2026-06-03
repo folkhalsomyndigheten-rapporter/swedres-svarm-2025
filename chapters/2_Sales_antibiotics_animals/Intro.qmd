@@ -1,0 +1,39 @@
+---
+format:
+  html:
+    embed-resources: false
+
+execute:
+  cache: false
+  echo: false
+  warnings: false
+  error: false
+---
+
+```{r}
+#| results: "asis"
+#| echo: false
+#| warning: false
+#| message: false
+source("../../_common.R")
+status(type = "drafting")
+```
+
+# Overview {.unnumbered}
+
+## Introduction {.unnumbered}
+
+This chapter presents data on antibiotic sales for animals in Sweden, describing total volumes, distribution by antimicrobial class and animal species, and trends over time. Together with data on resistance patterns, these findings provide a comprehensive basis for exploring the relationship between antibiotic consumption and antimicrobial resistance in the veterinary sector. 
+
+---
+
+## Key Findings {.unnumbered}
+
+::: {.callout-tip}
+- In 2025, total sales of antibiotics for animals, measured in kg active substance, were largely unchanged compared with 2023 and 2024. 
+- Compared with 1980, when the monitoring of antibiotic sales for animals started, sales have decreased by around 70%, measured in mg/PCU. 
+- In 2025, around 90% of sales consisted of products formulated for treatment of individual animals and around 10% were products for group treatment (premixes, oral powders, solutions for in-water medication).
+- Benzylpenicillin constituted 57% of total sales, and sales of antibiotics in AMEG category B (restrict) constituted less than 0.1 mg/PCU.   
+:::
+
+---

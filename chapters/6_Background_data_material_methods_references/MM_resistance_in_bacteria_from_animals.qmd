@@ -1,0 +1,149 @@
+---
+format:
+  html:
+    embed-resources: false
+
+execute:
+  cache: false
+  echo: false
+  warnings: false
+  error: false
+---
+
+```{r}
+#| results: "asis"
+#| echo: false
+#| warning: false
+#| message: false
+source("../../_common.R")
+status(type = "drafting")
+```
+
+## Material and methods for resistance in bacteria from animals {#sec-mmr}
+
+### Isolation and identification of bacteria 
+
+#### Antibiotic resistance as notifiable diseases 
+
+##### ESBL 
+
+ESBLA~A~, ESBL~M~ and ESBL~CARBA~-producing *Escherichia coli* were isolated by culture on MacConkey agar (Oxoid) with cefotaxime (1 mg/L) (MacC ctx), and MacConkey agar (Oxoid) with meropenem (0.12 mg/L) (MacC mp) with prior enrichment in buffered peptone water (BPW). 
+
+ 
+Intestinal samples: Briefly, 1 g of intestinal content was diluted in 9 ml BPW and incubated at 37°C overnight. From the BPW solution 10 µl was spread each on a plate of MacC ctx and MacC mp. The plates were incubated overnight at 44°C (MacC ctx) or 37°C (MacC mp). From MacC ctx up to three lactose positive colonies with morphology typical for *E. coli* were sub-cultured on MacC ctx and then sub-cultured again on horse-blood agar (5% v/v), after which the isolate was tested for production of tryptophanase (indole). One isolate per sample was selected for susceptibility tests and further tested for ESBL production. Isolates suspected to be Enterobacterales species on MacC mp were sub-cultured on MacConkey agar and then sub-cultured again on horse blood agar. These isolates were species-identified by MALDI-TOF MS and if positive for any Enterobacterales species the isolate would be tested for antibiotic susceptibility and ESBL production. 
+
+ 
+
+Meat samples: Briefly, 25 g of surface meat was homogenised in 225 ml BPW and incubated at 37°C overnight. From the BPW overnight culture 10 µl per agar plate was spread on MacC ctx and MacC mp and incubated overnight at 44°C (MacC ctx) or 37°C (MacC mp). From MacC ctx up to three lactose positive colonies with morphology typical for *E. coli* were sub-cultured on MacC ctx and then sub-cultured again on horse blood agar (5% v/v), after which the isolate was tested for production of tryptophanase (indole). One isolate per sample was selected for susceptibility tests and further tested for ESBL production. *E. coli* like colonies on MacC mp were sub-cultured on MacConkeyagar, and if they were lactose positive, they were sub-cultured on horse blood agar. Lactose positive isolates were species-identified by MALDI-TOF MS. Only *E. coli* was selected for susceptibility tests and tests for ESBL production. 
+
+ 
+
+Clinical isolates from cats, dogs, and horses were submitted to the Dept. of Animal Health and Antimicrobial Strategies, SVA, as bacterial strains. Isolates were species-identified by MALDI-TOF MS. 
+
+##### MRSA and MRSP 
+
+Clinical isolates were species-identified by MALDI-TOF MS and tested for presence of *mecA* and *mecC* with PCR (see below, Genotyping). Isolates were susceptibility tested using microdilution (see below, Susceptibility testing). 
+
+Isolation of MRSA from healthy pigs in the EU-harmonised baseline study was performed according to [the protocol from the EURL-AR](https://www.food.dtu.dk/english/-/media/institutter/foedevareinstituttet/temaer/antibiotikaresistens/eurl-ar/protocols/mrsa/isolation-of-mrsa-from-food-producing-animals-and-farm-environments-version-4-april-2025-.pdf). 
+
+ 
+
+#### Zoonotic pathogens 
+
+##### *Salmonella* 
+
+*Salmonella* was isolated and identified at the Dept. of Microbiology, SVA or at regional laboratories in accordance with standard procedures. All samples within official control programmes are cultured according to the procedures detailed by the MSRV (ISO 6579-1:2017). Confirmatory identification and serotyping were performed according to the procedures of White-Kauffmann-Le Minor. For certain isolates, the serovar was verified by whole genome sequencing. 
+
+##### *Campylobacter* 
+
+*Campylobacter coli*from pigs were isolated and identified at the Dept. of Animal Health and Antimicrobial Strategies, SVA. Samples were cultured directly on modified Charcoal Cefoperazone Deoycholate agar (mCCDA) and Butzler selective agar according to Campylobacter EURL-protocol for isolation, identification, and storage of *Campylobacter jejuni* and *Campylobacter coli* for the EU monitoring of antimicrobial resistance. The plates were incubated at 41,5°C in microaerophilic environment for 48h. Identification was based on colony morphology and all isolates were species-identified by MALDI-TOF MS. Selection of colonies was equally distributed between the selective agars. 
+
+ 
+
+#### Clinical isolates from animals 
+
+Clinical isolates were isolated and identified with accredited methodology following standard procedures at SVA. 
+
+ 
+
+*Mycoplasma bovis* was cultured from PCR positive samples and species identified with MALDI-TOF and/or genome sequencing. 
+
+#### Indicator bacteria 
+
+##### *Escherichia coli* 
+
+After the initial dilution in BPW and incubation (see screening for ESBL above), 10 µL was spread on MacConkey agar and incubated overnight at 44°C. 
+
+Up to three lactose positive colonies with morphology typical for *E. coli* were sub-cultured on horse blood agar (5% v/v), after which the isolates were tested for production of tryptophanase (indole). Only lactose and indole positive isolates with typical morphology were selected for susceptibility tests. 
+
+### Susceptibility testing 
+
+#### Microdilution 
+
+At SVA, fast growing aerobic bacteria, *Campylobacter* and bacteria from fish are tested for antibiotic susceptibility with accredited methodology using dilution methods in cation adjusted Mueller-Hinton broth (CAMHB) (Difco). Tests are performed following the standards for microdilution of the Clinical and Laboratory Standards Institute [@clsi2024a]. The microdilution panels used are produced by Thermo SCIENTIFIC Trek diagnostics systems (Sensititre) and for *Brachyspira* spp. the panels are produced by Merlin, Bruker. Different panels are used depending on the bacterial species tested and the purpose of the investigation (monitoring or clinical diagnostics). Minimum inhibitory concentration (MIC) is recorded as the lowest concentration of an antibiotic that inhibits bacterial growth. 
+
+ 
+
+Some adaptations from the CLSI standard are employed. For *Pasteurella* spp. the tests are made by dilution in CAMHB supplemented with 5-10% horse serum followed by incubation in CO~2~, 37°C for 16-18 hours. For testing of *A. pleuropneumoniae* dilution in HTM broth was performed followed by incubation in CO~2~ at 37°C for 18-24 hours. *Streptococcus* spp. were tested using CAMHB supplemented with 5-10% horse serum followed by incubation at 35°C for 16-18 hours. 
+
+ 
+
+Susceptibility of *C. jejuni* and *C. coli* were tested according to the CLSI standard M45 Ed3 for fastidious bacteria [@clsi2015methods]. 
+
+ 
+
+Susceptibility of *Brachyspira hyodysenteriae* and *B. pilosicoli*, was tested by a broth dilution method described by [@karlsson2003antimicrobial], in tissue culture trays with 48 wells per plate. The wells were filled with 0.5 ml of a suspension of bacteria (1x10^6^-5x10^6^ CFU/ml) in brain heart infusion broth (BHI) with 10% foetal calf serum and incubated in an anaerobic atmosphere at 37°C for four days on a shaker. 
+
+ 
+
+Bacteria from fish are tested for antibiotic susceptibility by broth microdilution adapted for aquatic bacteria according to [@clsi2020a].  
+
+ 
+
+Phenotypic confirmatory tests for production of extended spectrum beta-lactamases (ESBLs) in Enterobacterales were performed with and without clavulanic acid in Sensititre EUVSEC2 microdilution panels and interpreted according to EUCAST.  
+
+ 
+
+Susceptibility of *Mycoplasma bovis* was tested with broth microdilution in Mycoplasma broth with Mycoplasma selective supplement-G (Oxoid). The inoculum density was 1x10^6^-5x10^6^ CFU/ml and the inoculum volume100 µl per well and incubation was performed in CO~2~, 37°C for 72 hours. 
+
+### Genotyping 
+
+Suspected index isolates of MRSA and MRSP were confirmed by detection of the *mecA* or *mecC* genes applying real-time PCR as described by Pichon et al. [pichon2012development]. Isolates of Enterobacterales with AmpC phenotypes were subjected to PCR detecting genes encoding ESBL~M~ [@perez2002detection] and ESBL~A~ [@woodford2006multiplex]; [@fang2008molecular]. Isolates positive in PCR for ESBL-encoding genes, *mecA*, *mecC*, phenotypically confirmed as ESBL~A~ or suspected of being ESBL~CARBA~ were subjected to genome sequence analysis. 
+
+ 
+
+DNA was extracted from overnight cultures on horse blood agar using EZ1 DNA tissue kit (Qiagen, Halden, Germany), according to the recommendations of the manufacturer. DNA was sent to Clinical Genomics Stockholm, Science for Life Laboratory (Solna, Sweden) for library preparation and paired-end sequencing using Illumina technologies. Reads were trimmed with Fastp v1.1.0 [@chen2025fastp] and assembled with SKESA v2.4.0 [@souvorov2018skesa]. Assemblies were searched for potential contamination using Kraken2 with the MiniKraken database [@wood2019improved]. 
+
+ 
+
+ESBL-encoding genes and point mutations conferring elevated MIC for third generation cephalosporins were determined using AMRFinder+ v4.2.5 with database version 2026-01-21.1 [@feldgarden2021amrfinderplus] with the species-specific --organism option where applicable, and by using Staramr v0.11.0 [@bharat2022correlation] with the ResFinder database from September 9th 2025 [@zankari2012identification] and the PointFinder database from November 5th 2025 [@zankari2017pointfinder], all with the cutoff values ≥98% identity and ≥95% coverage. *Spa*-typing, a single locus sequence typing method using the polymorphic region X of the *spa* gene encoding Protein A, was performed on MRSA assemblies using SeqSphere+ v10.5.2 software (Ridom GmbH, Germany, https://spa.ridom.de). Sequence types (ST) were found in MRSA and MRSP assemblies using MLST [@mlst] or given STs by submitting data to Public databases for molecular typing and microbial genome diversity (www.pubmlst.org) developed by Keith Jolley [@jolley2018open-access], sited at the University of Oxford and funded by the Wellcome Trust. 
+
+ 
+
+### Quality assurance system 
+
+Laboratories performing antibiotic susceptibility testing at SVA are accredited according to ISO/IEC 17025:2017 by the Swedish Board for Accreditation and Conformity Assessment (SWEDAC) to perform antibiotic susceptibility tests with microdilution methods. The Dept. of Microbiology is accredited for isolation and identification of animal pathogens and of *Salmonella* according to the same standard. The Dept. of Animal Health and Antimicrobial Strategies is accredited for isolation of *E. coli* in the monitoring program, both ESBL-producing and indicator *E. coli*. 
+
+ 
+
+For susceptibility tests of zoonotic, pathogenic and indicator bacteria, *Escherichia coli* ATCC 25922, *Enterococcus faecalis* ATCC 29212, *Staphylococcus aureus* CCUG 15915 (analogue to ATCC 29213), *Actinobacillus pleuropneumoniae* ATCC 27090, *Trueperella pyogenes* CCUG 13230, *Acinetobacter baumannii* 2012-70-100-69 - EURL 69 (used for control of higher concentrations of cephalosporins and carbapenems), *Aeromonas salmonicida* subsp. *salmonicida* CCUG 2116 (analogue to ATCC 14174), *Flavobacterium psycrophilum* CCUG 35200 (analogue to ATCC 49418), *Mycoplasma bovis* Donetta PG45T ATCC 25523T and *Campylobacter jejuni* CCUG 11284 (analogue to *Campylobacter jejuni* ATCC 33560) were included as quality controls. When testing animal pathogens relevant control strains were included and evaluated at least once weekly. For testing of *Brachyspira*, the *B. hyodysenteriae* type strain B78T ATCC 27164T was used for quality control. 
+
+ 
+
+The Dept. of Animal Health and Antimicrobial Strategies participates yearly in two proficiency tests for antibiotic susceptibility testing, one for isolation and antibiotic susceptibility testing and one comparative test for antibiotic susceptibility testing. These are arranged by the European Union Reference Laboratory - Antimicrobial Resistance and as a national ring trial. We also participate in the DTU genomic proficiency test once a year. Likewise, the Dept. of Microbiology participates in proficiency tests concerning isolation and identification of *Salmonella* and general clinical veterinary bacteriology and susceptibility tests. 
+
+### Data handling 
+
+Records such as source of cultured sample, identification results, antibiotic susceptibility etcetera were registered in a laboratory information management (LIM) system at SVA. 
+
+### Cut-off values for resistance 
+
+For interpretation of MICs from susceptibility testing of zoonotic bacteria (*Salmonella* and *Campylobacter*) and indicator bacteria (*Escherichia coli* and enterococci) epidemiological cut-off values (ECOFFs) issued by EUCAST (www.eucast.org) or values suggested by the European Food Safety Authority are used. For some antibiotics, values based on MIC distributions obtained in Svarm are used. 
+
+ 
+
+ECOFFs are used when available also for clinical isolates from animals. When ECOFFs are not available, or the range of concentrations tested precludes use of a recommended value, values based on MIC distributions obtained in Svarm are used, but clinical breakpoints issued by CLSI [@clsi2024b] or epidemiological cut-offs (ECVs) issued by CLSI [@clsi2020b] are also taken into consideration. 
+
+ 
+
+ECOFFs and ECVs classify isolates with acquired reduced susceptibility as non-wild type. In Svarm, non-wild type isolates are called resistant. This classification is relevant for monitoring purposes, but it should be understood that resistance defined in this manner not always implies clinical resistance. 

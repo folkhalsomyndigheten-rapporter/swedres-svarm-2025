@@ -1,0 +1,186 @@
+---
+format:
+  html:
+    embed-resources: false
+
+execute:
+  cache: false
+  echo: false
+  warnings: false
+  error: false
+#bibliography: ../../references.bib
+---
+
+```{r}
+#| results: "asis"
+#| echo: false
+#| warning: false
+#| message: false
+source("../../_common.R")
+status(type = "drafting")
+```
+
+## Zoonotic pathogens
+
+Zoonoses are diseases that can be naturally transmitted between animals and humans. Antibiotic resistance in zoonotic bacteria such as *Salmonella* and *Campylobacter* from animals is therefore of direct public health concern.  
+
+### *Salmonella* 
+
+Findings of *Salmonella* in animals are notifiable in Sweden. In Svarm, antibiotic susceptibility is determined in one isolate from each notified incident in animals each year, except for wild birds and cats (see below). Isolates from incidents previously notified but still under restrictions are also included. In incidents involving more than one serovar, one isolate of each serovar is tested. In the case of poultry, one isolate from each infected flock is included. 
+
+Isolates from wild birds are usually from cases of salmonellosis among passerines during the winter season and most *Salmonella* from cats are cases when cats have eaten these birds lying dead or diseased on the ground [@soderlund2019linked]. Such isolates are often *S.* Typhimurium and susceptible to all tested antibiotics. Therefore, only a selection of these isolates is tested. For details on methodology, see Materials and methods, resistance in bacteria from animals. 
+
+A total of 108 *Salmonella enterica* ssp. *enterica* isolates were tested in 2025. Of all tested isolates 75 were from domestic animals (@tbl-46). *Salmonella* Typhimurium was the dominant serovar with 42 isolates. Of these, 34 were from domestic animals (@tbl-47). The highest number of isolates was from pigs (n=18) belonging to 8 different serovars dominated by *S.* Typhimurium (n=9). Also in cattle (n=17) *S.* Typhimurium was the most common serovar (n=5).  
+
+The majority of all isolates (92 of 108; 85%) were susceptible to all antibiotics tested and all isolates from wildlife were fully susceptible. Distributions of MICs and resistance for all isolates from domestic animals are presented in @tbl-46 and for the subset *S.* Typhimurium in @tbl-47. Sixteen isolates were resistant to one or more antibiotics (a table with resistance phenotypes is available as [supplementary material on the SVA web page](https://www.sva.se/en/what-we-do/antibiotics/svarm-resistance-monitoring/supplementary-material/){target="_blank"}). No interpretation was done for colistin due to uncertainties in ECOFFs caused by differences in MIC distributions between serovars. EUCAST does no longer suggest a colistin ECOFF for *Salmonella*. Three isolates had an MIC of >2 mg/L for colistin (@tbl-46). Two of these three isolates belonged to serovar Dublin that often display a higher MIC to colistin than most other serovars. EUCAST has recently published a tentative ECOFF, (T)ECOFF, of 16 mg/L for colistin and *S.* Dublin. One isolate with an MIC of >2 mg/L for colistin was serovar Enteritidis and this isolate was tested with PCR for the presence of *mcr-1* – *mcr-9* genes, which may confer resistance to colistin, but was negative for these genes. 
+
+::: {.panel-tabset}
+###### Table
+```{r}
+#| label: tbl-46
+#| echo: false
+#| message: false
+#| warning: false
+
+tbl <- make_mic_table_from_excel("data/Tabell 4.6 salm.xlsx")
+
+# thick right border is placed per row at the MIC column matching ECOFF/Breakpoint
+make_mic_gt(data = tbl$data,
+            mic_cols = tbl$mic_cols,
+            breakpoint_col = "Cut-off value (mg/L)",
+            tested_range_col = "Tested range (mg/L)", 
+            footnotes = c("One *S.* Enteritidis isolate with colistin MIC >2 was tested with PCR for the *mcr-1* to *mcr-9 genes* and found negative."))
+```
+###### Data
+```{r}
+data <- load_from_excel(path_file = "data/Tabell 4.6 salm.xlsx")
+df <- data$fig_data
+df |>
+  make_table_data_tab(file_name = "tab46")
+```
+:::
+
+::: {.panel-tabset}
+###### Table
+```{r}
+#| label: tbl-47
+#| echo: false
+#| message: false
+#| warning: false
+
+tbl <- make_mic_table_from_excel("data/Tabell 4.7 salm.xlsx")
+
+# thick right border is placed per row at the MIC column matching ECOFF/Breakpoint
+make_mic_gt(data = tbl$data,
+            mic_cols = tbl$mic_cols,
+            breakpoint_col = "Cut-off value (mg/L)",
+            tested_range_col = "Tested range (mg/L)")
+
+```
+###### Data
+```{r}
+data <- load_from_excel(path_file = "data/Tabell 4.7 salm.xlsx")
+df <- data$fig_data
+df |>
+  make_table_data_tab(file_name = "tab47")
+```
+:::
+
+### *Campylobacter* 
+
+*Campylobacter coli* was isolated from colon content samples collected from slaughter pigs at abattoirs as part of the monitoring of *Escherichia coli* resistant to ESCs. Isolates were identified to species level by MALDI-TOF MS. Samples from 190 pigs were cultured, yielding 176 *C. coli* isolates, and these samples were evenly distributed over the year. For details on methodology, see Materials and methods, resistance in bacteria from animals.  
+
+Of the 176 isolates, 112 (64%) were susceptible to the six tested antibiotics. No resistance was recorded against chloramphenicol, ertapenem, gentamicin or tetracycline (@tbl-49). One isolate was resistant to erythromycin. In *Campylobacter* spp. isolated directly from animals, erythromycin resistance has only been found in two cases before (2017 and 2023). As in those two cases, whole-genome sequencing of the macrolide-resistant isolate revealed previously described target-altering mutations in the 23S rRNA genes (A2059G, *E. coli* numbering) [@bolinger2017]. No transferable macrolide resistance genes were found. 
+
+The level of quinolone resistance was comparable to previous years (@fig-43). Neither quinolones nor fluoroquinolones are authorised or used for treatment of groups of pigs via feed or water in Sweden. Additionally, a regulation (SJVFS 2023:21) has been restricting the prescription of fluoroquinolones to animals in Sweden since 2013. Most of the consumption occurs in piglets treated individually with fluoroquinolones and, to a lesser extent, in other age categories [@Sjolund2015]. Any selection for quinolone resistance in *Campylobacter* therefore probably mainly occurs in sows and suckling piglets. 
+
+::: {.panel-tabset}
+###### Table
+```{r}
+#| label: tbl-49
+#| echo: false
+#| message: false
+#| warning: false
+
+tbl <- make_mic_table_from_excel("data/Tabell 4.9 camp.xlsx")
+
+# for some reason the caption is not read in correctly, replacing manually
+attr(tbl$data, "fig_cap") <-
+  "Distribution of MICs and resistance (%) for *Campylobacter coli* from slaughter pigs (n=176), 2025."
+
+# thick right border is placed per row at the MIC column matching ECOFF/Breakpoint
+make_mic_gt(data = tbl$data,
+            mic_cols = tbl$mic_cols,
+            breakpoint_col = "Cut-off value (mg/L)",
+            tested_range_col = "Tested range (mg/L)")
+```
+###### Data
+```{r}
+data <- load_from_excel(path_file = "data/Tabell 4.9 camp.xlsx")
+df <- data$fig_data
+df |>
+  make_table_data_tab(file_name = "tab49")
+```
+:::
+
+```{r}
+#| include: false
+# hidden chunk to read captions
+dat_43 <- load_from_excel("data/Figur 4.3 camp.xlsx", sheet = "data")
+fig_43_cap <- dat_43$fig_cap
+fig_43_alt <- dat_43$fig_alt 
+```
+
+
+::: {.panel-tabset}
+###### Figure
+```{r}
+#| label: fig-43
+#| echo: false
+#| message: false
+#| warning: false
+#| fig-cap: !expr fig_43_cap
+#| fig-alt: !expr fig_43_alt
+
+
+# need to do some extra manipulation due to NAs in data
+df_fig_43 <- dat_43$fig_data |>
+  dplyr::filter(!is.na(Total)) |>
+  mutate(tooltip = paste0("<b>Year:</b> ", Year, "<br><b>Percent resistance:</b> ", Total,"%"),
+         data_id = paste(Total, Year, sep = "_"),
+         one_col = "one_color_SweSva")
+
+yrs <- sort(unique(dat_43$fig_data$Year))
+y_max <- max(df_fig_43$Total, na.rm = TRUE) + 5
+
+#need to manually set the color to not have a black line
+p_43 <- ggplot(df_fig_43,
+               aes(x = factor(Year),
+                   y = Total,
+                   group=one_col,
+                   color=one_col)) +
+  geom_line_interactive(aes(tooltip=glue::glue('{Year}')),
+                        lwd=0.5) +
+  ggiraph::geom_point_interactive(aes(tooltip = tooltip, data_id = data_id)) +
+  scale_x_discrete(expand=c(0,0.2)) +#continuous(breaks = yrs, minor_breaks = NULL) +
+  scale_y_continuous(limits = c(0, 50)) + #y_max), breaks = seq(0, y_max, by = 5)) +
+  scale_color_SweSva() +
+  labs(x = "Year",
+       y = "Percent resistance (%)", color = NULL) +
+  theme_SweSva() +
+  #theme(axis.text.x = element_text(angle = 45, hjust = 1, vjust = 1), plot.subtitle = element_text(vjust = +2)) +
+  add_sva_caption() +
+  theme(legend.position = "none",
+        plot.subtitle = element_text(vjust = +2)) 
+
+
+make_dynamic_plot(plot = p_43, filename = "fig-43")
+```
+
+###### Data
+```{r}
+dat_43$fig_data |> 
+  make_table_data_tab()
+```
+:::
+

@@ -1,0 +1,429 @@
+---
+format: html
+---
+
+```{r}
+#| message: false
+#| warning: false
+source("../_common.R")
+```
+
+# Document structure  {.unnumbered}
+
+# Headline 1 {.unnumbered}
+
+Main text...
+
+## Headline 2
+
+Main text...
+
+### Headline 3
+
+Main text...
+
+#### Headline 4
+
+Main text...
+
+##### Headline 5
+
+Main text...
+
+Or:
+
+# Heading 1 - Document Title
+## Heading 2 - Major Sections  
+### Heading 3 - Subsections
+#### Heading 4 - Minor Sections
+##### Heading 5 - Rare Usage
+###### Heading 6 - Very Rare
+
+
+::: {.column-margin}
+We know from *the first fundamental theorem of calculus* that for $x$ in $[a, b]$:
+
+$$\frac{d}{dx}\left( \int_{a}^{x} f(u)\,du\right)=f(x).$$
+:::
+
+### Lists
+
+#### Unordered Lists:
+
+- First item
+- Second item  
+- Third item
+
+#### Ordered Lists:
+
+1. First step
+2. Second step
+3. Third step
+
+
+[This is a span that has the class aside which places it in the margin without a footnote number.]{.aside}
+
+::: {.panel-tabset}
+
+##### Tab 1
+
+Content of Tab 1
+
+##### Tab 2
+
+Content of Tab 2
+
+##### Tab 3
+
+Content of Tab 3
+
+:::
+
+You can include footnotes ^[This is a footnote.]
+
+::: callout-note
+## Highlight headline
+
+One way to highlight something...
+:::
+
+::: {.callout-note}
+## Note
+
+Important information for readers.
+:::
+
+::: {.callout-warning}
+## Highlight
+
+Something to be careful about.
+:::
+
+or without title
+
+::: {.callout-note .my-callout}
+Some normal callout
+:::
+
+
+::: {.callout-tip}
+Some wild callout
+:::
+
+::: {.callout-warning}
+Some wild callout
+:::
+
+
+::: {.callout-note appearance="simple" collapse="true" color="red"}
+## In-focus 
+
+
+### Titel for in-focus
+
+Main text...
+
+:::
+
+
+```{r}
+
+p <- dummy_plot +
+  labs(title = "FOHM figure") +
+  scale_color_SweSva() + 
+  add_fohm_caption() +
+  theme_SweSva()
+
+make_dynamic_plot(plot = p, filename = "FOHM_dummy")
+
+```
+
+
+
+
+::: panel-tabset
+###### Figure
+```{r}
+#| label: fig-example0
+#| fig-cap: !expr glue::glue("{}")
+#| fig-alt: !expr glue::glue("{}")
+#| warning: false
+#| when-format: "html"
+
+make_dynamic_plot(plot = p, filename = "FOHM_dummy")
+```
+###### Data
+```{r}
+mtcars |> 
+  make_table_data_tab(file_name = "test")
+```
+:::
+
+
+::: panel-tabset
+###### Figure
+
+###### Data
+```{r}
+mtcars |>   make_table_data_tab(file_name = "test")
+```
+:::
+
+
+
+## Usefull functions
+
+```{r}
+source("../_common.R")
+```
+
+There are some useful functions included in `_common.R`.
+
+-> loads all required libraries
+
+- `load_from_excel()`
+- `status()`
+
+- `theme_SweSva()`
+- `add_fohm_caption()`
+- `add_sva_caption()`
+
+- `make_dynamic_plot()`
+- `make_table_data_tab()`
+-
+
+## Example usage:
+
+```{r}
+#| include: false
+data <- load_from_excel("fig-exemple.xlsx")
+```
+
+## Create a plot
+
+Required data structure:
+
+```{r}
+data$fig_data |> head()
+```
+
+
+```{r}
+#| label: fig-example
+#| fig-cap: !expr glue::glue("{data$fig_cap}")
+#| fig-alt: !expr glue::glue("{data$fig_alt}")
+#| echo: true
+
+data$fig_data |> 
+  pivot_longer(-region) |> 
+  ggplot(aes(x=region, y=value, group=name, color=name)) +
+  geom_point() +
+  geom_line() +
+  labs(y="y-axis label",
+       x= "Region") +
+  ## add standard theme, color/fill and caption
+  theme_SweSva() +
+    scale_y_continuous(breaks = scales::pretty_breaks()) +
+  scale_color_SweSva() +
+  add_fohm_caption() +
+## additional modification, e.g. x-axis text 
+    theme(axis.text.x = element_text(angle=90)) 
+```
+
+
+In the text, one can reference to the figure by placing `@fig-example` where you want the reference to be. This will result in the following cross-reference: @fig-example, that shows the figure when hovering over.
+
+## Create a table with gt
+
+Required data structure:
+
+```{r}
+data$fig_data |> head()
+```
+
+```{r}
+#data$fig_data |>   make_table_data_tab(file_name = "test")
+```
+
+
+```{r}
+#| label: tbl-example
+#| tbl-cap: "Example"
+#| echo: true
+
+# Create the table with gt
+test_insert <- "test"
+
+data$fig_data |>
+  gt() |> 
+  cols_label(
+    region = "Region",
+    `2023` = html(glue::glue("<b>2023</b><br>(test = {test_insert})")),
+    #urine = html(glue::glue("<b>Urine isolates, % R</b><br>(n= {n_urine})"))
+    
+  ) %>%
+  tab_options(
+    table.font.size = px(14),
+    heading.title.font.size = px(16),
+    heading.background.color = "lightgray"
+  ) %>%
+  fmt_markdown(columns = everything()) %>%
+  # Left-align the first column (including label and rows)
+  tab_style(
+    style = cell_text(align = "left"),
+    locations = cells_column_labels(columns = region)
+  ) %>%
+  # Center-align the other columns (including labels and rows)
+  tab_style(
+    style = cell_text(weight = "bold",
+                      align = "center"),
+    locations = cells_column_labels(columns = c(`2020`,`2021`,`2022`,`2023`,`2024`))
+  ) %>%
+  tab_style(
+    style = cell_text(align = "center"),
+    locations = cells_body(columns = c(`2020`,`2021`,`2022`,`2023`,`2024`))
+  ) %>%
+  opt_row_striping(row_striping = TRUE)
+```
+
+
+In the text, one can reference to the table by placing `@tbl-example` where you want the reference to be. This will result in the following cross-reference: @tbl-example, that shows the table when hovering over.
+
+
+```{r}
+
+# Apply the theme function with a source note
+data$fig_data |>
+  head(n=5) |> 
+  gt() |> 
+  gt_theme_fohm(
+    source_note = "Statistiken uppdateras den 8:e varje månad med föregående månads inrapporterade fall."
+  )
+
+```
+
+
+
+
+### Cross reference to other sections
+
+```
+## My Section Title {#sec-my-section}
+```
+In the text, add `@sec-my-section` to get something like this: @sec-material-methods.
+
+## File download
+
+[Download Image File](images/guidance_reader.png){download="guidance_reader.png"}
+
+## download table
+
+```{r}
+tab_1 <- data$fig_data |>
+  gt() |> 
+  cols_label(
+    region = "Region",
+    `2023` = html(glue::glue("<b>2023</b><br>(test = {test_insert})")),
+    #urine = html(glue::glue("<b>Urine isolates, % R</b><br>(n= {n_urine})"))
+    
+  ) %>%
+  tab_options(
+    table.font.size = px(14),
+    heading.title.font.size = px(16),
+    heading.background.color = "lightgray"
+  ) %>%
+  fmt_markdown(columns = everything()) %>%
+  # Left-align the first column (including label and rows)
+  tab_style(
+    style = cell_text(align = "left"),
+    locations = cells_column_labels(columns = region)
+  ) %>%
+  # Center-align the other columns (including labels and rows)
+  tab_style(
+    style = cell_text(weight = "bold",
+                      align = "center"),
+    locations = cells_column_labels(columns = c(`2020`,`2021`,`2022`,`2023`,`2024`))
+  ) %>%
+  tab_style(
+    style = cell_text(align = "center"),
+    locations = cells_body(columns = c(`2020`,`2021`,`2022`,`2023`,`2024`))
+  ) %>%
+  opt_row_striping(row_striping = TRUE)
+
+
+#tab_1 |> gtsave(filename = "tab_1.html", inline_css = TRUE)
+#[Download tab_1 File](tab_1.html){download="tab_1.html"}
+```
+
+
+## Flow diagrams in mermaid language
+
+```{mermaid}
+%%| label: quarto-mermaid-example-1
+%%| fig-width: 5
+flowchart LR
+  qmd --> J([Jupyter])
+  qmd --> K([knitr])
+  J --> md
+  K --> md
+  md --> P([pandoc])
+  P --> typst
+  P --> html
+  P --> docx
+  
+%% Make Node B link to Google
+    click html href "https://en.wikipedia.org/wiki/HTML" "html wikipedia"
+```
+
+```{mermaid}
+---
+config:
+  look: handDrawn
+  theme: neutral
+---
+flowchart LR
+  A[Start] --> B{Decision}
+  B -->|Yes| C[Continue]
+  B -->|No| D[Stop]
+```
+
+```{mermaid}
+sankey
+
+%% source,target,value
+Electricity grid,Over generation / exports,104.453
+Electricity grid,Heating and cooling - homes,113.726
+Electricity grid,H2 conversion,27.14
+```
+
+
+
+
+::: {.callout-note appearance="simple" collapse="true" color="red"}
+## In-focus DEMO
+
+### This is a demo to illustrate in-focus
+
+
+baskjdkjdskjhsdkjhskhjs^[This is a footnote-1.]
+
+ruireiufkljfdkjfdjkfjhk^[This is a footnote-2.]
+
+djljkdfjlkfdjkl^[This is a footnote-3.]
+
+:::
+
+### mardown styling in tooltip
+###### Test
+```{r}
+# Vectorized Markdown → HTML conversion
+md_to_html <- Vectorize(function(x) commonmark::markdown_html(x), USE.NAMES = FALSE)
+
+p <- ggplot(mtcars, aes(
+  x = mpg,
+  y = wt,
+  tooltip = md_to_html(paste("**MPG:**", mpg, "\n*Weight:*", wt))
+)) +
+  geom_point_interactive()
+girafe(ggobj = p)
+```

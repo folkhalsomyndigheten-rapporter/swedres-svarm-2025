@@ -1,0 +1,154 @@
+---
+format:
+  html:
+    embed-resources: false
+
+execute:
+  cache: false
+  echo: false
+  warnings: false
+  error: false
+---
+
+```{r}
+#| results: "asis"
+#| echo: false
+#| warning: false
+#| message: false
+source("../../_common.R")
+status(type = "polishing")
+```
+
+## *Mycobacterium tuberculosis*
+
+### *Mycobacterium tuberculosis*, mandatory reporting
+
+During 2025 a total of 306 cases of tuberculosis (TB) were reported compared to 315 cases during 2024. The number and proportion of culture confirmed cases were 254 (83%) compared to 254 (81%) also in 2024. *Mycobacterium bovis* was identified in two cases, *Mycobacterium africanum* in two cases and *Mycobacterium tuberculosis* in 250 cases (@fig-3-33). The proportion of *Mycobacterium tuberculosis* cases diagnosed with MDR-TB was 2.8% (7/250) compared to 1.6% (4/248) in 2024. One of the MDR-cases was classified as pre-XDR-TB and one as XDR-TB (additional resistance to fluoroquinolones in both and the XDR-TB also with resistance to bedaquiline).
+
+Isolates of *M. tuberculosis* resistant to at least one of the four first line drugs (isoniazid, rifampicin, ethambutol or pyrazinamide) or fluoroquinolones were identified in 29 patients corresponding to 12% of the 250 patients with culture confirmed *M. tuberculosis*, (@fig-3-34). As always, the most common resistance found was against isoniazid. 
+
+Of 47 persons with tuberculosis born in Sweden, 41 had a culture confirmed diagnosis with *M. tuberculosis*, one with an isoniazid resistant strain, one with a rifampicin resistant strain and two cases with MDR-TB. Of all the TB cases reported in Sweden 2025, 85% were born in another country. In total 209 in this group had a culture confirmed infection with *M. tuberculosis* and 25 (12%) had some kind of resistance out of which five had MDR-TB. 
+
+Genetic typing of TB isolates has been performed in Sweden since the late 1990’s. This is done to identify clusters of cases as clustering indicates possible recent transmission and helps to identify missed opportunities of infection control. Of all the cases 15% (47/306) were reported as infected in Sweden and of 254 (including *M. bovis* and *M. africanum*) cases analysed with whole genome sequencing, 80% were unique isolates not belonging to any cluster. 
+
+The number of reported TB cases in Sweden continued to decrease in 2025 and 306 cases of TB is the lowest number ever reported since surveillance started in 1940.  
+
+#### Trends
+
+
+@fig-3-33 is Figure_3.33_TB.xlsx
+
+::: panel-tabset
+```{r}
+data <- load_from_excel(path_file = "data/Figure_3.33_TB.xlsx")
+
+df <- data$fig_data |> 
+  #pivot_longer(-feature,names_to = "year")
+   #mutate(across(everything(), as.character)) |> 
+  pivot_longer(cols = -feature, names_to = "year") 
+```
+
+###### Figure
+```{r}
+#| label: fig-3-33
+#| fig-cap: !expr glue::glue("{data$fig_cap}")
+#| fig-alt: !expr glue::glue("{data$fig_alt}")
+#| warning: false
+p <- df |> 
+  mutate(data_id = row_number(),
+         tooltip_l = md_to_html(glue::glue('{feature}')),
+         tooltip_p  = md_to_html(glue::glue('<b>Year:</b> {year} <br>
+                                   <b>{feature}:</b> {round(value,2)}'))) |> 
+  ggplot(aes(x=factor(year),
+             y=value,
+             color=feature,
+             group=feature, 
+             data_id = data_id)) +
+  geom_line_interactive(aes(tooltip=tooltip_l),
+                        lwd=.5) +
+  geom_point_interactive(aes(tooltip=tooltip_p),
+                         hover_nearest = TRUE) +
+    scale_y_continuous(expand = c(0,0.2),
+                       limits=c(0,600)) + #round(max(df$value)*1.1,-2))) +
+  labs(x = "Year",
+       y = "Culture confirmed cases") +
+    scale_x_discrete(expand = c(0,0.2)) +
+ # scale_y_continuous(expand=c(0,.1)) +
+  scale_color_SweSva() + 
+  theme_SweSva(markdown = "legend.text") +
+  #theme_SweSva_rotate() +
+  theme(plot.subtitle = element_text(vjust = -7)) +
+  add_fohm_caption()
+
+make_dynamic_plot(plot = p, filename = "Fig3-33")
+
+```
+###### Data
+```{r}
+df |> 
+  transmute("Pathogen" = feature,
+            year,
+            "Culture confirmed cases" = value,) |> 
+  make_table_data_tab(file_name = "Fig3-33")
+```
+:::
+
+@fig-3-34 is Figure_3.34_TB.xlsx
+
+::: panel-tabset
+```{r}
+data <- load_from_excel(path_file = "data/Figure_3.34_TB.xlsx")
+
+df <- data$fig_data |> 
+  #pivot_longer(-Antibiotic,names_to = "year")
+   #mutate(across(everything(), as.character)) |> 
+  pivot_longer(cols = -antibiotic, names_to = "year") |> 
+  mutate(r_perc = round(value,2))
+```
+
+###### Figure
+```{r}
+#| label: fig-3-34
+#| fig-cap: !expr glue::glue("{data$fig_cap}")
+#| fig-alt: !expr glue::glue("{data$fig_alt}")
+#| warning: false
+
+p <- df |>
+  mutate(data_id=row_number(),
+  tooltip_l = glue::glue('{antibiotic}'),
+       tooltip_p  = glue::glue('<b>Year:</b> {year}
+                                <b>Antibiotic:</b> {antibiotic}
+                                <b>Resistance:</b> {round(r_perc,2)}%')) |>
+  ggplot(aes(x= factor(year),
+             y=r_perc,
+             color = antibiotic,
+             data_id = antibiotic)
+  ) +
+  geom_line_interactive(aes(group=antibiotic, tooltip=tooltip_l),lwd=0.5) + #,tooltip = line_lab)) +
+  geom_point_interactive(aes(tooltip = tooltip_p),hover_nearest = TRUE) +
+      scale_y_continuous(expand = c(0,0),
+                         limits=c(0,25),
+                         breaks=perc_25) + #round(max(df$value)*1.1,2))) +
+
+  scale_x_discrete(expand = c(0,0.2)) +
+  labs(x="Year",
+       y="Resistance (%)") +
+  scale_color_SweSva()+
+  theme_SweSva(text_size=11) +
+  add_fohm_caption() +
+  guides(color=guide_legend(nrow=3)) +
+  theme(plot.subtitle = element_text(vjust = -15))
+
+
+make_dynamic_plot(plot = p, filename = "Fig3-34")
+```
+###### Data
+```{r}
+df |> 
+  transmute(antibiotic,
+            year,
+            "% resistent" = r_perc,) |> 
+  make_table_data_tab(file_name = "Fig3-34")
+```
+:::
+

@@ -1,0 +1,41 @@
+---
+format:
+  html:
+    embed-resources: false
+    toc: true
+    toc-depth: 5
+    toc-expand: true
+execute:
+  cache: false
+  echo: false
+  warnings: false
+  error: false
+---
+
+```{r}
+#| results: "asis"
+#| echo: false
+#| warning: false
+#| message: false
+source("../../_common.R")
+status(type = "drafting")
+```
+
+# Overview {.unnumbered}
+
+## Introduction {.unnumbered}
+
+This chapter presents data on antibiotic resistance among bacteria from animals and meat in Sweden. It includes data for zoonotic bacteria (*Salmonella* and *Campylobacter*), specific animal pathogens, and commensal enteric *Escherichia coli*. Data regarding resistant variants that are notifiable when detected in animals, i.e. carbapenemase-producing Enterobacterales (ESBL~CARBA~), methicillin-resistant *Staphylococcus aureus* (MRSA) and *Staphylococcus pseudintermedius* (MRSP), as well as Enterobacterales producing classical ESBLs (ESBL~A~) or plasmid-mediated AmpC (ESBL~M~) that are notifiable when detected in humans are also presented. 
+
+---
+
+## Key Findings {.unnumbered}
+
+::: {.callout-tip}
+- **Point 1:** short summary here.
+- **Point 2:** short summary here.
+- **Point 3:** short summary here.
+- **Point 4:** short summary here.
+:::
+
+---

@@ -1,0 +1,76 @@
+---
+format:
+  html:
+    embed-resources: false
+    toc: true
+    toc-depth: 5
+    toc-expand: true
+execute:
+  cache: false
+  echo: false
+  warnings: false
+  error: false
+crossref:
+  custom:
+    - kind: float
+      reference-prefix: In-Focus Figure
+      key: if
+#csl: nature.csl
+---
+
+```{r}
+#| results: "asis"
+#| echo: false
+#| warning: false
+#| message: false
+source("../../_common.R")
+status(type = "drafting")
+```
+
+::: {.callout-note appearance="simple" collapse="false"}
+## 3 In-focus {.unnumbered}  
+
+
+### *Streptococcus dysgalactiae*
+
+@if-example
+This will be a nice in focus :D !
+
+Or a footnote^[Folkhälsomyndigheten & Myndigheten för ungdoms- och civilsamhällesfrågor (MUCF). Att Inte Bara Överleva Utan Att Faktiskt Också Leva: En Kartläggning Om Ungas Psykiska Hälsa. (2023).]
+
+::: panel-tabset
+###### Figure
+
+::: {#if-example}
+```{r}
+##| label: if-3-fig1
+##| fig-cap: !expr glue::glue("content")
+##| if-alt: !expr glue::glue("content")
+#| warning: false
+p <- dummy_plot +
+  labs(title = "FOHM figure") +
+  scale_color_SweSva() + 
+  add_fohm_caption() +
+  theme_SweSva()
+
+make_dynamic_plot(plot = p, filename = "FOHM_dummy")
+```
+
+"This is the caption for the In Focus figure."
+
+:::
+###### Data
+```{r}
+mtcars |> 
+  make_table_data_tab(file_name = "test")
+```
+:::
+
+
+```{r}
+# separate refs
+# https://www.andrewheiss.com/blog/2023/12/11/separate-bibliographies-quarto/
+```
+
+
+:::
