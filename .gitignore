@@ -1,0 +1,26 @@
+# 📁 RStudio
+.Rprofile
+.Rproj.user
+.Rhistory
+
+# 📚 Quarto
+.quarto/
+**/*.quarto_ipynb
+
+# 📊 renv
+renv/
+
+# 📊 freeze
+/_freeze/
+
+# 📊 Data
+**/data/
+
+# 🏗️ Rendered outputs
+**/*.html
+**/*_files/
+site_libs/
+
+# ✅ Exceptions
+!docs/
+/.quarto/

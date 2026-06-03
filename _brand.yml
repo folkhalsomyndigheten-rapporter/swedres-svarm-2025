@@ -1,0 +1,132 @@
+# _brand.yml for Folkhälsomyndigheten
+meta:
+  name:
+    short: Fohm
+    full: Folkhälsomyndigheten
+  link:
+    home: https://www.folkhalsomyndigheten.se
+    email: info@folkhalsomyndigheten.se
+    phone: 010-205 20 00
+
+logo:
+  images:
+    header: images/logo.png # Placeholder: Replace with actual file
+    header-white: images/logo.png # Placeholder: Replace with actual file
+    full:
+      path: images/logo.png
+      alt: Folkhälsomyndighetens logotyp.
+  small: images/logo.png # Placeholder: Replace with actual file
+  medium:
+    light: header
+    dark: header-white
+  large: full
+
+color:
+  palette:
+    green: "#009284"  # Grundfärg
+    blue: "#0065ac"   # Grundfärg
+    yellow: "#ffcc00" # Grundfärg
+    purple: "#951B81" # Komplementfärg
+    light-blue: "#1B97D5" # Komplementfärg
+    pink: "#E6007E"   # Komplementfärg
+    orange: "#FA6400" # Komplementfärg
+    wine-red: "#80134B" # Komplementfärg
+    red: "#CC1423"    # Komplementfärg
+    teal: "#003D4B"   # Komplementfärg
+    white: "#FFFFFF"
+    black: "#000000"
+
+  foreground: "#000000"
+  background: "#FFFFFF"
+  primary: "#0065ac"  # Blå
+  secondary: "#009284" # Grön
+  success: "#009284"
+  info: "#0065ac"
+  warning: "#FA6400"
+  danger: "#CC1423"
+  light: "#FFFFFF"
+  dark: "#000000"
+
+typography:
+  fonts:
+    - family: Klavika
+      source: file # Placeholder: Replace with actual font files or source
+      files:
+        - path: "fonts/Klavika-Regular.otf"
+          weight: 400
+          style: normal
+    - family: Minion Pro
+      source: file # Placeholder: Replace with actual font files or source
+      files:
+        - path: "fonts/MinionPro-Regular.otf"
+          weight: 400
+          style: normal
+    - family: Tahoma
+      source: system
+      weight: [400, 700]
+      style: [normal]
+    #- family: Klavika # Times New Roman
+    # # source: system
+    #  weight: [400, 700]
+     # style: [normal, italic]
+    - family: Noto Sans
+      source: google
+      weight: [400, 700]
+      style: [normal, italic]
+
+  base:
+    family: Noto Sans 
+    weight: 400
+    size: 16px
+    line-height: 1.5
+
+  headings:
+    family: Klavika
+    weight: 700
+    style: normal
+    line-height: 1.2
+    color: black # "#000000"
+    
+
+  monospace:
+    family: Noto Sans
+    weight: 400
+    size: 0.9em
+
+  monospace-inline:
+    color: "#000000"
+    background-color: "#f8f9fa"
+
+  monospace-block:
+    color: "#005d9a"
+    background-color: background
+    line-height: 1.4
+    
+
+  link:
+    weight: 700
+    color: "#005d9a" # "#000000" #"#005c9a" # Webb-länkfärg
+    #background-color: transparent
+    decoration: underline
+
+defaults:
+  bootstrap:
+    # Add any Bootstrap-specific SCSS rules or variables here if needed
+    # Example:
+     defaults:
+#       navbar-bg: $danger
+       figure-caption-color: $primary # /* Example Brand Color */
+
+  quarto:
+    format:
+      # Add Quarto-specific options here if needed
+  shiny:
+    theme:
+      defaults:
+        # Example:
+        # navbar-bg: $brand-blue
+      rules:
+        # Add additional SCSS rules here if needed
+## Read more about _brand.yml under
+## https://posit-dev.github.io/brand-yml/
+## https://quarto.org/docs/authoring/brand.html

@@ -1,0 +1,161 @@
+#https://quarto.org/docs/reference/projects/books.html
+project:
+  type: book
+  output-dir: "docs" # OBS. doc directory deploys to pages when commited to github
+
+   
+book:
+  title: "Swedres-Svarm report 2025"
+  reader-mode: true
+  author:
+    - name: "Hanna Billström"
+      affiliation: "Public Health Agency of Sweden"
+      site-url: https://www.folkhalsomyndigheten.se/
+      email: info@folkhalsomyndigheten.se
+    - name: "Oskar Nilsson"
+      affiliation: "Swedish Veterinary Agency"
+      site-url: https://www.sva.se/
+      email: info@sva.se
+
+  date: now #last-modified #now #today
+  date-format: "YYYY-MM-DD HH:mm:ssZ"
+  version: 2025.0
+  description: "A report on Swedish Antibiotic Sales and Resistance in Human Medicine (Swedres) and Swedish Veterinary Antibiotic Resistance Monitoring (Svarm)." #"This is our working draft—let’s keep it within the team for now."
+  page-navigation: true
+  page-footer:
+    left: "The Swedres-Svarm report (2025) was written by [PHAS](https://www.folkhalsomyndigheten.se/) and [SVA](https://www.sva.se/)."
+    center: "<img src='/Folkhalsomyndigheten_L_RGB_ENG.png' alt='PHAS Logo' style='height:60px;'> <img src='/SVA_logo_English_margin.png' alt='SVA Logo' style='height:60px;'>"
+    right: "This book was built with [Quarto](https://quarto.org/)."
+  #downloads: [pdf, epub]
+  cover-image: cover2025.png
+  favicon: cover2025.png
+  
+  site-url: https://www.sva.se/djurhaelsa/antibiotika/oevervakning/swedres-svarm/
+  repo-url: https://github.com/folkhalsomyndigheten-rapporter/swedres-svarm-2025
+  repo-branch: main
+  repo-actions: [edit, issue]
+  sidebar:
+    #- title: "My Custom Sidebar"
+    #  type: "floating"
+    #  collapse-level: 3 #
+    style: "floating"      # Options: docked, floating
+    background: "light"  # Options: light, primary, none
+    search: true         # Include search bar
+    #logo: "cover.png"     # Sidebar logo
+    collapse-level: 2    # Collapse structure  
+
+  chapters:
+    # Main content
+    - part: index.qmd
+      chapters:
+
+        - chapters/contributors.qmd
+        - chapters/summary.qmd
+        - chapters/samanfattning.qmd
+        - chapters/0_InFocus/InFocus_Jamrai.qmd
+        - chapters/guidance_for_readers.qmd
+
+    # Parts and chapters
+    - part: "Chapter 1" 
+      chapters:
+       # - chapters/1_Sales_antibiotics_humans/Intro.qmd
+        - chapters/1_Sales_antibiotics_humans/Main.qmd
+       
+
+    - part: "Chapter 2" 
+      chapters:
+        #- chapters/2_Sales_antibiotics_animals/Intro.qmd
+        - chapters/2_Sales_antibiotics_animals/Main.qmd
+        - chapters/2_Sales_antibiotics_animals/InFocus.qmd
+
+    - part: "Chapter 3" # 
+      chapters:
+        #- chapters/3_Antibiotic_resistance_humans/Intro.qmd
+        - chapters/3_Antibiotic_resistance_humans/Main.qmd
+    #    - chapters/3_Antibiotic_resistance_humans/InFocus.qmd
+
+    - part: "Chapter 4" 
+      chapters:
+        #- chapters/4_Antibiotic_resistance_animals/Intro.qmd
+        - chapters/4_Antibiotic_resistance_animals/Main.qmd
+        - chapters/4_Antibiotic_resistance_animals/InFocus_MRSP_animals.qmd
+        - chapters/4_Antibiotic_resistance_animals/InFocus_SvarmPat.qmd
+
+    - part: "Chapter 5" 
+      chapters:
+        #- content/5_Comparative_analysis/Intro.qmd
+        - chapters/5_Comparative_analysis/Main.qmd
+
+    - part: "Chapter 6" 
+      chapters:
+        #- chapters/6_Background_data_material_methods_references/Intro.qmd
+        - chapters/6_Background_data_material_methods_references/Main.qmd
+
+  appendices:
+    - references.qmd
+    - chapters/technical.qmd
+
+# Document metadata
+# This forces Quarto to print "Editor" or "Editors" instead of "Author"
+language:
+  title-block-author-single: "Editor"
+  title-block-author-plural: "Editors"
+#https://quarto.org/docs/authoring/citations.html
+citation: true
+doi: "place_4_doi"
+bibliography: references/references.bib
+csl: references/vancouver.csl    
+ 
+crossref:
+  custom:
+    - kind: float
+      key: if
+      reference-prefix: In-FOCUS 
+      caption-prefix: In-Focus
+      space-before-numbering: false
+
+execute:
+  freeze: auto # Re-render only when source changes.
+
+format:
+  html:
+    embed-resources: false
+    toc: true
+    toc-location: right
+    toc-depth: 3 # Shows up to ### sub-sections
+    toc-expand: true
+    toc-highlight: true
+    number-sections: true
+    number-depth: 3
+    
+    fig-cap-location: top
+    crossref:
+      fig-title: '**Figure**'
+      fig-labels: arabic
+      title-delim: "**.**"
+      tbl-title: '**Table**'
+      tbl-labels: arabic
+
+    brand: _brand.yml 
+    css: styles.css
+    crossrefs-hover: true
+    code-link: true
+    repo-actions: false
+    smooth-scroll: true
+    
+    #include-in-header:
+    #- file: includes/header.html
+    knitr:
+      opts_chunk: 
+        dev: png
+    execute:
+      warning: false
+      error: false
+    author-meta: "PHAS & SVA"
+    callout-appearance: simple
+    #page-layout: full
+    grid:
+      sidebar-width: 250px #250px
+      body-width: 900px
+      margin-width: 200px #250px
+      gutter-width: 1.5em
