@@ -22,7 +22,7 @@ status(type = "ready2publish")
 
 
 ::: {.callout-note appearance="simple" collapse="false"}
-## [In-focus]{.in-focus} - JAMRAI 2 {.unnumbered #if-jamrai}  
+## [In-focus]{.in-focus} - JAMRAI 2 {.unnumbered}  
 
 
 ### EU-JAMRAI 2: European collaboration for implementing measures against antimicrobial resistance
