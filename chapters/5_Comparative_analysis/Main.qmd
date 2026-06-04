@@ -1,10 +1,10 @@
 ---
 format: html
-author: 
-  - name: "SVA name "
-    affiliations: "Swedish Veterinary Agency"
-  - name: "FOHM name"
-    affiliation: "Public Health Agency of Sweden"
+#author: 
+#  - name: "SVA name "
+#    affiliations: "Swedish Veterinary Agency"
+#  - name: "FOHM name"
+#    affiliation: "Public Health Agency of Sweden"
 ---
 
 # Comparative analysis {#sec-ca}
