@@ -145,6 +145,7 @@ df <- data$fig_data |>
 
 
 p <- df |>
+  mutate(antibiotic = gsub("\\(PcG 1\\)","",antibiotic)) |> 
   mutate(data_id=row_number(),
    tooltip_p = glue::glue('<b>Year:</b> {year}
                           <b>Antibiotic:</b> {antibiotic}
@@ -157,7 +158,7 @@ p <- df |>
              color = antibiotic,
              data_id = antibiotic)
   ) +
-  geom_line_interactive(aes(group=antibiotic, tooltip=tooltip_l)) + #,tooltip = line_lab)) +
+  geom_line_interactive(aes(group=antibiotic, tooltip=tooltip_l)) + 
   geom_point_interactive(aes(tooltip = tooltip_p),hover_nearest = TRUE) +
   geom_errorbar_interactive(aes(ymin = r_perc - felstapel_low,
                                 ymax = r_perc + felstapel_high,
@@ -165,16 +166,12 @@ p <- df |>
                             width=.15,
                             linewidth = .5
                             ) +
-   # scale_y_continuous(expand = c(0,0),
-  #                     minor_breaks = c(0,10,20,30,40,50,60,80),
-  #                     breaks=c(0,25,50,75,100), 
-  #                     limits = c(0,50)) +
   scale_x_discrete(expand = c(0,0.2)) +
     scale_y_continuous(breaks = perc_100,
                      limits=c(0,100)) +
   labs(x="Year",
        y="Resistance (%)") +
-  scale_color_manual(values = col_SweSva_9) +# c(fohmR::fohm_pal("diagram_discrete"),fohmR::fohm_pal("main")[3])) + #scale_color_SweSva("red") +
+  scale_color_manual(values = col_SweSva_9) +
   theme_SweSva() +
   add_fohm_caption() +
   guides(color=guide_legend(nrow=3)) +

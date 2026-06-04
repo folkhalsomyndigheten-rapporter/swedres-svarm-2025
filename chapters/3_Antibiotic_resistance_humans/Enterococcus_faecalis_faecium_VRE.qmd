@@ -327,8 +327,8 @@ p <- df |>
                             width=.15,linewidth = .5
   ) +
   scale_x_discrete(expand = c(0,0.2)) +
-    scale_y_continuous(breaks = perc_25,#scales::pretty_breaks(),
-                       limits=c(0,25)
+    scale_y_continuous(breaks = perc_100,#scales::pretty_breaks(),
+                       limits=c(0,100)
 ) +
   labs(x="Year",
        y="Resistance (%)") +

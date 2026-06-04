@@ -85,7 +85,8 @@ p <- df |>
                          hover_nearest = TRUE,
                          #size=.5
                          ) +
-    scale_y_continuous(expand = c(0,0),limits=c(0,round(max(df$value)*1.2,0))) +
+    scale_y_continuous(expand = c(0,0.2),
+                       limits=c(0,2.5)) +
  scale_x_discrete(expand = c(0,0.2)) +
   labs(y= "Incidence (cases/100 000 inhabitants)",
        x= "Year") +
@@ -171,7 +172,6 @@ df |>
 ```
 :::
 
-------------------------------------------------------------------------
 
 ### *Streptococcus pneumoniae*, from blood
 

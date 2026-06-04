@@ -416,8 +416,7 @@ p <- df |>
   geom_line_interactive(aes(tooltip=tooltip_l),
                         lwd=.5) +
   geom_point_interactive(aes(tooltip=tooltip_p),
-                         hover_nearest = TRUE,
-                         size=.5) +
+                         hover_nearest = TRUE) +
   scale_y_continuous(expand = c(0,0),limits=c(0,200)) +
     scale_x_discrete(expand=c(0,0.2)) + 
 

@@ -29,7 +29,7 @@ status(type = "polishing")
 
 ### Microbiological surveillance programme, *Pseudomonas* spp. 
 
-In total, 56 unique (per patient, year, species and sequence type) *Pseudomonas* spp. isolates were analysed in 2025, of which 15 belonged to the microbiological surveillance program for ESBL~CARBA~-producing *Pseudomonas* spp. Eight of these isolates carried a bla~NDM~-gene, three bla~NDM~, two bla~VIM~ and two bla~IMP~. Three clusters were active during 2025, with four patients in the two largest clusters (bla~NDM~, bla~GES~), and two patients in the remaining cluster (bla~NDM~).
+In total, 56 unique (per patient, year, species and sequence type) *Pseudomonas* spp. isolates were analysed in 2025, of which 15 belonged to the microbiological surveillance program for ESBL~CARBA~-producing *Pseudomonas* spp. Eight of these isolates carried a *bla*~NDM~-gene, three *bla*~NDM~, two *bla*~VIM~ and two *bla*~IMP~. Three clusters were active during 2025, with four patients in the two largest clusters (*bla*~NDM~, *bla*~GES~), and two patients in the remaining cluster (*bla*~NDM~).
 
 
 @tbl-3-10 is Figure_3.29_Pae_blood.xlsx
@@ -158,7 +158,6 @@ p <- df |>
                             width=.15,linewidth = .5
   ) +
   scale_x_discrete(expand = c(0,0.2)) +
-   # scale_y_continuous(breaks = c(-1,1)) + #scales::pretty_breaks()) +
     scale_y_continuous(breaks = perc_25,
                        limits=c(0,25)) +
 

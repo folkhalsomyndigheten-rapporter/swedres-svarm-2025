@@ -42,23 +42,184 @@ Briefly, the level of resistance to ciprofloxacin remains very high (69% in 2025
 data <- load_from_excel(path_file = "data/Table_3.13_Neisseria.xlsx")
 
 df <- data$fig_data |> 
-  mutate(across(c(2:3), as.numeric))
+  mutate(value = r_perc,
+         hl = case_when(antibiotic %in% c("Ciprofloxacin","Azithromycin","Tetracycline") ~ "high",
+                        .default = "low"))
 ```
 
 ::: panel-tabset
-###### Table
+###### Figure
+
 ```{r}
-#| label: tbl-3-13
-#| tbl-cap: !expr glue::glue("{data$fig_cap}")
-df |> 
-  gt()|> 
-  gt_theme_SweSva()
+#| label: fig-3-ngon1
+#| fig-cap: !expr glue::glue("{data$fig_cap}")
+#| fig-alt: !expr glue::glue("{data$fig_alt}")
+#| warning: false
+p <- df |> 
+  mutate(data_id = row_number(),
+         tooltip_l = glue::glue('{antibiotic}'),
+         tooltip_p  = glue::glue('<b>Year:</b> {year}
+                                   <b>Antibiotic:</b> {antibiotic}
+                                   <b>Resistance:</b> {round(value,2)}%')) |> 
+  ggplot(aes(x=factor(year),
+             y=value,
+             color=antibiotic,
+             group=antibiotic, 
+             data_id = data_id)) +
+  geom_line_interactive(aes(tooltip=tooltip_l),
+                        lwd=.5) +
+  geom_point_interactive(aes(tooltip=tooltip_p),
+                         hover_nearest = TRUE) +
+  scale_y_continuous(expand = c(0,0),
+                     labels = perc_100,
+                     limits = c(0,100)) +
+  scale_x_discrete(expand=c(0,0.2)) +
+  
+  labs(y= "Resistance (%)",
+       x= "Year") +
+  guides(color=guide_legend(nrow=2),
+         #legend.text = element_text(size = 8)
+         ) +
+  scale_color_SweSva() + 
+  add_fohm_caption() +
+  theme_SweSva() +
+  theme(plot.subtitle = element_text(vjust = -15)) 
+
+make_dynamic_plot(plot = p, filename = "Fig3-X")
 ```
 
+###### Additional Figure facet
+
+```{r}
+##| label: fig-3-ngon1
+#| fig-cap: !expr glue::glue("{data$fig_cap}")
+#| fig-alt: !expr glue::glue("{data$fig_alt}")
+#| warning: false
+p <- df |> 
+  mutate(data_id = row_number(),
+         tooltip_l = glue::glue('{antibiotic}'),
+         tooltip_p  = glue::glue('<b>Year:</b> {year}
+                                   <b>Antibiotic:</b> {antibiotic}
+                                   <b>Resistance:</b> {round(value,2)}%')) |> 
+  ggplot(aes(x=factor(year),
+             y=value,
+             color=antibiotic,
+             group=antibiotic, 
+             data_id = data_id)) +
+  geom_line_interactive(aes(tooltip=tooltip_l),
+                        lwd=.5) +
+  geom_point_interactive(aes(tooltip=tooltip_p),
+                         hover_nearest = TRUE) +
+  #scale_y_continuous(expand = c(0,0),
+  #                   labels = perc_100,
+  #                   limits = c(0,100)) +
+  scale_x_discrete(expand=c(0,0.2)) +
+  
+  labs(y= "Resistance (%)",
+       x= "Year") +
+  guides(color=guide_legend(nrow=2),
+         ) +
+  facet_grid(~hl) +
+  ggh4x::facetted_pos_scales(y = list("high" = scale_y_continuous(limits=c(0,100)),
+                                      "low" = scale_y_continuous(limits=c(0,25)))) +
+    #ggh4x::facet_grid2(. ~ hl, scales = "free_y", independent = "y")
+
+  #facet_grid(~hl, scales="free")
+  scale_color_SweSva() + 
+  add_fohm_caption() +
+  theme_SweSva() +
+    theme_SweSva_facet()+
+theme_SweSva_rotate() +
+  theme(plot.subtitle = element_text(vjust = -15),
+        strip.text = element_blank()) 
+
+make_dynamic_plot(plot = p, filename = "Fig3-X-facet")
+```
+
+###### Additional Figure low
+
+```{r}
+##| label: fig-3-ngon1
+#| fig-cap: !expr glue::glue("{data$fig_cap}")
+#| fig-alt: !expr glue::glue("{data$fig_alt}")
+#| warning: false
+p <- df |> 
+  filter(hl=="low") |> 
+  mutate(data_id = row_number(),
+         tooltip_l = glue::glue('{antibiotic}'),
+         tooltip_p  = glue::glue('<b>Year:</b> {year}
+                                   <b>Antibiotic:</b> {antibiotic}
+                                   <b>Resistance:</b> {round(value,2)}%')) |> 
+  ggplot(aes(x=factor(year),
+             y=value,
+             color=antibiotic,
+             group=antibiotic, 
+             data_id = data_id)) +
+  geom_line_interactive(aes(tooltip=tooltip_l),
+                        lwd=.5) +
+  geom_point_interactive(aes(tooltip=tooltip_p),
+                         hover_nearest = TRUE) +
+  scale_y_continuous(expand = c(0,0),
+                     labels = perc_25,
+                     limits = c(0,25)) +
+  scale_x_discrete(expand=c(0,0.2)) +
+  
+  labs(y= "Resistance (%)",
+       x= "Year") +
+  guides(color=guide_legend(nrow=2),
+         ) +
+  scale_color_SweSva() + 
+  add_fohm_caption() +
+  theme_SweSva() +
+  theme(plot.subtitle = element_text(vjust = -15)) 
+
+make_dynamic_plot(plot = p, filename = "Fig3-X-low")
+```
+
+###### Additional Figure high
+
+```{r}
+#| fig-cap: !expr glue::glue("{data$fig_cap}")
+#| fig-alt: !expr glue::glue("{data$fig_alt}")
+#| warning: false
+p <- df |> 
+    filter(hl=="high") |> 
+
+  mutate(data_id = row_number(),
+         tooltip_l = glue::glue('{antibiotic}'),
+         tooltip_p  = glue::glue('<b>Year:</b> {year}
+                                   <b>Antibiotic:</b> {antibiotic}
+                                   <b>Resistance:</b> {round(value,2)}%')) |> 
+  ggplot(aes(x=factor(year),
+             y=value,
+             color=antibiotic,
+             group=antibiotic, 
+             data_id = data_id)) +
+  geom_line_interactive(aes(tooltip=tooltip_l),
+                        lwd=.5) +
+  geom_point_interactive(aes(tooltip=tooltip_p),
+                         hover_nearest = TRUE) +
+  scale_y_continuous(expand = c(0,0),
+                     labels = perc_100,
+                     limits = c(0,100)) +
+  scale_x_discrete(expand=c(0,0.2)) +
+  
+  labs(y= "Resistance (%)",
+       x= "Year") +
+  guides(color=guide_legend(nrow=2),
+         #legend.text = element_text(size = 8)
+         ) +
+  scale_color_SweSva() + 
+  add_fohm_caption() +
+  theme_SweSva() +
+  theme(plot.subtitle = element_text(vjust = -15)) 
+
+make_dynamic_plot(plot = p, filename = "Fig3-X-high")
+```
 ###### Data
 ```{r}
 df |> 
-  make_table_data_tab(file_name = "Table3-13")
+  make_table_data_tab(file_name = "Fig3-X")
 ```
 :::
 

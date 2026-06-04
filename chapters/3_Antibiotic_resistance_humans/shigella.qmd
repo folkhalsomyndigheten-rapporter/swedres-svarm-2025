@@ -123,7 +123,7 @@ df |>
 
 In total, 20 isolates were received in 2025 within the microbiological surveillance program for *Shigella sonnei* and *Shigella* spp. with resistance to ciprofloxacin and cefotaxime and/or ceftazidime.
 
-Whole genome sequencing and subsequent SNP-analysis confirmed that 6 of the 20 received isolates belonged to a cluster with a total of 34 isolates. The cluster is genetically related to a multidrug-resistant and internationally spread *S. sonnei* carrying a bla~CTX~-M-15 gene, reported by the Netherlands on June 2023 and the United Kingdom on December 2023, mainly affecting men who have sex with men @ECDC2025CDTR49.
+Whole genome sequencing and subsequent SNP-analysis confirmed that 6 of the 20 received isolates belonged to a cluster with a total of 34 isolates. The cluster is genetically related to a multidrug-resistant and internationally spread *S. sonnei* carrying a *bla*~CTX-M-15~ gene, reported by the Netherlands on June 2023 and the United Kingdom on December 2023, mainly affecting men who have sex with men @ECDC2025CDTR49.
 
 
 

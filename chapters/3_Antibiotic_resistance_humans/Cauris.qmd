@@ -26,11 +26,7 @@ status(type = "polishing")
 
 In January of 2025, a new microbiological characterisation programme for *Candidozyma auris* (formerly *Candida auris*) was introduced. *C. auris* has in recent years gained attention as a globally spread, multidrug-resistant yeast that causes severe healthcare-associated infections. 
 In Sweden, *C. auris* has only occurred in sporadic cases among individuals who previously received hospital care abroad. In the previous 5 years, from 2020 to 2024, a total seven cases of *C. auris* have been reported in Sweden according to Svebar. 
-Isolates from 5 patients, 2 women and 3 men age 20-77, were collected within the programme in 2025 and characterised with species confirmation and antifungal susceptibility results (AFST) at the national reference laboratory for fungi, at Karolinska University Hospital. The AFST results of these are shown in @tbl-3-cauris as resistance patterns. As expected, all isolates show elevated MICs for fluconazole, as the majority of *C. auris* strains have acquired resistance to the drug. Three isolates also show elevated MICs and resistance to anidulafungin, which is perhaps less expected, as *C. auris* resistance to echinocandins is less frequently reported   
-(@tbl-3-cauris). 
-
-**Comment by Julius:** needs review.
-Hanna har ändrat i texten. Detta är tabelltext. *C. auris* AST, isolates collected in 2025. SIR interpreted according to EUCAST Breakpoint tables for interpretation of MICs for antifungal agents @EUCAST2025Fungi. ECOFFS as defined in: EUCAST. Overview of antifungal ECOFFs and clinical breakpoints for yeasts, moulds and dermatophytes using the EUCAST E.Def 7.4, E.Def 9.4 and E.Def 11.0 procedures. Version 6.0, 2025. "IE" indicates that there is insufficient evidence that the species in question is a good target for therapy with the drug.
+Isolates from 5 patients, 2 women and 3 men age 20-77 years, were collected within the programme in 2025 and characterised with species confirmation and antifungal susceptibility results (AFST) at the national reference laboratory for fungi, at Karolinska University Hospital. The AFST results of these are shown in @tbl-3-cauris as resistance patterns. As expected, all isolates show elevated MICs for fluconazole, as the majority of *C. auris* strains have acquired resistance to the drug. Three isolates also show elevated MICs and resistance to anidulafungin, which is perhaps less expected, as *C. auris* resistance to echinocandins is less frequently reported (@tbl-3-cauris). 
 
 
 @tbl-3-cauris is Table_3.x_Cauris

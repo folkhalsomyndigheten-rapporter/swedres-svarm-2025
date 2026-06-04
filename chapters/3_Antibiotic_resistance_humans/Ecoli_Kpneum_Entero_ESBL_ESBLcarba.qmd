@@ -295,7 +295,7 @@ p <- df |>
   theme(plot.subtitle = element_text(vjust = -15)) #+
 #theme_SweSva_rotate()
 
-make_dynamic_plot(plot = p, filename = "Fig3-7")
+make_dynamic_plot(plot = p, filename = "Fig3-10")
 ```
 
 ###### Data
@@ -303,7 +303,7 @@ make_dynamic_plot(plot = p, filename = "Fig3-7")
 df |> 
   rename("Type of infection" = feature,
          "Number of cases" = value) |> 
-  make_table_data_tab(file_name = "Fig3-7")
+  make_table_data_tab(file_name = "Fig3-10")
 ```
 :::
 
@@ -360,14 +360,14 @@ p <- df |>
         #legend.text = ggtext::element_markdown()
         )
 
-make_dynamic_plot(plot = p, filename = "Fig3-8")
+make_dynamic_plot(plot = p, filename = "Fig3-11")
 ```
 ###### Data
 ```{r}
 df |> 
   rename("Gene" = feature,
          "Number of isolates with enzymes" = value) |> 
-  make_table_data_tab(file_name = "Fig3-8")
+  make_table_data_tab(file_name = "Fig3-11")
 ```
 :::
 
@@ -444,10 +444,10 @@ p <- df |>
   )
 
 
-make_dynamic_plot(plot = p, filename = "fig-3-carba-geno")
+make_dynamic_plot(plot = p, filename = "Fig3-12-geno")
 ```
 
-##### Extra Figure - *bla*<sub>OXA-48-like</sub>
+##### Additional Figure - *bla*<sub>OXA-48-like</sub>
 ```{r}
 ##| label: fig-3-9
 #| fig-height: 6
@@ -498,10 +498,10 @@ p <- df |>
   )
 
 
-make_dynamic_plot(plot = p, filename = "fig-3-carba-geno-oxa48")
+make_dynamic_plot(plot = p, filename = "Fig3-12-oxa48")
 ```
 
-##### Extra Figure - *bla*~NDM~
+##### Additional Figure - *bla*~NDM~
 ```{r}
 ##| label: fig-3-9
 #| fig-height: 6
@@ -549,54 +549,29 @@ p <- df |>
   )
 
 
-make_dynamic_plot(plot = p, filename = "fig-3-carba-geno-ndm")
+make_dynamic_plot(plot = p, filename = "Fig3-12-ndm")
 ```
 
 ##### Data
 ```{r}
-## datafliken vore det bra om det inte stod "0" för alla värden för E. coli + KPC, då dessa inte testats. Borde vara blankt, NA, "-" eller annat. Samma sak för Klebsiella för de tre antibiotika som inte testats (de med * på sig)
-
-# Det är alltså alla E. coli (oavsett antibiotika) som ska ha na (tomt) för KPC, sen ska Klebsiella ha tomt för OXA-48/NDM/KPC för de tre antibiotika som inte testats, men där ska inte E. coli har tomt.
-
-#df |> 
-#  
-#  mutate(antibiotic,
-#            species = str_replace_all(species, "\\*|<sub>|</sub>", ""),
-#         gene = str_replace_all(gene, "\\*|<sub>|</sub>|~", "")) |> 
-#  mutate(vilhelm = case_when(antibiotic %in% c("Fosfomycin*","Nitrofurantoin*","Tigecycline*") & species %in% c("K. pneumoniae","E. coli") ~ NA,
-#                          .default = value)) |> 
-#  mutate("Resistance (%)" = round(value,3)) |> #case_when(species %in% c("E. coli","K. pneumoniae")))
-#  #replace_na(list("Resistance (%)" = "-"))
 df |> 
     mutate(species = str_replace_all(species, "\\*|<sub>|</sub>", ""),
          gene = str_replace_all(gene, "\\*|<sub>|</sub>|~", "")) |> 
-  mutate(vilhelm = case_when(species=="E. coli" & gene=="blaKPC" ~NA,
-                         species=="K. pneumoniae" & gene %in% c("blaOXA-48-like","blaNDM","blaKPC") & str_detect(antibiotic,"\\*") ~NA,
+  ## alla E. coli (oavsett antibiotika) som ska ha na (tomt) för KPC, sen ska Klebsiella ha tomt för OXA-48/NDM/KPC för de tre antibiotika som inte testats, men där ska inte E. coli har tomt
+  mutate(value = case_when(species=="E. coli" & gene=="blaKPC" ~ NA,
+                         species=="K. pneumoniae" & 
+                           gene %in% c("blaOXA-48-like","blaNDM","blaKPC") &
+                           str_detect(antibiotic,"\\*") ~ NA,
                          .default = value
                          
   )) |> 
   transmute(antibiotic,
             species,
             gene,
-            "Resistance (%)" = round(value,3),
-            vilhelm) |> 
-  make_table_data_tab(file_name = "Fig3-4")
+            "Resistance (%)" = round(value,3)) |> 
+  make_table_data_tab(file_name = "Fig3-12")
 ```
 :::
-
-
-```{r}
-#| eval: false
-#| include: false
-df |> 
-    mutate(species = str_replace_all(species, "\\*|<sub>|</sub>", ""),
-         gene = str_replace_all(gene, "\\*|<sub>|</sub>|~", "")) |> 
-  mutate(tmp = case_when(species=="E. coli" & gene=="blaKPC" ~NA,
-                         species=="K. pneumoniae" & gene=="OXA-48|NDM|KPC" & str_detect(antibiotic,"\\*") ~NA,
-                         .default = value
-                         
-  ))
-```
 
 
 ### *Escherichia coli*, from blood and urine cultures

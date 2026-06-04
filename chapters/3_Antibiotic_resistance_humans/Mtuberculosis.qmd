@@ -134,9 +134,9 @@ p <- df |>
   labs(x="Year",
        y="Resistance (%)") +
   scale_color_SweSva()+
-  theme_SweSva(text_size=11) +
+  theme_SweSva() +
   add_fohm_caption() +
-  guides(color=guide_legend(nrow=3)) +
+  guides(color=guide_legend(nrow=2)) +
   theme(plot.subtitle = element_text(vjust = -15))
 
 
