@@ -32,15 +32,14 @@ The new edition of this annual report has undergone a comprehensive update, feat
 :::
 :::
 
-::: {.grid}  
-::: {.g-col-12}
 
-::: callout-note
-### Published by: 
+## Publishing Information: 
+
+### Published by:
 
 **Public Health Agency of Sweden** and **Swedish Veterinary Agency**
 
-### Editors: 
+### Editorial Team: 
 
 Hanna Billström, Jennifer Jagdmann and Ragda Obeid - Public Health Agency of Sweden 
 
@@ -103,7 +102,3 @@ Swedish Veterinary Agency article no. SVAKOM230.2024
 
 **Cover by:** Ingvar Westerdahl/Thomas Isaksson
 
-
-:::
-:::
-:::
