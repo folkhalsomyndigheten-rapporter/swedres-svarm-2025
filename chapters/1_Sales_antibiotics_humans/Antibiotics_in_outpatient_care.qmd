@@ -27,7 +27,7 @@ status(type = "polishing")
 
 - In 2025, 256 prescriptions per 1 000 inhabitants were sold in Sweden – a decrease of 5.7% compared to 2024.
 
-- Sales of antibiotics decreased in all age groups and most in the the younger age groups (0-4 and 5-14) in 2025, with the largest decrease observed for children aged 5-14 years (22.4% decrease compared to 2024, @fig-1-2). Compared to 2019, all age groups showed a decrease in sales and most in the age group 0-4, showing a decrease of 21%. 
+- Sales of antibiotics decreased in all age groups and most in the the younger age groups (0-4 and 5-14) in 2025, with the largest decrease observed for children aged 5-14 years (22% decrease compared to 2024, @fig-1-2). Compared to 2019, all age groups showed a decrease in sales and most in the age group 0-4, showing a decrease of 21%. 
 
 - A decrease in sales was observed for many of the antibiotic classes in 2025, however an increase was observed for amoxicillin (J01CA04), pivmecillinam (J01CA08), trimethoprim (J01EA) and trimethoprim with sulphonamides (J01EE), @fig-1-3. 
 
@@ -35,7 +35,7 @@ status(type = "polishing")
 
 - The number of prescriptions per 1 000 inhabitants varied between 216 in Västerbotten region to 294 in Blekinge region in 2025. Antibiotic sales decreased in all regions during 2025, @fig-1-4.
 
-- In 2025, 14.9% of the Swedish population was treated with at least one course of antibiotics, ranging from 16.6% in Blekinge region to 15.2% in Östergötland region, @fig-1-5.
+- In 2025, 15% of the Swedish population was treated with at least one course of antibiotics, ranging from 12% in Västerbotten region to 17% in Blekinge region, @fig-1-5.
 
 
 #### Comments
@@ -373,9 +373,9 @@ df |>
 
 #### Results
 
-- Beta-lactamase sensitive penicillins (J01CE02) were the most sold of antibiotics commonly prescribed for RTIs in outpatient care in 2025, however a decreased by 11.9% was observed compared to 2024, @fig-1-7.
+- Beta-lactamase sensitive penicillins (J01CE02) were the most sold of antibiotics commonly prescribed for RTIs in outpatient care in 2025, however a decrease of 12% was observed compared to 2024, @fig-1-7.
 
-- Sales of antibiotics commonly prescribed for RTIs in outpatient care decreased for most of the antibiotics and most for doxycycline (J01AA02), with a 12.3% decrease. An increase of 12.1% compared to 2024 was observed for amoxicillin (J01CA04). Sales of cephalosporins (J01DB-DE, ceftibuten excluded), for macrolides (J01FA) and for amoxicillin with clavulanic acid (J01CR02) decreased by 9.7%, 9.4% and 1.5% respectively compared to 2024, @fig-1-7.
+- Sales of antibiotics commonly prescribed for RTIs in outpatient care decreased for most of the antibiotics and most for doxycycline (J01AA02), with a 12% decrease. An increase of 12% compared to 2024 was observed for amoxicillin (J01CA04). Sales of cephalosporins (J01DB-DE, ceftibuten excluded), for macrolides (J01FA) and for amoxicillin with clavulanic acid (J01CR02) decreased by 9.7%, 9.4% and 1.5% respectively compared to 2024, @fig-1-7.
 
 
 #### Comments
@@ -448,18 +448,18 @@ df |>
 
 #### Results
 
-- Sales of antibiotics commonly used to treat UTIs decreased by 2.4% in 2025 among women aged 15-79 compared to 2024. Sales of pivmecillinam (J01CA08) and trimethoprim (J01EA) increased by 5.3% and 1.5% respectively, whereas nitrofurantoin (J01XE) and ciprofloxacin (J01MA02) decreased by 11.0% and 5.8%, @fig-1-8.
+- Sales of antibiotics commonly used to treat UTIs decreased by 2.4% in 2025 among women aged 15-79 compared to 2024. Sales of pivmecillinam (J01CA08) and trimethoprim (J01EA) increased by 5.3% and 1.5% respectively, whereas nitrofurantoin (J01XE) and ciprofloxacin (J01MA02) decreased by 11% and 5.8%, @fig-1-8.
  
 - In men aged 65 or older, the sales of antibiotics commonly used to treat UTIs increased marginally by 0.2% in 2025 compared to 2024. The greatest relative change was observed for pivmecillinam (J01CA08) and trimethoprim (J01EA) increased by 6.8% and 5.7% respectively, @fig-1-9.
 
-- At the national level, 10.1% of the antibiotics commonly prescribed for UTIs in women aged 18-79 in 2025 consisted of ciprofloxacin. This proportion ranged from 7% in Jönköping region to 13% in Västernorrland region, @fig-1-10.
+- At the national level, just over 10% of the antibiotics commonly prescribed for UTIs in women aged 18-79 in 2025 consisted of ciprofloxacin. This proportion ranged from 7.0% in Jönköping region to 13% in Västernorrland region, @fig-1-10.
 
 
 #### Comments
 
 According to national treatment recommendations, pivmecillinam and nitrofurantoin are first-line treatments for UTIs in women aged 15 or older and in men with afebrile symptomatic UTIs @Lakemedelsverket2017.
 In line with treatment recommendations, 87% of the antibiotics commonly prescribed for UTIs that were sold to women aged 15-79 in 2025 consisted of these two antibiotics. The increase in sales of pivmecillinam (J01CA08) can be attributed to a recommendation from Strama to use it instead of nitrofurantoin (J01XE) when appropriate, due to a risk of shortage for pivmecillinam @Strama2026. This guidance has been withdrawn, as nitrofurantoin is no longer considered to be at risk for shortages.
-In men aged 65 or older, fluoroquinolones made up 32.8% of the UTI antibiotics sold in 2025. In this group, the trend analysis shows a significant increase in the sales of nitrofurantoin and trimethoprim with sulphonamides during the period 2000-2025. Sales of fluoroquinolones and trimethoprim show a significant decrease since the beginning of the 2000s. Sales of pivmecillinam increased in this population since 2005, according to trend analysis. Note that since 2021, norfloxacin (J01MA06) has been removed from the market and only ciprofloxacin (J01MA02) remains among the fluoroquinolones. 
+In men aged 65 or older, fluoroquinolones made up 33% of the UTI antibiotics sold in 2025. In this group, the trend analysis shows a significant increase in the sales of nitrofurantoin and trimethoprim with sulphonamides during the period 2000-2025. Sales of fluoroquinolones and trimethoprim show a significant decrease since the beginning of the 2000s. Sales of pivmecillinam increased in this population since 2005, according to trend analysis. Note that since 2021, norfloxacin (J01MA06) has been removed from the market and only ciprofloxacin (J01MA02) remains among the fluoroquinolones. 
 
 According to Strama’s quality indicator for outpatient care, a maximum of 10% of antibiotics prescribed to treat UTIs in women aged 18-79 years should consist of fluoroquinolones @Strama2016. This target was achieved by nine of 21 regions in 2025.  
 
@@ -752,9 +752,9 @@ df |>
 
 Results
 
-- The proportion of children aged 0-6 years treated with at least one course of antibiotics decreased on a national level in 2025 compared to 2024 and was an estimated 13.9%, @fig-1-12.
+- The proportion of children aged 0-6 years treated with at least one course of antibiotics decreased on a national level in 2025 compared to 2024 and was an estimated 14%, @fig-1-12.
 
-- At the national level, 72.5% of antibiotics commonly used to treat RTIs in children aged 0-6 consisted of penicillin V. This proportion ranged from 66.4% in Kronoberg region to 80% in Västerbotten region, @fig-1-13.
+- At the national level, 73% of antibiotics commonly used to treat RTIs in children aged 0-6 consisted of penicillin V. This proportion ranged from 66% in Kronoberg region to 80% in Västerbotten region, @fig-1-13.
 
 #### Comments
 
@@ -858,7 +858,7 @@ p <- df |>
                          colour = "red",tooltip_fill = "red",
                          alpha=.7,
                          hover_nearest = TRUE,
-                         tooltip = "The red line indicates the national target of 80 %.") +
+                         tooltip = "The red line indicates the national target of 80%.") +
   labs(x=NULL,
        y = "Proportion (%) penicillin V") +
   scale_y_continuous(expand=c(0,.1), limits=c(0,100)) +
@@ -882,17 +882,17 @@ df |>
 
 #### Results
 
-- Dentists accounted for 6.14% of all systemic antibiotics (J01 excl. methenamine) prescribed in Sweden in 2025, which is a similar level as the previous year (6.04% in 2024).
+- Dentists accounted for 6.1% of all systemic antibiotics (J01 excl. methenamine) prescribed in Sweden in 2025, which is a similar level as the previous year (6.0% in 2024).
 
 - Antibiotics (J01 excl. methenamine; metronidazole P01AB01) prescribed by dentists in 2025 was estimated to 17.4 prescriptions per 1 000 inhabitants, a decrease by 2.6% compared to the year before, @fig-1-14.
 
-- The most commonly prescribed antibiotic by dentists was penicillin V (83.3% of total sales in dentistry), @fig-1-14.
+- The most commonly prescribed antibiotic by dentists was penicillin V (83% of total sales in dentistry), @fig-1-14.
 
-- Compared to 2024, the sales of penicillin V decreased by 3.5%. The sales of amoxicillin (J01CA04) increased by 19% during 2025 compared to the previous year. Sales of erythromycin (J01FA01) increased by 73.1% but remain at a low level. Sales of clindamycin (J01FF01), metronidazol (P01AB01) and other antibiotics (in the group J01) decreased by 6.2%, 1.5% and 10.7%, respectively. 
+- Compared to 2024, the sales of penicillin V decreased by 3.5%. The sales of amoxicillin (J01CA04) increased by 19% during 2025 compared to the previous year. Sales of erythromycin (J01FA01) increased by 73% but remain at a low level. Sales of clindamycin (J01FF01), metronidazol (P01AB01) and other antibiotics (in the group J01) decreased by 6.2%, 1.5% and 11%, respectively. 
 
 - Sales of antibiotics prescribed by dentists decreased in 17 of 21 regions during 2025. There were notable regional differences; dentists in Skåne region issued 22.7 prescriptions per 1 000 inhabitants, more than double that of dentists in Västerbotten region which had 9.2 prescriptions per 1 000 inhabitants, @fig-1-15.
 
-- Prescriptions decreased for all age groups except for patients in the age groups 5-19 years and 85+ years of age, where sales increased by 5,78% and 1.84% respectively. Sales decreased the most for patients aged 1-4 years (19.9%). Most antibiotics were prescribed to those aged 65-84 years, followed by those aged 45-64 years, @fig-1-16.
+- Prescriptions decreased for all age groups except for patients in the age groups 5-19 years and 85+ years of age, where sales increased by 5.8% and 1.8% respectively. Sales decreased the most for patients aged 1-4 years (19.9%). Most antibiotics were prescribed to those aged 65-84 years, followed by those aged 45-64 years, @fig-1-16.
 
 #### Comments
 Antibiotic sales in dentistry continue to decrease since 2022. The sales levels are lower compared to a pre-pandemic level. For patients older than 85 years of age, antibiotic sales in dentistry remain higher than levels observed in 2019. Prescriptions to patients below the age of 1 are not shown, as no antibiotics were prescribed by dentists to patients in this age group during 2025. 
@@ -1021,7 +1021,7 @@ p <- df |>
           tooltip_b = glue::glue('<b>Year:</b> {Year}
                                     <b>Group:</b> {group}
                                     <b>Prescriptions/1 000 inhabitants and year :</b> {round(value,2)}'),
-          group = factor(group, levels = c("All age groups","<1 years","1-4 years","5-19 years","20-44 years", "45-64 years","65-84 years","85 - years"))
+          group = factor(group, levels = c("All age groups","<1 years","1-4 years","5-19 years","20-44 years", "45-64 years","65-84 years","85- years"))
           ) |> 
 
   ggplot(aes(x = group,
