@@ -71,12 +71,12 @@ p <- df |>
   geom_line_interactive(aes(tooltip=tooltip_l),
                         lwd=.5) +
   geom_point_interactive(aes(tooltip=tooltip_p),
-                         hover_nearest = TRUE) +
+                         hover_nearest = TRUE
+                         ) +
     scale_y_continuous(expand=c(0,0.01),
                        labels = scales::label_number(),
                      limits = c(0,1.8)) +
   scale_x_discrete(expand=c(0,0.2)) +
-    #scale_y_continuous(expand = c(0,0.2), limits=c(0,2)) + #,limits=c(0,round(max(df$value)*1.1,-2))) +
   labs(x="Year",
        y = "DDD/1 000 inhabitants per day") +
  # scale_y_continuous(expand=c(0,.1)) +
