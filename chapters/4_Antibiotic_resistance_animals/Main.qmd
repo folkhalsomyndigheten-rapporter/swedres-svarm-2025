@@ -7,8 +7,9 @@ format:
     toc-expand: true
     toc-highlight: true
 author: 
-  - name: "SVA name "
-    affiliations: "Swedish Veterinary Agency"
+  - affiliations: "Swedish Veterinary Agency"
+  #- name: "SVA name "
+  #  affiliations: "Swedish Veterinary Agency"
 ---
 
 # Antibiotic resistance in animals {#sec-ara}
