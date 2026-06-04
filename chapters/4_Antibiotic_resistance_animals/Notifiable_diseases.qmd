@@ -134,7 +134,9 @@ A total of 300 samples of fresh pig meat were collected at retail. The samples c
 
 *Escherichia coli* with carbapenem resistance was not isolated from any of the samples of pig meat collected at retail. 
 
-*Escherichia coli* with ESC-resistance was isolated from 1 (<1%) of 300 investigated samples (@tbl-41). The sample was of Swedish origin, and the isolate had an ESBL~M~ phenotype and carried *bla*~DHA-1~. In addition, one consignment of pig meat from a country outside EU was sampled at border control post. From this consignment, three samples were analysed. 
+*Escherichia coli* with ESC-resistance was isolated from 1 (<1%) of 300 investigated samples (@tbl-41). The sample was of Swedish origin, and the isolate had an ESBL~M~ phenotype and carried *bla*~DHA-1~. 
+
+In addition, one consignment of pig meat from a country outside EU was sampled at border control post. From this consignment, three samples were analysed. 
 
 *Escherichia coli* with carbapenem resistance or ESC-resistance were not isolated from any of the samples of pig meat collected at border control post. 
 
@@ -146,7 +148,9 @@ A total of 300 samples of fresh cattle meat were collected at retail. The sample
 
 *Escherichia coli* with ESC-resistance was isolated from 1 (<1%) of 300 investigated samples (@tbl-41). The sample was of non-Swedish origin, and the isolate had an ESBL~A~ phenotype and carried *bla*~CTX-M-27~. 
 
-In addition, four consignments of cattle meat from countries outside EU were sampled at border control posts. From these consignments, nine samples were analysed. *Escherichia coli* with carbapenem resistance or ESC-resistance were not isolated from any of the samples of cattle meat collected at border control posts. 
+In addition, four consignments of cattle meat from countries outside EU were sampled at border control posts. From these consignments, nine samples were analysed. 
+
+*Escherichia coli* with carbapenem resistance or ESC-resistance were not isolated from any of the samples of cattle meat collected at border control posts. 
 
 ::: {.panel-tabset}
 ###### Table
@@ -269,7 +273,7 @@ df |>
 
 #### Farm animals 
 
-Screening studies in pigs have been performed five times since 2006, with two positive samples from pigs at slaughter in 2010. A screening was performed in all 39 nucleus and multiplying herds present in 2014, and all samples were negative. In 2025, an EU-wide baseline study on the prevalence of MRSA in pigs at slaughterhouses was performed. MRSA was detected in 60 (29%) of investigated slaughter groups. All the investigated isolates carried *mecA* and belonged to CC398. 
+Screening studies in pigs have been performed five times since 2006, with two positive samples from pigs at slaughter in 2010. A screening was performed in all 39 nucleus and multiplying herds present in 2014, and all samples were negative. In 2025, an EU-wide baseline study on the prevalence of MRSA in pigs at slaughterhouses was performed. MRSA was detected in 60 (29%) of investigated slaughter groups. All the investigated isolates carried *mecA* and belonged to CC398. *Spa*-type t034 was most common (n=50), followed by t011 (n=7) and a few t571 (n=3). How well this reflects the occurrence on farm is not known but sampling of farms with piglets is performed in 2025/2026. 
 
 In dairy cattle, active monitoring of selected isolates of beta-lactamase-producing *S. aureus* from milk samples has been ongoing since 2010, and about 1 540 isolates have been tested up to and including 2025. The monitoring is performed on isolates with anonymised origin. Since 2010, five PVL-negative isolates with *mecC*, two PVL-negative isolates with *mecA* and one PVL-positive isolate with *mecA* have been detected. In 2012, PVL-positive MRSA with *mecA* was isolated from several animals in a dairy herd [@unnerstad2018suspected]. In 2025, no MRSA was detected among the 44 isolates screened for occurrence of *mecA* and *mecC*. 
 
