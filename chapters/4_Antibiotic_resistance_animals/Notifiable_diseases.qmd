@@ -134,7 +134,9 @@ A total of 300 samples of fresh pig meat were collected at retail. The samples c
 
 *Escherichia coli* with carbapenem resistance was not isolated from any of the samples of pig meat collected at retail. 
 
-*Escherichia coli* with ESC-resistance was isolated from 1 (<1%) of 300 investigated samples (@tbl-41). The sample was of Swedish origin, and the isolate had an ESBL~M~ phenotype and carried *bla*~DHA-1~. In addition, one consignment of pig meat from a country outside EU was sampled at border control post. From this consignment, three samples were analysed. 
+*Escherichia coli* with ESC-resistance was isolated from 1 (<1%) of 300 investigated samples (@tbl-41). The sample was of Swedish origin, and the isolate had an ESBL~M~ phenotype and carried *bla*~DHA-1~. 
+
+In addition, one consignment of pig meat from a country outside EU was sampled at border control post. From this consignment, three samples were analysed. 
 
 *Escherichia coli* with carbapenem resistance or ESC-resistance were not isolated from any of the samples of pig meat collected at border control post. 
 
@@ -146,7 +148,9 @@ A total of 300 samples of fresh cattle meat were collected at retail. The sample
 
 *Escherichia coli* with ESC-resistance was isolated from 1 (<1%) of 300 investigated samples (@tbl-41). The sample was of non-Swedish origin, and the isolate had an ESBL~A~ phenotype and carried *bla*~CTX-M-27~. 
 
-In addition, four consignments of cattle meat from countries outside EU were sampled at border control posts. From these consignments, nine samples were analysed. *Escherichia coli* with carbapenem resistance or ESC-resistance were not isolated from any of the samples of cattle meat collected at border control posts. 
+In addition, four consignments of cattle meat from countries outside EU were sampled at border control posts. From these consignments, nine samples were analysed. 
+
+*Escherichia coli* with carbapenem resistance or ESC-resistance were not isolated from any of the samples of cattle meat collected at border control posts. 
 
 ::: {.panel-tabset}
 ###### Table
