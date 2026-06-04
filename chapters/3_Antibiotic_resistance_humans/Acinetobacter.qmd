@@ -31,7 +31,7 @@ In 2025, 123 isolates of *Acinetobacter* spp. from blood were reported to Svebar
 In total, 37 unique (per patient, year, species and sequence type) isolates were received in 2025 within the microbiological surveillance program for *Acinetobacter* spp. with reduced susceptibility to meropenem (I+R). This is a decrease compared to what was seen in 2024 (n=54), however, similar to what was observed in 2023 (n=42). Of the 37 isolates, 28 carried species-specific bla~OXA~-genes (23, 24 or 58-like), eight harboured a combination of bla~OXA~ (23, 24 or 58-like) and bla~NDM~, and in one isolates no carbapenemase gene was detected. Four clusters were active during 2025, with number of unique isolates ranging from 2-6.
 
 
-@fig-3-acino is Figure_Ny_Ace_spp_blood.xlsx
+
 
 ::: panel-tabset
 ###### Figure
