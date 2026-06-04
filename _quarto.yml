@@ -5,7 +5,7 @@ project:
 
    
 book:
-  title: "Swedres-Svarm report 2025"
+  title: "Swedres-Svarm 2025"
   reader-mode: true
   author:
     - name: "Hanna Billström"
@@ -48,7 +48,7 @@ book:
     # Main content
     - part: index.qmd
       chapters:
-
+        - chapters/preface.qmd
         - chapters/contributors.qmd
         - chapters/summary.qmd
         - chapters/samanfattning.qmd
@@ -109,10 +109,8 @@ csl: references/vancouver.csl
 crossref:
   custom:
     - kind: float
-      key: if
-      reference-prefix: In-FOCUS 
-      caption-prefix: In-Focus
-      space-before-numbering: false
+      key: infoc
+      reference-prefix: InFocus 
 
 execute:
   freeze: auto # Re-render only when source changes.
