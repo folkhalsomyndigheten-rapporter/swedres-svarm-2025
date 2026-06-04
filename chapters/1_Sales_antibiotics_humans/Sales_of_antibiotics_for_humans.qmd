@@ -110,13 +110,13 @@ make_dynamic_plot(plot = p_, filename = "Figure-1-1")
 
 ```{r}
 #| warning: false
-#| fig-height: 8
-tmp_swe <-  df |> filter(region=="Sweden") |> transmute(year,
+#| fig-height: 10
+tmp_swe <-  df |> filter(region=="**Sweden**") |> transmute(year,
                                                         sweden=value)
 
 p <-
   df |> 
-  filter(region!="Sweden") |> 
+  filter(region!="**Sweden**") |> 
   right_join(tmp_swe) |> 
   # rename(region = "value") |> 
   pivot_longer(cols=c(value,sweden)) |> 
@@ -143,7 +143,7 @@ p <-
        y = "DDD/1 000 inhabitants per day") +
   
   add_fohm_caption() +
-  theme_SweSva(text_size=11) +
+  theme_SweSva() +
   theme_SweSva_facet() 
 
 make_dynamic_plot(plot = p, filename = "test")
