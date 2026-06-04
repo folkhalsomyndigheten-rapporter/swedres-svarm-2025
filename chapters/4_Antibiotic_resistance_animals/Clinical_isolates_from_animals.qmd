@@ -1234,7 +1234,7 @@ As in previous years, resistance to ampicillin was the most common trait in 2025
 
 Eighty percent (679/846) of the isolates were susceptible to all the tested antibiotics, and the proportion of multiresistance was 4% (35/846). Fifty-one percent (18/35) of the multiresistant isolates were resistant to three antibiotics, 14% (5/35) to four, and 11% (4/35) to five antibiotics. 
 
-For comparison of resistance in *E. coli* of different origin see “Comparative analysis”. The most common phenotype, resistance to ampicillin, tetracycline and trimethoprim-sulphamethoxazole, was detected in 65% (23/35) of the multiresistant isolates. Of the eleven isolates resistant to four or more antibiotics, all but one had this phenotype.
+For comparison of resistance in *E. coli* of different origin see @sec-NEEDS-TO-BE-ADDED-WHEN-SECTION-IS-READY "Comparative analysis". The most common phenotype, resistance to ampicillin, tetracycline and trimethoprim-sulphamethoxazole, was detected in 65% (23/35) of the multiresistant isolates. Of the eleven isolates resistant to four or more antibiotics, all but one had this phenotype.
  
 Seventeen (2%) of the *E. coli* isolates were resistant to cefotaxime (MIC >0.25mg/L), and all were available for further testing. Genes conferring transferable ESC resistance were detected in four of the isolates. All four carried the gene *bla*~CTX-M-15~. For more information about ESBL-producing Enterobacterales isolated from dogs in Sweden, see “Notifiable diseases” ESBL-producing Enterobacterales. One of the isolates was resistant to colistin (MIC >2mg/L) but found negative in PCR analysis of the *mcr-1* to *mcr-9* genes. None of the isolates were resistant to meropenem (MIC>0.12mg/L). 
 
