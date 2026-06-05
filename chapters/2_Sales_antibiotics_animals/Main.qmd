@@ -1,8 +1,8 @@
 ---
 format: html
-author: 
-  - name: "SVA name "
-    affiliations: "Swedish Veterinary Agency"
+#author: 
+#  - name: "SVA name "
+#    affiliations: "Swedish Veterinary Agency"
 ---
 
 # Sales of antibiotics in animals {#sec-asa}
