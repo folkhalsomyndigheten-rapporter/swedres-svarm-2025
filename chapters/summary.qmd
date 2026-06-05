@@ -13,40 +13,40 @@ status(type = "polishing")
 
 # Summary {.unnumbered}
 
-For a long time, Sweden has had a favourable situation compared to many other countries regarding antibiotic resistance in bacteria from humans, and this situation remains. One of the reasons is that Sweden has effective strategies to promote the responsible use of antibiotics and limit the spread of antibiotic resistance.
+Sweden has had a favourable situation compared to many other countries regarding antibiotic resistance in bacteria from humans for a long time, and this remains the case. One reason is that Sweden has effective strategies to promote the responsible use of antibiotics and limit the spread of antibiotic resistance.
 
-Despite this, there is an increase in reported cases of notifiable antibiotic-resistant bacteria, which highlights the importance of continuous and consistent work against antibiotic resistance within Strama, infection control, and communicable disease control. In healthcare, there are recurring outbreaks of vancomycin-resistant enterococci and an increasing number of healthcare-associated clusters of ESBL~CARBA~. To prevent healthcare-associated infections, it is crucial that basic hygiene routines are followed and that infection control measures are consistently applied in healthcare settings.
+Nevertheless, there is an increase in reported cases of notifiable antibiotic-resistant bacteria. This highlights the importance of continuous and consistent work with antibiotic stewardship and infection prevention and control, in healthcare as well as in the community. In healthcare, there are recurring outbreaks of vancomycin-resistant enterococci and an increasing number of healthcare-associated clusters of ESBL~CARBA~. To prevent healthcare-associated infections, it is crucial that basic hygiene routines are followed and that infection control measures are applied consistently in healthcare settings.
 
-The spread of antibiotic resistance also occurs in the community, which is why it is important to continue broad-based work on this issue, such as [Antibiotikasmart Sverige](https://www.folkhalsomyndigheten.se/antibiotikasmart-sverige/){target="_blank"}, which aims to support everyone in society to act in an antibiotic-smart way—individuals, businesses, and decision-makers at various levels. In addition to the long-standing community spread of MRSA, there are now signs of community spread of ESBL~CARBA~.
+The spread of antibiotic resistance also occurs in the community. In addition to the community spread of MRSA that has been seen over a longer period of time, there are now signs of community spread of ESBL~CARBA~. This emphasises the importance of working with a whole-of-society approach. For example, [Antibiotikasmart Sverige](https://www.folkhalsomyndigheten.se/antibiotikasmart-sverige/){target="_blank"} aims to support everyone — individuals, businesses and decision-makers at various levels — to act antibiotic-smart. 
 
-Antibiotic sales in human medicine in Sweden dropped sharply during the pandemic but began to rise in 2022 and continued to increase in 2023. In 2024, sales were largely unchanged compared to the previous year. In 2025, sales decreased compared to the previous year and remain below pre-pandemic levels. Antibiotic sales have generally declined since the peak in 1992, with the largest decrease during this period observed in children aged 0–4 years.
+Antibiotic sales in human medicine in Sweden dropped sharply during the pandemic but rose in 2022 and 2023. In 2024, sales were largely unchanged compared to the previous year. In 2025, sales decreased compared to the previous year and remain below pre-pandemic levels. Antibiotic sales have generally declined since the peak in 1992, with the largest decrease during this period observed in children aged 0–4 years.
 
 In veterinary medicine, antibiotic sales have decreased sharply since the mid-1980s and have stabilised at a relatively low level in recent years. However, sales of aminoglycosides for group treatment have increased significantly since 2022, which is explained by an increased need for treatment of post-weaning diarrhoea in pigs following the withdrawal in 2022 of preventive veterinary medicinal products with a high content of zinc oxide.
 
-Furthermore, the occurrence of resistance among bacteria from animals has generally been stably low. For some substances and bacteria, the occurrence has even decreased over time. One such example is ESBL-producing *Escherichia coli* in broilers. However, there are exceptions; for example, the occurrence of resistance to ampicillin, sulfonamides, and trimethoprim has increased in randomly selected *E. coli* from both broilers and slaughter pigs.
+Furthermore, the occurrence of resistance among bacteria from animals has generally been low and stable. For some substances and bacteria, the occurrence has even decreased over time. One such example is ESBL-producing *Escherichia coli* in broilers. However, there are exceptions; for example, the occurrence of resistance to ampicillin, sulphonamides and trimethoprim has increased in randomly selected *E. coli* from both broilers and slaughter pigs.
 
 :::{.callout-note}
 ## Key findings 2025
 
-- Total antibiotic sales in human medicine in Sweden decreased by 2.8 percent in 2025 compared to 2024.
+- Total antibiotic sales in human medicine in Sweden decreased by 2.8% in 2025 compared to 2024.
 
-- Antibiotic sales in dental care decreased by 2.6 percent during the same period.
+- Antibiotic sales in dental care decreased by 2.6% during the same period.
 
 - Antibiotic sales in primary care decreased compared to the previous year, while antibiotic sales on prescription to healthcare facilities increased during the same period.
 
-- Since 2020, resistance to cefotaxime in *Escherichia coli* (ESBL) and the proportion of meticillin-resistant *Staphylococcus aureus* (MRSA) isolated from blood have been used as indicators of antibiotic resistance in Sweden. Both the proportion of MRSA and the proportion of *E. coli* resistant to cefotaxime have slowly increased over a ten-year period to the current 2.4 and 9.0 percent, respectively.
+- Since 2020, resistance to cefotaxime in *Escherichia coli* (ESBL) and the proportion of meticillin-resistant *Staphylococcus aureus* (MRSA) isolated from blood have been used as indicators of antibiotic resistance in Sweden. Both the proportion of MRSA and the proportion of *E. coli* resistant to cefotaxime have slowly increased over a ten-year period to the current levels of 2.4% and 9.0%, respectively.
 
 - The number of reported cases increased for notifiable bacteria with antibiotic resistance.
 
-- For ESBL~CARBA~, 487 cases were reported, compared to 410 in 2024, of which seventy-five clusters or pairwise related cases were identified in 2025 (2–21 cases per cluster). For 29 of the 75 clusters, one or more cases were reported as healthcare-associated infections in Sweden in 2025.
+- For ESBL~CARBA~, 487 cases were reported, compared to 410 in 2024. Of the reported cases for 2025, seventy-five clusters or pairwise related cases were identified (2–21 cases per cluster). For 29 of the 75 clusters, one or more cases were reported as healthcare-associated infections in Sweden in 2025.
 
 - For vancomycin-resistant enterococci, there were seven major (10–80 cases) and twenty-nine minor (2–5 cases) hospital-related outbreaks in 2025.
 
-- The number of cases of *Neisseria gonorrhoeae* has increased over a 10-year period. Resistance to cefixime remains low but has increased to 0.7 percent since 2024. For the fourth year in a row, ceftriaxone-resistant isolates were identified in Sweden.
+- The number of cases of *Neisseria gonorrhoeae* has increased over a 10-year period. Resistance to cefixime remains low but has increased to 0.7% since 2024. For the fourth year in a row, ceftriaxone-resistant isolates were identified in Sweden.
 
-- Antibiotic sales for use in animals remained stably low and were dominated by narrow-spectrum penicillins.
+- Antibiotic sales for use in animals remain stably low and were dominated by narrow-spectrum penicillins.
 
-- During the year, MRSA was isolated from pigs in a study using selective culture methods and sporadically in clinical samples from dogs, horses, and cats.
+- During 2025, MRSA was isolated from pigs in a study using selective culture methods and sporadically in clinical samples from dogs, horses and cats.
 
 - ESBL-producing *E. coli* are generally rare in both livestock and pets as well as in meat.
 
