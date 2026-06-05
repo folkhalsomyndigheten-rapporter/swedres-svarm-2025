@@ -140,10 +140,13 @@ p <- df |>
   scale_fill_SweSva() + 
   theme_SweSva() +
   theme_SweSva_rotate() +
-  add_fohm_caption()
+  add_fohm_caption() +
+      theme(axis.text.x = ggtext::element_markdown()) 
+
 
 make_dynamic_plot(plot = p, filename = "Fig1-18")
 ```
+
 ```{r}
 #| eval: false
 #| include: false

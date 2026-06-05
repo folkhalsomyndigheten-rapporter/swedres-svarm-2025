@@ -457,6 +457,7 @@ theme_SweSva <- function(text_size=11,
 #                          "legend.title", "legend.text"))
 
 
+
 ## make labels nicer
 
 theme_SweSva_nicelabs <- function(text_size = 11) {
