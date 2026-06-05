@@ -34,7 +34,7 @@ In Sweden, findings of carbapenemase-producing Enterobacterales (ESBL~CARBA~) an
 In Sweden, ESBL~CARBA~ in animals are notifiable but not ESBL~A~ or ESBL~M~. During 2025, various samples from healthy farm animals were screened for *Escherichia coli* resistant to ESCs and carbapenems using selective media. Isolates with reduced susceptibility were further investigated by genome sequencing for presence of transferable genes coding for ESC resistance (@sec-NEEDS-TO-BE-ADDED-WHEN-SECTION-IS-READY for details see Material and methods, resistance in bacteria from animals).  
 
 Active screening for *E. coli* resistant to ESCs in healthy farm animals using faecal samples collected at slaughter has been performed since 2008. The proportions of samples positive for *E. coli* with ESBL~A~ or ESBL~M~ in screenings of healthy animals are available as supplementary material on [the SVA web page](https://www.sva.se/en/what-we-do/antibiotics/svarm-resistance-monitoring/supplementary-material/){target="_blank"}. 
- 
+
 ###### Fattening pigs 
 
 Samples from fattening pigs were collected at slaughter under the supervision of the National Food Agency (SLV) at six abattoirs that together processed more than 85% of the total number of pigs slaughtered in Sweden 2025. The number of samples from each abattoir was roughly proportional to the annual slaughter volume of the abattoir. Each sample was randomly selected but represented a unique herd per day. Samples were sent to SVA for culture the same day or the next day after collecting and in meantime kept refrigerated. 
@@ -84,7 +84,7 @@ dat_41_long <- dat_41$fig_data |>
 df_fig_41 <- dat_41_long |>
   mutate(tooltip_l = glue::glue('{method}'),
          tooltip_p = paste0("<b>Year:</b> ", Year, "<br><b>Method:</b> ", method, 
-                          "<br><b>Value:</b> ", value), data_id = paste(method, Year, sep = "_"))
+                            "<br><b>Value:</b> ", value), data_id = paste(method, Year, sep = "_"))
 
 yrs <- sort(unique(df_fig_41$Year))
 
@@ -93,21 +93,23 @@ p_41 <- ggplot(df_fig_41,
                    y = value,
                    color = method,
                    group = method,
-                    data_id = data_id)) +
+                   data_id = data_id)) +
   geom_line_interactive(aes(tooltip = tooltip_l)) +
-  ggiraph::geom_point_interactive(aes(tooltip = tooltip_p)) +#, size = 2.5, 
-                                  #position = position_jitter(width = 0.10, height = 0)) +
+  ggiraph::geom_point_interactive(aes(tooltip = tooltip_p)) +
   scale_x_discrete(expand = c(0,0.2)) +
-  scale_y_continuous(limits = c(0, 80),expand=c(0,0)) +
+  scale_y_continuous(limits = c(0, 100),
+                     breaks = perc_100,
+                     expand=c(0,0.2)
+                     ) +
   scale_color_SweSva() +
   guides(color=guide_legend(nrow=3)) +
-
   labs(x = "Year",
-       y = "Proportion (%) of samples with ESBL", color = NULL) +
+       y = "Proportion (%) of samples with ESBL",
+       color = NULL) +
   theme_SweSva() +
-  #theme(axis.text.x = element_text(angle = 45, hjust = 1, vjust = 1)) +
+  theme_SweSva_rotate() +
   add_sva_caption() +
-    theme(plot.subtitle = element_text(vjust = -15))# 
+  theme(plot.subtitle = element_text(vjust = -15))
 
 make_dynamic_plot(plot = p_41, filename = "fig-41")
 ```
@@ -162,7 +164,7 @@ In addition, four consignments of cattle meat from countries outside EU were sam
 
 # Read source data from the Excel sheet
 src_41 <- load_from_excel("data/Table 4.1 proportion of ESBL different samples.xlsx",
-                            sheet = "data")
+                          sheet = "data")
 
 # Build gt table 
 tab_41 <- make_qt_table_from_excel("data/Table 4.1 proportion of ESBL different samples.xlsx", sheet = "data")
@@ -197,7 +199,7 @@ About three quarters of the investigated isolates were resistant to at least two
 
 # Read source data from the Excel sheet
 src_42 <- load_from_excel("data/Table 4.2.xlsx",
-                            sheet = "Table 4.2")
+                          sheet = "Table 4.2")
 
 # Build gt table 
 tab_42 <- make_qt_table_from_excel("data/Table 4.2.xlsx", sheet = "Table 4.2")
@@ -223,7 +225,7 @@ df |>
 
 # Read source data from the Excel sheet
 src_43 <- load_from_excel("data/Table 4.3.xlsx",
-                            sheet = "Table 4.3")
+                          sheet = "Table 4.3")
 
 # Build gt table 
 tab_43 <- make_qt_table_from_excel("data/Table 4.3.xlsx", sheet = "Table 4.3")
@@ -254,11 +256,11 @@ In Sweden, methicillin-resistant *Staphylococcus aureus* (MRSA) in animals was f
 
 # Read source data from the Excel sheet
 src_44 <- load_from_excel("data/Table 4.4 MRSA.xlsx",
-                            sheet = "data")
+                          sheet = "data")
 
 # Build gt table (caption is taken from src_439a$fig_cap inside the function)
 tab_44 <- make_qt_table_from_excel("data/Table 4.4 MRSA.xlsx",
-                                     sheet = "data")
+                                   sheet = "data")
 tab_44$table
 
 ```
@@ -326,21 +328,24 @@ yrs <- sort(unique(df_fig_42$Year))
 p_42 <- ggplot(df_fig_42,
                aes(x = factor(Year),
                    y = Total,
-                    group=one_col,
+                   group=one_col,
                    color=one_col,
-                    data_id = data_id)) +
+                   data_id = data_id)) +
   geom_line_interactive(aes(tooltip=glue::glue('{Year}')),
                         lwd=0.5) +
   ggiraph::geom_point_interactive(aes(tooltip = tooltip)) +
-  scale_x_discrete(expand=c(0,0.2)) +# breaks = yrs, minor_breaks = NULL) +
-  scale_y_continuous(limits=c(0,140)) +
+  scale_x_discrete(expand=c(0,0.2)) +
+  scale_y_continuous(limits=c(0,150),
+                     expand=c(0,0.2)
+                     ) +
   scale_color_SweSva() +
   labs(x = "Year",
        y = "Number of cases with MRSP", color = NULL) +
   theme_SweSva() +
   add_sva_caption() +
+  theme_SweSva_rotate() +
   theme(legend.position = "none") +
-      theme(plot.subtitle = element_text(vjust = +2)) 
+  theme(plot.subtitle = element_text(vjust = +2)) 
 
 make_dynamic_plot(plot = p_42, filename = "fig-42")
 ```
@@ -366,11 +371,11 @@ The results of the genome sequencing of 44 isolates, divided the isolates into 2
 
 # Read source data from the Excel sheet
 src_45 <- load_from_excel("data/Table 4.5 MRSP.xlsx",
-                            sheet = "data")
+                          sheet = "data")
 
 # Build gt table (caption is taken from src_439a$fig_cap inside the function)
 tab_45 <- make_qt_table_from_excel("data/Table 4.5 MRSP.xlsx",
-                                     sheet = "data")
+                                   sheet = "data")
 tab_45$table
 
 ```

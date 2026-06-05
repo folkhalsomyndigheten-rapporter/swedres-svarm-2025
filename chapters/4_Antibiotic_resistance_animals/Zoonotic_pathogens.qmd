@@ -146,7 +146,8 @@ fig_43_alt <- dat_43$fig_alt
 # need to do some extra manipulation due to NAs in data
 df_fig_43 <- dat_43$fig_data |>
   dplyr::filter(!is.na(Total)) |>
-  mutate(tooltip = paste0("<b>Year:</b> ", Year, "<br><b>Percent resistance:</b> ", Total,"%"),
+  mutate(tooltip_l = glue::glue('{Year}'),
+           tooltip_p = paste0("<b>Year:</b> ", Year, "<br><b>Percent resistance:</b> ", Total,"%"),
          data_id = paste(Total, Year, sep = "_"),
          one_col = "one_color_SweSva")
 
@@ -158,15 +159,18 @@ p_43 <- ggplot(df_fig_43,
                aes(x = factor(Year),
                    y = Total,
                    group=one_col,
-                   color=one_col)) +
-  geom_line_interactive(aes(tooltip=glue::glue('{Year}')),
+                   color=one_col,
+                   data_id = data_id)) +
+  geom_line_interactive(aes(tooltip=tooltip_l),
                         lwd=0.5) +
-  ggiraph::geom_point_interactive(aes(tooltip = tooltip, data_id = data_id)) +
+  geom_point_interactive(aes(tooltip = tooltip_p)) +
   scale_x_discrete(expand=c(0,0.2)) +#continuous(breaks = yrs, minor_breaks = NULL) +
-  scale_y_continuous(limits = c(0, 50)) + #y_max), breaks = seq(0, y_max, by = 5)) +
+  scale_y_continuous(limits = c(0, 50),
+                     expand = c(0,0.2),
+                     breaks = perc_100) + #y_max), breaks = seq(0, y_max, by = 5)) +
   scale_color_SweSva() +
   labs(x = "Year",
-       y = "Percent resistance (%)", color = NULL) +
+       y = "Resistance (%)", color = NULL) +
   theme_SweSva() +
   #theme(axis.text.x = element_text(angle = 45, hjust = 1, vjust = 1), plot.subtitle = element_text(vjust = +2)) +
   add_sva_caption() +
