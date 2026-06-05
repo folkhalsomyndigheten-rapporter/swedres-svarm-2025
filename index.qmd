@@ -17,9 +17,9 @@ The **Swedres-Svarm Report** is a collaborative publication by the [Public Healt
 ::: {.grid}  
 ::: {.g-col-10}
 ::: callout-note
-This book is built using the `Quarto` publishing system, with data presented and visualized using `ggplot2`, `ggiraph`, and `dt`. The source code is available on GitHub.
+This book is built using the `Quarto` publishing system, with data presented and visualised using `ggplot2`, `ggiraph`, and `dt`. The source code is available on GitHub.
 
-#### What's new in this Edition?
+#### What is new in this Edition?
 
 The new edition of this annual report has undergone a comprehensive update, featuring:
 
