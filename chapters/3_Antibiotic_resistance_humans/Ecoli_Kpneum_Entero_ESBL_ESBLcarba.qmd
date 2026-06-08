@@ -318,8 +318,12 @@ data <- load_from_excel(path_file = "data/Figure_3.8_25.xlsx")
 df <- data$fig_data |>
   pivot_longer(cols = -c("Species","Year"), names_to = "feature") |> 
   mutate(#facet.tmp = gsub("^\\*+|\\*+$", "", Species),
-         feature.tmp = case_when(feature=="blaOXA-48-like" ~"*bla*<sub>OXA-48-like</sub>",
-                                 feature=="blaIMP/IMI/GES" ~"*bla*<sub>IMP/IMI/GES</sub>"))
+         feature.tmp = case_when(feature=="*bla*~OXA-48-like~" ~"*bla*<sub>OXA-48-like</sub>",
+                                 feature=="*bla*~IMP/IMI/GES~" ~"*bla*<sub>IMP/IMI/GES</sub>",
+                                 feature=="*bla*~KPC~" ~"*bla*<sub>KPC</sub>",
+                                  feature=="*bla*~VIM~" ~"*bla*<sub>VIM</sub>",
+                                 feature=="*bla*~NDM~" ~"*bla*<sub>NDM</sub>",
+                                 .default=feature))
 ```
 
 ```{r}
@@ -331,13 +335,13 @@ p <- df |>
   mutate(data_id = row_number(),
          tooltip_b = md_to_html(glue::glue('<b>Species:</b> {Species}<br>
                                     <b>Year:</b> {Year}<br>
-                                     <b>Gene:</b> {feature}<br>
+                                     <b>Gene:</b> {feature.tmp}<br>
                                     <b>Number of isolates with enzymes:</b> {round(value,2)}'))) |> 
   
   ggplot(aes(x = factor(Year),
              y = value, 
-             fill=factor(feature),
-             data_id = feature)) +
+             fill=factor(feature.tmp),
+             data_id = feature.tmp)) +
   geom_col_interactive(aes(tooltip = tooltip_b),
                        width = 0.5,
                        position = position_dodge(0.7)) +
@@ -356,8 +360,6 @@ p <- df |>
   theme(axis.text.y = element_text(hjust=1),
         axis.text.x = element_text(angle=0, vjust = 0, hjust = 0.5),
         plot.subtitle = element_text(vjust = -15),
-        #strip.text = element_text(face="italic"),
-        #legend.text = ggtext::element_markdown()
         )
 
 make_dynamic_plot(plot = p, filename = "Fig3-11")
@@ -386,8 +388,10 @@ df <- data$fig_data |>
   #separate(tmp, into = c("species","gene"),sep = "_") |> 
   mutate(value = resistence*100,
          gene = case_when(gene == "*bla*~OXA-48-like~" ~ "*bla*<sub>OXA-48-like</sub>",
+                          gene=="*bla*~KPC~" ~"*bla*<sub>KPC</sub>",
+                          gene=="*bla*~NDM~" ~"*bla*<sub>NDM</sub>",
                           .default = gene), 
-         gene = factor(gene, levels = c("*bla*<sub>OXA-48-like</sub>","*bla*~NDM~","*bla*~KPC~"))
+         gene = factor(gene, levels = c("*bla*<sub>OXA-48-like</sub>","*bla*<sub>NDM</sub>","*bla*<sub>KPC</sub>"))
          ) |> 
   complete(antibiotic,species, gene, fill = list(value = 0))  # or fill = list(value = NA)
 
@@ -422,9 +426,9 @@ p <- df |>
   facet_grid(cols=vars(species), scales ="free_y") +
   #scale_fill_SweSva() + 
   scale_fill_manual(
-    breaks = c("*bla*<sub>OXA-48-like</sub>", "*bla*~NDM~","*bla*~KPC~"),
+    breaks = c("*bla*<sub>OXA-48-like</sub>","*bla*<sub>NDM</sub>","*bla*<sub>KPC</sub>"),
     values = c("#0065AC", "#FA6400", "#009284"),#c("#FF0000", "#0000FF","green"),
-    labels = c("*bla*<sub>OXA-48-like</sub>", "*bla*~NDM~","*bla*~KPC~")
+    labels = c("*bla*<sub>OXA-48-like</sub>","*bla*<sub>NDM</sub>","*bla*<sub>KPC</sub>")
   ) +
     theme_SweSva(markdown = c("legend.text")) +
   theme_SweSva_facet(markdown = "strip.text") +
@@ -475,10 +479,10 @@ p <- df |>
   scale_x_continuous(expand=c(0,0.2)) +
   facet_grid(cols=vars(species), scales ="free_y") +
   #scale_fill_SweSva() + 
-   scale_fill_manual(
-    breaks = c("*bla*<sub>OXA-48-like</sub>", "*bla*~NDM~","*bla*~KPC~"),
+  scale_fill_manual(
+    breaks = c("*bla*<sub>OXA-48-like</sub>","*bla*<sub>NDM</sub>","*bla*<sub>KPC</sub>"),
     values = c("#0065AC", "#FA6400", "#009284"),#c("#FF0000", "#0000FF","green"),
-    labels = c("*bla*<sub>OXA-48-like</sub>", "*bla*~NDM~","*bla*~KPC~")
+    labels = c("*bla*<sub>OXA-48-like</sub>","*bla*<sub>NDM</sub>","*bla*<sub>KPC</sub>")
   ) +
     theme_SweSva(markdown = c("legend.text")) +
   theme_SweSva_facet(markdown = "strip.text") +
@@ -530,9 +534,9 @@ p <- df |>
   facet_grid(cols=vars(species), scales ="free_y") +
   #scale_fill_SweSva() + 
   scale_fill_manual(
-    breaks = c("*bla*<sub>OXA-48-like</sub>", "*bla*~NDM~","*bla*~KPC~"),
+    breaks = c("*bla*<sub>OXA-48-like</sub>","*bla*<sub>NDM</sub>","*bla*<sub>KPC</sub>"),
     values = c("#0065AC", "#FA6400", "#009284"),#c("#FF0000", "#0000FF","green"),
-    labels = c("*bla*<sub>OXA-48-like</sub>", "*bla*~NDM~","*bla*~KPC~")
+    labels = c("*bla*<sub>OXA-48-like</sub>","*bla*<sub>NDM</sub>","*bla*<sub>KPC</sub>")
   ) +
     theme_SweSva(markdown = c("legend.text")) +
   theme_SweSva_facet(markdown = "strip.text") +
