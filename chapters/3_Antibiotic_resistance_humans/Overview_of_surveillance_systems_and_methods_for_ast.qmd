@@ -280,7 +280,7 @@ p <- df |>
        y = "Number of cases") +
       scale_y_continuous(expand = c(0,0),
                          labels = scales::label_number(),
-                         limits=c(0,round(max(df$value)*1.2,-2))) +
+                         limits=c(0,16000)) +
 #theme(axis.text.y = element_text(hjust=0))+
 #  scale_y_continuous(expand=c(0,.1)) +
   #scale_fill_fohm() +
