@@ -30,7 +30,7 @@ status(type = "polishing")
 
 ##### Comments
 
-Invasive cases of *S. pyogenes* are notifiable according to the Communicable Disease Act. In 2025, the incidence fell to 7.1 (cases/100 000 inhabitants), down from 12.9 in 2024 (n= 1 367). AST data for 509 isolates were provided by Svebar (@fig-3-31). Since 2023, resistance to clindamycin and erythromycin has stabilised at prepandemic levels and are now 4.5% and 6.3% respectively. Some laboratories did not test susceptibility to trimethoprim-sulphamethoxazole and tetracycline. The variation in resistance during 2021 to 2022 should be viewed cautiously due to limited number of isolates. 
+Invasive cases of *S. pyogenes* are notifiable according to the Communicable Disease Act. In 2025, the incidence fell to 7.1 (cases/100 000 inhabitants), down from 12.9 in 2024 (n= 1 367). AST data for 509 isolates were provided by Svebar (@fig-3-31). Since 2023, resistance to clindamycin and erythromycin has stabilised at prepandemic levels and are now 4.5% and 6.3%, respectively. Some laboratories did not test susceptibility to trimethoprim-sulphamethoxazole and tetracycline. The variation in resistance during 2021 to 2022 should be viewed cautiously due to limited number of isolates. 
 
 @fig-3-31 is Figure_3.31_25
 
