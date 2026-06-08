@@ -84,7 +84,7 @@ p <- df |>
                                     <b>Type:</b> {type}
                                     <b>Number of cultures:</b> {round(n,0)}')) |> 
 
-  ggplot(aes(x=provtagnings_year,
+  ggplot(aes(x=factor(provtagnings_year),
               y=n,
               group=type, 
               fill=type)) +
@@ -97,7 +97,7 @@ p <- df |>
   scale_y_continuous(expand=c(0,.2),
                      labels = scales::label_number()) +
     scale_x_discrete(expand = c(0,0.2)) +
-  guides(fill=guide_legend(nrow=2)) +
+  #guides(fill=guide_legend(nrow=2)) +
 
   scale_fill_SweSva() + 
   theme_SweSva() +
@@ -128,17 +128,17 @@ p <- data$fig_data |>
     #geom_col_interactive(aes(tooltip = tooltip_b),width = 0.5, position = position_dodge(0.7)) +
   labs(y="Number of reported cultures",
        x="Year") +
-  facet_wrap(~labb_kod) +
+  facet_wrap(~labb_kod, ncol=7) +
     scale_x_discrete(expand = c(0,0.2)) +
   scale_y_continuous(expand=c(0,.2),
                      labels = scales::label_number()) +
-  labs(y="Antal rapporterande analys (total)",
+  labs(y="Reported analysis (total)",
        x="Year") +
   
   scale_fill_SweSva() + 
   theme_SweSva() +
   theme_SweSva_facet() +
-  theme(plot.subtitle = element_text(vjust = -15)) +
+  #theme(plot.subtitle = element_text(vjust = -15)) +
   add_fohm_caption()
 
 make_dynamic_plot(plot = p, filename = "Fig3-2")
