@@ -209,7 +209,7 @@ dat_2IF3_long |>
 ```
 :::
 
-The majority (54%) of the topical antimicrobial products sold for animals in 2025 were human medicinal products prescribed for animals under the cascade, while the remaining were veterinary medicinal products. Human medicinal products completely dominated the sales of ophthalmologicals, while most of the otologicals and dermatologicals were veterinary medicinal products (@fig-2IF3). The high proportion of human medicinal products for ophthalmologicals reflects the fact that, of the two veterinary medicinal products marketed in Sweden, one has not been available since early 2024 and the other since October 2025.
+The majority (54%) of the topical antimicrobial products sold for animals in 2025 were human medicinal products prescribed for animals under the cascade [@eu2019reg6], while the remaining were veterinary medicinal products. Human medicinal products completely dominated the sales of ophthalmologicals, while most of the otologicals and dermatologicals were veterinary medicinal products (@fig-2IF3). The high proportion of human medicinal products for ophthalmologicals reflects the fact that, of the two veterinary medicinal products marketed in Sweden, one has not been available since early 2024 and the other not since October 2025.
 
 ```{r}
 #| include: false
