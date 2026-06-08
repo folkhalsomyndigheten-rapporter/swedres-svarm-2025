@@ -58,29 +58,29 @@ Furthermore, the occurrence of resistance among bacteria from animals has genera
 
 ### Antibiotic sales in human medicine
 
-The total amount of antibiotics sold in Sweden decreased by 2.8 percent in 2025 and now stands at 10.67 DDD per 1,000 inhabitants and day, which is approximately the same as the previous year. This includes all antibiotic sales in human medicine. It includes all antibiotics sold on prescription to individuals and on requisition to various healthcare facilities.
+The total amount of antibiotics sold in Sweden decreased by 2.8% in 2025 and now stands at 10.67 DDD per 1,000 inhabitants and day, which is approximately the same as the previous year. This includes all antibiotic sales in human medicine. It includes all antibiotics sold on prescription to individuals and on requisition to various healthcare facilities.
 
-### Primary care
+### Outpatient care
 
-The number of antibiotic prescriptions dispensed at pharmacies during the year was 256 prescriptions per 1,000 inhabitants, a decrease of 5.7 percent compared to 2024. Among the country's 21 regions, 9 regions achieved the national target of a maximum of 250 prescriptions per 1,000 inhabitants. Sales decreased in all age groups, most notably in the group of children aged 5–14 years, where it decreased by 22.4 percent compared to the previous year.
+The number of antibiotic prescriptions dispensed at pharmacies during the year was 256 prescriptions per 1,000 inhabitants, a decrease of 5.7% compared to 2024. Among the country's 21 regions, 9 regions achieved the national target of a maximum of 250 prescriptions per 1,000 inhabitants. Sales decreased in all age groups, most notably in the group of children aged 5–14 years, where it decreased by 22% compared to the previous year.
 
-Antibiotic sales on prescription in dental care decreased by 2.6 percent in 2025 compared to the previous year, accounting for 7.0 percent of all dispensed antibiotic prescriptions during the year. Since 2007, antibiotic sales in dental care have decreased by almost half.
+Antibiotic sales on prescription in dental care decreased by 2.6% in 2025 compared to the previous year, accounting for 7.0% of all dispensed antibiotic prescriptions during the year. Since 2007, antibiotic sales in dental care have decreased by almost half.
 
-### Hospitals and other forms of care
+### Inpatient care
 
-Total sales of antibiotics on requisition to healthcare facilities increased in 2025 by 2.5 percent compared to 2024. Sales increased in 13 out of 21 regions during the same period. As in previous years, there were large regional variations in the sales of antibiotics on requisition.
+Total sales of antibiotics on requisition to healthcare facilities increased in 2025 by 2.5% compared to 2024.  
 
 ### Antibiotic sales in veterinary medicine
 
-Sales of antibiotics for animals from pharmacies in Sweden amounted to 9,053 kilograms in 2025. Since 2016, sales of most antibiotic classes have decreased or remained stable. However, compared to previous years, sales of aminoglycosides have increased significantly since 2022, although the increase between 2024 and 2025 was more limited. The increase is explained by rising use of aminoglycosides for the treatment of post-weaning diarrhoea as a result of the withdrawal in 2022 of veterinary medicinal products with a high content of zinc oxide. Compared to 2024, sales of aminopenicillins also increased, mainly due to increased sales for poultry, and to a lesser extent for pigs, dogs, and cats.
+Sales of antibiotics for animals from pharmacies in Sweden amounted to 9,053 kilograms in 2025. Since 2016, sales of most antibiotic classes have decreased or remained stable. However, compared to previous years, sales of aminoglycosides have increased significantly since 2022, although the increase between 2024 and 2025 was more limited. The increase is explained by rising use of aminoglycosides for the treatment of post-weaning diarrhoea as a result of the withdrawal of veterinary medicinal products with a high content of zinc oxide in 2022. Compared to 2024, sales of aminopenicillins also increased, mainly due to increased sales for poultry, and to a lesser extent for pigs, dogs and cats.
 
-Of the total use in 2025, approximately 57 percent was narrow-spectrum penicillin. Sales of antibiotics that should be used particularly restrictively (fluoroquinolones, third-generation cephalosporins, and polymyxins) were already low in 2016 and have since decreased substantially. Over the same ten-year period, the proportion of products for the treatment of individual animals has been around or above 90 percent of total sales.
+Of the total use in 2025, approximately 57% was narrow-spectrum penicillin. Sales of antibiotics that should be used particularly restrictively (fluoroquinolones, third-generation cephalosporins and polymyxins) were already low in 2016 and have since decreased substantially. Over the same ten-year period, the proportion of products for the treatment of individual animals has been around or above 90% of total sales.
 
-Total sales of antibiotics for animals have decreased by more than two-thirds since 1986, when the use of growth-promoting antibiotics ceased. This is corrected for changes in the number of animals of different species over the years. In the 1990s, the use of antibiotics as medicines for entire animal groups decreased, and in the last two decades, there has also been a decrease in the use of antibiotics for the treatment of individual animals.
+Total sales of antibiotics for animals have decreased by more than two-thirds since 1986, when the use of growth-promoting antibiotics was prohibited. This includes a correction for changes in the number of animals of different species over the years. In the 1990s, the use of antibiotics as medicines for entire animal groups decreased, and in the last two decades, there has also been a decrease in the use of antibiotics for the treatment of individual animals.
 
 ### Comparison of sales in human and veterinary medicine
 
-In 2025, 61.7 tonnes of antibiotics were sold for the treatment of humans and 9.0 tonnes for the treatment of animals (excluding products for intramammary or intrauterine use). Expressed in relation to body weight (milligrams of active substance per estimated kilogram of biomass), sales were 86 milligrams per kilogram for humans and 11.8 milligrams per kilogram for animals.
+In 2025, 62 tonnes of antibiotics were sold for the treatment of humans and 9.0 tonnes for the treatment of animals (excluding products for intramammary or intrauterine use). Expressed in relation to body weight (milligrams of active substance per estimated kilogram of biomass), sales were 87 milligrams per kilogram for humans and 12 milligrams per kilogram for animals.
 
 
 
