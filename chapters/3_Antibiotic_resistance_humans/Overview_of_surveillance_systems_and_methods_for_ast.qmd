@@ -55,8 +55,8 @@ df |>
 
 ### Indicators of antibiotic resistance
 
-Since 2020, the proportions of cefotaxime resistant *Escherichia coli* (ESBL) and methicillin-resistant *Staphylococcus aureus* (MRSA) in blood isolates have been used as indicators for antibiotic resistance in Sweden. In 2023, the EU Council issued recommendations on tackling AMR. Targets to be reached by 2030 were set for each member state. Sweden’s targets, as described in the Council recommendation, include a 3% reduction of the incidence of MRSA sepsis, a 10% reduction for the incidence of ESBL-producing *E. coli* sepsis and an unchanged incidence of carbapenem resistant *Klebsiella pneumoniae* sepsis, compared to 2019. Considering the observed trends for the indicators used since 2020, these are ambitious targets.
-The proportion of cefotaxime-resistant *E. coli* (ESBL) and methicillin-resistant *Staphylococcus aureus* (MRSA) in blood isolates have gradually increased over the last decade, reaching 9.0% and 2.4% respectively 2025 (@fig-ny-indicators). 
+Since 2020, the proportions of cefotaxime resistant *Escherichia coli* (ESBL) and methicillin-resistant *Staphylococcus aureus* (MRSA) in blood isolates have been used as indicators for antibiotic resistance in Sweden. In 2023, the EU Council issued recommendations on tackling AMR. Targets for 2030 were set for each member state. Sweden’s targets, as described in the Council recommendation, include a 3% reduction of the incidence of MRSA sepsis, a 10% reduction for the incidence of ESBL-producing *E. coli* sepsis and an unchanged incidence of carbapenem resistant *Klebsiella pneumoniae* sepsis, compared to 2019. Considering the observed trends for the indicators used since 2020, these are ambitious targets.
+The proportion of cefotaxime-resistant *E. coli* (ESBL) and methicillin-resistant *Staphylococcus aureus* (MRSA) in blood isolates have gradually increased over the last decade, reaching 9.0% and 2.4% in 2025, respectively (@fig-ny-indicators). 
 
 
 
@@ -242,7 +242,7 @@ df |>
 
 ### Notifiable diseases
 
-Four types of antibiotic resistance in bacteria are included in the Swedish Communicable Diseases Act. These are *Staphylococcus aureus* resistant to methicillin (MRSA), *Streptococcus pneumoniae* resistant to penicillin (PRP), *Enterococcus faecalis* and *Enterococcus faecium* resistant to vancomycin (vanA or vanB, VRE), and Enterobacterales with ESBL (including AmpC) or ESBL~CARBA~. However, ESBL and ESBL~CARBA~ are reported separately. As in previous years, the notifications of ESBL have greatly exceeded the other three  (@fig-3-1 and @tbl-3-2).
+Four types of antibiotic resistance in bacteria are included in the Swedish Communicable Diseases Act. These are *Staphylococcus aureus* resistant to methicillin (MRSA), *Streptococcus pneumoniae* resistant to penicillin (PRP), *Enterococcus faecalis* and *Enterococcus faecium* resistant to vancomycin (vanA or vanB, VRE) and Enterobacterales with ESBL (including AmpC) or ESBL~CARBA~. However, ESBL and ESBL~CARBA~ are reported separately. As in previous years, the notifications of ESBL have greatly exceeded the other three  (@fig-3-1 and @tbl-3-2).
 
 @fig-3-1 is Figure_3.1_number_resported_cases
 
@@ -337,7 +337,7 @@ df |>
 
 #### Voluntary surveillance based on clinical samples
 
-This surveillance is based on data collected from the regional clinical microbiology laboratories. Since 2015, all data on clinical isolates from humans have been collected through Svebar, an automated surveillance system that collects all culture results from participating clinical microbiology laboratories. Currently, 23 laboratories submit data to Svebar (May 2026). It is not possible to deduplicate data from Svebar since personal identification numbers are not included in the system. Consequently, duplicate findings from blood and other samples are included. Patients with highly resistant isolates tend to be sampled more frequently, which may lead to an overestimate of resistance levels in certain analyses (@tbl-3-3). Most antibiotic resistance levels presented in this report are based on non-selective susceptibility testing data from at least five laboratories, thus avoiding bias from hierarchical testing and regional differences. When data presented are based on selective testing, this will be indicated in the graphs and tables. The 95% confidence intervals are presented in all figures presenting resistance data. 
+This surveillance is based on data collected from the regional clinical microbiology laboratories. Since 2015, all data on clinical isolates from humans have been collected through Svebar, an automated surveillance system that collects all culture results from participating clinical microbiology laboratories. Currently, 23 laboratories submit data to Svebar (May 2026). It is not possible to deduplicate data from Svebar since personal identification numbers are not included in the system. Consequently, duplicate findings from blood and other samples are included. Patients with highly resistant isolates tend to be sampled more frequently, which may lead to an overestimate of resistance levels in certain analyses (@tbl-3-3). Most antibiotic resistance levels presented in this report are based on non-selective susceptibility testing data from at least five laboratories, thus avoiding bias from hierarchical testing and regional differences. When the data presented are based on selective testing, this will be indicated in the graphs and tables. The 95% confidence intervals are presented in all figures presenting resistance data. 
 
 Data from Svebar are used for reporting both to EARS-Net (an ECDC surveillance system) and to GLASS (a WHO surveillance system). Prior to 2015, ResNet, a national surveillance programme on antibiotic resistance, was used to collect data. From 2015 and onwards, these yearly data are based on SIR reported by the clinical microbiology laboratories to Svebar.
 
@@ -376,7 +376,7 @@ df |>
 
 ##### Microbiological characterisation programs
 
-The Public Health Agency of Sweden provides microbiological characterisation programs for verification and characterisation of isolates that participating laboratories send in. An overview is given in @tbl-3-1.
+The Public Health Agency of Sweden provides microbiological characterisation programmes for verification and characterisation of isolates that participating laboratories send in. An overview is given in @tbl-3-1.
 
 
 
