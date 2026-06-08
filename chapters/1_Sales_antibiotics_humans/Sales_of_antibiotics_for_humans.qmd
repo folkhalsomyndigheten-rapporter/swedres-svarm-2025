@@ -2,14 +2,11 @@
 format:
   html:
     embed-resources: false
-#    fig-cap-location: top
-
 execute:
   cache: false
   echo: false
   warnings: false
   error: false
-#bibliography: ../../references.bib
 ---
 
 ```{r}
@@ -18,7 +15,7 @@ execute:
 #| warning: false
 #| message: false
 source("../../_common.R")
-status(type = "polishing")
+status(type = "ready2publish")
 ```
 
 After the exceptional changes in antibiotic sales during 2020 and 2021 – driven by the COVID-19 pandemic - total sales began to rise again in 2022 and continued to increase through 2023, while remaining lower than before the pandemic. The increase due to the rebound effect seen after the pandemic has slowed down as the sales remained substantially unchanged during 2024 and reduced in 2025 compared to the previous year. Throughout 2025, the epidemiological situation remained within normal parameters, with no significant deviations observed @FOHM2026.
@@ -44,8 +41,6 @@ Nationally, the sales of antibiotics in 2025 remained below the sales volumes ob
 
 ::: panel-tabset
 ```{r}
-# Medskick: benchmarking för regionerna, de vill kunna jämföra mot varandra. Etablerad form att vi lägger dem i fallande ordning störst till minst på senaste året. 
-
 data <- load_from_excel(path_file = "data/fig-1-1.xlsx")
 
 df <- data$fig_data |> 
@@ -65,45 +60,40 @@ df <- data$fig_data |>
 #| message: false
 #| warning: false
 
-##| fig-cap: "Total sales of antibiotics (J01 excl. methenamine) in 2019-2023, by region."
 spec_order <- df |> 
   filter(year==max(year)) |> 
   arrange(-value) |> pull(region)
   
 
-p_ <- df |> 
+p <- df |> 
   mutate(region = factor(region, levels = spec_order)) |> 
-   mutate(data_id = row_number(),
-          tooltip_b = glue::glue('<b>Year:</b> {year}
+  mutate(data_id = row_number(),
+         tooltip_b = glue::glue('<b>Year:</b> {year}
                                     <b>Region:</b> {region}
                                     <b>DDD/1 000 inhabitants per day:</b> {round(value,2)}')) |> 
-
-  ggplot(aes(x = region,#fct_reorder(region,spec_order),
+  
+  ggplot(aes(x = region,
              y = value, 
              fill=factor(year),
              data_id = data_id)) +
-    geom_col_interactive(aes(tooltip = tooltip_b),width = 0.5, position = position_dodge(0.7)) +
-
-  #geom_bar_interactive(aes(tooltip = label_point,width = .9),
-  #         position="dodge", stat="identity") +
+  geom_col_interactive(aes(tooltip = tooltip_b),width = 0.5, position = position_dodge(0.7)) +
   labs(x=NULL,
        y = "DDD/1 000 inhabitants per day") +
   scale_y_continuous(expand=c(0,.2),
                      labels = scales::label_number(),
                      limits = c(0,15)) +
-  #scale_fill_fohm() +
   scale_fill_SweSva() + 
   theme_SweSva() +
-
+  
   add_fohm_caption() +
   theme_SweSva_rotate() +
   scale_x_discrete(
     labels = ifelse(spec_order=="Sweden","**Sweden**",spec_order)
   ) +
   theme(axis.text.x = ggtext::element_markdown())
- 
 
-make_dynamic_plot(plot = p_, filename = "Figure-1-1")
+
+make_dynamic_plot(plot = p, filename = "Fig1-1")
 ```
 
 ###### Figure (alternative)
@@ -118,35 +108,31 @@ p <-
   df |> 
   filter(region!="**Sweden**") |> 
   right_join(tmp_swe) |> 
-  # rename(region = "value") |> 
   pivot_longer(cols=c(value,sweden)) |> 
   mutate(name_lab = case_when(name=="sweden"~"Sweden",
                               .default = region)) |> 
   mutate(data_id = row_number(),
-         label_point = glue::glue('<b>{name_lab}</b>
-                                   <b>{year}</b> 
-                                    {round(value,2)} DDD/1 000 inhabitants per day')) |> 
+         tooltip_l = glue::glue('<b>{name_lab}</b>'),
+         tooltip_p = glue::glue('<b>{name_lab}</b>
+                               <b>{year}</b> 
+                             {round(value,2)} DDD/1 000 inhabitants per day')) |> 
   ggplot(aes(x=year,
              y=value,
              group=name,
              color=name,
              data_id = region
   )) +
-  geom_line_interactive(aes(tooltip = glue::glue('<b>{name_lab}</b>'))) +
-  geom_point_interactive(aes(tooltip = glue::glue('<b>{name_lab}</b>
-                                                   <b>{year}</b> 
-                                                  {round(value,2)} DDD/1 000 inhabitants per day'))) +
+  geom_line_interactive(aes(tooltip = tooltip_l)) +
+  geom_point_interactive(aes(tooltip = tooltip_p), lwd=0.5) +
   scale_color_manual(values=fohm_diagram_discrete[1:2],labels = c("Sweden", "Region")) +
   facet_wrap(~ region, ncol=3) +
-  
   labs(x = "Year",
        y = "DDD/1 000 inhabitants per day") +
-  
   add_fohm_caption() +
   theme_SweSva() +
   theme_SweSva_facet() 
 
-make_dynamic_plot(plot = p, filename = "test")
+make_dynamic_plot(plot = p, filename = "Fig1-1alt")
 ```
 
 
@@ -154,7 +140,7 @@ make_dynamic_plot(plot = p, filename = "test")
 
 ```{r}
 df |>
-  make_table_data_tab(file_name = "test")
+  make_table_data_tab(file_name = "Fig1-1")
 ```
 :::
 

@@ -10,7 +10,7 @@ format:
 #| warning: false
 #| message: false
 source("../_common.R")
-status(type = "polishing")
+status(type = "ready2publish")
 ```
 
 # Preface {.unnumbered}

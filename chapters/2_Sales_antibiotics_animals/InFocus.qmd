@@ -95,7 +95,7 @@ df_fig_413 |>
 
 ### Descriptive analysis of data for 2025 
 
-A more detailed breakdown for 2025 showed that the majority of the sold topical products were prescribed for dogs, followed by cats, while horses accounted for a markedly smaller proportion of sold packages (@fig-2IF2). The number of packages sold for production animals was negligible. In dogs, topical antimicrobials accounted for 30% of all dispensed prescriptions for antimicrobial products, compared with 17% in cats. 
+A more detailed breakdown for 2025 showed that the majority of the sold topical products were prescribed for dogs, followed by cats. Horses accounted for a markedly smaller proportion of sold packages (@fig-2IF2). The number of packages sold for production animals was negligible. In dogs, topical antimicrobials accounted for 30% of all dispensed prescriptions for antimicrobial products, compared with 17% in cats. 
 
 Ophthalmological products accounted for the largest share of topical antimicrobial sales for dogs, cats and horses. A higher proportion of dermatological and otological products were sold for dogs compared to cats and horses (@fig-2IF2). 
 
@@ -151,7 +151,7 @@ dat_2IF2_long |>
 ```
 :::
 
-Sales of ophthalmologicals consisted almost exclusively of products with antibiotics. Sales of dermatologicals was dominated by products with antibiotics followed by antifungals (@fig-2IF3). Otologicals were dominated by products with antibiotic–antifungal combinations.  
+Sales of ophthalmologicals consisted almost exclusively of products with antibiotics. Sales of dermatologicals were dominated by products with antibiotics followed by antifungals (@fig-2IF3). Otologicals were dominated by products with antibiotic–antifungal combinations.  
 
 Sales of topical antivirals were low across all sites of use. Of all the antiviral products sold, most (67%) were for horses, followed by cats (21%). Approximately two-thirds of products sold for horses were dermatological, while the remainder were ophthalmological. This pattern differed from that seen in cats, where only one-fifth of the products were dermatological and the remainder were ophthalmological. 
 
@@ -268,7 +268,7 @@ In 2025, most (79%) of the topical antimicrobial products were sold on prescript
 
 ### Sales for dogs and cats - a comparison with historical data 
 
-Data on pharmacy sales of products prescribed for topical use in dogs and cats from 2005-2007 was available from an earlier study [@Pettersson2017ex]. Only products containing at least one antibiotic substance were included. For comparison, corresponding data from 2023-2025 were extracted from the material above.  
+Data on pharmacy sales of products prescribed for topical use in dogs and cats from 2005-2007 were available from an earlier study [@Pettersson2017ex]. Only products containing at least one antibiotic substance were included. For comparison, corresponding data from 2023-2025 were extracted from the material above.  
 
 The average yearly sales of dermatological and otological products with antibiotics for dogs and cats decreased by around 80% between the two periods (@fig-2IF5). For ophthalmological products, the decrease was less marked (38%), and the proportion of human medicinal products almost doubled. 
 

@@ -2,8 +2,6 @@
 format:
   html:
     embed-resources: false
-    fig-cap-location: top
-
 execute:
   cache: false
   echo: false
@@ -17,7 +15,7 @@ execute:
 #| warning: false
 #| message: false
 source("../../_common.R")
-status(type = "polishing")
+status(type = "ready2publish")
 ```
 
 

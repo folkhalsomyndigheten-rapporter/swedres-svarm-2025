@@ -8,7 +8,7 @@ toc: true
 #| warning: false
 #| message: false
 source("../_common.R")
-status(type = "polishing")
+status(type = "ready2publish")
 ```
 
 
@@ -167,7 +167,7 @@ Under året pågick åtta större sjukhusrelaterade utbrott med 10–37 fall var
 
 ## Resistens hos zoonotiska bakterier 
 
-Salmonella är ovanligt hos djur i Sverige och isolerade stammar är oftast känsliga för antibiotika. Resistens mot fluorokinoloner är ovanlig. Bland 108 isolat från djur 2025 var 85 procent känsliga för alla testade antibiotika. För salmonellaarter var resistensen bland faeces-och urinisolat från människor högst mot fluorokinoloner, 21 procent. Ingen resistens mot karbapenemer rapporterades bland Salmonella från djur. Salmonella från invasiva infektioner hos människor är mer resistenta än isolat från djur i Sverige. Detta beror troligen på att en stor andel av fallen hos människor är smittade utomlands eller via importerade livsmedel.  
+Salmonella är ovanligt hos djur i Sverige och isolerade stammar är oftast känsliga för antibiotika. Resistens mot fluorokinoloner är ovanlig. Bland 108 isolat från djur 2025 var 85 procent känsliga för alla testade antibiotika. För salmonellaarter var resistensen bland faeces-och urinisolat från människor högst mot fluorokinoloner, 21 procent. Ingen resistens mot karbapenemer rapporterades bland Salmonella från djur. Salmonella från invasiva infektioner hos människor är mer ofta resistenta än isolat från djur i Sverige. Detta beror troligen på att en stor andel av fallen hos människor är smittade utomlands eller via importerade livsmedel.  
 
 Campylobacter från djur i Sverige är oftast känsliga för relevanta antibiotika och exempelvis är resistens mot erytromycin mycket ovanligt. Hos *Campylobacter jejuni* från människor var resistensen mot ciprofloxacin 56 procent och mot tetracyklin 30 procent 2025. Resistensen mot erytromycin var 0,8 procent. 
 
