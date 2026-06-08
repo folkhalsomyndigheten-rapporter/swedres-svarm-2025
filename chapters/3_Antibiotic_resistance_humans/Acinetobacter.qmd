@@ -23,12 +23,12 @@ status(type = "polishing")
 
 ### *Acinetobacter* spp., from blood cultures
 
-In 2025, 123 isolates of *Acinetobacter* spp. from blood were reported to Svebar. The carbapenem resistance was 3.3% (@fig-3-acino). Bloodstream infections caused by *Acinetobacter* spp. are still rare in Sweden compared to other countries in Europe, where multiresistant *Acinetobacter* spp. is a problematic pathogen in hospitals. Colistin resistance is occasionally seen in *Acinetobacter* and is mainly tested in multiresistant isolates, most of which have a link to healthcare abroad. 
+In 2025, 123 isolates of *Acinetobacter* spp. from blood were reported to Svebar. Carbapenem resistance was observed in 3.3% of the isolates (@fig-3-acino). Bloodstream infections caused by *Acinetobacter* spp. are still rare in Sweden compared to other countries in Europe, where multiresistant *Acinetobacter* spp. is a problematic pathogen in hospitals. Colistin resistance is occasionally seen in *Acinetobacter* and is mainly tested in multiresistant isolates, most of which have a link to health care abroad. 
 
 
 ### Microbiological surveillance programme, *Acinetobacter* spp.
 
-In total, 37 unique (per patient, year, species and sequence type) isolates were received in 2025 within the microbiological surveillance program for *Acinetobacter* spp. with reduced susceptibility to meropenem (I+R). This is a decrease compared to what was seen in 2024 (n=54), however, similar to what was observed in 2023 (n=42). Of the 37 isolates, 28 carried species-specific *bla*~OXA~-genes (23, 24 or 58-like), eight harboured a combination of *bla*~OXA~ (23, 24 or 58-like) and *bla*~NDM~, and in one isolates no carbapenemase gene was detected. Four clusters were active during 2025, with number of unique isolates ranging from 2-6.
+In total, 37 unique (per patient, year, species and sequence type) isolates were received in 2025 within the microbiological surveillance programme for *Acinetobacter* spp. with reduced susceptibility to meropenem (I+R). This is a decrease compared to what was seen in 2024 (n=54), but similar to what was observed in 2023 (n=42). Of the 37 isolates, 28 carried species-specific *bla*~OXA~-genes (23, 24 or 58-like), eight harboured a combination of *bla*~OXA~ (23, 24 or 58-like) and *bla*~NDM~ and in one isolate, no carbapenemase gene was detected. Four clusters were active during 2025, with the number of unique isolates ranging from 2-6.
 
 
 
