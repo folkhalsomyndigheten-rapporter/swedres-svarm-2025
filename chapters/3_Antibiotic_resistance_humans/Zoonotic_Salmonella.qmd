@@ -35,14 +35,14 @@ Infection with Salmonella species are divided into three notifiable diseases in 
 
 #### Comments
 
-In 2025, half of the notifiable Salmonella infections were acquired in Sweden and almost half (48%) of the cases acquired salmonellosis abroad. For two percent information was lacking. There have been five outbreaks with 10 or more cases during the year, where one of these have included more than 100 cases with *S*. Enteritidis. This outbreak was linked to domestically produced eggs. The second largest outbreak had 48 cases infected with either of four different serotypes (*S*. Typhimurium, *S*. Richmond, *S*. Kinondoni, *S*. Newport) included. This outbreak was international and linked to alfalfa sprouts. No case was reported with Salmonella species carrying ESBL~CARBA~.
+In 2025, half of the notifiable Salmonella infections were acquired in Sweden and almost half (48%) of the cases acquired salmonellosis abroad. For 2%, information was lacking. There have been five outbreaks with ten or more cases during the year, one of which included more than 100 cases with *S*. Enteritidis. This outbreak was linked to domestically produced eggs. The second largest outbreak had 48 cases infected with either of four different serotypes (*S*. Typhimurium, *S*. Richmond, *S*. Kinondoni, *S*. Newport) included. This outbreak was international and linked to alfalfa sprouts. No case was reported with Salmonella carrying ESBL~CARBA~.
 
 
 ### *Salmonella* spp., from blood or faecal and urine samples 
 
-A total of 1 790 *Salmonella enterica* isolates were reported in Svebar, with 73% (n= 1 306) from faecal samples, 18% (n= 318) from blood and 6% (n= 104) from urine. For these sampling materials, approximately half had an AST reported. A comparison for 2025 is presented in @tbl-3-15.
+A total of 1 790 *Salmonella enterica* isolates were reported in Svebar, with 73% (n= 1 306) from faecal samples, 18% (n= 318) from blood and 6% (n= 104) from urine. For these sampling materials, approximately half had AST results reported. A comparison for 2025 is presented in @tbl-3-15.
 
-Since 2021, the number of isolates found in blood with an AST has ranged between 45-152 per year and antibiotic (@fig-3-salmo1). The data may contain duplicates and there is a risk of overestimation of the resistance. Hence, results should be interpreted with caution. The general increase in resistance among faecal and urine isolates seen in 2022 (@fig-3-37) was probably linked to the increase of Salmonella isolates carrying ESBL. This increase then declined in the following years. In 2025, no significant changes were seen in resistance. Almost four-fifths of the Salmonella from faecal and urine samples were fully susceptible to azithromycin, cefotaxime and ciprofloxacin (@tbl-3-17). 
+Since 2021, the number of isolates found in blood with AST results has ranged between 45-152 per year and antibiotic (@fig-3-salmo1). The data may contain duplicates and there is a risk of overestimation of the resistance. Hence, results should be interpreted with caution. The general increase in resistance among faecal and urine isolates seen in 2022 (@fig-3-37) was probably linked to the increase of Salmonella isolates carrying ESBL. This increase then declined in the following years. In 2025, no significant changes were seen in resistance. Almost four-fifths of the Salmonella from faecal and urine samples were fully susceptible to azithromycin, cefotaxime and ciprofloxacin (@tbl-3-17). 
 
 
 @fig-3-37 is Figure_3.37_SalmonellaSpp_FecesUrin_2016_2025
