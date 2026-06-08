@@ -32,32 +32,59 @@ The number of bacteria reported to EARS-Net yearly is shown in @fig-3-3.
 ```{r}
 #| message: false
 #| warning: false
-data <- load_from_excel(path_file = "data/Figure_3.2_Svebar.xlsx") #20260520_Namnerdata_Svebar4Barbro.xlsx")
+data <- load_from_excel(path_file = "data/Figure_3.2_Svebar.xlsx") 
 df <- data$fig_data |> 
-     group_by(type,provtagnings_year) |> 
+  group_by(type,provtagnings_year) |> 
   summarise(n = sum(n)) |> 
   filter(provtagnings_year>2015)
 ```
 
 ###### Figure
+
 ```{r}
 #| label: fig-3-2
 #| fig-cap: !expr glue::glue("{data$fig_cap}")
 #| fig-alt: !expr glue::glue("{data$fig_alt}")
 #| warning: false
 
-#library(ggalluvial)
 p <- df |> 
-   mutate(data_id = row_number(),
-          tooltip_l = glue::glue('{type}'),
-          tooltip_p = glue::glue('<b>Sampling year:</b> {provtagnings_year}
+  
+  mutate(data_id = row_number(),
+         tooltip_b = glue::glue('<b>Sampling year:</b> {provtagnings_year}
                                     <b>Type:</b> {type}
                                     <b>Number of cultures:</b> {round(n,0)}')) |> 
+  ggplot(aes(x=factor(provtagnings_year),
+             y=n,
+             group=type, 
+             fill=type)) +
+  geom_bar_interactive(aes(tooltip = tooltip_b),position="stack", stat="identity") +
+  labs(y="Number of reported cultures",
+       x="Year") +
+  scale_y_continuous(expand=c(0,.2),
+                     labels = scales::label_number()) +
+  scale_x_discrete(expand = c(0,0.2)) +
+  scale_fill_SweSva() + 
+  theme_SweSva() +
+  add_fohm_caption()
 
-   ggplot(aes(x=provtagnings_year,
-              y=n,
-              group=type, 
-              color=type)) +
+make_dynamic_plot(plot = p, filename = "Fig3-5")
+```
+
+
+###### Figure (alternative)
+
+```{r}
+p <- df |> 
+  mutate(data_id = row_number(),
+         tooltip_l = glue::glue('{type}'),
+         tooltip_p = glue::glue('<b>Sampling year:</b> {provtagnings_year}
+                                    <b>Type:</b> {type}
+                                    <b>Number of cultures:</b> {round(n,0)}')) |> 
+  
+  ggplot(aes(x=provtagnings_year,
+             y=n,
+             group=type, 
+             color=type)) +
   geom_point_interactive(aes(tooltip = tooltip_p)) +
   geom_line_interactive(aes(tooltip = tooltip_l)) +
   scale_x_continuous(breaks = c(2015:2025), 
@@ -67,69 +94,36 @@ p <- df |>
   scale_color_SweSva() +
   labs(y="Number of reported cultures",
        x="Year") +
-  
   scale_fill_SweSva() + 
   theme_SweSva() 
- 
-make_dynamic_plot(plot = p, filename = "Fig3-2")
+
+make_dynamic_plot(plot = p, filename = "Fig3-5alt")
 ```
 
-###### Figure alt
-
-```{r}
-p <- df |> 
-  
-  mutate(data_id = row_number(),
-          tooltip_b = glue::glue('<b>Sampling year:</b> {provtagnings_year}
-                                    <b>Type:</b> {type}
-                                    <b>Number of cultures:</b> {round(n,0)}')) |> 
-
-  ggplot(aes(x=factor(provtagnings_year),
-              y=n,
-              group=type, 
-              fill=type)) +
-      geom_bar_interactive(aes(tooltip = tooltip_b),position="stack", stat="identity") +
-
-    #geom_col_interactive(aes(tooltip = tooltip_b),width = 0.5, position = position_dodge(0.7)) +
-  labs(y="Number of reported cultures",
-       x="Year") +
-  #guides(fill=guide_legend(nrow=3)) +
-  scale_y_continuous(expand=c(0,.2),
-                     labels = scales::label_number()) +
-    scale_x_discrete(expand = c(0,0.2)) +
-  #guides(fill=guide_legend(nrow=2)) +
-
-  scale_fill_SweSva() + 
-  theme_SweSva() +
- # theme(plot.subtitle = element_text(vjust = -15)) +
-  add_fohm_caption()
-
-
- 
-make_dynamic_plot(plot = p, filename = "Fig3-2")
-```
-
-###### Figure per labb
+###### Figure per labb?
 
 ```{r}
 #| height: 8
-#| 
+
+lab_order <- data$fig_data |> 
+  group_by(labb_kod) |> 
+  summarise(n = sum(n)) |> arrange(-n) |> distinct(labb_kod) |> pull(labb_kod)
+
 p <- data$fig_data |> 
-  mutate(data_id = row_number(),
-          tooltip_b = glue::glue('<b>Sampling year:</b> {provtagnings_year}
+  mutate(labb_kod = factor(labb_kod, levels = lab_order),
+         data_id = row_number(),
+         tooltip_b = glue::glue('<b>Sampling year:</b> {provtagnings_year}
                                     <b>Type:</b> {type}
                                     <b>Number of cultures:</b> {round(n,0)}')) |> 
   ggplot(aes(x=factor(provtagnings_year),
-              y=n,
-              group=type, 
-              fill=type)) +
-      geom_bar_interactive(aes(tooltip = tooltip_b),position="stack", stat="identity") +
-
-    #geom_col_interactive(aes(tooltip = tooltip_b),width = 0.5, position = position_dodge(0.7)) +
+             y=n,
+             group=type, 
+             fill=type)) +
+  geom_bar_interactive(aes(tooltip = tooltip_b),position="stack", stat="identity") +
   labs(y="Number of reported cultures",
        x="Year") +
   facet_wrap(~labb_kod, ncol=7) +
-    scale_x_discrete(expand = c(0,0.2)) +
+  scale_x_discrete(expand = c(0,0.2)) +
   scale_y_continuous(expand=c(0,.2),
                      labels = scales::label_number()) +
   labs(y="Reported analysis (total)",
@@ -138,18 +132,16 @@ p <- data$fig_data |>
   scale_fill_SweSva() + 
   theme_SweSva() +
   theme_SweSva_facet() +
-  #theme(plot.subtitle = element_text(vjust = -15)) +
   add_fohm_caption()
 
-make_dynamic_plot(plot = p, filename = "Fig3-2")
-
+make_dynamic_plot(plot = p, filename = "Fig3-5alt2")
 ```
 
 
 ###### Data
 ```{r}
 df |> 
-  make_table_data_tab(file_name = "Fig3-2")
+  make_table_data_tab(file_name = "Fig3-5")
 ```
 :::
 
@@ -175,11 +167,11 @@ df <- data$fig_data |>
 #| fig-alt: !expr glue::glue("{data$fig_alt}")
 #| warning: false
 p <- df |> 
-   mutate(data_id = row_number(),
-          tooltip_b = md_to_html(glue::glue('<b>Year:</b> {year}
+  mutate(data_id = row_number(),
+         tooltip_b = md_to_html(glue::glue('<b>Year:</b> {year}
                                     <b>Species:</b> {feature}
                                     <b>Number of invasive isolates:</b> {round(value,0)}'))) |> 
-
+  
   ggplot(aes(x = value,
              y = feature, 
              fill=as.factor(year),
@@ -190,32 +182,27 @@ p <- df |>
   labs(y="Species",
        x = "Number of invasive isolates") +
   scale_x_continuous(expand = c(0,0.2),
-                     #limits=c(0,round(max(df$value)*1.2,0))
   ) +
   scale_y_discrete(limits=rev) +
   scale_fill_SweSva() + 
   theme_SweSva(markdown = c("axis.text.y")) +
- # theme(axis.text.y = element_text(hjust=1)) +
   add_fohm_caption() +
   theme(axis.text.x = element_text(angle=0, vjust = 0, hjust = 0.5),
         panel.spacing.x = unit(1, "lines"),
         panel.grid.major.x = element_line(linetype = "solid", linewidth = 0.25, 
                                           color = "#999999"),
         panel.grid.major.y = element_blank() ) +
-  theme(
-    #axis.text.y = element_text(hjust=1),
-    #axis.text.y = element_text(face = "italic"),
-    plot.margin = margin(0, .4, 0, 0, "cm")  # Top, Right, Bottom, Left
+  theme(plot.margin = margin(0, .4, 0, 0, "cm")  # Top, Right, Bottom, Left
   )
 
-make_dynamic_plot(plot = p, filename = "Fig3-3")
+make_dynamic_plot(plot = p, filename = "Fig3-6")
 ```
 ###### Data
 ```{r}
 df |> 
   rename("Notifiable resistance" = feature,
          "Number of cases" = value) |> 
-  make_table_data_tab(file_name = "Fig3-3")
+  make_table_data_tab(file_name = "Fig3-6")
 ```
 :::
 
