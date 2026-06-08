@@ -70,24 +70,24 @@ tab_21$table
 
 ```
 
-###### julius's standard gt table
+<!-- ###### julius's standard gt table -->
 
-```{r}
-#| message: false
-#| warning: false
-data <- load_from_excel("data/Table 2.1 Sales AB 2025 total.xlsx", sheet = "Data")
+<!-- ```{r} -->
+<!-- #| message: false -->
+<!-- #| warning: false -->
+<!-- data <- load_from_excel("data/Table 2.1 Sales AB 2025 total.xlsx", sheet = "Data") -->
 
-df <- data$fig_data 
-```
+<!-- df <- data$fig_data  -->
+<!-- ``` -->
 
 
-```{r}
-#| label: tbl_test1234
-#| tbl-cap: !expr glue::glue("{data$fig_cap}")
-df |> 
-  gt()|> 
-  gt_theme_SweSva()
-```
+<!-- ```{r} -->
+<!-- #| label: tbl_test1234 -->
+<!-- #| tbl-cap: !expr glue::glue("{data$fig_cap}") -->
+<!-- df |>  -->
+<!--   gt()|>  -->
+<!--   gt_theme_SweSva() -->
+<!-- ``` -->
 
 
 
