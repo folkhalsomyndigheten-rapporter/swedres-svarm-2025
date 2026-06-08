@@ -23,7 +23,7 @@ status(type = "polishing")
 
 #### Incidence of *Clostridioides difficile* infections
 
-In 2025, 6 067 new CDI cases were reported corresponding to an incidence of 60 cases per 100 000 inhabitants (total number and incidence corrected for missing data from one laboratory). A case is considered new if at least eight weeks have elapsed since the previous positive test, otherwise it is counted as an ongoing illness episode or recurrence . The incidence, is similar to the average incidence observed in the last three years (incidence 61). As in previous years, there are major differences between regions (spread 26-119 cases per 100 000 inhabitants; @fig-3-35).
+In 2025, 6 067 new CDI cases were reported, corresponding to an incidence of 60 cases per 100 000 inhabitants (total number and incidence corrected for missing data from one laboratory). A case is considered new if at least eight weeks have elapsed since the previous positive test, otherwise it is counted as an ongoing illness episode or recurrence. The incidence is similar to the average incidence observed in the last three years (incidence 61). As in previous years, there are major differences between regions (range 26-119 cases per 100 000 inhabitants; @fig-3-35).
 
 @fig-3-35 is Figure_3.35_25.xlsx
 
