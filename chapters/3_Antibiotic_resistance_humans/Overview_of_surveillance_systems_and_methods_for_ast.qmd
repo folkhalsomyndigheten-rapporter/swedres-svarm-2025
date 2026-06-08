@@ -206,7 +206,7 @@ df <- data$fig_data |>
 p <- df |>
   mutate(data_id = row_number(),
          tooltip_l = glue::glue('{gender}'),
-         tooltip_p  = glue::glue('<b>Yearr:</b> {year}
+         tooltip_p  = glue::glue('<b>Year:</b> {year}
          <b>Gender:</b> {gender}
                                    <b>Resistance:</b> {round(r_perc,2)}% ')) |>
   ggplot(aes(x= factor(year),
