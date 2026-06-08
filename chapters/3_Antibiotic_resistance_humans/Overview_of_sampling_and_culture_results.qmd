@@ -32,7 +32,7 @@ The number of bacteria reported to EARS-Net yearly is shown in @fig-3-3.
 ```{r}
 #| message: false
 #| warning: false
-data <- load_from_excel(path_file = "data/20260520_Namnerdata_Svebar4Barbro.xlsx")
+data <- load_from_excel(path_file = "data/Figure_3.2_Svebar.xlsx") #20260520_Namnerdata_Svebar4Barbro.xlsx")
 df <- data$fig_data |> 
      group_by(type,provtagnings_year) |> 
   summarise(n = sum(n)) |> 
@@ -46,7 +46,7 @@ df <- data$fig_data |>
 #| fig-alt: !expr glue::glue("{data$fig_alt}")
 #| warning: false
 
-library(ggalluvial)
+#library(ggalluvial)
 p <- df |> 
    mutate(data_id = row_number(),
           tooltip_l = glue::glue('{type}'),
@@ -93,22 +93,58 @@ p <- df |>
     #geom_col_interactive(aes(tooltip = tooltip_b),width = 0.5, position = position_dodge(0.7)) +
   labs(y="Number of reported cultures",
        x="Year") +
-  guides(fill=guide_legend(nrow=3)) +
-  scale_y_continuous(expand=c(0,.1),
+  #guides(fill=guide_legend(nrow=3)) +
+  scale_y_continuous(expand=c(0,.2),
                      labels = scales::label_number()) +
-    scale_x_continuous(breaks = c(2015:2025), 
-                       expand = c(0,0.2)) +
+    scale_x_discrete(expand = c(0,0.2)) +
   guides(fill=guide_legend(nrow=2)) +
 
   scale_fill_SweSva() + 
   theme_SweSva() +
-  theme(plot.subtitle = element_text(vjust = -15)) +
+ # theme(plot.subtitle = element_text(vjust = -15)) +
   add_fohm_caption()
 
 
  
 make_dynamic_plot(plot = p, filename = "Fig3-2")
 ```
+
+###### Figure per labb
+
+```{r}
+#| height: 8
+#| 
+p <- data$fig_data |> 
+  mutate(data_id = row_number(),
+          tooltip_b = glue::glue('<b>Sampling year:</b> {provtagnings_year}
+                                    <b>Type:</b> {type}
+                                    <b>Number of cultures:</b> {round(n,0)}')) |> 
+  ggplot(aes(x=factor(provtagnings_year),
+              y=n,
+              group=type, 
+              fill=type)) +
+      geom_bar_interactive(aes(tooltip = tooltip_b),position="stack", stat="identity") +
+
+    #geom_col_interactive(aes(tooltip = tooltip_b),width = 0.5, position = position_dodge(0.7)) +
+  labs(y="Number of reported cultures",
+       x="Year") +
+  facet_wrap(~labb_kod) +
+    scale_x_discrete(expand = c(0,0.2)) +
+  scale_y_continuous(expand=c(0,.2),
+                     labels = scales::label_number()) +
+  labs(y="Antal rapporterande analys (total)",
+       x="Year") +
+  
+  scale_fill_SweSva() + 
+  theme_SweSva() +
+  theme_SweSva_facet() +
+  theme(plot.subtitle = element_text(vjust = -15)) +
+  add_fohm_caption()
+
+make_dynamic_plot(plot = p, filename = "Fig3-2")
+
+```
+
 
 ###### Data
 ```{r}

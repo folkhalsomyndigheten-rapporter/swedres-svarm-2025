@@ -87,8 +87,8 @@ dat_44_long <- dat_44$fig_data |>
   pivot_longer(cols = -1, names_to = "original_col", values_to = "Value",  values_drop_na = TRUE) |>
   # Identify if the row is a moving average
   mutate(Type = ifelse(grepl("3 year moving average", original_col), "MA_Value", "Raw_Value"),
-  # Clean the antibiotic name
-  Antibiotic = trimws(gsub("3 year moving average", "", original_col))) |>
+         # Clean the antibiotic name
+         Antibiotic = trimws(gsub("3 year moving average", "", original_col))) |>
   # Raw_Value and MA_Value to separate columns for the same row
   tidyr::pivot_wider(id_cols = c(Year, Antibiotic), names_from = Type, values_from = Value) |>
   # Changing names for the legend presentation
@@ -137,10 +137,10 @@ p_44 <- ggplot(df_fig_44,
        y = "Resistance (%)", color = NULL) +
   theme_SweSva() +
   theme_SweSva_rotate()+
- # theme(axis.text.x = element_text(angle = 45, hjust = 1, vjust = 1), legend.box = "horizontal") +
+  # theme(axis.text.x = element_text(angle = 45, hjust = 1, vjust = 1), legend.box = "horizontal") +
   guides(color = guide_legend(nrow = 2, byrow = TRUE)) +
   add_sva_caption() +
-     theme(plot.subtitle = element_text(vjust = -15)) 
+  theme(plot.subtitle = element_text(vjust = -15)) 
 
 
 make_dynamic_plot(plot = p_44, filename = "fig-44")
@@ -182,8 +182,8 @@ dat_45_long <- dat_45$fig_data |>
                values_drop_na = TRUE) |>
   # Identify if the row is a moving average
   mutate(Type = ifelse(grepl("3 year moving average", original_col), "MA_Value", "Raw_Value"),
-  # Clean the antibiotic name
-  Antibiotic = trimws(gsub("3 year moving average", "", original_col))) |>
+         # Clean the antibiotic name
+         Antibiotic = trimws(gsub("3 year moving average", "", original_col))) |>
   # Raw_Value and MA_Value to separate columns for the same row
   tidyr::pivot_wider(id_cols = c(Year, Antibiotic), 
                      names_from = Type, values_from = Value) |>
@@ -235,7 +235,7 @@ p_45 <- #df_fig_45 |>
   #theme(axis.text.x = element_text(angle = 45, hjust = 1, vjust = 1), legend.box = "horizontal") +
   guides(color = guide_legend(nrow = 2, byrow = TRUE))+
   add_sva_caption() +
-    theme(plot.subtitle = element_text(vjust = -15))
+  theme(plot.subtitle = element_text(vjust = -15))
 
 make_dynamic_plot(plot = p_45, filename = "fig-45")
 
@@ -344,13 +344,13 @@ dat_46_long <- dat_46$fig_data |>
   pivot_longer(cols = -1, names_to = "original_col", values_to = "Value",  values_drop_na = TRUE) |>
   # Identify if the row is a moving average
   mutate(Type = ifelse(grepl("3 year moving average", original_col), "MA_Value", "Raw_Value"),
-  # Clean the antibiotic name
-  Antibiotic = trimws(gsub("3 year moving average", "", original_col))) |>
+         # Clean the antibiotic name
+         Antibiotic = trimws(gsub("3 year moving average", "", original_col))) |>
   # Raw_Value and MA_Value to separate columns for the same row
   tidyr::pivot_wider(id_cols = c(Year, Antibiotic), names_from = Type, values_from = Value) |>
   mutate(Antibiotic = factor(Antibiotic, levels = c("Tylosin", "Tiamulin"), 
-                           labels = c("Tylosin\n(data and 3-year moving average)", 
-                                      "Tiamulin\n(data and 3-year moving average)")))
+                             labels = c("Tylosin\n(data and 3-year moving average)", 
+                                        "Tiamulin\n(data and 3-year moving average)")))
 
 # tooltips
 # same data_id for both so that hovering over a dot highlights the corresponding line/MA point.
@@ -634,13 +634,13 @@ dat_47_long <- dat_47$fig_data |>
   pivot_longer(cols = -1, names_to = "original_col", values_to = "Value",  values_drop_na = TRUE) |>
   # Identify if the row is a moving average
   mutate(Type = ifelse(grepl("3 year moving average", original_col), "MA_Value", "Raw_Value"),
-  # Clean the antibiotic name
-  Antibiotic = trimws(gsub("3 year moving average", "", original_col))) |>
+         # Clean the antibiotic name
+         Antibiotic = trimws(gsub("3 year moving average", "", original_col))) |>
   # Raw_Value and MA_Value to separate columns for the same row
   tidyr::pivot_wider(id_cols = c(Year, Antibiotic), names_from = Type, values_from = Value) |>
   mutate(Antibiotic = factor(Antibiotic, levels = c("Penicillin"), 
-                           labels = c("Penicillin (data and 3-year moving average)")))
-  
+                             labels = c("Penicillin (data and 3-year moving average)")))
+
 
 # tooltips
 # same data_id for both so that hovering over a dot highlights the corresponding line/MA point.
@@ -658,14 +658,14 @@ yrs <- sort(unique(df_fig_47$Year))
 p_47 <- ggplot(df_fig_47, aes(x = factor(Year), color = Antibiotic, group = Antibiotic, data_id = data_id)) +
   # moving average as line
   geom_line_interactive(aes(y = MA_Value), linewidth = 0.5, na.rm = TRUE) +
-
+  
   # interactive points for the line, smaller shape than the dots
   geom_point_interactive(aes(y = MA_Value, tooltip = tooltip_ma), na.rm = TRUE) +
-
+  
   # raw data dots
   geom_point_interactive(aes(y = Raw_Value, tooltip = tooltip_raw),
-                                  size = 0.8, position = position_jitter(width = 0.1, height = 0), na.rm = TRUE) +
-
+                         size = 0.8, position = position_jitter(width = 0.1, height = 0), na.rm = TRUE) +
+  
   scale_x_discrete(expand=c(0,0.2)) + #ontinuous(breaks = yrs) +
   scale_y_continuous(breaks=perc_25,
                      limits = c(0, 25),
@@ -786,14 +786,14 @@ dat_48_long <- dat_48$fig_data |>
   pivot_longer(cols = -1, names_to = "original_col", values_to = "Value",  values_drop_na = TRUE) |>
   # Identify if the row is a moving average
   mutate(Type = ifelse(grepl("3 year moving average", original_col), "MA_Value", "Raw_Value"),
-  # Clean the antibiotic name
-  Antibiotic = trimws(gsub("3 year moving average", "", original_col))) |>
+         # Clean the antibiotic name
+         Antibiotic = trimws(gsub("3 year moving average", "", original_col))) |>
   # Raw_Value and MA_Value to separate columns for the same row
   tidyr::pivot_wider(id_cols = c(Year, Antibiotic), names_from = Type, values_from = Value) |>
   mutate(Antibiotic = factor(Antibiotic, levels = c("Tetracycline", "Nalidixic acid/Oxolinic acid"), 
-                           labels = c("Tetracycline\n(data and 3-year moving average)",
-                                      "Nalidixic acid/Oxolinic acid\n(data and 3-year moving average)")))
-  
+                             labels = c("Tetracycline\n(data and 3-year moving average)",
+                                        "Nalidixic acid/Oxolinic acid\n(data and 3-year moving average)")))
+
 
 # tooltips
 # same data_id for both so that hovering over a dot highlights the corresponding line/MA point.
@@ -810,14 +810,14 @@ yrs <- sort(unique(df_fig_48$Year))
 p_48 <- ggplot(df_fig_48, aes(x = Year, color = Antibiotic, group = Antibiotic)) +
   # moving average as line
   geom_line(aes(y = MA_Value), linewidth = 1, na.rm = TRUE) +
-
+  
   # interactive points for the line, smaller shape than the dots
   ggiraph::geom_point_interactive(aes(y = MA_Value, tooltip = tooltip_ma, data_id = data_id), size = 0.8,  na.rm = TRUE) +
-
+  
   # raw data dots
   ggiraph::geom_point_interactive(aes(y = Raw_Value, tooltip = tooltip_raw, data_id = data_id),
                                   size = 2.5, position = position_jitter(width = 0.1, height = 0), na.rm = TRUE) +
-
+  
   scale_x_discrete(expand=c(0,0.2)) + #continuous(breaks = yrs) +
   scale_y_continuous(limits = c(0, 100),
                      breaks=perc_100) +
@@ -949,7 +949,7 @@ df |>
 
 Isolates of *Escherichia coli* are from clinical submissions of samples from the genital tract of mares. As in previous years, resistance to trimethoprim-sulphamethoxazole was the most common trait in 2025 (@fig-49 and @tbl-425). Occurrence of resistance to gentamicin has been  continuously low from 2013 and onwards ≤5% (@fig-49). However, this resistance has varied somewhat over the years and trends are difficult to estimate. 
 
-Eighty five percent (178/210) of the isolates were susceptible to all the tested antibiotics. The proportion of multiresistance was 2% (4/210). Two of the four multiresistant isolates were resistant to three antibiotics, one isolate to four antibiotics and one isolate to five antibiotics. The most common phenotype was resistance to ampicillin, gentamicin and trimethoprim-sulphamethoxazole. For comparison of resistance in *E. coli* of different origin see @sec-NEEDS-TO-BE-ADDED-WHEN-SECTION-IS-READY Comparative analysis. 
+Eighty five percent (178/210) of the isolates were susceptible to all the tested antibiotics. The proportion of multiresistance was 2% (4/210). Two of the four multiresistant isolates were resistant to three antibiotics, one isolate to four antibiotics and one isolate to five antibiotics. The most common phenotype was resistance to ampicillin, gentamicin and trimethoprim-sulphamethoxazole. For comparison of resistance in *E. coli* of different origin see Comparative analysis in @sec-ca. 
 
 One of the isolates was resistant to cefotaxime and one to colistin, both were available for further testing. Genes conferring transferable ESC resistance were not detected in the one isolate resistant to cefotaxime (MIC >0.25mg/L) and PCR analysis of the *mcr-1* to *mcr-9* genes in the isolate resistant to colistin was found negative. No isolate was resistant to meropenem. 
 
@@ -977,8 +977,9 @@ dat_49_long <- dat_49$fig_data |>
   pivot_longer(cols = -Year, names_to = "Antibiotic", values_to = "Value", values_drop_na = TRUE)
 
 df_fig_49 <- dat_49_long |>
-  mutate(tooltip = paste0("Year: ", Year, "<br>Antibiotic: ", Antibiotic, 
-                          "<br>Value: ", Value), data_id = paste(Antibiotic, Year, sep = "_"))
+  mutate(tooltip_l = glue::glue('{Year}'),
+         tooltip_p = paste0("<b>Year:</b> ", Year, "<br><b>Antibiotic:</b> ", Antibiotic, 
+                            "<br><b>Value:</b> ", Value), data_id = paste(Antibiotic, Year, sep = "_"))
 
 yrs <- sort(unique(df_fig_49$Year))
 
@@ -987,17 +988,18 @@ p_49 <- ggplot(df_fig_49, aes(x = factor(Year),
                               color = Antibiotic, 
                               group = Antibiotic,
                               data_id = data_id)) +
-  geom_line() +
-  ggiraph::geom_point_interactive(aes(tooltip = tooltip), size = 2.5, 
-                                  position = position_jitter(width = 0.10, height = 0)) +
-  scale_x_discrete(expand=c(0,0.2)) + #continuous(breaks = yrs, minor_breaks = NULL) +
+  geom_line_interactive(aes(tooltip=tooltip_l),
+                        lwd=0.5) +
+  geom_point_interactive(aes(tooltip = tooltip_p)) +
+  scale_x_discrete(expand=c(0,0.2)) + 
   scale_y_continuous(limits = c(0, 25),
+                     expand=c(0,0.2),
                      breaks=perc_25) +
   scale_color_SweSva() +
   labs(x = "Year",
-       y = "Resistance (%)", color = NULL) +
+       y = "Resistance (%)") +
   theme_SweSva() +
-  #theme(axis.text.x = element_text(angle = 45, hjust = 1, vjust = 1)) +
+  theme_SweSva_rotate() +
   add_sva_caption()
 
 make_dynamic_plot(plot = p_49, filename = "fig-49")
@@ -1140,8 +1142,9 @@ dat_410_long <- dat_410$fig_data |>
   pivot_longer(cols = -Year, names_to = "Antibiotic", values_to = "Value", values_drop_na = TRUE)
 
 df_fig_410 <- dat_410_long |>
-  mutate(tooltip = paste0("<b>Year:</b> ", Year, "<br><b>Antibiotic:</b> ", Antibiotic, 
-                          "<br><b>Value:</b<> ", Value),
+  mutate(tooltip_l = glue::glue('{Year}'),
+         tooltip_p = paste0("<b>Year:</b> ", Year, "<br><b>Antibiotic:</b> ", Antibiotic, 
+                            "<br><b>Value:</b<> ", Value),
          data_id = paste(Antibiotic, Year, sep = "_"))
 
 #yrs <- sort(unique(df_fig_410$Year))
@@ -1152,18 +1155,18 @@ p_410 <- ggplot(df_fig_410,
                     color = Antibiotic, 
                     group = Antibiotic,
                     data_id = data_id)) +
-  geom_line() +
-  ggiraph::geom_point_interactive(aes(tooltip = tooltip), size = 2.5, 
-                                  position = position_jitter(width = 0.10, height = 0)) +
-  scale_x_discrete(expand=c(0,0.2)) + #continuous(breaks = yrs, minor_breaks = NULL) +
-  scale_y_continuous(limits = c(0, 100),
+  geom_line_interactive(aes(tooltip=tooltip_l),
+                        lwd=0.5) +
+  geom_point_interactive(aes(tooltip = tooltip_p)) +
+  scale_x_discrete(expand=c(0,0.2)) + 
+  scale_y_continuous(limits = c(0, 50),
+                     expand=c(0,0.2),
                      breaks=perc_100) +
   scale_color_SweSva() +
   labs(x = "Year",
-       y = "Resistance (%)",
-       color = NULL) +
+       y = "Resistance (%)") +
   theme_SweSva() +
-  #theme(axis.text.x = element_text(angle = 45, hjust = 1, vjust = 1)) +
+  theme_SweSva_rotate() +
   add_sva_caption()
 
 make_dynamic_plot(plot = p_410, filename = "fig-410")
@@ -1235,7 +1238,7 @@ As in previous years, resistance to ampicillin was the most common trait in 2025
 Eighty percent (679/846) of the isolates were susceptible to all the tested antibiotics, and the proportion of multiresistance was 4% (35/846). Fifty-one percent (18/35) of the multiresistant isolates were resistant to three antibiotics, 14% (5/35) to four, and 11% (4/35) to five antibiotics. 
 
 For comparison of resistance in *E. coli* of different origin see @sec-NEEDS-TO-BE-ADDED-WHEN-SECTION-IS-READY "Comparative analysis". The most common phenotype, resistance to ampicillin, tetracycline and trimethoprim-sulphamethoxazole, was detected in 65% (23/35) of the multiresistant isolates. Of the eleven isolates resistant to four or more antibiotics, all but one had this phenotype.
- 
+
 Seventeen (2%) of the *E. coli* isolates were resistant to cefotaxime (MIC >0.25mg/L), and all were available for further testing. Genes conferring transferable ESC resistance were detected in four of the isolates. All four carried the gene *bla*~CTX-M-15~. For more information about ESBL-producing Enterobacterales isolated from dogs in Sweden, see “Notifiable diseases” ESBL-producing Enterobacterales. One of the isolates was resistant to colistin (MIC >2mg/L) but found negative in PCR analysis of the *mcr-1* to *mcr-9* genes. None of the isolates were resistant to meropenem (MIC>0.12mg/L). 
 
 ```{r}
@@ -1262,27 +1265,28 @@ dat_411_long <- dat_411$fig_data |>
   pivot_longer(cols = -Year, names_to = "Antibiotic", values_to = "Value", values_drop_na = TRUE)
 
 df_fig_411 <- dat_411_long |>
-  mutate(tooltip = paste0("Year: ", Year, "<br>Antibiotic: ", Antibiotic, 
-                          "<br>Value: ", Value), data_id = paste(Antibiotic, Year, sep = "_"))
-
-#yrs <- sort(unique(df_fig_411$Year))
+  mutate(tooltip_l = glue::glue('{Year}'),
+         tooltip_p = paste0("<b>Year:</b> ", Year, "<br><b>Antibiotic:</b> ", Antibiotic, 
+                            "<br><b>Value:</b> ", Value), 
+         data_id = paste(Antibiotic, Year, sep = "_"))
 
 p_411 <- ggplot(df_fig_411, aes(x = factor(Year),
                                 y = Value,
                                 color = Antibiotic,
-                                group = Antibiotic)) +
-  geom_line() +
-  ggiraph::geom_point_interactive(aes(tooltip = tooltip, data_id = data_id), size = 2.5, 
-                                  position = position_jitter(width = 0.10, height = 0)) +
-  scale_x_discrete(expand=c(0,0.2)) + #breaks = yrs, minor_breaks = NULL) +
-  scale_y_continuous(limits = c(0, 25),
-                     breaks=perc_25) +
+                                group = Antibiotic,
+                                data_id = data_id)) +
+  geom_line_interactive(aes(tooltip=tooltip_l),
+                        lwd=0.5) +
+  geom_point_interactive(aes(tooltip = tooltip_p)) +
+  scale_x_discrete(expand=c(0,0.2)) + 
+  scale_y_continuous(limits = c(0, 50),
+                     expand=c(0,0.2),
+                     breaks=perc_100) +
   scale_color_SweSva() +
   labs(x = "Year",
-       y = "Resistance (%)", 
-       color = NULL) +
+       y = "Resistance (%)") +
   theme_SweSva() +
-  #theme(axis.text.x = element_text(angle = 45, hjust = 1, vjust = 1)) +
+  theme_SweSva_rotate() +
   add_sva_caption()
 
 make_dynamic_plot(plot = p_411, filename = "fig-411")
@@ -1391,27 +1395,32 @@ fig_412_alt <- dat_412$fig_alt
 dat_412_long <- dat_412$fig_data |> 
   pivot_longer(cols = -Year, names_to = "Antibiotic", values_to = "Value", values_drop_na = TRUE)
 
-dat_412_long$Year <- as.numeric(dat_412_long$Year) 
-
 df_fig_412 <- dat_412_long |>
-  mutate(tooltip = paste0("Year: ", Year, "<br>Antibiotic: ", Antibiotic, 
-                          "<br>Value: ", Value), data_id = paste(Antibiotic, Year, sep = "_"))
+  mutate(tooltip_l = glue::glue('{Year}'),
+         tooltip_p = paste0("<b>Year:</b> ", Year, "<br><b>Antibiotic:</b> ", Antibiotic, 
+                            "<br><b>Value:</b> ", Value),
+         data_id = paste(Antibiotic, Year, sep = "_"))
 
-yrs <- sort(unique(df_fig_412$Year))
 
-p_412 <- ggplot(df_fig_412, aes(x = Year, y = Value, color = Antibiotic, group = Antibiotic)) +
-  geom_line() +
-  ggiraph::geom_point_interactive(aes(tooltip = tooltip, data_id = data_id), size = 2.5, 
-                                  position = position_jitter(width = 0.10, height = 0)) +
-  scale_x_discrete(expand=c(0,0.2)) + #(breaks = yrs, minor_breaks = NULL) +
-  scale_y_continuous(limits = c(0, 100),
+p_412 <- df_fig_412 |> 
+  ggplot(aes(x = factor(Year),
+             y = Value,
+             color = Antibiotic, 
+             group = Antibiotic,
+             data_id = data_id)) +
+  geom_line_interactive(aes(tooltip=tooltip_l),
+                        lwd=0.5) +
+  geom_point_interactive(aes(tooltip = tooltip_p)) +
+  scale_x_discrete(expand=c(0,0.2)) + 
+  scale_y_continuous(limits = c(0, 50),
+                     expand=c(0,0.2),
                      breaks=perc_100) +
   scale_color_SweSva() +
   labs(x = "Year",
        y = "Resistance (%)",
        color = NULL) +
   theme_SweSva() +
-  #theme(axis.text.x = element_text(angle = 45, hjust = 1, vjust = 1)) +
+  theme_SweSva_rotate() +
   add_sva_caption()
 
 make_dynamic_plot(plot = p_412, filename = "fig-412")
@@ -1429,7 +1438,7 @@ dat_412_long |>
 At SVA, it is possible to request antibiotic susceptibility testing of bacteria that is tailored for topical treatment. Both the antibiotics included in the test and the interpretation of the results differ from traditional testing for systemic treatment. The design of the panel for topical use covers substances included in veterinary medicinal products authorised for topical use and sold on veterinary prescription in Sweden, mainly for treatment of external ear and eye infections. In addition, some substances are included for the sole purpose of screening for methicillin resistance in coagulase positive staphylococci and ESBL in Enterobacterales.  
 
 It has been suggested by EUCAST that ECOFFs could be used to exclude acquired resistance to topical agents. They acknowledge that such an approach might underestimate the activity of the agents in some cases. However, it will at least demonstrate the presence of phenotypically detectable resistance mechanisms, which may result in a higher probability of clinical failure. Therefore, when bacteria are tested against substances for topical treatment at SVA, the breakpoints for interpretation are either EUCAST ECOFFs or, when no ECOFF is available, based on MIC distributions in Swedres-Svarm or other publications. As pharmacokinetic data have not been taken into consideration, the interpretation cannot be applied for systemic treatment. 
- 
+
 Some combinations of antibiotic substance and bacterial species are not reported to the clinician for systemic treatment. For example, gentamicin for *Pasteurella* spp. or streptococci, and fusidic acid for streptococci. This is because it is not possible to reach therapeutic concentrations systemically against these bacteria whereas with topical treatment the concentration at the site of the infection is much higher. Furthermore, some substances, such as chloramphenicol and tobramycin, are not tested for systemic treatment because they are only used for topical treatment. Occurrence of resistance varies among bacterial species and substances. However, in most cases there are products available on the Swedish market that would be effective if topical antibiotic treatment is considered necessary. See @sec-crossref-InFocusTopicals-WillBeFixedLater. 
 
 #### *Staphylococcus pseudintermedius* - **susceptibility test for topical treatment** 
@@ -1509,7 +1518,7 @@ df |>
 #### *Pasteurella canis/oralis* 
 
 Isolates of *Pasteurella* spp. are from clinical submissions of samples from various anatomical sites from dogs, mainly wounds (52%), abscesses (15%), and skin and external ear canal (11%).  
- 
+
 *Pasteurella canis/oralis* was the most common *Pasteurella* sp. isolated in samples from dogs, 87% (328/378). The isolates were species identified with MALDI-TOF MS and *P. canis* and *P. oralis* cannot be separated by the method. 
 
 The cut-off values for *Pasteurella multocida* have been applied for all *Pasteurella* spp. *Pasteurella* spp. have a low inherent susceptibility to aminoglycosides, e.g. gentamicin. If not including gentamicin, 96% (273/283) of the isolates were susceptible to all antibiotics tested. 
@@ -1604,28 +1613,30 @@ dat_413_long <- dat_413$fig_data |>
   pivot_longer(cols = -Year, names_to = "Antibiotic", values_to = "Value", values_drop_na = TRUE)
 
 df_fig_413 <- dat_413_long |>
-  mutate(tooltip = paste0("Year: ", Year, "<br>Antibiotic: ", Antibiotic, 
-                          "<br>Value: ", Value), data_id = paste(Antibiotic, Year, sep = "_"))
+  mutate(tooltip_l = glue::glue('{Year}'),
+         tooltip_p  = paste0("<b>Year:</b> ", Year, "<br><b>Antibiotic:</b> ", Antibiotic, 
+                             "<br><b>Value:</b> ", Value),
+         data_id = paste(Antibiotic, Year, sep = "_"))
 
-yrs <- sort(unique(df_fig_413$Year))
 
-p_413 <- ggplot(df_fig_413, aes(x = factor(Year),
-                                y = Value, 
-                                color = Antibiotic,
-                                group = Antibiotic,
-                                data_id = data_id)) +
-  geom_line() +
-  ggiraph::geom_point_interactive(aes(tooltip = tooltip), size = 2.5, 
-                                  position = position_jitter(width = 0.10, height = 0)) +
-  scale_x_discrete(expand=c(0,0.2)) + #continuous(breaks = yrs, minor_breaks = NULL) +
-  scale_y_continuous(breaks = perc_25,
-                     limits=c(0,25)) +
+p_413 <- df_fig_413 |> 
+  ggplot(aes(x = factor(Year),
+             y = Value, 
+             color = Antibiotic,
+             group = Antibiotic,
+             data_id = data_id)) +
+  geom_line_interactive(aes(tooltip=tooltip_l),
+                        lwd=0.5) +
+  geom_point_interactive(aes(tooltip = tooltip_p)) +
+  scale_x_discrete(expand=c(0,0.2)) + 
+  scale_y_continuous(limits = c(0, 25),
+                     expand=c(0,0.2),
+                     breaks=perc_25) +
   scale_color_SweSva() +
   labs(x = "Year",
-       y = "Resistance (%)",
-       color = NULL) +
+       y = "Resistance (%)") +
   theme_SweSva() +
-  #theme(axis.text.x = element_text(angle = 45, hjust = 1, vjust = 1)) +
+  theme_SweSva_rotate() +
   add_sva_caption()
 
 make_dynamic_plot(plot = p_413, filename = "fig-413")
@@ -1688,7 +1699,7 @@ Eighty-one percent (252/313) of the *S. felis* isolates were susceptible to all 
 Isolates of *Pasteurella* spp. are from clinical submissions of samples from various anatomical sites, but mainly from wounds or skin lesions, abscesses, and the external ear canal (85%) in cats. 
 
 *Pasteurella multocida* was the most common *Pasteurella* sp. isolated in samples from cats, 93%. The proportion of resistance was low in the tested isolates except for trimethoprim-sulphamethoxazole (10%, @tbl-437).This is however a decrease from 16% in 2024 but an increase from 2022 (4%) and 2023 (6%).  
- 
+
 No resistance to penicillin was detected. *Pasteurella* spp. have a low inherent susceptibility to aminoglycosides, e.g. gentamicin. 
 
 ::: {.panel-tabset}

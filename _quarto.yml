@@ -100,9 +100,10 @@ book:
 language:
   title-block-author-single: "Editor"
   title-block-author-plural: "Editors"
+  title-block-doi: "Article number" # Ändrar etiketten för DOI
 #https://quarto.org/docs/authoring/citations.html
 citation: true
-doi: "place_4_doi"
+doi: "26034 (PHAS), SVAKOM230.2024 (SVA)"
 bibliography: references/references.bib
 csl: references/vancouver.csl    
  
