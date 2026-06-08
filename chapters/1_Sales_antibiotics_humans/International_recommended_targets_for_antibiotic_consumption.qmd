@@ -2,8 +2,6 @@
 format:
   html:
     embed-resources: false
-    fig-cap-location: top
-
 execute:
   cache: false
   echo: false
@@ -17,7 +15,7 @@ execute:
 #| warning: false
 #| message: false
 source("../../_common.R")
-status(type = "polishing")
+status(type = "ready2publish")
 ```
 
 ## International recommended targets for antibiotic consumption
@@ -43,8 +41,6 @@ Sweden exceeds the WHO minimum target for Access antibiotics of 60%, the Council
 
 ::: panel-tabset
 ```{r}
-# Medskick: Medskick får gärna vara från max 100%, och visa procent access (de mindre behövs inte, har inte funnits plats). 
-
 data <- load_from_excel(path_file = "data/fig-1-19.xlsx")
 
 df <- data$fig_data |> 
@@ -60,33 +56,30 @@ df <- data$fig_data |>
 #| fig-alt: !expr glue::glue("{data$fig_alt}")
 #| warning: false
 p <-  df |> 
-   mutate(data_id = row_number(),
-          tooltip_b = glue::glue('<b>Category:</b> {category}
+  mutate(data_id = row_number(),
+         tooltip_b = glue::glue('<b>Category:</b> {category}
                                     <b>Group:</b> {group}
                                     <b>Proportion:</b> {round(value,2)}%')) |> 
-
   ggplot(aes(x = group,
              y = value, 
              fill=factor(category),
              data_id = data_id)) +
-      geom_bar_interactive(aes(tooltip = tooltip_b),width=0.5,position="stack", stat="identity") +
-
-    #geom_col_interactive(aes(tooltip = tooltip_b),width = 0.5, position = position_dodge(0.7)) +
+  geom_bar_interactive(aes(tooltip = tooltip_b),
+                       width=0.5,position="stack", stat="identity") +
   labs(x=NULL,
        y = "Proportion (%)") +
   scale_y_continuous(expand=c(0,.1)) +
-    scale_x_discrete(expand=c(0,0.2)) +
-
+  scale_x_discrete(expand=c(0,0.2)) +
   scale_fill_SweSva() + 
   theme_SweSva() +
   add_fohm_caption()
 
-make_dynamic_plot(plot = p, filename = "Fig1-19")
+make_dynamic_plot(plot = p, filename = "Fig1-18")
 ```
 ###### Data
 ```{r}
 df |> 
-  make_table_data_tab(file_name = "Fig1-19")
+  make_table_data_tab(file_name = "Fig1-18")
 ```
 :::
 
@@ -97,13 +90,12 @@ df |>
 #| message: false
 #| warning: false
 
-
 data <- load_from_excel(path_file = "data/fig-1-20.xlsx")
 
 df <- data$fig_data |> 
   rename(year = Year) |> 
-    dplyr::select(year,"Total":"Outpatient care") |> 
-    mutate(across(-year, ~as.numeric(.))) |> 
+  dplyr::select(year,"Total":"Outpatient care") |> 
+  mutate(across(-year, ~as.numeric(.))) |> 
   pivot_longer(-year,names_to = "group") 
 ```
 
@@ -130,8 +122,7 @@ p <- df |>
                          size=.5) +
   scale_y_continuous(expand = c(0,0.2), 
                      limits=c(0,100)) + 
-    scale_x_discrete(expand=c(0,0.2)) +
-
+  scale_x_discrete(expand=c(0,0.2)) +
   labs(y= "Proportion (%)",
        x="Year") +
   scale_color_SweSva() + 
@@ -139,13 +130,13 @@ p <- df |>
   theme_SweSva() +
   theme_SweSva_rotate()
 
-make_dynamic_plot(plot = p, filename = "Fig1-20")
+make_dynamic_plot(plot = p, filename = "Fig1-19")
 ```
 
 ###### Data
 ```{r}
 df |> 
-  make_table_data_tab(file_name = "Fig1-20")
+  make_table_data_tab(file_name = "Fig1-19")
 ```
 :::
 
@@ -158,8 +149,7 @@ data <- load_from_excel(path_file = "data/fig-1-21.xlsx")
 
 df <- data$fig_data |> 
   rename(year = Year) |> 
-    dplyr::select(year,"Total":"Outpatient care") |> 
-   # mutate(across(-year, ~as.numeric(.))) |> 
+  dplyr::select(year,"Total":"Outpatient care") |> 
   pivot_longer(-year,names_to = "group") 
 ```
 
@@ -182,11 +172,9 @@ p <- df |>
   geom_line_interactive(aes(tooltip=tooltip_l),
                         lwd=.5) +
   geom_point_interactive(aes(tooltip=tooltip_p),
-                         hover_nearest = TRUE,
-                         ) +
+                         hover_nearest = TRUE) +
   scale_y_continuous(expand = c(0,0), limits = c(0,40)) + 
-    scale_x_discrete(expand=c(0,0.2)) +
-
+  scale_x_discrete(expand=c(0,0.2)) +
   labs(y= "Proportion (%)",
        x="Year") +
   scale_color_SweSva() + 
@@ -194,13 +182,13 @@ p <- df |>
   theme_SweSva() +
   theme_SweSva_rotate() 
 
-make_dynamic_plot(plot = p, filename = "Fig1-21")
+make_dynamic_plot(plot = p, filename = "Fig1-20")
 ```
 
 ###### Data
 ```{r}
 df |> 
-  make_table_data_tab(file_name = "Fig1-21")
+  make_table_data_tab(file_name = "Fig1-20")
 ```
 :::
 
@@ -214,8 +202,7 @@ data <- load_from_excel(path_file = "data/fig-1-22.xlsx")
 
 df <- data$fig_data |> 
   rename(year = Year) |> 
-    dplyr::select(year,"Total":"Outpatient care") |> 
-   # mutate(across(-year, ~as.numeric(.))) |> 
+  dplyr::select(year,"Total":"Outpatient care") |> 
   pivot_longer(-year,names_to = "group") 
 ```
 ###### Figure
@@ -240,8 +227,8 @@ p <- df |>
   geom_point_interactive(aes(tooltip=tooltip_p),
                          hover_nearest = TRUE) +
   scale_y_continuous(expand = c(0,0), limits = c(0,2)) + 
-    scale_x_discrete(expand=c(0,0.2)) +
-
+  scale_x_discrete(expand=c(0,0.2)) +
+  
   labs(y= "Proportion (%)",
        x="Year") +
   scale_color_SweSva() + 
@@ -249,13 +236,13 @@ p <- df |>
   theme_SweSva() +
   theme_SweSva_rotate() 
 
-make_dynamic_plot(plot = p, filename = "Fig1-22")
+make_dynamic_plot(plot = p, filename = "Fig1-21")
 ```
 
 ###### Data
 ```{r}
 df |> 
-  make_table_data_tab(file_name = "Fig1-22")
+  make_table_data_tab(file_name = "Fig1-21")
 ```
 :::
 
