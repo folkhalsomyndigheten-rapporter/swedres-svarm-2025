@@ -29,14 +29,14 @@ status(type = "polishing")
 
 #### Comments
 
-Half of the notified cases, 51%, reported Sweden as country of infection. The seasonal pattern for domestic cases with campylobacteriosis were as typically seen, with an increase of cases in July and August. The increase in cases was preceded by an observed increase in the proportion of positive samples in broiler flocks. Forty-six percent acquired campylobacteriosis abroad. The majority of the imported cases were from Europe (n= 1 431) or Asia (n= 758). The proportion of domestic and infections acquired abroad were similar to the last previous years, reaching pre-pandemic levels. 
+Half of the cases, 51%, reported Sweden as country of infection. The seasonal pattern for domestic cases with campylobacteriosis was as typically seen, with an increase of cases in July and August. The increase in cases was preceded by an observed increase in the proportion of positive samples in broiler flocks. 46% acquired campylobacteriosis abroad. The majority of the imported cases were from Europe (n=1 431) or Asia (n=758). The proportion of domestic and infections acquired abroad was similar to the last previous years, reaching pre-pandemic levels. 
 
 
 ### *Campylobacter jejuni*, from faecal samples
 
 #### Comments
 
-A total of 1 374 *Campylobacter* species were found in faecal sampling. Almost four-fifths of the isolates were reported as *C. jejuni*, 14% as *C. jejuni*/*C. coli* and the rest were other species. The presence of AST data, and in a sufficient number of isolates, was highest for *C. jejuni* (34 % of all reported isolates). For *C. jejuni*, resistance to ciprofloxacin was 56% and 30% for tetracycline in 2025. Resistance to erythromycin was 0.8% (@fig-3-36). The proportion of isolates fully susceptible to erythromycin, ciprofloxacin and tetracycline was 43% and fully resistant was 0.6% (@fig-cjiuni-kombres). It should be noted that the number of isolates with combined AST is low. Only two fully resistant isolates were reported in 2025.
+A total of 1 374 *Campylobacter* species were found in faecal sampling. Almost four-fifths of the isolates were reported as *C. jejuni*, 14% as *C. jejuni*/*C. coli* and the rest were other species. The presence of AST data, and in a sufficient number of isolates, was highest for *C. jejuni* (34 % of all reported isolates). For *C. jejuni*, resistance to ciprofloxacin was 56% and 30% for tetracycline in 2025. Resistance to erythromycin was 0.8% (@fig-3-36). The proportion of isolates fully susceptible to erythromycin, ciprofloxacin and tetracycline was 43% and the proportion fully resistant was 0.6% (@fig-cjiuni-kombres). It should be noted that the number of isolates with combined AST is low. Only two fully resistant isolates were reported in 2025.
 
 
 
