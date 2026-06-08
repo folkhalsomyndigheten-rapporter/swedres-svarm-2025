@@ -3,7 +3,6 @@ project:
   type: book
   output-dir: "docs" # OBS. doc directory deploys to pages when commited to github
 
-   
 book:
   title: "Swedres-Svarm 2025"
   reader-mode: true
