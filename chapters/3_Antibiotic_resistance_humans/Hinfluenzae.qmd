@@ -26,7 +26,7 @@ status(type = "polishing")
 
 ##### Comments
 
-Invasive isolates of *H. influenzae* are notifiable according to the Communicable Disease Act regardless of antibiotic resistance. Cefotaxime resistance among invasive isolates remains low (@fig-3-30 and @tbl-3-hin). Among respiratory isolates, resistance levels to penicillin, ampicillin/amoxicillin, trimethoprim-sulfamethoxazole and cefotaxime increased during 2025 (@fig-3-28). 
+Invasive isolates of *H. influenzae* are notifiable according to the Communicable Disease Act regardless of antibiotic resistance. Cefotaxime resistance among invasive isolates remains low (@fig-3-30 and @tbl-3-hin). Among respiratory isolates, resistance levels to penicillin, ampicillin/amoxicillin, trimethoprim-sulphamethoxazole and cefotaxime increased during 2025 (@fig-3-28). 
 
 
 
