@@ -1,0 +1,23 @@
+---
+format:
+  html:
+    embed-resources: false
+execute:
+  cache: false
+  echo: false
+  warnings: false
+  error: false
+---
+
+```{r}
+#| results: "asis"
+#| echo: false
+#| warning: false
+#| message: false
+source("../../_common.R")
+status(type = "drafting")
+```
+
+## Material and methods for resistance in humans {#sec-mmh}
+
+Text here...
