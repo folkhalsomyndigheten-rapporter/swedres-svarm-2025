@@ -31,21 +31,21 @@ library(janitor)
 #scale_fill_SweSva <-  function(){fohmR::scale_fill_fohm()}
 
 scale_fill_SweSva <- function() {
-  if ("fohmR" %in% installed.packages()) {
-    fohmR::scale_fill_fohm()
-  } else {
+ # if ("fohmR" %in% installed.packages()) {
+ #   fohmR::scale_fill_fohm()
+ # } else {
     ggplot2::scale_fill_brewer(palette = "Set1") # Example default, you can change the palette as needed
-  }
+ # }
 }
 
 #scale_color_SweSva <-  function(){fohmR::scale_color_fohm()}
 
 scale_color_SweSva <- function() {
-  if ("fohmR" %in% installed.packages()) {
-    fohmR::scale_color_fohm()
-  } else {
+  #if ("fohmR" %in% installed.packages()) {
+  #  fohmR::scale_color_fohm()
+ # } else {
     ggplot2::scale_color_brewer(palette = "Set1") # Example default, you can change the palette as needed
-  }
+  #}
 }
 
 one_color_SweSva <- setNames("#0065AC","one_color_SweSva")
@@ -243,12 +243,7 @@ make_dynamic_plot <- function(plot, filename = "filename",width = 8, height = 5
 # =============================================================================
 # 3.1. Swedres-Svarm Theme (`theme_SweSva`)
 
-theme_SweSva_old <- function(text_size = 11) {
-  if ("fohmR" %in% installed.packages()) {
-    fohmR::theme_fohm(text_size = text_size)
-  } else {
-    
-    function(text_size=text_size,
+theme_SweSva_old <- function(text_size = 11,
                              selected_font = "Open Sans", 
                              gridline_x = FALSE,
                              gridline_y = TRUE){
@@ -320,7 +315,7 @@ theme_SweSva_old <- function(text_size = 11) {
         )
       class(out) <- c("mytheme",class(ggplot2::theme_minimal()))
       return(out)
-    }
+  
     
     ggplot_add.mytheme <- function(object, plot, object_name) {
       
@@ -367,7 +362,7 @@ theme_SweSva_old <- function(text_size = 11) {
       oldtheme + newtheme
     }  
     
-  }
+ # }
 }
 
 ## allow markdown labels
