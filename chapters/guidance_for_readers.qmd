@@ -19,7 +19,7 @@ source("../_common.R")
 status(type = "polishing")
 ```
 
-# Guidance for readers {#id-g4r .unnumbered}
+# Guidance for readers {.unnumbered #sec-g4r}
 
 The Swedres-Svarm report is the result of a cooperation between the Public Health Agency of Sweden and the Swedish Veterinary Agency with the aim to present data relating to both humans and animals on the sales of antibiotics and on antibiotic resistance in a joint report. 
 
