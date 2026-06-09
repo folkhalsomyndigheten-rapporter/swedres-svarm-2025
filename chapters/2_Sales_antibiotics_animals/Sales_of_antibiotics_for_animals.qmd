@@ -137,7 +137,8 @@ names(dat_21$fig_data) <- c("Year", "Total")
 
 df_fig_21 <- dat_21$fig_data |>
   mutate(tooltip_l = glue::glue('<b>{Year}</b>'),
-         tooltip_p = paste0("<b>Year:</b> ", Year, "<br><b>Proportion (%) of LIC:</b> ", round(Total, 2)), data_id = paste(Total, Year, sep = "_"))
+         tooltip_p = paste0("<b>Year:</b> ", Year, "<br><b>Proportion (%) of LIC:</b> ", round(Total, 2)), data_id = paste(Total, Year, sep = "_"),
+         one_col = "one_color_SweSva")
 
 yrs <- sort(unique(df_fig_21$Year))
 
