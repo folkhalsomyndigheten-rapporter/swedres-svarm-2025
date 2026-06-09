@@ -34,13 +34,13 @@ For confidentiality reasons, sales of antibiotic classes with less than three pr
 
 The sales of veterinary medicinal products for mixing into feed used in aquaculture for food production are not included in the data referred to above, as such feed is traded from other countries. Data on prescriptions for fish are collected through a separate system, described in @sec-sales-fish Comments by animal species, Fish. 
 
-Further details on data sources and inclusion criteria are given in @sec-mms Materials and methods, sales of antibiotics.  
+Further details on data sources and inclusion criteria are given in @sec-mms - Materials and methods, sales of antibiotics.  
 
 ## Trends in animal populations 
 
 Changes in the numbers of animals may affect trends in antibiotics sales statistics. Compared to 2016, the number of pigs slaughtered in 2025 was approximately the same, while the number of broilers increased by 13%. The number of dairy cows decreased by 11% during the same period. The number of horses was estimated to <span class="nobr">355 500</span> in 2016. In January 2026, the number of dogs was estimated to <span class="nobr">951 000</span> and the number of cats to <span class="nobr">1 582 000</span>. 
 
-Further details on animal numbers and data sources can be found in @sec-demographics Demographics and denominator data. 
+Further details on animal numbers and data sources can be found in @sec-demographics - Demographics and denominator data. 
 
 ## Completeness of data 
 
