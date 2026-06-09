@@ -22,7 +22,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/quarto-nav/headroom.min.js"></script>
@@ -522,7 +541,7 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../index.html">Welcome</a></li><li class="breadcrumb-item"><a href="../chapters/guidance_for_readers.html">Guidance for readers</a></li></ol></nav><div class="quarto-title">
-<h1 class="title"><span id="id-g4r" class="quarto-section-identifier">Guidance for readers</span></h1>
+<h1 class="title"><span id="sec-g4r" class="quarto-section-identifier">Guidance for readers</span></h1>
 </div>
 
 
@@ -555,7 +574,7 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
 <p>Resistance in bacteria from humans and sales for humans to the left and resistance in bacteria from animals and food and sales for animals to the right (<a href="#fig-guidance" class="quarto-xref">Figure&nbsp;<span>1</span></a>).</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-guidance" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Schematic view of antimicrobial sales and resistance monitored in Sweden 2025." data-fig-align="center">
+<div id="fig-guidance" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="Schematic view of antimicrobial sales and resistance monitored in Sweden 2025.">
 <figure class="quarto-float quarto-float-fig figure"><figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-guidance-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca"><strong>Figure</strong>&nbsp;1<strong>.</strong> Schematic view of antimicrobial sales and resistance monitored in Sweden 2025. Resistance in bacteria from humans and sales for humans to the left and resistance in bacteria from animals and food and sales for animals to the right.
 </figcaption><div aria-describedby="fig-guidance-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="images/FigurAntibioticResistanceSwedres2025.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%" alt="Schematic view of antimicrobial sales and resistance monitored in Sweden 2025.">
@@ -577,23 +596,23 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
 <figure class="quarto-float quarto-float-tbl figure"><figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-indic-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca"><strong>Table</strong>&nbsp;1<strong>.</strong> Oral antibiotics commonly prescribed for specific therapeutic areas in Sweden
 </figcaption><div aria-describedby="tbl-indic-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<div id="yolpewwbzr" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#yolpewwbzr table {
+<div id="gcnphjskfa" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#gcnphjskfa table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#yolpewwbzr thead, #yolpewwbzr tbody, #yolpewwbzr tfoot, #yolpewwbzr tr, #yolpewwbzr td, #yolpewwbzr th {
+#gcnphjskfa thead, #gcnphjskfa tbody, #gcnphjskfa tfoot, #gcnphjskfa tr, #gcnphjskfa td, #gcnphjskfa th {
   border-style: none;
 }
 
-#yolpewwbzr p {
+#gcnphjskfa p {
   margin: 0;
   padding: 0;
 }
 
-#yolpewwbzr .gt_table {
+#gcnphjskfa .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -619,12 +638,12 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   border-left-color: #D3D3D3;
 }
 
-#yolpewwbzr .gt_caption {
+#gcnphjskfa .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#yolpewwbzr .gt_title {
+#gcnphjskfa .gt_title {
   color: #333333;
   font-size: 16px;
   font-weight: initial;
@@ -636,7 +655,7 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   border-bottom-width: 0;
 }
 
-#yolpewwbzr .gt_subtitle {
+#gcnphjskfa .gt_subtitle {
   color: #333333;
   font-size: 14px;
   font-weight: initial;
@@ -648,7 +667,7 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   border-top-width: 0;
 }
 
-#yolpewwbzr .gt_heading {
+#gcnphjskfa .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -660,13 +679,13 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   border-right-color: #D3D3D3;
 }
 
-#yolpewwbzr .gt_bottom_border {
+#gcnphjskfa .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#yolpewwbzr .gt_col_headings {
+#gcnphjskfa .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -681,7 +700,7 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   border-right-color: #D3D3D3;
 }
 
-#yolpewwbzr .gt_col_heading {
+#gcnphjskfa .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -701,7 +720,7 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   overflow-x: hidden;
 }
 
-#yolpewwbzr .gt_column_spanner_outer {
+#gcnphjskfa .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -713,15 +732,15 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   padding-right: 4px;
 }
 
-#yolpewwbzr .gt_column_spanner_outer:first-child {
+#gcnphjskfa .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#yolpewwbzr .gt_column_spanner_outer:last-child {
+#gcnphjskfa .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#yolpewwbzr .gt_column_spanner {
+#gcnphjskfa .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -733,11 +752,11 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   width: 100%;
 }
 
-#yolpewwbzr .gt_spanner_row {
+#gcnphjskfa .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#yolpewwbzr .gt_group_heading {
+#gcnphjskfa .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -763,7 +782,7 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   text-align: left;
 }
 
-#yolpewwbzr .gt_empty_group_heading {
+#gcnphjskfa .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -778,15 +797,15 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   vertical-align: middle;
 }
 
-#yolpewwbzr .gt_from_md > :first-child {
+#gcnphjskfa .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#yolpewwbzr .gt_from_md > :last-child {
+#gcnphjskfa .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#yolpewwbzr .gt_row {
+#gcnphjskfa .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -805,7 +824,7 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   overflow-x: hidden;
 }
 
-#yolpewwbzr .gt_stub {
+#gcnphjskfa .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -818,7 +837,7 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   padding-right: 5px;
 }
 
-#yolpewwbzr .gt_stub_row_group {
+#gcnphjskfa .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -832,15 +851,15 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   vertical-align: top;
 }
 
-#yolpewwbzr .gt_row_group_first td {
+#gcnphjskfa .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#yolpewwbzr .gt_row_group_first th {
+#gcnphjskfa .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#yolpewwbzr .gt_summary_row {
+#gcnphjskfa .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -850,16 +869,16 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   padding-right: 5px;
 }
 
-#yolpewwbzr .gt_first_summary_row {
+#gcnphjskfa .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#yolpewwbzr .gt_first_summary_row.thick {
+#gcnphjskfa .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#yolpewwbzr .gt_last_summary_row {
+#gcnphjskfa .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -869,7 +888,7 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   border-bottom-color: #D3D3D3;
 }
 
-#yolpewwbzr .gt_grand_summary_row {
+#gcnphjskfa .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -879,7 +898,7 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   padding-right: 5px;
 }
 
-#yolpewwbzr .gt_first_grand_summary_row {
+#gcnphjskfa .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -889,7 +908,7 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   border-top-color: #D3D3D3;
 }
 
-#yolpewwbzr .gt_last_grand_summary_row_top {
+#gcnphjskfa .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -899,11 +918,11 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   border-bottom-color: #D3D3D3;
 }
 
-#yolpewwbzr .gt_striped {
+#gcnphjskfa .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#yolpewwbzr .gt_table_body {
+#gcnphjskfa .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -912,7 +931,7 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   border-bottom-color: #D3D3D3;
 }
 
-#yolpewwbzr .gt_footnotes {
+#gcnphjskfa .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -926,7 +945,7 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   border-right-color: #D3D3D3;
 }
 
-#yolpewwbzr .gt_footnote {
+#gcnphjskfa .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -935,7 +954,7 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   padding-right: 5px;
 }
 
-#yolpewwbzr .gt_sourcenotes {
+#gcnphjskfa .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -949,7 +968,7 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   border-right-color: #D3D3D3;
 }
 
-#yolpewwbzr .gt_sourcenote {
+#gcnphjskfa .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -957,72 +976,72 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   padding-right: 5px;
 }
 
-#yolpewwbzr .gt_left {
+#gcnphjskfa .gt_left {
   text-align: left;
 }
 
-#yolpewwbzr .gt_center {
+#gcnphjskfa .gt_center {
   text-align: center;
 }
 
-#yolpewwbzr .gt_right {
+#gcnphjskfa .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#yolpewwbzr .gt_font_normal {
+#gcnphjskfa .gt_font_normal {
   font-weight: normal;
 }
 
-#yolpewwbzr .gt_font_bold {
+#gcnphjskfa .gt_font_bold {
   font-weight: bold;
 }
 
-#yolpewwbzr .gt_font_italic {
+#gcnphjskfa .gt_font_italic {
   font-style: italic;
 }
 
-#yolpewwbzr .gt_super {
+#gcnphjskfa .gt_super {
   font-size: 65%;
 }
 
-#yolpewwbzr .gt_footnote_marks {
+#gcnphjskfa .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#yolpewwbzr .gt_asterisk {
+#gcnphjskfa .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#yolpewwbzr .gt_indent_1 {
+#gcnphjskfa .gt_indent_1 {
   text-indent: 5px;
 }
 
-#yolpewwbzr .gt_indent_2 {
+#gcnphjskfa .gt_indent_2 {
   text-indent: 10px;
 }
 
-#yolpewwbzr .gt_indent_3 {
+#gcnphjskfa .gt_indent_3 {
   text-indent: 15px;
 }
 
-#yolpewwbzr .gt_indent_4 {
+#gcnphjskfa .gt_indent_4 {
   text-indent: 20px;
 }
 
-#yolpewwbzr .gt_indent_5 {
+#gcnphjskfa .gt_indent_5 {
   text-indent: 25px;
 }
 
-#yolpewwbzr .katex-display {
+#gcnphjskfa .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#yolpewwbzr div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#gcnphjskfa div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -1061,7 +1080,7 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
 <p>Most of the data on resistance in Swedres is derived from routine diagnostic samples sent for testing at clinical microbiological laboratories. The results are mostly presented as proportion of resistance in tables or graphs. The methods used for antibiotic susceptibility testing, whether MIC determination or disk diffusion method, are standardised by European Committee on Antimicrobial Susceptibility Testing (EUCAST) and available online at <a href="https://www.eucast.org/" target="_blank">www.eucast.org</a>.<br>
 The methods and breakpoints routinely used in Sweden are available at <a href="https://www.nordicast.org/" target="_blank">www.nordicast.org</a>. EUCAST also presents yearly updated interpretative criteria for clinical use in human medicine, i.e.&nbsp;clinical breakpoints.</p>
 </section><section id="svarm---animals-and-food" class="level3"><h3 class="anchored" data-anchor-id="svarm---animals-and-food">Svarm - Animals and food</h3>
-<p>Data on resistance in Svarm are from MIC determinations performed at the Swedish Veterinary Agency using broth microdilution following the standards of the Clinical and Laboratory Standards Institute <span class="citation" data-cites="CLSI2024a">(<a href="../references.html#ref-CLSI2024a" role="doc-biblioref"><strong>CLSI2024a?</strong></a>)</span>. Results for isolates of zoonotic and indicator bacteria are interpreted according to ECOFFs from EUCAST (<a href="https://www.eucast.org/" target="_blank">www.eucast.org</a>). Clinical isolates from animals are generally classified by ECOFFs when such values are available. Interpretive criteria used are available as supplementary material on the [SVA] (https://www.sva.se/en/what-we-do/antibiotics/svarm-resistance-monitoring/supplementary-material/){target=“_blank”} web page.</p>
+<p>Data on resistance in Svarm are from MIC determinations performed at the Swedish Veterinary Agency using broth microdilution following the standards of the Clinical and Laboratory Standards Institute <span class="citation" data-cites="clsi2024a">(<a href="../references.html#ref-clsi2024a" role="doc-biblioref">1</a>)</span>. Results for isolates of zoonotic and indicator bacteria are interpreted according to ECOFFs from EUCAST (<a href="https://www.eucast.org/" target="_blank">www.eucast.org</a>). Clinical isolates from animals are generally classified by ECOFFs when such values are available. Interpretive criteria used are available as supplementary material on the <a href="https://www.sva.se/en/what-we-do/antibiotics/svarm-resistance-monitoring/supplementary-material/" target="_blank">SVA</a> web page.</p>
 <p>ECOFFs classify isolates with acquired reduced susceptibility as non-wild type. In Svarm, non-wild type isolates are called “resistant”. This classification is relevant for monitoring purposes, but it should be understood that resistance defined in this manner not always implies clinical resistance.</p>
 <p>Since the first report from Svarm, the interpretive criteria for some combinations of bacteria and substance have been changed. To facilitate comparisons when retrospect data are presented, levels of resistance have been recalculated using current interpretive criteria if not otherwise stated.</p>
 <section id="indicator-bacteria-in-animals" class="level4"><h4 class="anchored" data-anchor-id="indicator-bacteria-in-animals">Indicator bacteria in animals</h4>
@@ -1142,8 +1161,8 @@ The methods and breakpoints routinely used in Sweden are available at <a href="h
       color: #666666 !important;
     }
   </style>
-<div class="datatables html-widget html-fill-item" id="htmlwidget-1c7f245b5c23e4d77969" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-1c7f245b5c23e4d77969">{"x":{"filter":"none","vertical":false,"extensions":["Buttons"],"data":[["Amp","Chl","Cip","Cli","Ctx","Enr","Ery","Fus","Gen","Lzd","Mem","Nit","Tet","Tmp","Sxt"],["Ampicillin","Chloramphenicol","Ciprofloxacin","Clindamycin","Cefotaxime","Enrofloxacin","Erythromycin","Fusidic acid","Gentamicin","Linezolid","Meropenem","Nitrofurantoin","Tetracycline","Trimethoprim","Trimethoprim-sulphamethoxazole"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Abbreviation<\/th>\n      <th>Antibiotic<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"dom":"Blfrtip","autoWidth":true,"buttons":[{"extend":"copy"},{"extend":"csv","filename":"default"},{"extend":"excel","filename":"default"}],"pageLength":5,"lengthMenu":[[5,10,25,50,-1],["5","10","25","50","All"]],"rownames":false,"columnDefs":[{"name":"Abbreviation","targets":0},{"name":"Antibiotic","targets":1}],"order":[],"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item" id="htmlwidget-cfc9da802874b8a58ca2" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-cfc9da802874b8a58ca2">{"x":{"filter":"none","vertical":false,"extensions":["Buttons"],"data":[["Amp","Chl","Cip","Cli","Ctx","Enr","Ery","Fus","Gen","Lzd","Mem","Nit","Tet","Tmp","Sxt"],["Ampicillin","Chloramphenicol","Ciprofloxacin","Clindamycin","Cefotaxime","Enrofloxacin","Erythromycin","Fusidic acid","Gentamicin","Linezolid","Meropenem","Nitrofurantoin","Tetracycline","Trimethoprim","Trimethoprim-sulphamethoxazole"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Abbreviation<\/th>\n      <th>Antibiotic<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"dom":"Blfrtip","autoWidth":true,"buttons":[{"extend":"copy"},{"extend":"csv","filename":"default"},{"extend":"excel","filename":"default"}],"pageLength":5,"lengthMenu":[[5,10,25,50,-1],["5","10","25","50","All"]],"rownames":false,"columnDefs":[{"name":"Abbreviation","targets":0},{"name":"Antibiotic","targets":1}],"order":[],"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </figure>
@@ -1151,6 +1170,12 @@ The methods and breakpoints routinely used in Sweden are available at <a href="h
 </div>
 
 
+<div id="refs" class="references csl-bib-body" role="list" style="display: none">
+<div id="ref-clsi2024a" class="csl-entry" role="listitem">
+<div class="csl-left-margin">1. </div>
+<div class="csl-right-inline">CLSI. Performance standards for antimicrobial disk and dilution susceptibility tests for bacteria isolated from animals; sixth edition CLSI standard VET01 Ed6. Wayne, PA, USA: Clinical; Laboratory Standards Institute; 2024. </div>
+</div>
+</div>
 </section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right
