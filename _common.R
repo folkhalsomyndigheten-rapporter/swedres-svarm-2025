@@ -31,53 +31,27 @@ library(janitor)
 #scale_fill_SweSva <-  function(){fohmR::scale_fill_fohm()}
 
 scale_fill_SweSva <- function() {
- # if ("fohmR" %in% installed.packages()) {
- #   fohmR::scale_fill_fohm()
- # } else {
+  if ("fohmR" %in% installed.packages()) {
+    fohmR::scale_fill_fohm()
+  } else {
     ggplot2::scale_fill_brewer(palette = "Set1") # Example default, you can change the palette as needed
- # }
+  }
 }
 
 #scale_color_SweSva <-  function(){fohmR::scale_color_fohm()}
 
 scale_color_SweSva <- function() {
-  #if ("fohmR" %in% installed.packages()) {
-  #  fohmR::scale_color_fohm()
- # } else {
+  if ("fohmR" %in% installed.packages()) {
+    fohmR::scale_color_fohm()
+  } else {
     ggplot2::scale_color_brewer(palette = "Set1") # Example default, you can change the palette as needed
-  #}
+  }
 }
 
 one_color_SweSva <- setNames("#0065AC","one_color_SweSva")
 # =============================================================================
 # 1. Data Table Function
 # =============================================================================
-
-make_table_data_tab_old <- function(data, file_name = "default") {
-  out <- data %>% 
-    ## rename column names to capital
-    rename_with(~ str_replace_all(., "(^|_).", str_to_upper)) |> 
-    ## remove tempoary columns
-    dplyr::select(-contains(".tmp")) |> 
-    DT::datatable(extensions = 'Buttons',
-                  options = list(dom = 'Blfrtip',
-                                 autoWidth = TRUE,
-                                 buttons = list(
-                                   list(extend = 'copy'),
-                                   list(extend = 'csv', filename = file_name),
-                                   list(extend = 'excel', filename = file_name)
-                                   #list(extend = 'pdf', filename = file_name)
-                                   ),
-                                 text = "Download",
-                                 pageLength = 5,
-                                 lengthMenu = list(c(5, 10, 25, 50, -1), c(5, 10, 25, 50, "All")) 
-                                 #lengthMenu = c(5,10,25,50,"All")
-                                 ),
-                  rownames = F
-    ) 
-  return(out)
-}
-
 ## alternative with more fohm style
 library(DT)
 library(htmltools)
@@ -243,127 +217,7 @@ make_dynamic_plot <- function(plot, filename = "filename",width = 8, height = 5
 # =============================================================================
 # 3.1. Swedres-Svarm Theme (`theme_SweSva`)
 
-theme_SweSva_old <- function(text_size = 11,
-                             selected_font = "Open Sans", 
-                             gridline_x = FALSE,
-                             gridline_y = TRUE){
-      gdtools::register_gfont()
-      showtext::showtext_auto()
-      sysfonts::font_add_google(selected_font)
-      gridline <- element_line(color = "#999999",linewidth = 0.25)
-      gridline_x <- if (isTRUE(gridline_x)) gridline else element_blank()
-      gridline_y <- if (isTRUE(gridline_y)) gridline else element_blank()
-      
-      out <- ggplot2::theme_bw(base_family = selected_font, base_size = text_size) %+replace%
-        #ggplot2::theme_minimal() + 
-        ggplot2::theme(
-          text = ggplot2::element_text(size = text_size,family = selected_font),
-          panel.grid.major.x = gridline_x,
-          #panel.grid.minor.x = ggplot2::element_blank(),
-          
-          panel.grid.major.y = gridline_y,
-          #panel.grid.minor.y = ggplot2::element_blank(),
-          panel.background = element_blank(),
-          ## uncomment for adjustment
-          #panel.border = element_rect(colour = "black", fill=NA, linewidth=1),
-          panel.border = ggplot2::element_blank(),
-          
-          axis.line = ggplot2::element_line(colour = "black"),
-          axis.title.x = ggplot2::element_text(size = text_size + 1,
-                                               vjust=-1,
-                                               face = "bold"),
-          axis.text.x = ggplot2::element_text(angle = 0, hjust = 0.5, size=text_size),
-          axis.text.y = ggplot2::element_text(angle = 0, #hjust = 1, 
-                                              size=text_size),
-          
-          axis.ticks.x = element_line(linetype = "solid",
-                                      linewidth = 0.25, 
-                                      color = "#999999"),
-          axis.ticks.length.x = unit(4, units = "pt"),
-          
-          
-          plot.title.position = "plot",
-          plot.title = ggplot2::element_text(size = text_size + 2),
-          plot.subtitle = element_text(hjust=.01, ## adjust y axis title HERE
-                                       vjust=-6.5,
-                                       face = "bold"
-                                       #size = text_size + 1,
-                                       # color = "#999999", 
-                                       #margin = margin(l=0,b = 10) #top, right, bottom, left
-          ), 
-          
-          plot.background = ggplot2::element_blank(),
-          plot.margin = margin(t = 0.1, r = 0.1, b = 0.1,l = 0.1, "cm"),  # Increase bottom margin to accommodate legend and subtitle
-          plot.caption.position = "plot",
-          plot.caption = element_text(size = text_size - 2, 
-                                      color = "#777777",
-                                      margin = margin(t = 15),
-                                      hjust = 0),
-          
-          legend.title = element_blank(),
-          legend.text=ggplot2::element_text(size = text_size - 1),
-          legend.direction = "horizontal",
-          legend.justification = c(1, 1),  # Center the legend horizontally 0.5, 1
-          legend.position = "top",#c(0.6, 1.3),  # Position legend above the subtitle
-          
-          legend.key.size = unit(.25, 'cm'), #change legend key size
-          legend.key.height = unit(.25, 'cm'), #change legend key height
-          legend.key.width = unit(.25, 'cm'), #change legend key width
-          
-          complete = TRUE
-          
-        )
-      class(out) <- c("mytheme",class(ggplot2::theme_minimal()))
-      return(out)
-  
-    
-    ggplot_add.mytheme <- function(object, plot, object_name) {
-      
-      # Conditional wrapping function
-      wrapped_strings <- if_else(
-        str_detect(plot$labels$y, regex("\\/100\\s+000", ignore_case = TRUE)),
-        map2_chr(
-          plot$labels$y,
-          str_length(str_extract(plot$labels$y, "\\S+")),
-          ~ str_wrap(.x, width = .y)
-        ),
-        str_wrap(plot$labels$y, width = 20)
-      )
-      
-      # Update the plot
-      plot$labels$subtitle <- wrapped_strings
-      plot$labels$y <- ""
-      plot$theme <- update_theme(plot$theme, object)
-      plot
-    }
-    
-    update_theme <- function(oldtheme, newtheme) {
-      # If the newtheme is a complete one, don't bother searching
-      # the default theme -- just replace everything with newtheme
-      if (isTRUE(attr(newtheme, "complete", exact = TRUE)))
-        return(newtheme)
-      
-      # These are elements in newtheme that aren't already set in oldtheme.
-      # They will be pulled from the default theme.
-      newitems <- !names(newtheme) %in% names(oldtheme)
-      newitem_names <- names(newtheme)[newitems]
-      oldtheme[newitem_names] <- theme_get()[newitem_names]
-      
-      # Update the theme elements with the things from newtheme
-      # Turn the 'theme' list into a proper theme object first, and preserve
-      # the 'complete' attribute. It's possible that oldtheme is an empty
-      # list, and in that case, set complete to FALSE.
-      old.validate <- isTRUE(attr(oldtheme, "validate"))
-      new.validate <- isTRUE(attr(newtheme, "validate"))
-      oldtheme <- do.call(theme, c(oldtheme,
-                                   complete = isTRUE(attr(oldtheme, "complete")),
-                                   validate = old.validate & new.validate))
-      
-      oldtheme + newtheme
-    }  
-    
- # }
-}
+
 
 ## allow markdown labels
 ## previously theme_SweSva_md
@@ -457,144 +311,6 @@ theme_SweSva <- function(text_size=11,
 
 
 
-## make labels nicer
-
-theme_SweSva_nicelabs <- function(text_size = 11) {
-  if ("fohmR" %in% installed.packages()) {
-    fohmR::theme_fohm(text_size = text_size)
-  } else {
-    
-    function(text_size=text_size,
-             selected_font = "Open Sans", 
-             gridline_x = FALSE,
-             gridline_y = TRUE){
-      gdtools::register_gfont()
-      showtext::showtext_auto()
-      sysfonts::font_add_google(selected_font)
-      gridline <- element_line(color = "#999999",linewidth = 0.25)
-      gridline_x <- if (isTRUE(gridline_x)) gridline else element_blank()
-      gridline_y <- if (isTRUE(gridline_y)) gridline else element_blank()
-      
-      out <- ggplot2::theme_bw(base_family = selected_font, base_size = text_size) %+replace%
-        #ggplot2::theme_minimal() + 
-        ggplot2::theme(
-          text = ggplot2::element_text(size = text_size,family = selected_font),
-          panel.grid.major.x = gridline_x,
-          #panel.grid.minor.x = ggplot2::element_blank(),
-          
-          panel.grid.major.y = gridline_y,
-          #panel.grid.minor.y = ggplot2::element_blank(),
-          panel.background = element_blank(),
-          ## uncomment for adjustment
-          #panel.border = element_rect(colour = "black", fill=NA, linewidth=1),
-          panel.border = ggplot2::element_blank(),
-          
-          axis.line = ggplot2::element_line(colour = "black"),
-          axis.title.x = ggplot2::element_text(size = text_size + 1,
-                                               vjust=-1,
-                                               face = "bold"),
-          axis.text.x = ggplot2::element_text(angle = 0, hjust = 0.5, size=text_size),
-          axis.text.y = ggplot2::element_text(angle = 0, #hjust = 1, 
-                                              size=text_size),
-          
-          axis.ticks.x = element_line(linetype = "solid",
-                                      linewidth = 0.25, 
-                                      color = "#999999"),
-          axis.ticks.length.x = unit(4, units = "pt"),
-          
-          plot.title.position = "plot",
-          plot.title = ggplot2::element_text(size = text_size + 2),
-          plot.subtitle = element_text(hjust=.01, ## adjust y axis title HERE
-                                       vjust=-6.5,
-                                       face = "bold"
-                                       #size = text_size + 1,
-                                       # color = "#999999", 
-                                       #margin = margin(l=0,b = 10) #top, right, bottom, left
-          ),
-          
-          plot.background = ggplot2::element_blank(),
-          plot.margin = margin(t = 0.1, r = 0.1, b = 0.1,l = 0.1, "cm"),  # Increase bottom margin to accommodate legend and subtitle
-          plot.caption.position = "plot",
-          plot.caption = element_text(size = text_size - 2, 
-                                      color = "#777777",
-                                      margin = margin(t = 15),
-                                      hjust = 0),
-          
-          legend.title = element_blank(),
-          legend.text=ggplot2::element_text(size = text_size - 1),
-          legend.direction = "horizontal",
-          legend.justification = c(1, 1),  # Center the legend horizontally 0.5, 1
-          legend.position = "top",#c(0.6, 1.3),  # Position legend above the subtitle
-          
-          legend.key.size = unit(.25, 'cm'), #change legend key size
-          legend.key.height = unit(.25, 'cm'), #change legend key height
-          legend.key.width = unit(.25, 'cm'), #change legend key width
-          
-          complete = TRUE
-          
-        )
-      class(out) <- c("mytheme",class(ggplot2::theme_minimal()))
-      return(out)
-    }
-    
-    ggplot_add.mytheme <- function(object, plot, object_name) {
-      # Apply label_number() to y-axis if it's numeric continuous and has default labels
-      if (requireNamespace("scales", quietly = TRUE) && !is.null(plot$scales)) {
-        for (i in seq_along(plot$scales$scales)) {
-          scale <- plot$scales$scales[[i]]
-          if ("y" %in% scale$aesthetics && inherits(scale, "ScaleContinuousNumeric")) {
-            if (is.null(scale$labels) || identical(scale$labels, ggplot2::waiver())) {
-              plot$scales$scales[[i]]$labels <- scales::label_number()
-            }
-          }
-        }
-      }
-      
-      # Conditional wrapping function
-      wrapped_strings <- if_else(
-        str_detect(plot$labels$y, regex("\\/100\\s+000", ignore_case = TRUE)),
-        map2_chr(
-          plot$labels$y,
-          str_length(str_extract(plot$labels$y, "\\S+")),
-          ~ str_wrap(.x, width = .y)
-        ),
-        str_wrap(plot$labels$y, width = 20)
-      )
-      
-      # Update the plot
-      plot$labels$subtitle <- wrapped_strings
-      plot$labels$y <- ""
-      plot$theme <- update_theme(plot$theme, object)
-      plot
-    }
-    
-    update_theme <- function(oldtheme, newtheme) {
-      # If the newtheme is a complete one, don't bother searching
-      # the default theme -- just replace everything with newtheme
-      if (isTRUE(attr(newtheme, "complete", exact = TRUE)))
-        return(newtheme)
-      
-      # These are elements in newtheme that aren't already set in oldtheme.
-      # They will be pulled from the default theme.
-      newitems <- !names(newtheme) %in% names(oldtheme)
-      newitem_names <- names(newtheme)[newitems]
-      oldtheme[newitem_names] <- theme_get()[newitem_names]
-      
-      # Update the theme elements with the things from newtheme
-      # Turn the 'theme' list into a proper theme object first, and preserve
-      # the 'complete' attribute. It's possible that oldtheme is an empty
-      # list, and in that case, set complete to FALSE.
-      old.validate <- isTRUE(attr(oldtheme, "validate"))
-      new.validate <- isTRUE(attr(newtheme, "validate"))
-      oldtheme <- do.call(theme, c(oldtheme,
-                                   complete = isTRUE(attr(oldtheme, "complete")),
-                                   validate = old.validate & new.validate))
-      
-      oldtheme + newtheme
-    }
-    
-  }
-}
 
 
 # =============================================================================
@@ -816,40 +532,6 @@ get_wilson_ci <- function(df){
   ungroup()
 }
 
-## gt theme  ## gt_theme_SweSva
-gt_theme_SweSva_old <- function(gt_obj){
-  out <- gt_obj |> 
-    tab_options(
-      table.font.size = px(14),
-      heading.title.font.size = px(16),
-      heading.background.color = "lightgray"
-    ) %>%
-    fmt_markdown(columns = everything()) %>%
-    # Left-align the first column (including label and rows)
-    tab_style(
-      style = cell_text(align = "left",
-                        weight = "bold"),
-      locations = cells_column_labels(columns = 1)
-    ) %>%
-    # Center-align the other columns (including labels and rows)
-    tab_style(
-      style = cell_text(weight = "bold",
-                        #align = "center"
-      ),
-      locations = cells_column_labels(columns = -1)
-    ) %>%
-    tab_style(
-      style = cell_text(align = "center"),
-      locations = cells_body(columns = -1)
-    ) %>%
-    opt_row_striping(row_striping = TRUE) |> 
-    sub_missing(
-      columns = everything(),
-      rows = everything(),
-      missing_text = "--"
-    ) 
-  return(out)
-}
 
 ## new FOHM gt theme
 ## gt_theme_fohm
