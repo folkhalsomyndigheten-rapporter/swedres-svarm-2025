@@ -18,11 +18,11 @@ execute:
 #| warning: false
 #| message: false
 source("../../_common.R")
-status(type = "polishing")
+status(type = "ready2publish")
 ```
 
 ::: {.callout-note appearance="simple" collapse="false"}
-## [In-focus]{.in-focus} - Sales of topical antimicrobial products {.unnumbered #if-salestopical}
+## [In-focus]{.in-focus} - Sales of topical antimicrobial products {.unnumbered #infoc-salestopical}
 
 ### Sales of antimicrobial products formulated for topical use
   
@@ -173,7 +173,6 @@ fig_2IF3_alt <- dat_2IF3$fig_alt
 #| warning: false
 #| fig-cap: !expr fig_2IF3_cap
 #| fig-alt: !expr fig_2IF3_alt
-
 # no need to convert to long format as PowerBI already did this
 dat_2IF3_long <- dat_2IF3$fig_data
 dat_2IF3_long <- dat_2IF3_long |>

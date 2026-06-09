@@ -14,6 +14,8 @@ format: html
 
 {{< include Material_and_methods_sales_of_antibiotics.qmd >}}
 
+{{< include MM_resistance_humans.qmd >}}
+
 {{< include MM_resistance_in_bacteria_from_animals.qmd >}}
 
 {{< include Svarm_2000_2024.qmd >}}

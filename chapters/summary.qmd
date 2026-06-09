@@ -34,7 +34,7 @@ Furthermore, the occurrence of resistance among bacteria from animals has genera
 
 - Antibiotic sales in primary care decreased compared to the previous year, while antibiotic sales on prescription to healthcare facilities increased during the same period.
 
-- Since 2020, resistance to cefotaxime in *Escherichia coli* (ESBL) and the proportion of meticillin-resistant *Staphylococcus aureus* (MRSA) isolated from blood have been used as indicators of antibiotic resistance in Sweden. Both the proportion of MRSA and the proportion of *E. coli* resistant to cefotaxime have slowly increased over a ten-year period to the current levels of 2.4% and 9.0%, respectively.
+- Since 2020, resistance to cefotaxime in *Escherichia coli* (ESBL) and the proportion of methicillin-resistant *Staphylococcus aureus* (MRSA) isolated from blood have been used as indicators of antibiotic resistance in Sweden. Both the proportion of MRSA and the proportion of *E. coli* resistant to cefotaxime have slowly increased over a ten-year period to the current levels of 2.4% and 9.0%, respectively.
 
 - The number of reported cases increased for notifiable bacteria with antibiotic resistance.
 
@@ -80,7 +80,7 @@ Total sales of antibiotics for animals have decreased by more than two-thirds si
 
 ### Comparison of sales in human and veterinary medicine
 
-In 2025, 62 tonnes of antibiotics were sold for the treatment of humans and 9.0 tonnes for the treatment of animals (excluding products for intramammary or intrauterine use). Expressed in relation to body weight (milligrams of active substance per estimated kilogram of biomass), sales were 87 milligrams per kilogram for humans and 12 milligrams per kilogram for animals.
+In 2025, 61.7 tonnes of antibiotics were sold for the treatment of humans and 9.0 tonnes for the treatment of animals (excluding products for intramammary or intrauterine use). Expressed in relation to body weight (milligrams of active substance per estimated kilogram of biomass), sales were 86.5 milligrams per kilogram for humans and 11.8 milligrams per kilogram for animals.
 
 
 
@@ -122,7 +122,7 @@ Bacteria that produce ESBL~CARBA~ have not been confirmed in domestic animals in
 
 
 
-### *Staphylococcus aureus* resistant to meticillin (MRSA), humans
+### *Staphylococcus aureus* resistant to methicillin (MRSA), humans
 
 Community-acquired infection has long been the most common type in humans infected with MRSA in Sweden, accounting for half of the cases. Family/household transmission and community-acquired infection accounted for 25% and 23% of cases, respectively.
 
@@ -132,14 +132,14 @@ Community-acquired infection has long been the most common type in humans infect
 
 - Number of bloodstream infections: 131 (previous year 123).
 
-### *Staphylococcus aureus* resistant to meticillin (MRSA), animals
+### *Staphylococcus aureus* resistant to methicillin (MRSA), animals
 
 During the year, MRSA was isolated from pigs in a study using selective culture methods and sporadically in clinical samples from dogs, horses and cats. The occurrence in pigs is insufficiently investigated, but in a study with sampling of slaughter pigs at the abattoir and selective culture methods, MRSA was detected in 29% of the tested slaughter groups. How well this reflects the occurrence on farms is not known. In dogs and cats, the number of MRSA cases was 10 and 6, respectively. The types that dominate in these are the same as those found in humans, which suggests that humans are the source of infection. In horses, the number of MRSA cases was 7, which is lower than in 2020–21 (27 and 23 cases, respectively), when there were outbreaks of MRSA in equine hospitals.
 
 
-### *Staphylococcus pseudintermedius* resistant to meticillin (MRSP), animals
+### *Staphylococcus pseudintermedius* resistant to methicillin (MRSP), animals
 
-In 2025, the number of reported cases of meticillin-resistant *Staphylococcus pseudintermedius* (MRSP) in animals was at approximately the same level as in recent years. A total of 45 cases of MRSP were reported to the Swedish Board of Agriculture, of which 43 were from dogs, one from a cat and one from a guinea pig. All isolates except one were available for further investigation. In the first few years after MRSP was found in animals in Sweden, almost all cases were of a certain sequence type (ST71). In recent years, a greater variety of sequence types have emerged (22 different types in 2025), with ST551 being the most common.
+In 2025, the number of reported cases of methicillin-resistant *Staphylococcus pseudintermedius* (MRSP) in animals was at approximately the same level as in recent years. A total of 45 cases of MRSP were reported to the Swedish Board of Agriculture, of which 43 were from dogs, one from a cat and one from a guinea pig. All isolates except one were available for further investigation. In the first few years after MRSP was found in animals in Sweden, almost all cases were of a certain sequence type (ST71). In recent years, a greater variety of sequence types have emerged (22 different types in 2025), with ST551 being the most common.
 
 MRSP is not notifiable when found in humans.
 

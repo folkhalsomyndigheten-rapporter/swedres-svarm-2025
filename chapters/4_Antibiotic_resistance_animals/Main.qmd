@@ -2,15 +2,6 @@
 format: 
   html:
     toc: true
-#    toc-location: right
-#    toc-depth: 4 # Shows up to ### sub-sections
-#    toc-expand: true
-#    toc-highlight: true
-description: "This chapter is authored by Swedish Veterinary Agency."
-#author: 
-#  - affiliations: "Swedish Veterinary Agency"
-  #- name: "SVA name "
-  #  affiliations: "Swedish Veterinary Agency"
 ---
 
 # Antibiotic resistance in animals {#sec-ara}

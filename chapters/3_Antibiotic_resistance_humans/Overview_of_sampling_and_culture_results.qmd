@@ -2,7 +2,6 @@
 format:
   html:
     embed-resources: false
-
 execute:
   cache: false
   echo: false
@@ -21,12 +20,9 @@ status(type = "polishing")
 
 ## Overview of sampling and culture results
 
-Denominator data is derived from Svebar. For the last six years, denominator data from twelve clinical laboratories covering around 60% of the population in Sweden were included. In @fig-3-2, the annual numbers of analyses are presented for: total number of cultures (A), blood cultures (B), urine cultures (C), nasopharyngeal cultures (D) and throat cultures (E). Marginal decreases were noted compared to 2023 for number of cultures, blood cultures and urine cultures. Although there was a small increase in the number of nasopharyngeal cultures (3%) and throat cultures (10%), these are still fewer than in 2019. 
-
+Denominator data comes from Svebar. Over the last four years (2022–2025), we included data from 22 clinical laboratories, covering approximately 90% of Sweden’s population. @fig-3-2 shows annual counts for total cultures, blood cultures, urine cultures, nasopharyngeal cultures, and throat cultures. Reported culture numbers remained relatively stable throughout the period, with a slight decline in 2025 compared to 2024, partly due to one laboratory providing only 8 months of complete data.
 The number of bacteria reported to EARS-Net yearly is shown in @fig-3-3.
 
-
-@fig-3-2 is Figure_3.2
 
 ::: panel-tabset
 ```{r}
@@ -71,84 +67,14 @@ make_dynamic_plot(plot = p, filename = "Fig3-5")
 ```
 
 
-###### Figure (alternative)
-
-```{r}
-p <- df |> 
-  mutate(data_id = row_number(),
-         tooltip_l = glue::glue('{type}'),
-         tooltip_p = glue::glue('<b>Sampling year:</b> {provtagnings_year}
-                                    <b>Type:</b> {type}
-                                    <b>Number of cultures:</b> {round(n,0)}')) |> 
-  
-  ggplot(aes(x=provtagnings_year,
-             y=n,
-             group=type, 
-             color=type)) +
-  geom_point_interactive(aes(tooltip = tooltip_p)) +
-  geom_line_interactive(aes(tooltip = tooltip_l)) +
-  scale_x_continuous(breaks = c(2015:2025), 
-                     expand = c(0,0.2)) +
-  scale_y_continuous(breaks = scales::pretty_breaks(),
-                     labels = scales::label_number()) +
-  scale_color_SweSva() +
-  labs(y="Number of reported cultures",
-       x="Year") +
-  scale_fill_SweSva() + 
-  theme_SweSva() 
-
-make_dynamic_plot(plot = p, filename = "Fig3-5alt")
-```
-
-###### Figure per labb?
-
-```{r}
-#| height: 8
-
-lab_order <- data$fig_data |> 
-  group_by(labb_kod) |> 
-  summarise(n = sum(n)) |> arrange(-n) |> distinct(labb_kod) |> pull(labb_kod)
-
-p <- data$fig_data |> 
-  mutate(labb_kod = factor(labb_kod, levels = lab_order),
-         data_id = row_number(),
-         tooltip_b = glue::glue('<b>Sampling year:</b> {provtagnings_year}
-                                    <b>Type:</b> {type}
-                                    <b>Number of cultures:</b> {round(n,0)}')) |> 
-  ggplot(aes(x=factor(provtagnings_year),
-             y=n,
-             group=type, 
-             fill=type)) +
-  geom_bar_interactive(aes(tooltip = tooltip_b),position="stack", stat="identity") +
-  labs(y="Number of reported cultures",
-       x="Year") +
-  facet_wrap(~labb_kod, ncol=7) +
-  scale_x_discrete(expand = c(0,0.2)) +
-  scale_y_continuous(expand=c(0,.2),
-                     labels = scales::label_number()) +
-  labs(y="Reported analysis (total)",
-       x="Year") +
-  
-  scale_fill_SweSva() + 
-  theme_SweSva() +
-  theme_SweSva_facet() +
-  add_fohm_caption()
-
-make_dynamic_plot(plot = p, filename = "Fig3-5alt2")
-```
-
-
 ###### Data
 ```{r}
 df |> 
+  rename(Samples_total = n)
   make_table_data_tab(file_name = "Fig3-5")
 ```
 :::
 
-
-
-
-@fig-3-3 is Figure_3.3_EARS-Net
 
 ::: panel-tabset
 ```{r}

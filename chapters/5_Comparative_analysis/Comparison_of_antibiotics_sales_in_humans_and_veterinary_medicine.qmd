@@ -16,14 +16,14 @@ execute:
 #| warning: false
 #| message: false
 source("../../_common.R")
-status(type = "drafting")
+status(type = "polishing")
 ```
 
 ## Comparison of antibiotic sales in human and veterinary medicine 
 
 ### Data included and calculations 
 
-For human medicinal products with antibiotics, the numbers on the total amount of antibiotics consumed for systemic use to humans (ATC group A07AA oral glycopeptides and J01 excluding methenamine; sales to hospitals and on prescriptions to individuals; ATC/DDD index version 2025) were retrieved as defined daily doses and calculated to kg active substance.  
+For human medicinal products with antibiotics, the numbers on the total amount of antibiotics consumed for systemic use to humans (ATC group A07AA oral glycopeptides and J01 excluding methenamine; sales on requisition and on prescriptions to individuals; ATC/DDD index version 2025) were retrieved as defined daily doses and calculated to kg active substance.  
 
 For veterinary medicinal products with antibiotics, data on sales of antibiotics for use in animals (QJ01 and QA07AA) are those presented in Sales of antibiotics for animals except products for intramammary and intrauterine use (QG01 and QJ51). Sales for aquaculture were not included, nor were sales of drugs authorised for human use but sold for use in animals.  
 
@@ -31,6 +31,6 @@ To estimate the biomass of the human population, data on population numbers by a
 
 ### Total sales  
 
-A total of 62 and 9.0 tonnes of antibiotics were consumed in human and veterinary medicine, respectively, in 2025 from the included ATC classes. Beta-lactam antibiotics remain the most prescribed antibiotics in both human and veterinary medicine and represent the largest volumes consumed, measured in kilograms. Other antibiotic products were consumed in smaller quantities than beta-lactams but considering their chemical and pharmacological properties, they could have a greater impact on the environment and the emergence of antibiotic resistance. The largest difference is noted for fluoroquinolones, where sales for humans are more than 150 times higher than for animals and constitute approximately 4% of total sales for humans included in this analysis. For animals, sales of fluoroquinolones constitute 0.2% of the total sales.  
+A total of 61.7 and 9.0 tonnes of antibiotics were consumed in human and veterinary medicine, respectively, in 2025 from the included ATC classes. Beta-lactam antibiotics remain the most prescribed antibiotics in both human and veterinary medicine and represent the largest volumes consumed, measured in kilograms. Other antibiotic products were consumed in smaller quantities than beta-lactams but considering their chemical and pharmacological properties, they could have a greater impact on the environment and the emergence of antibiotic resistance. The largest difference is noted for fluoroquinolones, where sales for humans are more than 150 times higher than for animals and constitute approximately 4% of total sales for humans included in this analysis. For animals, sales of fluoroquinolones constitute 0.2% of the total sales.  
 
-In total, 86 and 12 mg active antibiotic substance per kg estimated biomass were sold in 2025 in human and veterinary medicine, respectively. Total sales data do not take the heterogeneity of likelihood of exposure within the population into account. This is especially true for data on sales for use in animals, as certain substances may only or mainly be sold for use in one particular animal species. Consequently, the selective pressure in a particular subset of the population (i.e. a particular animal species) could be far larger than in the total population. Both in tonnes active substance and in mg per kg estimated biomass, antibiotic sales are higher for humans than for animals in Sweden.   
+In total, 86.5 and 11.8 mg active antibiotic substance per kg estimated biomass were sold in 2025 in human and veterinary medicine, respectively. Total sales data do not take the heterogeneity of likelihood of exposure within the population into account. This is especially true for data on sales for use in animals, as certain substances may only or mainly be sold for use in one particular animal species. Consequently, the selective pressure in a particular subset of the population (i.e. a particular animal species) could be far larger than in the total population. Both in tonnes active substance and in mg per kg estimated biomass, antibiotic sales are higher for humans than for animals in Sweden.   

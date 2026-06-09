@@ -110,7 +110,14 @@ crossref:
   custom:
     - kind: float
       key: infoc
-      reference-prefix: InFocus 
+      reference-prefix: In FOCUS 
+      #caption-prefix: InFocus
+      #space-before-numbering: false 
+    - kind: float
+      key: infocfig
+      reference-prefix: In FOCUS Figure 
+      #caption-prefix: InFocus
+      #space-before-numbering: false 
 
 execute:
   freeze: auto # Re-render only when source changes.
@@ -120,7 +127,7 @@ format:
     embed-resources: false
     toc: true
     toc-location: right
-    toc-depth: 3 # Shows up to ### sub-sections
+    toc-depth: 2 #3 # Shows up to ### sub-sections
     toc-expand: true
     toc-highlight: true
     number-sections: true

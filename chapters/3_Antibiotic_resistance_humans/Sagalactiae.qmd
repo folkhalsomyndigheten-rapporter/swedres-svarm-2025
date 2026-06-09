@@ -25,7 +25,7 @@ status(type = "polishing")
 
 #### Comments
 
-*S. agalactiae* is not included in the Communicable Disease Act. It is an important pathogen in the context of pregnancy and childbirth and can cause serious infections among others as well, mainly elderly with predisposing disease. Resistance to erythromycin and clindamycin is now 18% and 16%, respectively (@fig-3-32).
+*S. agalactiae* is not included in the Communicable Disease Act. It is an important pathogen in the context of pregnancy and childbirth and can cause serious infections among others as well, such as elderly with predisposing disease. Resistance to erythromycin and clindamycin is now 18% and 16%, respectively (@fig-3-32).
 
 @fig-3-32 is Figure_3.32_25
 

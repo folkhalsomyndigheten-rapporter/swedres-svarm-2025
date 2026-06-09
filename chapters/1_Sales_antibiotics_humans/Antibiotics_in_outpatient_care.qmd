@@ -704,7 +704,7 @@ The rate of antibiotic prescriptions in outpatient care followed the same patter
 
 #### Comments
 
-In general, comparisons across age groups show that antibiotics are used more in the older age groups. As mentioned in the @sec-g4r, some of the antibiotics used among the elderly population are not included in the outpatient care statistics as some medicines are sold on requisition and included in inpatient care statistics. Therefore, a possible underestimation in the oldest age groups cannot be ruled out.
+In general, comparisons across age groups show that antibiotics are used more in the older age groups. As mentioned in [Guidance for readers](#sec-g4r), some of the antibiotics used among the elderly population are not included in the outpatient care statistics as some medicines are sold on requisition and included in inpatient care statistics. Therefore, a possible underestimation in the oldest age groups cannot be ruled out.
 
 
 ::: panel-tabset
