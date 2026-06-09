@@ -19,7 +19,7 @@ source("../../_common.R")
 status(type = "drafting")
 ```
 
-## Demographics and denominator data
+## Demographics and denominator data {#sec-demographics}
 ### Humans
 
 @tbl-6-1
