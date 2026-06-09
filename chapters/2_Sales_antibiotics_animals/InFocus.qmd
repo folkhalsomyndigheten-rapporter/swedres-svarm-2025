@@ -34,7 +34,7 @@ The products sold were categorised as dermatological, ophthalmological or otolog
 
 ### Sales trend 2020-2025 
 
-The number of packages of antimicrobial medicinal products sold for topical use in animals decreased by 19% between 2020 and 2025 (@fig-2IF1). The most marked decrease was for ophthalmologicals (-29%) and the least for otologicals (-15%). Throughout this period, ophthalmological products accounted for most of the sales. 
+The number of packages of antimicrobial medicinal products sold for topical use in animals decreased by 19% between 2020 and 2025 (@infocfig-2IF1). The most marked decrease was for ophthalmologicals (-29%) and the least for otologicals (-15%). Throughout this period, ophthalmological products accounted for most of the sales. 
 
 ```{r}
 #| include: false
@@ -49,7 +49,7 @@ fig_2IF1_alt <- dat_2IF1$fig_alt
 
 ###### Figure
 ```{r}
-#| label: fig-2IF1
+#| label: infocfig-2IF1
 #| message: false
 #| warning: false
 #| fig-cap: !expr fig_2IF1_cap
