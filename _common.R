@@ -610,7 +610,7 @@ add_fohm_caption <- function(caption = "Source: The Public Health Agency of Swed
   labs(caption = caption)
 }
 
-add_sva_caption <- function(caption = "Source: The Swedish Veterinary Agency of Sweden") {
+add_sva_caption <- function(caption = "Source: Swedish Veterinary Agency") {
   labs(caption = caption)
 }
 
