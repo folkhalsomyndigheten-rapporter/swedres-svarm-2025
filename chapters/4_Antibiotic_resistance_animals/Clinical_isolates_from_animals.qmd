@@ -22,7 +22,7 @@ status(type = "drafting")
 
 ## Clinical isolates from animals
 
-Isolates tested are from clinical submissions of samples to SVA, if not otherwise stated. For many samples information on the indication for sampling was not available but the vast majority of submissions were likely from animals with infections. Therefore, data may be biased towards samples from treated animals or from herds where antibiotic treatment is common. Any assessments of trends are based on the assumption that this bias is inherent throughout the observation period. Furthermore, in some cases there are more than one animal sampled from the same herd. Likewise, regarding horses, dogs and cats, duplicates based on animal identity have not been excluded. 
+Isolates tested are from clinical submissions of samples to SVA, if not otherwise stated. For many samples, information on the indication for sampling was not available but the vast majority of submissions were likely from animals with infections. Therefore, data may be biased towards samples from treated animals or from herds where antibiotic treatment is common. Any assessments of trends are based on the assumption that this bias is inherent throughout the observation period. Furthermore, in some cases there was more than one animal sampled from the same herd. Likewise, regarding horses, dogs and cats, duplicates based on animal identity have not been excluded. 
 
 In Svarm, isolates are, when possible, classified as susceptible or resistant by ECOFFs issued by EUCAST (see @sec-g4r Guidance for readers for details). This classifies isolates with acquired reduced susceptibility as resistant, which is relevant for monitoring purposes, but it should be understood that this does not always imply clinical resistance.
 
@@ -250,7 +250,7 @@ dat_45_long |>
 
 #### *Brachyspira hyodysenteriae* 
 
-Isolates of *Brachyspira hyodysenteriae* are from clinical submissions of faecal samples. The number of isolates each year varies (n=4-29, 2025 n=9). In routine diagnostics at SVA clinical breakpoints at >2 mg/L for tiamulin and >16 mg/L for tylosin are used. Analysis of antibiotic susceptibility data from isolates of *B. hyodysenteriae* from Sweden 1990-2010 resulted in a proposal for wild type cut-off values [@pringle2012antimicrobial]. In @tbl-411 these cut-off values are used on all data. With the suggested wild type cut-off value >0.25 mg/L for tiamulin, resistance is detected throughout the period. During 2016 and 2017, therapeutic failure of tiamulin was observed in an outbreak of swine dysentery that involved several herds. The outbreak was shown to be caused by a *B. hyodysenteriae* clone with MIC of tiamulin above the clinical breakpoint. Fortunately, the clone was susceptible to macrolides and could be eradicated. Tylosin resistance has decreased over the years but increased slightly in 2018-2025. 
+Isolates of *Brachyspira hyodysenteriae* are from clinical submissions of faecal samples. The number of isolates each year varies (n=4-29, 2025 n=9). In routine diagnostics at SVA, clinical breakpoints at >2 mg/L for tiamulin and >16 mg/L for tylosin are used. Analysis of antibiotic susceptibility data from isolates of *B. hyodysenteriae* from Sweden 1990-2010 resulted in a proposal for wild type cut-off values [@pringle2012antimicrobial]. In @tbl-411, these cut-off values are used on all data. With the suggested wild type cut-off value >0.25 mg/L for tiamulin, resistance is detected throughout the period. During 2016 and 2017, therapeutic failure of tiamulin was observed in an outbreak of swine dysentery that involved several herds. The outbreak was shown to be caused by a *B. hyodysenteriae* clone with MIC of tiamulin above the clinical breakpoint. Fortunately, the clone was susceptible to macrolides and could be eradicated. Tylosin resistance has decreased over the years but increased slightly in 2018-2025. 
 
 ::: {.panel-tabset}
 ###### Table
@@ -318,7 +318,7 @@ df |>
 ```
 :::
 
-Resistance to tylosin has decreased from a high level (60-70%) around 2010 to 2015, then there was an increase from 2016 that now seems to have stopped, whereas resistance to tiamulin has remained at a steady level during the same time period (@fig-46). However, the number of isolates analysed per year is low. In 2025, two isolates were resistant to tiamulin and valnemulin as well as tylosin and tylvalosin. 
+Resistance to tylosin has decreased from a high level (60-70%) around 2010 to 2015, then there was an increase from 2016 that now seems to have stopped. Resistance to tiamulin has remained at a steady level during the same time period (@fig-46). However, the number of isolates analysed per year is low. In 2025, two isolates were resistant to tiamulin and valnemulin as well as tylosin and tylvalosin. 
 
 ```{r}
 #| include: false
@@ -404,7 +404,7 @@ dat_46_long |>
 
 #### *Actinobacillus pleuropneumoniae*
 
-Isolates of *Actinobacillus pleuropneumoniae* are mostly from post-mortem investigations of lungs. Isolates from 2024 and 2025 were included in the MIC distribution. From 2024, seventeen isolates were collected in a SvarmPat project (see @sec-svarmpat) where acute lesions in lungs and pericardium were sampled at slaughter. Data from 2025 and back to 2005 show that the resistance situation is favourable and almost no resistance has been detected to tested antibiotics including penicillin during this period (@tbl-413). Since pneumonia caused by *A. pleuropneumoniae* is an important disease in pigs, sampling and susceptibility testing is desirable if emerging resistance is to be detected early. For treatment of *Actinobacillus pleuropneumoniae* with MICs within the wild type distribution of penicillin (MIC 0.12 – 0.5 mg/L), increased exposure to penicillin is required [@medical2022dosage]. Exposure includes e.g. administration route, dose, and dosing interval. 
+Isolates of *Actinobacillus pleuropneumoniae* are mostly from post-mortem investigations of lungs. Isolates from 2024 and 2025 were included in the MIC distribution. From 2024, 17 isolates were collected in a SvarmPat project (see @sec-crossref-InFocusSvarmPat-WillBeFixedLater) where acute lesions in lungs and pericardium were sampled at slaughter. Data from 2025 and back to 2005 show that the resistance situation is favourable and almost no resistance has been detected to tested antibiotics during this period, including penicillin (@tbl-413). Since pneumonia caused by *A. pleuropneumoniae* is an important disease in pigs, sampling and susceptibility testing is desirable if emerging resistance is to be detected early. For treatment of *Actinobacillus pleuropneumoniae* with MICs within the wild type distribution of penicillin (MIC 0.12 – 0.5 mg/L), increased exposure to penicillin is required [@medical2022dosage]. Exposure includes e.g. administration route, dose and dosing interval. 
 
 ::: {.panel-tabset}
 ###### Table
@@ -507,7 +507,7 @@ df |>
 
 Isolates of *E. coli* are from clinical submissions of milk samples from dairy cows. It is likely that most sampled cows had clinical mastitis.  
 
-Most of the isolates (70%, 34/49) were susceptible to all antibiotics tested, which is less than previous years (78% 2024, 89% 2023, 85% 2022). Resistance to ampicillin and trimethoprim-sulphamethoxazole was the most common profile, followed by ampicillin and tetracycline and a combination of all three. (@tbl-416). Four isolates (8%) were multiresistant, i.e. resistant to three or more antibiotics: two isolates resistant to ampicillin, tetracycline and trimethoprim-sulphamethoxazole, one isolate resistant to ampicillin, neomycin and trimethoprim-sulphamethoxazole, and one isolate resistant to ampicillin, cefalexin, cefotaxime and enrofloxacin. The isolate resistant to cefotaxime was found to carry the *bla*~CTX-M-15~ gene. To our knowledge it is the first ESBL producing *E. coli* isolate from mastitis in Sweden. 
+Most of the isolates (70%, 34/49) were susceptible to all antibiotics tested, which is less than previous years (78% in 2024, 89% in 2023, 85% in 2022). Resistance to ampicillin and trimethoprim-sulphamethoxazole was the most common profile, followed by ampicillin and tetracycline and a combination of all three. (@tbl-416). Four isolates (8%) were multiresistant, i.e. resistant to three or more antibiotics: two isolates resistant to ampicillin, tetracycline and trimethoprim-sulphamethoxazole; one isolate resistant to ampicillin, neomycin and trimethoprim-sulphamethoxazole and one isolate resistant to ampicillin, cefalexin, cefotaxime and enrofloxacin. The isolate resistant to cefotaxime was found to carry the *bla*~CTX-M-15~ gene. To our knowledge, it is the first ESBL producing *E. coli* isolate from mastitis in Sweden. 
 
 ::: {.panel-tabset}
 ###### Table
@@ -573,7 +573,7 @@ df |>
 
 #### *Staphylococcus aureus* from milk samples  
 
-Isolates of *Staphylococcus aureus* are from clinical submissions of milk samples from dairy cows with clinical mastitis. In 2025, 629 isolates of *S. aureus* were analysed for penicillinase production, and 1.7% (n=11) were positive. Between 2019 and 2025 the numbers have varied between 1.2% and 3.1%. 
+Isolates of *Staphylococcus aureus* are from clinical submissions of milk samples from dairy cows with clinical mastitis. In 2025, 629 isolates of *S. aureus* were analysed for penicillinase production, and 1.7% (n=11) were positive. Between 2019 and 2025, the numbers have varied between 1.2% and 3.1%. 
 
 #### *Pasteurella multocida*  
 
