@@ -20,7 +20,7 @@ status(type = "ready2publish")
 
 ## Overview of surveillance systems and methods for antibiotic susceptibility testing
 
-All surveillance of antibiotic resistance in Sweden relies on results from the clinical microbiology laboratories. The laboratories use the methods and breakpoints recommended by NordicAST for susceptibility testing. This Nordic organisation supports the implementation of EUCAST recommendations in the Nordic countries. National resistance surveillance is based on data from different sources and collections @tbl-3-1.
+All surveillance of antibiotic resistance in Sweden relies on results from the clinical microbiology laboratories. The laboratories use the methods and breakpoints recommended by [NordicAST](https://www.nordicast.org/){target="_blank"} for susceptibility testing @eucast2025breakpoints. This Nordic organisation supports the implementation of EUCAST recommendations in the Nordic countries. National resistance surveillance is based on data from different sources and collections @tbl-3-1.
 
 
 ```{r}
@@ -53,7 +53,7 @@ df |>
 
 ### Indicators of antibiotic resistance
 
-Since 2020, the proportions of cefotaxime resistant *Escherichia coli* (ESBL) and methicillin-resistant *Staphylococcus aureus* (MRSA) in blood isolates have been used as indicators for antibiotic resistance in Sweden. In 2023, the EU Council issued recommendations on tackling AMR. Targets for 2030 were set for each member state. Sweden’s targets, as described in the Council recommendation, include a 3% reduction of the incidence of MRSA sepsis, a 10% reduction for the incidence of ESBL-producing *E. coli* sepsis and an unchanged incidence of carbapenem resistant *Klebsiella pneumoniae* sepsis, compared to 2019. Considering the observed trends for the indicators used since 2020, these are ambitious targets.
+Since 2020, the proportions of cefotaxime resistant *Escherichia coli* (ESBL) and methicillin-resistant *Staphylococcus aureus* (MRSA) in blood isolates have been used as indicators for antibiotic resistance in Sweden. In 2023, the EU Council issued recommendations on tackling AMR. Targets for 2030 were set for each member state. Sweden’s targets, as described in the Council recommendation @EUCouncil2023, include a 3% reduction of the incidence of MRSA sepsis, a 10% reduction for the incidence of ESBL-producing *E. coli* sepsis and an unchanged incidence of carbapenem resistant *Klebsiella pneumoniae* sepsis, compared to 2019. Considering the observed trends for the indicators used since 2020, these are ambitious targets.
 The proportion of cefotaxime-resistant *E. coli* (ESBL) and methicillin-resistant *Staphylococcus aureus* (MRSA) in blood isolates have gradually increased over the last decade, reaching 9.0% and 2.4% in 2025, respectively (@fig-ny-indicators). 
 
 
@@ -109,8 +109,6 @@ df |>
   make_table_data_tab(file_name = "Fig3-1")
 ```
 :::
-
-
 
 
 ```{r}
@@ -307,7 +305,7 @@ df |>
 
 This surveillance is based on data collected from the regional clinical microbiology laboratories. Since 2015, all data on clinical isolates from humans have been collected through Svebar, an automated surveillance system that collects all culture results from participating clinical microbiology laboratories. Currently, 23 laboratories submit data to Svebar (May 2026). It is not possible to deduplicate data from Svebar since personal identification numbers are not included in the system. Consequently, duplicate findings from blood and other samples are included. Patients with highly resistant isolates tend to be sampled more frequently, which may lead to an overestimate of resistance levels in certain analyses (@tbl-3-3). Most antibiotic resistance levels presented in this report are based on non-selective susceptibility testing data from at least five laboratories, thus avoiding bias from hierarchical testing and regional differences. When the data presented are based on selective testing, this will be indicated in the graphs and tables. The 95% confidence intervals are presented in all figures presenting resistance data. 
 
-Data from Svebar are used for reporting both to EARS-Net (an ECDC surveillance system) and to GLASS (a WHO surveillance system). Prior to 2015, ResNet, a national surveillance programme on antibiotic resistance, was used to collect data. From 2015 and onwards, these yearly data are based on SIR reported by the clinical microbiology laboratories to Svebar.
+Data from Svebar are used for reporting both to [EARS-Net (an ECDC surveillance system)](https://www.ecdc.europa.eu/en/about-us/networks/disease-networks-and-laboratory-networks/ears-net-data){target="_blank"} and to [GLASS (a WHO surveillance system)](https://www.who.int/initiatives/glass){target="_blank"}. Prior to 2015, ResNet, a national surveillance programme on antibiotic resistance, was used to collect data. From 2015 and onwards, these yearly data are based on SIR reported by the clinical microbiology laboratories to Svebar.
 
 @tbl-3-3 is Table_3.3-covergare_Svebar
 
