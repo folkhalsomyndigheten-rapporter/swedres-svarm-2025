@@ -70,7 +70,7 @@ make_dynamic_plot(plot = p, filename = "Fig3-5")
 ###### Data
 ```{r}
 df |> 
-  rename(Samples_total = n)
+  rename(Samples_total = n) |> 
   make_table_data_tab(file_name = "Fig3-5")
 ```
 :::
