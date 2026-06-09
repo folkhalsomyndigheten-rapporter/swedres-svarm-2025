@@ -171,8 +171,7 @@ p <- df |>
   #             "Resistant to 1 or 2 tested substances" = RColorBrewer::brewer.pal(9, "Set1")[6],
   #             "Resistant to ≥3 tested substances" = RColorBrewer::brewer.pal(9, "Set1")[1])) +
   labs(x = "Proportion (%)", 
-       y = "Animals",
-       fill=NULL) +
+       y = "Animals") +
   theme_SweSva() +
    theme(axis.text.y = element_text(hjust=1),
         plot.margin = margin(0, .4, 0, 0, "cm"),  # Top, Right, Bottom, Left
@@ -205,73 +204,9 @@ However, using the more sensitive selective culture method, ESC-resistant *E. co
 ::: {.panel-tabset}
 
 
-
-<!-- ###### Figure -->
-<!-- ```{r} -->
-<!-- data <- load_from_excel("data/Fig 4.14 Resistance in Escherichia coli from fattening pigs.xlsx") -->
-
-<!-- common_ab <- c("Ampicillin", "Sulphamethoxazole", "Tetracycline", "Trimethoprim") -->
-<!-- critical_ab <- c("Nalidixic acid", "Third-generation cephalosporins", "Colistin") -->
-
-<!-- df <- data$fig_data |>  -->
-<!--   filter(Antimicrobial %in% c(common_ab, critical_ab)) |>  -->
-<!--   pivot_longer(cols = -Antimicrobial, names_to = "year") |>  -->
-<!--   mutate(category = case_when(Antimicrobial %in% common_ab ~ "AMEG Category D (Prudence)", -->
-<!--                               Antimicrobial %in% critical_ab ~ "AMEG Category B (Restrict)", -->
-<!--                               .default = NA), -->
-<!--          category = factor(category, levels = c("AMEG Category D (Prudence)", "AMEG Category B (Restrict)")) -->
-<!--          ) |>  -->
-<!--   dplyr::filter(!is.na(value)) -->
-<!-- ``` -->
-
-
-<!-- ```{r} -->
-<!-- #| label: fig-414 -->
-<!-- #| fig-cap: !expr glue::glue("{data$fig_cap}") -->
-<!-- #| fig-alt: !expr glue::glue("{data$fig_alt}") -->
-<!-- #| warning: false -->
-
-<!-- p <- df |>   -->
-<!--   dplyr::mutate(data_id = paste(category, Antimicrobial, year, sep = "_"), -->
-<!--     tooltip_l = glue::glue('{Antimicrobial}'), -->
-<!--     tooltip_p = glue::glue("<b>Panel:</b> {category}<br>", "<b>Antimicrobial:</b> {Antimicrobial}<br>",  -->
-<!--                          "<b>Year:</b> {year}<br>",  "<b>Percent resistance:</b> {round(value, 1)}%")) |>  -->
-
-<!--   ggplot(aes(x = as.numeric(year), -->
-<!--                 y = value,  -->
-<!--                 color = Antimicrobial, -->
-<!--                 group = Antimicrobial, -->
-<!--               data_id = data_id)) + -->
-<!--   geom_line_interactive(aes(tooltip=tooltip_l), lwd=0.5) + -->
-<!--   geom_point_interactive(aes(tooltip = tooltip_p)) +  -->
-<!--                                   #position = position_jitter(width = 0.10, height = 0)) + -->
-<!--   #facet_wrap(~category, ncol = 1, axes = "all_x", axis.labels = "all_x") + -->
-<!--   facet_wrap(~category) + #, ncol = 1, axes = "all_x", axis.labels = "all_x") + -->
-
-<!--   scale_y_continuous(limits = c(0, 30), labels = function(x) format(x, digits = 2, nsmall = 0)) + -->
-<!--     guides(color=guide_legend(nrow=3)) + -->
-<!-- scale_x_continuous(expand=c(0,0.2), breaks = yrs) + -->
-<!--   #scale_x_discrete() + -->
-<!--   #scale_x_continuous(breaks = yrs, minor_breaks = NULL) + -->
-<!--   scale_color_SweSva() + -->
-<!--   labs(x = "Year", -->
-<!--        y = "Percent resistance (%)", color = NULL) + -->
-<!--   theme_SweSva() + -->
-<!--   theme_SweSva_facet() + -->
-<!--   #theme_SweSva_rotate() + -->
-<!--   #theme(axis.text.x = element_text(angle = 45, hjust = 1, vjust = 1)) + -->
-<!--   add_sva_caption() +  -->
-<!--     theme(plot.subtitle = element_text(vjust = -15), -->
-<!--           #axis.text.x = element_text(angle = 0, hjust = 0.5, vjust = 0.5) -->
-<!--           ) -->
-
-<!-- make_dynamic_plot(plot = p, filename = "fig-414", height = 10) -->
-
-<!-- ``` -->
-
 ###### Figure 
 ```{r}
-#| label: fig-414-old
+#| label: fig-414
 #| echo: false
 #| message: false
 #| warning: false
@@ -339,6 +274,64 @@ p <- ggplot(df_plot,
 make_dynamic_plot(plot = p, filename = "fig-414", height = 10)
 
 ```
+
+###### Figure alternativ
+
+```{r}
+data <- load_from_excel("data/Fig 4.14 Resistance in Escherichia coli from fattening pigs.xlsx")
+
+common_ab <- c("Ampicillin", "Sulphamethoxazole", "Tetracycline", "Trimethoprim")
+critical_ab <- c("Nalidixic acid", "Third-generation cephalosporins", "Colistin")
+
+df <- data$fig_data |>
+  filter(Antimicrobial %in% c(common_ab, critical_ab)) |>
+  pivot_longer(cols = -Antimicrobial, names_to = "year") |>
+  mutate(category = case_when(Antimicrobial %in% common_ab ~ "AMEG Category D (Prudence)",
+                              Antimicrobial %in% critical_ab ~ "AMEG Category B (Restrict)",
+                              .default = NA),
+         category = factor(category, levels = c("AMEG Category D (Prudence)", "AMEG Category B (Restrict)"))
+         ) |>
+  dplyr::filter(!is.na(value))
+```
+
+```{r}
+#| label: fig-414-alt
+#| fig-cap: !expr glue::glue("{data$fig_cap}")
+#| fig-alt: !expr glue::glue("{data$fig_alt}")
+#| warning: false
+
+p <- df |>
+  dplyr::mutate(data_id = paste(category, Antimicrobial, year, sep = "_"),
+    tooltip_l = glue::glue('{Antimicrobial}'),
+    tooltip_p = glue::glue("<b>Panel:</b> {category}<br>", "<b>Antimicrobial:</b> {Antimicrobial}<br>",
+                         "<b>Year:</b> {year}<br>",  "<b>Percent resistance:</b> {round(value, 1)}%")) |>
+
+  ggplot(aes(x = factor(year),
+                y = value,
+                color = Antimicrobial,
+                group = Antimicrobial,
+              data_id = data_id)) +
+  geom_line_interactive(aes(tooltip=tooltip_l), lwd=0.5) +
+  geom_point_interactive(aes(tooltip = tooltip_p)) +
+  facet_wrap(~category,scales="free_y") +
+  ggh4x::facetted_pos_scales(y = list("AMEG Category D (Prudence)" = scale_y_continuous(limits=c(0,25)),
+                                      "AMEG Category B (Restrict)" = scale_y_continuous(limits=c(0,5)))) +
+  scale_y_continuous(limits = c(0, 25),
+                     labels = function(x) format(x, digits = 2, nsmall = 0)
+  ) +
+  guides(color=guide_legend(nrow=3)) +
+  scale_x_discrete(expand=c(0,0.2)) + 
+  scale_color_SweSva() +
+  labs(x = "Year",
+       y = "Percent resistance (%)") +
+  theme_SweSva() +
+  theme_SweSva_facet() +
+  add_sva_caption() +
+  theme(plot.subtitle = element_text(vjust = -15))
+
+make_dynamic_plot(plot = p, filename = "fig-414", height = 10)
+```
+
 
 ###### Data
 ```{r}

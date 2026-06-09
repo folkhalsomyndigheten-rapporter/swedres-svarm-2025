@@ -21,3 +21,4 @@ status(type = "drafting")
 ## Material and methods for resistance in humans {#sec-mmh}
 
 Text here...
+Konfidensintervall räknades fram enligt Wilson-metoden @Wilson1927

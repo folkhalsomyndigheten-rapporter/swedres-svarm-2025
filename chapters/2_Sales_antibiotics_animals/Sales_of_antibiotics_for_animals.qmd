@@ -70,33 +70,12 @@ tab_21$table
 
 ```
 
-<!-- ###### julius's standard gt table -->
-
-<!-- ```{r} -->
-<!-- #| message: false -->
-<!-- #| warning: false -->
-<!-- data <- load_from_excel("data/Table 2.1 Sales AB 2025 total.xlsx", sheet = "Data") -->
-
-<!-- df <- data$fig_data  -->
-<!-- ``` -->
-
-
-<!-- ```{r} -->
-<!-- #| label: tbl_test1234 -->
-<!-- #| tbl-cap: !expr glue::glue("{data$fig_cap}") -->
-<!-- df |>  -->
-<!--   gt()|>  -->
-<!--   gt_theme_SweSva() -->
-<!-- ``` -->
-
-
-
 
 ###### Data
 ```{r}
 df <- src_21$fig_data
 df |>
-  make_table_data_tab(file_name = "tab21")
+  make_table_data_tab(file_name = "Table2-1")
 ```
 :::
 
@@ -138,11 +117,9 @@ names(dat_21$fig_data) <- c("Year", "Total")
 df_fig_21 <- dat_21$fig_data |>
   mutate(tooltip_l = glue::glue('<b>{Year}</b>'),
          tooltip_p = paste0("<b>Year:</b> ", Year, "<br><b>Proportion (%) of LIC:</b> ", round(Total, 2)), data_id = paste(Total, Year, sep = "_"),
-         one_col = "one_color_SweSva")
+         one_col = "Total sales as kg")
 
 yrs <- sort(unique(df_fig_21$Year))
-
-#need to manually set the line color to not have a black line
 
 p_21 <- df_fig_21 |> 
   ggplot(aes(x = factor(Year), 
@@ -151,32 +128,32 @@ p_21 <- df_fig_21 |>
              color=one_col,
              data_id = data_id)) +
   geom_line_interactive(aes(tooltip=tooltip_l)) +
-  geom_point_interactive(aes(tooltip = tooltip_p)) + #, color =  RColorBrewer::brewer.pal(9, "Set1")[3]) +
-  scale_color_manual(values= one_color_SweSva) +
+  geom_point_interactive(aes(tooltip = tooltip_p),hover_nearest = T) + 
+  scale_color_manual(values= one_color_SweSva[[1]]) +
   scale_x_discrete(#breaks = yrs, minor_breaks = NULL,
     expand=c(0,0.2)) +
   scale_y_continuous(limits = c(0, 25),
                      breaks = perc_25,
-                     expand=c(0,0),
+                     expand=c(0,0.2),
                      #labels = function(x) paste0(x, "%")
                      ) +
   #scale_color_SweSva() +
   labs(x ="Year",
-       y = "Proportion of total sales as kg (%)",
+       y = "Proportion (%)",
        color = NULL) +
   theme_SweSva() +
-  theme(#axis.text.x = element_text(angle = 45, hjust = 1, vjust = 1), 
-    legend.position = "none",
-        plot.subtitle = element_text(vjust = +2)) +
+  #theme(#axis.text.x = element_text(angle = 45, hjust = 1, vjust = 1), 
+   # legend.position = "none",
+   #     plot.subtitle = element_text(vjust = +2)) +
   add_sva_caption()
 
-make_dynamic_plot(plot = p_21, filename = "fig-21")
+make_dynamic_plot(plot = p_21, filename = "Fig2-1")
 ```
 
 ###### Data
 ```{r}
 dat_21$fig_data |> 
-  make_table_data_tab()
+  make_table_data_tab(file_name = "Fig2-1")
 ```
 :::
 
@@ -235,7 +212,7 @@ p_22 <- ggplot(df_fig_22,
   #theme(axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.5)) +
   add_sva_caption()
 
-make_dynamic_plot(plot = p_22, filename = "fig-22")
+make_dynamic_plot(plot = p_22, filename = "Fig2-2")
 
 ```
 
@@ -243,7 +220,7 @@ make_dynamic_plot(plot = p_22, filename = "fig-22")
 
 ```{r}
 dat_22_long |>
-  make_table_data_tab()
+  make_table_data_tab(file_name = "Fig2-2")
 ```
 :::
 

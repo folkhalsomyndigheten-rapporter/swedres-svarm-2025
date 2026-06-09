@@ -88,7 +88,7 @@ p_23 <- ggplot(dat_23_long,
   theme(axis.text.x = element_text(size = 9, hjust = 0.5, vjust = 0.5, margin = margin(t = 5))) +
   add_sva_caption()
 
-make_dynamic_plot(plot = p_23, filename = "fig-23", width = 10)
+make_dynamic_plot(plot = p_23, filename = "Fig2-3", width = 10)
 
 ```
 
@@ -96,7 +96,7 @@ make_dynamic_plot(plot = p_23, filename = "fig-23", width = 10)
 
 ```{r}
 dat_23_inter |>
-  make_table_data_tab()
+  make_table_data_tab(file_name = "Fig2-3")
 ```
 :::
 
@@ -122,49 +122,13 @@ tab_22 <- make_qt_table_from_excel("data/Table 2.2 Chicken flocks.xlsx", sheet =
 tab_22$table
 
 ```
-###### Figure alternative
-
-```{r}
-p <- src_22$fig_data |> 
-  janitor::clean_names() |> 
-  pivot_longer(cols = -year) |> 
-  
-   mutate(data_id = row_number(),
-          group = stringr::str_to_sentence(str_replace_all(name,"_"," ")),
-          group_fill = str_replace(group,"Number of f","F"), 
-          tooltip_b = glue::glue('<b>Year:</b> {year}
-                                    <b>{group}:</b> {value}')) |> 
-
-  ggplot(aes(x = factor(year),
-             y = value, 
-             fill = fct_rev(factor(group_fill)),
-             data_id = data_id)) +
-      geom_bar_interactive(aes(tooltip = tooltip_b),position = position_stack(reverse = TRUE),#"stack",
-                             stat = "identity") +
-
-  labs(x = "Year",
-       y = "Number of flocks") +
-  #scale_y_log10() +
-  #guides(fill=guide_legend(nrow = )) +
-  scale_y_continuous(expand = c(0,.1), 
-                     limits = c(0,4000),
-                     labels = scales::label_number()) +
-  scale_x_discrete(expand=c(0,0.2)) +
-  scale_fill_SweSva() + 
-  theme_SweSva() +
-  #theme(plot.subtitle = element_text(vjust = -15)) +
-  add_sva_caption()
-
-make_dynamic_plot(plot = p)
-
-```
 
 
 ###### Data
 ```{r}
 df <- src_22$fig_data
 df |>
-  make_table_data_tab(file_name = "tab22")
+  make_table_data_tab(file_name = "Table2-2")
 ```
 :::
 
@@ -209,7 +173,8 @@ df_fig_24 <- dat_24_long |>
                                         Antibiotic == "Trimethoprim-sulphonamide" ~ 1),
          tooltip = paste0("<b>Year:</b> ", Year,
                           "<br><b>Antibiotic:</b> ", `Antibiotic`, 
-                          "<br><b>Value:</b> ", round(Value, 2)), data_id = paste(`Antibiotic`, Year, sep = "_"))
+                          "<br><b>Value:</b> ", round(Value, 2), "Kg medicated feed/tonne of liveweight fish slaughtered"), 
+         data_id = paste(`Antibiotic`, Year, sep = "_"))
 
 p_24 <- ggplot(df_fig_24,
                aes(x = factor(Year),
@@ -219,14 +184,16 @@ p_24 <- ggplot(df_fig_24,
                    data_id = data_id)) +
   geom_bar_interactive(aes(tooltip = tooltip), stat = "identity", position = "stack") +
   scale_fill_SweSva() +
-  scale_y_continuous(limits = c(0, 9), breaks = seq(0, 9, by = 1), expand=c(0,0.2)) +
+  scale_y_continuous(limits = c(0, 9), 
+                     breaks = seq(0, 10, by = 1), 
+                     expand=c(0,0.2)) +
   scale_x_discrete(expand=c(0,0.2)) +
   labs(x = "Year",
        y = "Kg medicated feed/tonne of liveweight fish slaughtered", fill = NULL) +
   theme_SweSva() +
   #theme(axis.text.x = element_text(angle = 45, hjust = 1, vjust = 1)) +
   add_sva_caption()
-make_dynamic_plot(plot = p_24, filename = "fig-24")
+make_dynamic_plot(plot = p_24, filename = "Fig2-4")
 
 ```
 
@@ -234,7 +201,7 @@ make_dynamic_plot(plot = p_24, filename = "fig-24")
 
 ```{r}
 dat_24_long |>
-  make_table_data_tab()
+  make_table_data_tab(file_name = "Fig2-4")
 ```
 :::
 
@@ -279,7 +246,7 @@ names(dat_25$fig_data) <- c("Year", "Total")
 
 df_fig_25 <- dat_25$fig_data |>
   mutate(tooltip = paste0("<b>Year:</b> ", Year, "<br><b>Packages per 1000 dogs:</b> ", Total), data_id = paste(Total, Year, sep = "_"),
-          one_col = "one_color_SweSva")
+          one_col = "Sales of antibiotics for oral medication")
 
 yrs <- sort(unique(df_fig_25$Year))
 
@@ -294,25 +261,23 @@ p_25 <- ggplot(df_fig_25,
   #scale_x_continuous(breaks = yrs, minor_breaks = NULL) +
   scale_y_continuous(limits = c(0, 650), breaks = seq(0, 600, by = 100))+
   #scale_color_SweSva() +
-  scale_color_manual(values= one_color_SweSva) +
+  scale_color_manual(values= one_color_SweSva[[1]]) +
   scale_y_continuous(limits = c(0,600))+
 scale_x_discrete(expand=c(0,0.2)) +
   labs(x = "Year",
-       y = "Packages per thousand dogs", color = NULL) +
+       y = "Packages per thousand dogs",) +
   theme_SweSva() +
-  #theme(axis.text.x = element_text(angle = 45, hjust = 1, vjust = 1), plot.subtitle = element_text(vjust = +2)) +
-    theme(plot.subtitle = element_text(vjust = +2)) +
+
   theme_SweSva_rotate() +
 
-  add_sva_caption() +
-  theme(legend.position = "none")
+  add_sva_caption() 
 
-make_dynamic_plot(plot = p_25, filename = "fig-25")
+make_dynamic_plot(plot = p_25, filename = "Fig2-5")
 ```
 
 ###### Data
 ```{r}
 dat_25$fig_data |> 
-  make_table_data_tab()
+  make_table_data_tab(file_name = "Fig2-5")
 ```
 :::

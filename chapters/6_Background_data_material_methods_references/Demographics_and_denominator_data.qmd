@@ -28,10 +28,7 @@ status(type = "drafting")
 #| warning: false
 data <- load_from_excel(path_file = "data/Kap6_Demographics_table_6_1_2025_260511.xlsx")
 
-df <- data$fig_data #|> 
-#   mutate(across(-1, as.numeric)) 
-#df$`1-4 years `
-
+df <- data$fig_data 
 ```
 
 ```{r}
@@ -48,7 +45,7 @@ df |>
 #| warning: false
 data <- load_from_excel(path_file = "data/Kap6_Demographics_table_6_2_2025_260511.xlsx")
 
-df <- data$fig_data #|>    mutate(across(-1, as.numeric)) 
+df <- data$fig_data 
 ```
 
 ```{r}
