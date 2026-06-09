@@ -24,7 +24,7 @@ status(type = "polishing")
 
 ::: {.callout-note appearance="simple" collapse="false"}
 
-## [In-focus]{.in-focus} - SvarmPat {.unnumbered}
+## [In-focus]{.in-focus} - SvarmPat {.unnumbered #sec-svarmpat}
 
 ### SvarmPat – monitoring of resistance in pathogens from farm animals
 
