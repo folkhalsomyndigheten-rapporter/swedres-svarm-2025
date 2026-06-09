@@ -947,11 +947,11 @@ df |>
 
 #### *Escherichia coli*
 
-Isolates of *Escherichia coli* are from clinical submissions of samples from the genital tract of mares. As in previous years, resistance to trimethoprim-sulphamethoxazole was the most common trait in 2025 (@fig-49 and @tbl-425). Occurrence of resistance to gentamicin has been  continuously low from 2013 and onwards ≤5% (@fig-49). However, this resistance has varied somewhat over the years and trends are difficult to estimate. 
+Isolates of *Escherichia coli* are from clinical submissions of samples from the genital tract of mares. As in previous years, resistance to trimethoprim-sulphamethoxazole was the most common trait in 2025 (@fig-49 and @tbl-425). Occurrence of resistance to gentamicin has been continuously low from 2013 and onwards, ≤5% (@fig-49). However, this resistance has varied somewhat over the years and trends are difficult to estimate. 
 
 Eighty five percent (178/210) of the isolates were susceptible to all the tested antibiotics. The proportion of multiresistance was 2% (4/210). Two of the four multiresistant isolates were resistant to three antibiotics, one isolate to four antibiotics and one isolate to five antibiotics. The most common phenotype was resistance to ampicillin, gentamicin and trimethoprim-sulphamethoxazole. For comparison of resistance in *E. coli* of different origin see Comparative analysis in @sec-ca. 
 
-One of the isolates was resistant to cefotaxime and one to colistin, both were available for further testing. Genes conferring transferable ESC resistance were not detected in the one isolate resistant to cefotaxime (MIC >0.25mg/L) and PCR analysis of the *mcr-1* to *mcr-9* genes in the isolate resistant to colistin was found negative. No isolate was resistant to meropenem. 
+One of the isolates was resistant to cefotaxime and one to colistin, both were available for further testing. Genes conferring transferable ESC resistance were not detected in the one isolate resistant to cefotaxime (MIC >0.25mg/L) and PCR analysis of the *mcr-1* to *mcr-9* genes in the isolate resistant to colistin was negative. No isolate was resistant to meropenem. 
 
 ```{r}
 #| include: false
@@ -1043,11 +1043,11 @@ df |>
 
 #### *Streptococcus equi* ssp. *zooepidemicus* 
 
-Isolates of *Streptococcus equi* ssp. *zooepidemicus* are from clinical submissions mainly from the respiratory tract (72%) of horses. 
+Isolates of *Streptococcus equi* ssp. *zooepidemicus* are from clinical submissions, mainly from the respiratory tract (72%), of horses. 
 
 Over the years, most of the isolates (91% in 2025) have been susceptible to all relevant tested antibiotics, gentamicin and tetracycline not included. *Streptococcus equi* ssp. *zooepidemicus* has a low inherent susceptibility to aminoglycosides (e.g. gentamicin) and tetracyclines. 
 
-In 2025, resistance to clindamycin and trimethoprim-sulphamethoxazole was detected. None of the isolates were resistant to penicillin. Any reduced susceptibility to penicillin in beta-hemolytic streptococci should be controlled, i.e. if tested on pure culture and ensuring that organism identification and antimicrobial susceptibility test are accurate and reproducible. All isolates were screened for erythromycin induced clindamycin resistance, no isolates displayed such resistance (@tbl-426). The number of isolates is low and varies each year (n=43-102, 2025 n=74), which could cause minor variations between years. 
+In 2025, resistance to clindamycin and trimethoprim-sulphamethoxazole was detected. None of the isolates were resistant to penicillin. Any reduced susceptibility to penicillin in beta-hemolytic streptococci should be controlled, i.e. if tested on pure culture and ensuring that organism identification and antimicrobial susceptibility test are accurate and reproducible. All isolates were screened for erythromycin-induced clindamycin resistance, and no isolates displayed such resistance (@tbl-426). The number of isolates is low and varies each year (n=43-102, 2025 n=74), which could cause minor variations between years. 
 
 ::: {.panel-tabset}
 ###### Table
@@ -1185,7 +1185,7 @@ The isolates were screened for erythromycin-induced clindamycin resistance; one 
 
 #### *Actinobacillus* 
 
-Isolates of *Actinobacillus* spp. are from clinical submissions of samples from various anatomical sites, of which the most common are wounds (39%) and the respiratory tract (16%). Nine percent of the samples are from abscesses. For *Actinobacillus* spp. isolated from horses, ECOFFs for *A. pleuropneumoniae* have been used regarding penicillin, tetracycline, enrofloxacin and trimethoprim-sulphamethoxazole. For other antibiotics clinical breakpoints have been applied (@tbl-428). 
+Isolates of *Actinobacillus* spp. are from clinical submissions of samples from various anatomical sites, of which the most common are wounds (39%) and respiratory tract (16%). Nine percent of the samples are from abscesses. For *Actinobacillus* spp. isolated from horses, ECOFFs for *A. pleuropneumoniae* have been used regarding penicillin, tetracycline, enrofloxacin and trimethoprim-sulphamethoxazole. For other antibiotics, clinical breakpoints have been applied (@tbl-428). 
 
 ::: {.panel-tabset}
 ###### Table
@@ -1216,7 +1216,7 @@ df |>
 ```
 :::
 
-Eighty one percent (92/114) of the isolates were susceptible to all the tested antibiotics. Seven percent (8/114) were resistant to penicillin, MIC>1 and two percent to trimethoprim-sulphamethoxazole. All but one isolate with MIC >0.25 mg/L for penicillin (n=37), were tested for penicillinase production. Five were positive, one with MIC 0.5 mg/L and four with MIC >1 mg/L. The *Actinobacillus* spp. wild type distribution of penicillin (MIC 0.03 - 1 mg/L) requires increased exposure for successful treatment [@medical2015lakemedelsbehandling]. Exposure includes e.g. administration route, dose, and dose interval. 
+Eighty one percent (92/114) of the isolates were susceptible to all the tested antibiotics. Seven percent (8/114) were resistant to penicillin, MIC>1 and 2% to trimethoprim-sulphamethoxazole. All but one isolate with MIC >0.25 mg/L for penicillin (n=37), were tested for penicillinase production. Five were positive, one with MIC 0.5 mg/L and four with MIC >1 mg/L. The *Actinobacillus* spp. wild type distribution of penicillin (MIC 0.03 - 1 mg/L) requires increased exposure for successful treatment [@medical2015lakemedelsbehandling]. Exposure includes e.g. administration route, dose and dose interval. 
 
 #### *Rhodococcus equi* 
 
@@ -1239,7 +1239,7 @@ Eighty percent (679/846) of the isolates were susceptible to all the tested anti
 
 For comparison of resistance in *E. coli* of different origin see @sec-NEEDS-TO-BE-ADDED-WHEN-SECTION-IS-READY "Comparative analysis". The most common phenotype, resistance to ampicillin, tetracycline and trimethoprim-sulphamethoxazole, was detected in 65% (23/35) of the multiresistant isolates. Of the eleven isolates resistant to four or more antibiotics, all but one had this phenotype.
 
-Seventeen (2%) of the *E. coli* isolates were resistant to cefotaxime (MIC >0.25mg/L), and all were available for further testing. Genes conferring transferable ESC resistance were detected in four of the isolates. All four carried the gene *bla*~CTX-M-15~. For more information about ESBL-producing Enterobacterales isolated from dogs in Sweden, see “Notifiable diseases” ESBL-producing Enterobacterales. One of the isolates was resistant to colistin (MIC >2mg/L) but found negative in PCR analysis of the *mcr-1* to *mcr-9* genes. None of the isolates were resistant to meropenem (MIC>0.12mg/L). 
+Seventeen (2%) of the *E. coli* isolates were resistant to cefotaxime (MIC >0.25mg/L), and all were available for further testing. Genes conferring transferable ESC resistance were detected in four of the isolates. All four carried the gene *bla*~CTX-M-15~. For more information about ESBL-producing Enterobacterales isolated from dogs in Sweden, see “Notifiable diseases” ESBL-producing Enterobacterales. One of the isolates was resistant to colistin (MIC >2mg/L) but negative in PCR analysis of the *mcr-1* to *mcr-9* genes. None of the isolates were resistant to meropenem (MIC>0.12mg/L). 
 
 ```{r}
 #| include: false
@@ -1333,9 +1333,9 @@ df |>
 
 Isolates of *Staphylococcus pseudintermedius* are from clinical submissions of samples from skin lesions from dogs. Due to the implementation of an AMR panel for topical treatment (see [Swedres Svarm 2022](https://www.sva.se/media/s3ggt1ny/swedres-svarm-2022-edit-230808.pdf){target="_blank"} In Focus p. 89, and @tbl-432) the number of isolates tested for systemic treatment has declined during 2023-2025. 
 
-Resistance to penicillin due to penicillinase production is high at 67% (@tbl-431), compared to other staphylococci in companion animals (@tbl-427 *S. aureus* in horses 25% and @tbl-436 *S. felis* in cats 13%). Although still high, the proportion of resistance to penicillin for isolates from skin lesions has declined from 90% in 2009 to 67% in 2025. Compared to penicillin, resistance to clindamycin and tetracycline remains at lower levels, and has also declined since 2007 (see [previous Swedres-Svarm reports](https://www.sva.se/en/what-we-do/antibiotics/svarm-resistance-monitoring/swedres-svarm-reports/){target="_blank"}). The proportion of resistance to fusidic acid is not comparable before 2015, due to a change in the tested range of concentrations and cut-off but has, since 2015, declined (@tbl-431 and @fig-412). In 2025 a new cut-off was set for trimethoprim-sulphamethoxazole at 0.25 (compared to 0.5 earlier years) explaining the rise from 7% resistance in 2024 to 36% in 2025 (@tbl-431). Compared to other staphylococci isolated from companion animals, the proportion of resistance is high in the tested isolates. Only 25% (99/395) of the isolates were susceptible to all the tested antibiotics. 
+Resistance to penicillin due to penicillinase production is high at 67% (@tbl-431), compared to other staphylococci in companion animals (@tbl-427 *S. aureus* in horses 25% and @tbl-436 *S. felis* in cats 13%). Although still high, the proportion of resistance to penicillin for isolates from skin lesions has declined from 90% in 2009 to 67% in 2025. Compared to penicillin, resistance to clindamycin and tetracycline remains at lower levels, and has also declined since 2007 (see [previous Swedres-Svarm reports](https://www.sva.se/en/what-we-do/antibiotics/svarm-resistance-monitoring/swedres-svarm-reports/){target="_blank"}). The proportion of resistance to fusidic acid is not comparable before 2015 due to a change in the tested range of concentrations and cut-off. However, the proportion of resistance has declined snce 2015 (@tbl-431 and @fig-412). In 2025, a new cut-off was set for trimethoprim-sulphamethoxazole at 0.25 (compared to 0.5 earlier years), explaining the rise from 7% resistance in 2024 to 36% in 2025 (@tbl-431). Compared to other staphylococci isolated from companion animals, the proportion of resistance is high in the tested isolates. Only 25% (99/395) of the isolates were susceptible to all the tested antibiotics. 
 
-The proportion of multiresistance was 25% (97/395). This could be compared to 8% in *S. aureus* from horses and 2% in *S. felis* from cats. Fifty-nine percent (57/97) of the multiresistant isolates were resistant to three antibiotics; 21% (20/97) to four; 11% (11/97) to five; and 4% (4/97) to six antibiotics. One isolate was resistant to nine antibiotics. The proportion of isolates resistant to five or more antibiotics has declined over the years. In 2016, almost one third of the multiresistant isolates were resistant to five or more antibiotics, compared to 14-22% in 2017-2024. In 2025, the proportion was 21% (20/97). Of the multiresistant isolates, resistance to penicillin, clindamycin and erythromycin was the most common phenotype 55% (53/97).  
+The proportion of multiresistance was 25% (97/395). This could be compared to 8% in *S. aureus* from horses and 2% in *S. felis* from cats. Fifty-nine percent (57/97) of the multiresistant isolates were resistant to three antibiotics; 21% (20/97) to four, 11% (11/97) to five and 4% (4/97) to six antibiotics. One isolate was resistant to nine antibiotics. The proportion of isolates resistant to five or more antibiotics has declined over the years. In 2016, almost one third of the multiresistant isolates were resistant to five or more antibiotics, compared to 14-22% in 2017-2024. In 2025, the proportion was 21% (20/97). Of the multiresistant isolates, resistance to penicillin, clindamycin and erythromycin was the most common phenotype at 55% (53/97).  
 
 Six of the isolates were resistant to oxacillin (MIC >0.25 mg/L). All were tested with PCR for detection of the *mecA* and *mecC* genes and all were positive for the *mecA* gene. For more information on MRSP isolated from dogs in Sweden, see @sec-MRSP-animals. The isolates were screened for erythromycin-induced clindamycin resistance. Two isolates displayed such resistance. 
 
@@ -1439,13 +1439,13 @@ At SVA, it is possible to request antibiotic susceptibility testing of bacteria 
 
 It has been suggested by EUCAST that ECOFFs could be used to exclude acquired resistance to topical agents. They acknowledge that such an approach might underestimate the activity of the agents in some cases. However, it will at least demonstrate the presence of phenotypically detectable resistance mechanisms, which may result in a higher probability of clinical failure. Therefore, when bacteria are tested against substances for topical treatment at SVA, the breakpoints for interpretation are either EUCAST ECOFFs or, when no ECOFF is available, based on MIC distributions in Swedres-Svarm or other publications. As pharmacokinetic data have not been taken into consideration, the interpretation cannot be applied for systemic treatment. 
 
-Some combinations of antibiotic substance and bacterial species are not reported to the clinician for systemic treatment. For example, gentamicin for *Pasteurella* spp. or streptococci, and fusidic acid for streptococci. This is because it is not possible to reach therapeutic concentrations systemically against these bacteria whereas with topical treatment the concentration at the site of the infection is much higher. Furthermore, some substances, such as chloramphenicol and tobramycin, are not tested for systemic treatment because they are only used for topical treatment. Occurrence of resistance varies among bacterial species and substances. However, in most cases there are products available on the Swedish market that would be effective if topical antibiotic treatment is considered necessary. See @sec-crossref-InFocusTopicals-WillBeFixedLater. 
+Some combinations of antibiotic substance and bacterial species are not reported to the clinician for systemic treatment. For example, gentamicin for *Pasteurella* spp. or streptococci, and fusidic acid for streptococci. This is because it is not possible to reach therapeutic concentrations systemically against these bacteria, whereas the concentration at the site of the infection is much higher with topical treatment. Furthermore, some substances, such as chloramphenicol and tobramycin, are not tested for systemic treatment because they are only used for topical treatment. Occurrence of resistance varies among bacterial species and substances. However, in most cases, there are products available on the Swedish market that would be effective if topical antibiotic treatment is considered necessary. See @sec-crossref-InFocusTopicals-WillBeFixedLater. 
 
 #### *Staphylococcus pseudintermedius* - **susceptibility test for topical treatment** 
 
 Isolates of *Staphylococcus pseudintermedius* are from clinical submissions of samples from external ear canal from dogs in 2025. 
 
-Resistance to tetracycline (19%) was the most common trait in 2025, followed by neomycin (13%), chloramphenicol (10%) and fusidic acid (8%) (@tbl-432). The proportion of multiresistance was 4% (25/596). Sixty percent (15/25) of the multiresistant isolates were resistant to three antibiotics; 16% (4/25) to four, and 20% (5/25) to five. One isolate was resistant to six antibiotics. Of the multiresistant isolates, resistance to tetracycline, neomycin, and chloramphenicol was the most common phenotype 52% (13/25). 
+Resistance to tetracycline (19%) was the most common trait in 2025, followed by neomycin (13%), chloramphenicol (10%) and fusidic acid (8%) (@tbl-432). The proportion of multiresistance was 4% (25/596). Sixty percent (15/25) of the multiresistant isolates were resistant to three antibiotics; 16% (4/25) to four, and 20% (5/25) to five. One isolate was resistant to six antibiotics. Of the multiresistant isolates, resistance to tetracycline, neomycin and chloramphenicol was the most common phenotype at 52% (13/25). 
 
 Four of the isolates were resistant to oxacillin (MIC >0.25 mg/L). All were tested with PCR for detection of the *mecA* and *mecC* genes, three were positive and one was negative. For more information on MRSP isolated from dogs in Sweden, see @sec-MRSP-animals. 
 
@@ -1517,13 +1517,13 @@ df |>
 
 #### *Pasteurella canis/oralis* 
 
-Isolates of *Pasteurella* spp. are from clinical submissions of samples from various anatomical sites from dogs, mainly wounds (52%), abscesses (15%), and skin and external ear canal (11%).  
+Isolates of *Pasteurella* spp. are from clinical submissions of samples from various anatomical sites from dogs, mainly wounds (52%), abscesses (15%) and skin and external ear canal (11%).  
 
-*Pasteurella canis/oralis* was the most common *Pasteurella* sp. isolated in samples from dogs, 87% (328/378). The isolates were species identified with MALDI-TOF MS and *P. canis* and *P. oralis* cannot be separated by the method. 
+*Pasteurella canis/oralis* was the most common *Pasteurella* sp. isolated in samples from dogs at 87% (328/378). The isolates were species identified with MALDI-TOF MS and *P. canis* and *P. oralis* cannot be separated by the method. 
 
-The cut-off values for *Pasteurella multocida* have been applied for all *Pasteurella* spp. *Pasteurella* spp. have a low inherent susceptibility to aminoglycosides, e.g. gentamicin. If not including gentamicin, 96% (273/283) of the isolates were susceptible to all antibiotics tested. 
+The cut-off values for *Pasteurella multocida* have been applied for all *Pasteurella* spp. *Pasteurella* spp. have a low inherent susceptibility to aminoglycosides, e.g. gentamicin. Not including gentamicin, 96% (273/283) of the isolates were susceptible to all antibiotics tested. 
 
-The proportion of resistance to enrofloxacin is generally low, with variations between <1% (2014), 4% (2020) and 2% (2025). Resistance to trimethoprim-sulphamethoxazole has been detected in one isolate each year 2020-2021. In 2022 it was detected in two isolates, in 2023 in seven isolates, in 2024 in six isolates and in 2025 in three isolates (@tbl-434 and [previous Swedres-Svarm reports](https://www.sva.se/en/what-we-do/antibiotics/svarm-resistance-monitoring/swedres-svarm-reports/){target="_blank"}). Before 2020, all tested isolates were susceptible to trimethoprim-sulphamethoxazole (see [previous Swedres-Svarm reports](https://www.sva.se/en/what-we-do/antibiotics/svarm-resistance-monitoring/swedres-svarm-reports/){target="_blank"}). Out of three resistant isolates, one was resistant to both enrofloxacin and trimethoprim-sulphamethoxazole, the other two were resistant to trimethoprim-sulphamethoxazole only. 
+The proportion of resistance to enrofloxacin is generally low, with variations between <1% (2014), 4% (2020) and 2% (2025). Resistance to trimethoprim-sulphamethoxazole has been detected in one isolate each year 2020-2021. In 2022 it was detected in two isolates, in 2023 in seven isolates, in 2024 in six isolates and in 2025 in three isolates (@tbl-434 and [previous Swedres-Svarm reports](https://www.sva.se/en/what-we-do/antibiotics/svarm-resistance-monitoring/swedres-svarm-reports/){target="_blank"}). Before 2020, all tested isolates were susceptible to trimethoprim-sulphamethoxazole (see [previous Swedres-Svarm reports](https://www.sva.se/en/what-we-do/antibiotics/svarm-resistance-monitoring/swedres-svarm-reports/){target="_blank"}). Out of three resistant isolates, one was resistant to both enrofloxacin and trimethoprim-sulphamethoxazole, while the other two were resistant to trimethoprim-sulphamethoxazole only. 
 
 ::: {.panel-tabset}
 ###### Table
@@ -1557,7 +1557,7 @@ df |>
 ### Cats
 #### *Escherichia coli* 
 
-Isolates are from clinical sampling of urine, submitted either as urine or cultures from dip-slides or other agar plates. As in previous years, and in *Escherichia coli* isolated from dog urine (@tbl-430), resistance to ampicillin was the most common trait in 2025 (@tbl-435 and @fig-413). In comparison, in *E. coli* isolated from the genital tract of horses (mares) resistance to trimethoprim-sulphamethoxazole was most common (@tbl-425 and @fig-49). The proportions of resistance in the *E. coli* isolated from cat urine have differed somewhat throughout the years and trends are difficult to estimate (@fig-413). 
+Isolates are from clinical sampling of urine, submitted either as urine or cultures from dip-slides or other agar plates. As in previous years and in *Escherichia coli* isolated from dog urine (@tbl-430), resistance to ampicillin was the most common trait in 2025 (@tbl-435 and @fig-413). In comparison, in *E. coli* isolated from the genital tract of horses (mares), resistance to trimethoprim-sulphamethoxazole was most common (@tbl-425 and @fig-49). The proportions of resistance in the *E. coli* isolated from cat urine have differed somewhat throughout the years and trends are difficult to estimate (@fig-413). 
 
 ::: {.panel-tabset}
 ###### Table
@@ -1649,9 +1649,9 @@ dat_413_long |>
 ```
 :::
 
-Seventy-six percent (324/428) of the *E. coli* isolates were susceptible to all the tested antibiotics. The proportion of multiresistance was 2% (10/428). Six of the multiresistant isolates were resistant to three antibiotics, two to four and two to five antibiotics. All of them were resistant to ampicillin and all but one were also resistant to trimethoprim-sulphamethoxazole. For comparison of resistance in *E. coli* of different origin see “Comparative analysis”. 
+Seventy-six percent (324/428) of the *E. coli* isolates were susceptible to all the tested antibiotics. The proportion of multiresistance was 2% (10/428). Six of the multiresistant isolates were resistant to three antibiotics, two to four and two to five antibiotics. All of them were resistant to ampicillin and all but one were also resistant to trimethoprim-sulphamethoxazole. For comparison of resistance in *E. coli* of different origin, see “Comparative analysis”. 
 
-Nine of the *E. coli* isolates were resistant to cefotaxime (MIC >0.25 mg/L) and all were available for further testing. A gene conferring transferable ESC resistance was detected in one of the isolates (*bla*~CTX-M-15~). For more information on ESBL isolated from cats in Sweden, see “Notifiable diseases”, ESBL-producing Enterobacterales. One isolate was resistant to colistin (MIC >2mg/L) but found negative in PCR analysis of the *mcr-1* to *mcr-9* genes. No isolate was resistant to meropenem (MIC >0.12mg/L). 
+Nine of the *E. coli* isolates were resistant to cefotaxime (MIC >0.25 mg/L) and all were available for further testing. A gene conferring transferable ESC resistance was detected in one of the isolates (*bla*~CTX-M-15~). For more information on ESBL isolated from cats in Sweden, see “Notifiable diseases”, ESBL-producing Enterobacterales. One isolate was resistant to colistin (MIC >2mg/L) but was negative in PCR analysis of the *mcr-1* to *mcr-9* genes. No isolate was resistant to meropenem (MIC >0.12mg/L). 
 
 
 #### *Staphylococcus felis* 
@@ -1692,13 +1692,13 @@ df |>
 ```
 :::
 
-Eighty-one percent (252/313) of the *S. felis* isolates were susceptible to all the tested antibiotics. The proportion of multiresistance has varied between <1 and 7% during 2015-2024 (see [previous Swedres-Svarm reports](https://www.sva.se/en/what-we-do/antibiotics/svarm-resistance-monitoring/swedres-svarm-reports/){target="_blank"}). In 2025, multiresistance was detected in 2% (6/313) of the isolates. The most common phenotype was resistance to penicillin, clindamycin, and erythromycin (5/6). The isolates were screened for erythromycin-induced clindamycin resistance. Two isolates displayed such resistance. 
+Eighty-one percent (252/313) of the *S. felis* isolates were susceptible to all the tested antibiotics. The proportion of multiresistance has varied between <1 and 7% during 2015-2024 (see [previous Swedres-Svarm reports](https://www.sva.se/en/what-we-do/antibiotics/svarm-resistance-monitoring/swedres-svarm-reports/){target="_blank"}). In 2025, multiresistance was detected in 2% (6/313) of the isolates. The most common phenotype was resistance to penicillin, clindamycin and erythromycin (5/6). The isolates were screened for erythromycin-induced clindamycin resistance. Two isolates displayed such resistance. 
 
 #### *Pasteurella multocida* 
 
-Isolates of *Pasteurella* spp. are from clinical submissions of samples from various anatomical sites, but mainly from wounds or skin lesions, abscesses, and the external ear canal (85%) in cats. 
+Isolates of *Pasteurella* spp. are from clinical submissions of samples from various anatomical sites, but mainly from wounds or skin lesions, abscesses and the external ear canal (85%) in cats. 
 
-*Pasteurella multocida* was the most common *Pasteurella* sp. isolated in samples from cats, 93%. The proportion of resistance was low in the tested isolates except for trimethoprim-sulphamethoxazole (10%, @tbl-437).This is however a decrease from 16% in 2024 but an increase from 2022 (4%) and 2023 (6%).  
+*Pasteurella multocida* was the most common *Pasteurella* sp. isolated in samples from cats at 93%. The proportion of resistance was low in the tested isolates except for trimethoprim-sulphamethoxazole (10%, @tbl-437).This is however a decrease from 16% in 2024 but an increase compared to 2022 (4%) and 2023 (6%).  
 
 No resistance to penicillin was detected. *Pasteurella* spp. have a low inherent susceptibility to aminoglycosides, e.g. gentamicin. 
 
