@@ -127,7 +127,7 @@ format:
     embed-resources: false
     toc: true
     toc-location: right
-    toc-depth: 3 # Shows up to ### sub-sections
+    toc-depth: 2 #3 # Shows up to ### sub-sections
     toc-expand: true
     toc-highlight: true
     number-sections: true
