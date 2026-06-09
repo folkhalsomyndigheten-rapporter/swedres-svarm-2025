@@ -20,15 +20,12 @@ source("../../_common.R")
 status(type = "polishing")
 ```
 
-::: {.callout-note appearance="simple" collapse="false"}
+::: {.callout-note appearance="simple" collapse="false" #infoc-mrsp}
 
 ## [In-focus]{.in-focus} - MRSP clonal populations in Swedish dogs and cats {.unnumbered}
 
 ### Methicillin-resistant *Staphylococcus pseudintermedius* (MRSP) clonal population structures in isolates from Swedish dogs and cats 
 
-<!---
-Methicillin-resistant *Staphylococcus pseudintermedius* (MRSP) clonal population structures in isolates from Swedish dogs and cats {.unnumbered}
---->
 
 *Staphylococcus pseudintermedius* is part of the normal microbiota in dogs. It is associated with infections in a variety of body sites, but primarily with dermatologic infections such as pyoderma, otitis externa and wound infections, from which it is the most commonly isolated pathogen. Carriage and infections with *S. pseudintermedius* are also known to occur in cats, as are human colonisation and infection, although the latter are less commonly reported [@moses2023human]. 
 

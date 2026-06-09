@@ -22,7 +22,7 @@ source("../../_common.R")
 status(type = "polishing")
 ```
 
-::: {.callout-note appearance="simple" collapse="false"}
+::: {.callout-note appearance="simple" collapse="false" #infoc-svarmpat}
 
 ## [In-focus]{.in-focus} - SvarmPat {.unnumbered #sec-svarmpat}
 
