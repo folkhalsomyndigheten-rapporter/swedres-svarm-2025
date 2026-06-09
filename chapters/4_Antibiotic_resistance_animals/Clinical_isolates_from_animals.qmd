@@ -24,7 +24,7 @@ status(type = "drafting")
 
 Isolates tested are from clinical submissions of samples to SVA, if not otherwise stated. For many samples information on the indication for sampling was not available but the vast majority of submissions were likely from animals with infections. Therefore, data may be biased towards samples from treated animals or from herds where antibiotic treatment is common. Any assessments of trends are based on the assumption that this bias is inherent throughout the observation period. Furthermore, in some cases there are more than one animal sampled from the same herd. Likewise, regarding horses, dogs and cats, duplicates based on animal identity have not been excluded. 
 
-In Svarm, isolates are, when possible, classified as susceptible or resistant by ECOFFs issued by EUCAST (see @sec-NEEDS-TO-BE-ADDED-WHEN-SECTION-IS-READY Guidance for readers for details). This classifies isolates with acquired reduced susceptibility as resistant, which is relevant for monitoring purposes, but it should be understood that this does not always imply clinical resistance.
+In Svarm, isolates are, when possible, classified as susceptible or resistant by ECOFFs issued by EUCAST (see @sec-g4r Guidance for readers for details). This classifies isolates with acquired reduced susceptibility as resistant, which is relevant for monitoring purposes, but it should be understood that this does not always imply clinical resistance.
 
 ### Pigs {#sec-clinical-pigs}
 #### *Escherichia coli* 
@@ -404,7 +404,7 @@ dat_46_long |>
 
 #### *Actinobacillus pleuropneumoniae*
 
-Isolates of *Actinobacillus pleuropneumoniae* are mostly from post-mortem investigations of lungs. Isolates from 2024 and 2025 were included in the MIC distribution. From 2024, seventeen isolates were collected in a SvarmPat project (see @sec-crossref-InFocusSvarmPat-WillBeFixedLater) where acute lesions in lungs and pericardium were sampled at slaughter. Data from 2025 and back to 2005 show that the resistance situation is favourable and almost no resistance has been detected to tested antibiotics including penicillin during this period (@tbl-413). Since pneumonia caused by *A. pleuropneumoniae* is an important disease in pigs, sampling and susceptibility testing is desirable if emerging resistance is to be detected early. For treatment of *Actinobacillus pleuropneumoniae* with MICs within the wild type distribution of penicillin (MIC 0.12 – 0.5 mg/L), increased exposure to penicillin is required [@medical2022dosage]. Exposure includes e.g. administration route, dose, and dosing interval. 
+Isolates of *Actinobacillus pleuropneumoniae* are mostly from post-mortem investigations of lungs. Isolates from 2024 and 2025 were included in the MIC distribution. From 2024, seventeen isolates were collected in a SvarmPat project (see @sec-svarmpat) where acute lesions in lungs and pericardium were sampled at slaughter. Data from 2025 and back to 2005 show that the resistance situation is favourable and almost no resistance has been detected to tested antibiotics including penicillin during this period (@tbl-413). Since pneumonia caused by *A. pleuropneumoniae* is an important disease in pigs, sampling and susceptibility testing is desirable if emerging resistance is to be detected early. For treatment of *Actinobacillus pleuropneumoniae* with MICs within the wild type distribution of penicillin (MIC 0.12 – 0.5 mg/L), increased exposure to penicillin is required [@medical2022dosage]. Exposure includes e.g. administration route, dose, and dosing interval. 
 
 ::: {.panel-tabset}
 ###### Table
@@ -437,7 +437,7 @@ df |>
 
 #### *Pasteurella multocida* 
 
-Clinical isolates of *Pasteurella multocida* are mostly from the respiratory tract. Eight of the isolates from 2024 were collected in a SvarmPat project (see @sec-crossref-InFocusSvarm-WillBeFixedLater) where acute lesions in lungs and pericardium were sampled at slaughter. All tested isolates were susceptible to relevant antibiotics including penicillin, however three isolates were resistant to trimetoprim-sulphamethoxazole (@tbl-414).  
+Clinical isolates of *Pasteurella multocida* are mostly from the respiratory tract. Eight of the isolates from 2024 were collected in a SvarmPat project (see @sec-svarmpat) where acute lesions in lungs and pericardium were sampled at slaughter. All tested isolates were susceptible to relevant antibiotics including penicillin, however three isolates were resistant to trimetoprim-sulphamethoxazole (@tbl-414).  
 
 ::: {.panel-tabset}
 ###### Table
@@ -1237,7 +1237,7 @@ As in previous years, resistance to ampicillin was the most common trait in 2025
 
 Eighty percent (679/846) of the isolates were susceptible to all the tested antibiotics, and the proportion of multiresistance was 4% (35/846). Fifty-one percent (18/35) of the multiresistant isolates were resistant to three antibiotics, 14% (5/35) to four, and 11% (4/35) to five antibiotics. 
 
-For comparison of resistance in *E. coli* of different origin see @sec-NEEDS-TO-BE-ADDED-WHEN-SECTION-IS-READY "Comparative analysis". The most common phenotype, resistance to ampicillin, tetracycline and trimethoprim-sulphamethoxazole, was detected in 65% (23/35) of the multiresistant isolates. Of the eleven isolates resistant to four or more antibiotics, all but one had this phenotype.
+For comparison of resistance in *E. coli* of different origin see @sec-ca "Comparative analysis". The most common phenotype, resistance to ampicillin, tetracycline and trimethoprim-sulphamethoxazole, was detected in 65% (23/35) of the multiresistant isolates. Of the eleven isolates resistant to four or more antibiotics, all but one had this phenotype.
 
 Seventeen (2%) of the *E. coli* isolates were resistant to cefotaxime (MIC >0.25mg/L), and all were available for further testing. Genes conferring transferable ESC resistance were detected in four of the isolates. All four carried the gene *bla*~CTX-M-15~. For more information about ESBL-producing Enterobacterales isolated from dogs in Sweden, see “Notifiable diseases” ESBL-producing Enterobacterales. One of the isolates was resistant to colistin (MIC >2mg/L) but negative in PCR analysis of the *mcr-1* to *mcr-9* genes. None of the isolates were resistant to meropenem (MIC>0.12mg/L). 
 
@@ -1439,7 +1439,7 @@ At SVA, it is possible to request antibiotic susceptibility testing of bacteria 
 
 It has been suggested by EUCAST that ECOFFs could be used to exclude acquired resistance to topical agents. They acknowledge that such an approach might underestimate the activity of the agents in some cases. However, it will at least demonstrate the presence of phenotypically detectable resistance mechanisms, which may result in a higher probability of clinical failure. Therefore, when bacteria are tested against substances for topical treatment at SVA, the breakpoints for interpretation are either EUCAST ECOFFs or, when no ECOFF is available, based on MIC distributions in Swedres-Svarm or other publications. As pharmacokinetic data have not been taken into consideration, the interpretation cannot be applied for systemic treatment. 
 
-Some combinations of antibiotic substance and bacterial species are not reported to the clinician for systemic treatment. For example, gentamicin for *Pasteurella* spp. or streptococci, and fusidic acid for streptococci. This is because it is not possible to reach therapeutic concentrations systemically against these bacteria, whereas the concentration at the site of the infection is much higher with topical treatment. Furthermore, some substances, such as chloramphenicol and tobramycin, are not tested for systemic treatment because they are only used for topical treatment. Occurrence of resistance varies among bacterial species and substances. However, in most cases, there are products available on the Swedish market that would be effective if topical antibiotic treatment is considered necessary. See @sec-crossref-InFocusTopicals-WillBeFixedLater. 
+Some combinations of antibiotic substance and bacterial species are not reported to the clinician for systemic treatment. For example, gentamicin for *Pasteurella* spp. or streptococci, and fusidic acid for streptococci. This is because it is not possible to reach therapeutic concentrations systemically against these bacteria, whereas the concentration at the site of the infection is much higher with topical treatment. Furthermore, some substances, such as chloramphenicol and tobramycin, are not tested for systemic treatment because they are only used for topical treatment. Occurrence of resistance varies among bacterial species and substances. However, in most cases, there are products available on the Swedish market that would be effective if topical antibiotic treatment is considered necessary. See @infoc-salestopical. 
 
 #### *Staphylococcus pseudintermedius* - **susceptibility test for topical treatment** 
 
