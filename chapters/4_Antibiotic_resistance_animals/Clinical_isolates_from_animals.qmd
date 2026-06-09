@@ -24,7 +24,7 @@ status(type = "drafting")
 
 Isolates tested are from clinical submissions of samples to SVA, if not otherwise stated. For many samples information on the indication for sampling was not available but the vast majority of submissions were likely from animals with infections. Therefore, data may be biased towards samples from treated animals or from herds where antibiotic treatment is common. Any assessments of trends are based on the assumption that this bias is inherent throughout the observation period. Furthermore, in some cases there are more than one animal sampled from the same herd. Likewise, regarding horses, dogs and cats, duplicates based on animal identity have not been excluded. 
 
-In Svarm, isolates are, when possible, classified as susceptible or resistant by ECOFFs issued by EUCAST (see @sec-NEEDS-TO-BE-ADDED-WHEN-SECTION-IS-READY Guidance for readers for details). This classifies isolates with acquired reduced susceptibility as resistant, which is relevant for monitoring purposes, but it should be understood that this does not always imply clinical resistance.
+In Svarm, isolates are, when possible, classified as susceptible or resistant by ECOFFs issued by EUCAST (see @sec-g4r Guidance for readers for details). This classifies isolates with acquired reduced susceptibility as resistant, which is relevant for monitoring purposes, but it should be understood that this does not always imply clinical resistance.
 
 ### Pigs {#sec-clinical-pigs}
 #### *Escherichia coli* 
