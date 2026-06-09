@@ -8,7 +8,7 @@ toc: true
 #| warning: false
 #| message: false
 source("../_common.R")
-status(type = "polishing")
+status(type = "ready2publish")
 ```
 
 
@@ -63,13 +63,13 @@ Den totala mängden antibiotika som såldes i Sverige minskade med 2,8 procent u
 
 ### Öppenvård 
 
-Antalet antibiotikarecept som hämtades ut på apotek under året låg på 256 recept per 1 000 invånare, en minskning med 5,7 procent jämfört med 2024. Bland landets 21 regioner uppnådde 9 regioner det nationella målet på högst 250 recept per 1 000 invånare. Försäljningen minskade i samtliga åldersgrupper, mest i gruppen barn i åldern 5–14 år där den minskade med 22,4 procent jämfört med året innan.  
+Antalet antibiotikarecept som hämtades ut på apotek under året låg på 256 recept per 1 000 invånare, en minskning med 5,7 procent jämfört med 2024. Bland landets 21 regioner uppnådde 9 regioner det nationella målet på högst 250 recept per 1 000 invånare. Försäljningen minskade i samtliga åldersgrupper, mest i gruppen barn i åldern 5–14 år där den minskade med 22 procent jämfört med året innan.  
 
 Försäljningen av antibiotika på recept inom tandvården minskade med 2,6 procent under 2025 jämfört med året innan, och utgör 7,0 procent av alla uthämtade antibiotikarecept under året. Sedan år 2007 har antibiotikaförsäljningen inom tandvården minskat med nästan hälften. 
 
 ### Sjukhus och andra vårdformer 
 
-Den totala försäljningen av antibiotika på rekvisition till vårdinrättningar ökade under 2025 med 2,5 procent jämfört med 2024. Försäljningen ökade i 13 av 21 regioner under samma period. Liksom tidigare år fanns stora regionala variationer i försäljningen av antibiotika på rekvistion. 
+Den totala försäljningen av antibiotika på rekvisition till vårdinrättningar ökade under 2025 med 2,5 procent jämfört med 2024. 
 
 ### Antibiotikaförsäljning inom veterinärmedicin 
 
@@ -81,7 +81,7 @@ Den totala försäljningen av antibiotika för djur har minskat med över två t
 
 ### Jämförelse av försäljning inom human- och veterinärmedicin 
 
-Under 2025 såldes 61,7 ton antibiotika för behandling av människor och 9,0 ton för behandling av djur (inkluderar inte produkter för intramammärt eller intrauterint bruk). Uttryckt i relation till kroppsvikt (milligram aktiv substans per skattad kilogram biomassa) var försäljningen 86,5 milligram per kilogram för människor och 11,8 milligram per kilogram för djur.  
+Under 2025 såldes 62 ton antibiotika för behandling av människor och 9,0 ton för behandling av djur (inkluderar inte produkter för intramammärt eller intrauterint bruk). Uttryckt i relation till kroppsvikt (milligram aktiv substans per skattad kilogram biomassa) var försäljningen 86 milligram per kilogram för människor och 12 milligram per kilogram för djur.  
 
 ## Anmälningspliktig resistens 
 
@@ -167,7 +167,7 @@ Under året pågick åtta större sjukhusrelaterade utbrott med 10–37 fall var
 
 ## Resistens hos zoonotiska bakterier 
 
-Salmonella är ovanligt hos djur i Sverige och isolerade stammar är oftast känsliga för antibiotika. Resistens mot fluorokinoloner är ovanlig. Bland 108 isolat från djur 2025 var 85 procent känsliga för alla testade antibiotika. För salmonellaarter var resistensen bland faeces-och urinisolat från människor högst mot fluorokinoloner, 21 procent. Ingen resistens mot karbapenemer rapporterades bland Salmonella från djur. Salmonella från invasiva infektioner hos människor är mer resistenta än isolat från djur i Sverige. Detta beror troligen på att en stor andel av fallen hos människor är smittade utomlands eller via importerade livsmedel.  
+Salmonella är ovanligt hos djur i Sverige och isolerade stammar är oftast känsliga för antibiotika. Resistens mot fluorokinoloner är ovanlig. Bland 108 isolat från djur 2025 var 85 procent känsliga för alla testade antibiotika. För salmonellaarter var resistensen bland faeces-och urinisolat från människor högst mot fluorokinoloner, 21 procent. Ingen resistens mot karbapenemer rapporterades bland Salmonella från djur. Salmonella från invasiva infektioner hos människor är mer ofta resistenta än isolat från djur i Sverige. Detta beror troligen på att en stor andel av fallen hos människor är smittade utomlands eller via importerade livsmedel.  
 
 Campylobacter från djur i Sverige är oftast känsliga för relevanta antibiotika och exempelvis är resistens mot erytromycin mycket ovanligt. Hos *Campylobacter jejuni* från människor var resistensen mot ciprofloxacin 56 procent och mot tetracyklin 30 procent 2025. Resistensen mot erytromycin var 0,8 procent. 
 

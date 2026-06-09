@@ -19,7 +19,7 @@ source("../_common.R")
 status(type = "polishing")
 ```
 
-# Guidance for readers {#id-g4r .unnumbered}
+# Guidance for readers {.unnumbered #sec-g4r}
 
 The Swedres-Svarm report is the result of a cooperation between the Public Health Agency of Sweden and the Swedish Veterinary Agency with the aim to present data relating to both humans and animals on the sales of antibiotics and on antibiotic resistance in a joint report. 
 
@@ -86,7 +86,7 @@ The methods and breakpoints routinely used in Sweden are available at [www.nordi
 
 ### Svarm - Animals and food 
 
-Data on resistance in Svarm are from MIC determinations performed at the Swedish Veterinary Agency using broth microdilution following the standards of the Clinical and Laboratory Standards Institute [@CLSI2024a]. Results for isolates of zoonotic and indicator bacteria are interpreted according to ECOFFs from EUCAST ([www.eucast.org](https://www.eucast.org/){target="_blank"}). Clinical isolates from animals are generally classified by ECOFFs when such values are available. Interpretive criteria used are available as supplementary material on the [SVA] (https://www.sva.se/en/what-we-do/antibiotics/svarm-resistance-monitoring/supplementary-material/){target="_blank"} web page. 
+Data on resistance in Svarm are from MIC determinations performed at the Swedish Veterinary Agency using broth microdilution following the standards of the Clinical and Laboratory Standards Institute [@clsi2024a]. Results for isolates of zoonotic and indicator bacteria are interpreted according to ECOFFs from EUCAST ([www.eucast.org](https://www.eucast.org/){target="_blank"}). Clinical isolates from animals are generally classified by ECOFFs when such values are available. Interpretive criteria used are available as supplementary material on the [SVA](https://www.sva.se/en/what-we-do/antibiotics/svarm-resistance-monitoring/supplementary-material/){target="_blank"} web page. 
 
 ECOFFs classify isolates with acquired reduced susceptibility as non-wild type. In Svarm, non-wild type isolates are called “resistant”. This classification is relevant for monitoring purposes, but it should be understood that resistance defined in this manner not always implies clinical resistance. 
 

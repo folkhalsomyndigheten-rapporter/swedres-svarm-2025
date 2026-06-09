@@ -2,7 +2,6 @@
 format:
   html:
     embed-resources: false
-
 execute:
   cache: false
   echo: false
@@ -16,7 +15,7 @@ execute:
 #| warning: false
 #| message: false
 source("../../_common.R")
-status(type = "polishing")
+status(type = "ready2publish")
 ```
 
 ## Overview of surveillance systems and methods for antibiotic susceptibility testing
@@ -30,7 +29,6 @@ All surveillance of antibiotic resistance in Sweden relies on results from the c
 data <- load_from_excel(path_file = "data/Table_3.1.xlsx")
 
 df <- data$fig_data 
- 
 ```
 
 ::: panel-tabset
@@ -48,18 +46,15 @@ df |>
 ###### Data
 ```{r}
 df |> 
-  make_table_data_tab(file_name = "Table-3-1")
+  make_table_data_tab(file_name = "Table3-1")
 ```
 :::
 
 
 ### Indicators of antibiotic resistance
 
-Since 2020, the proportions of cefotaxime resistant *Escherichia coli* (ESBL) and methicillin-resistant *Staphylococcus aureus* (MRSA) in blood isolates have been used as indicators for antibiotic resistance in Sweden. In 2023, the EU Council issued recommendations on tackling AMR. Targets to be reached by 2030 were set for each member state. Sweden’s targets, as described in the Council recommendation, include a 3% reduction of the incidence of MRSA sepsis, a 10% reduction for the incidence of ESBL-producing *E. coli* sepsis and an unchanged incidence of carbapenem resistant *Klebsiella pneumoniae* sepsis, compared to 2019. Considering the observed trends for the indicators used since 2020, these are ambitious targets.
-The proportion of cefotaxime-resistant *E. coli* (ESBL) and methicillin-resistant *Staphylococcus aureus* (MRSA) in blood isolates have gradually increased over the last decade, reaching 9.0% and 2.4% respectively 2025 (@fig-ny-indicators). 
-
-
-
+Since 2020, the proportions of cefotaxime resistant *Escherichia coli* (ESBL) and methicillin-resistant *Staphylococcus aureus* (MRSA) in blood isolates have been used as indicators for antibiotic resistance in Sweden. In 2023, the EU Council issued recommendations on tackling AMR. Targets for 2030 were set for each member state. Sweden’s targets, as described in the Council recommendation, include a 3% reduction of the incidence of MRSA sepsis, a 10% reduction for the incidence of ESBL-producing *E. coli* sepsis and an unchanged incidence of carbapenem resistant *Klebsiella pneumoniae* sepsis, compared to 2019. Considering the observed trends for the indicators used since 2020, these are ambitious targets.
+The proportion of cefotaxime-resistant *E. coli* (ESBL) and methicillin-resistant *Staphylococcus aureus* (MRSA) in blood isolates have gradually increased over the last decade, reaching 9.0% and 2.4% in 2025, respectively (@fig-ny-indicators). 
 
 
 ```{r}
@@ -68,7 +63,6 @@ The proportion of cefotaxime-resistant *E. coli* (ESBL) and methicillin-resistan
 data <- load_from_excel(path_file = "data/Figure_ny_Indicators.xlsx")
 
 df <- data$fig_data |>  
-  # mutate(across(everything(), as.character)) |>
   rename(antibiotic = Antibiotic) |> 
   pivot_longer(cols = -antibiotic, names_to = "year", values_to = "r_perc")
 ```
@@ -94,13 +88,11 @@ p <- df |>
   geom_line_interactive(aes(group=antibiotic, tooltip=tooltip_l),
                         lwd=0.5) +
   geom_point_interactive(aes(tooltip = tooltip_p),
-                         #size=.5,
                          hover_nearest = TRUE) +
   
   scale_x_discrete(expand = c(0,0.2)) +
-  scale_y_continuous(breaks = perc_25,#scales::pretty_breaks(),
+  scale_y_continuous(breaks = perc_25,
                      limits = c(0,25)) +
-  
   labs(x="Year",
        y="Resistance (%)") +
   scale_color_SweSva() +
@@ -109,18 +101,17 @@ p <- df |>
   theme_SweSva_rotate()
 
 make_dynamic_plot(plot = p, 
-                  filename = "fig-ny-indicators")
+                  filename = "Fig3-1")
 ```
 ###### Data
 ```{r}
 df |> 
-  make_table_data_tab(file_name = "fig-ny-indicators")
+  make_table_data_tab(file_name = "Fig3-1")
 ```
 :::
 
 
 
-@fig-3-10 is Figure_3-10_indicator_Eco
 
 ```{r}
 #| message: false
@@ -128,7 +119,6 @@ df |>
 data <- load_from_excel(path_file = "data/Figure_3.10_indicator_Eco.xlsx")
 
 df <- data$fig_data |>  
-  # mutate(across(everything(), as.character)) |>
   pivot_longer(cols = -gender, names_to = "year", values_to = "r_perc")|> 
   mutate(year = as.numeric(year))
 ```
@@ -166,23 +156,18 @@ p <- df |>
        y="Resistance (%)") +
   scale_color_SweSva() +
   theme_SweSva() +
-  add_fohm_caption() #+
-#theme_SweSva_rotate()
+  add_fohm_caption()
 
 make_dynamic_plot(plot = p, 
-                  filename = "fig-3-10")
+                  filename = "Fig3-2")
 ```
 
 ###### Data
 ```{r}
 df |> 
-  make_table_data_tab(file_name = "Fig3-10")
+  make_table_data_tab(file_name = "Fig3-1")
 ```
 :::
-
-
-
-@fig-3-17 is Figure_3-17_Indicator_Sau
 
 
 ```{r}
@@ -191,7 +176,6 @@ df |>
 data <- load_from_excel(path_file = "data/Figure_3.17_Indicator_Sau.xlsx")
 
 df <- data$fig_data |>  
- # mutate(across(everything(), as.character)) |>
   pivot_longer(cols = -gender, names_to = "year", values_to = "r_perc") |> 
   mutate(year = as.numeric(year))
 ```
@@ -206,7 +190,7 @@ df <- data$fig_data |>
 p <- df |>
   mutate(data_id = row_number(),
          tooltip_l = glue::glue('{gender}'),
-         tooltip_p  = glue::glue('<b>Yearr:</b> {year}
+         tooltip_p  = glue::glue('<b>Year:</b> {year}
          <b>Gender:</b> {gender}
                                    <b>Resistance:</b> {round(r_perc,2)}% ')) |>
   ggplot(aes(x= factor(year),
@@ -228,23 +212,20 @@ p <- df |>
   add_fohm_caption()
 
 make_dynamic_plot(plot = p, 
-                  filename = "fig-indicators-Sau")
+                  filename = "Fig3-3")
 ```
 ###### Data
 ```{r}
 df |> 
-  make_table_data_tab(file_name = "fig-indicators-Sau")
+  make_table_data_tab(file_name = "Fig3-3")
 ```
 :::
 
 
-
-
 ### Notifiable diseases
 
-Four types of antibiotic resistance in bacteria are included in the Swedish Communicable Diseases Act. These are *Staphylococcus aureus* resistant to methicillin (MRSA), *Streptococcus pneumoniae* resistant to penicillin (PRP), *Enterococcus faecalis* and *Enterococcus faecium* resistant to vancomycin (vanA or vanB, VRE), and Enterobacterales with ESBL (including AmpC) or ESBL~CARBA~. However, ESBL and ESBL~CARBA~ are reported separately. As in previous years, the notifications of ESBL have greatly exceeded the other three  (@fig-3-1 and @tbl-3-2).
+Four types of antibiotic resistance in bacteria are included in the Swedish Communicable Diseases Act. These are *Staphylococcus aureus* resistant to methicillin (MRSA), *Streptococcus pneumoniae* resistant to penicillin (PRP), *Enterococcus faecalis* and *Enterococcus faecium* resistant to vancomycin (vanA or vanB, VRE) and Enterobacterales with ESBL (including AmpC) or ESBL~CARBA~. However, ESBL and ESBL~CARBA~ are reported separately. As in previous years, the notifications of ESBL have greatly exceeded the other three  (@fig-3-1 and @tbl-3-2).
 
-@fig-3-1 is Figure_3.1_number_resported_cases
 
 ::: panel-tabset
 ```{r}
@@ -274,47 +255,34 @@ p <- df |>
              fill=as.factor(year),
              data_id = data_id)) +
   geom_col_interactive(aes(tooltip = tooltip_b),width = 0.5, position = position_dodge(0.7)) +
-  #geom_bar_interactive(aes(tooltip = tooltip_b, width = .8),
-  #         position="dodge", stat="identity") +
   labs(x=NULL,
        y = "Number of cases") +
       scale_y_continuous(expand = c(0,0),
                          labels = scales::label_number(),
-                         limits=c(0,round(max(df$value)*1.2,-2))) +
-#theme(axis.text.y = element_text(hjust=0))+
-#  scale_y_continuous(expand=c(0,.1)) +
-  #scale_fill_fohm() +
+                         limits=c(0,16000)) +
   scale_fill_SweSva() + 
-  scale_x_discrete(expand=c(0,0.2),
-                   #breaks = c("ESBL","ESBLCARBA","MRSA","PRP","VRE"),
-                   #labels =  c("ESBL","ESBL~CARBA~","MRSA","PRP","VRE")
-                   ) +
-    
+  scale_x_discrete(expand=c(0,0.2)) +
   theme_SweSva(markdown = c("axis.text.x")) +
-  #theme(axis.text.x = ggtext::element_markdown()) +
-  #theme(axis.text.y = element_text(hjust=1)) +
   add_fohm_caption() 
 
-
-make_dynamic_plot(plot = p, filename = "Fig3-1")
+make_dynamic_plot(plot = p, filename = "Fig3-4")
 ```
 ###### Data
 ```{r}
 df |> 
   rename("Notifiable resistance" = feature,
          "Number of cases" = value) |> 
-  make_table_data_tab(file_name = "Fig3-1")
+  make_table_data_tab(file_name = "Fig3-4")
 ```
 :::
 
-@tbl-3-2 is Table3.2_summary_mandatory_reported
+
 ```{r}
 #| message: false
 #| warning: false
 data <- load_from_excel(path_file = "data/Table_3.2_summary_mandatory_reported.xlsx")
 
-df <- data$fig_data# |> 
-  #mutate(across(c(2:3), as.numeric))
+df <- data$fig_data
 ```
 
 ::: panel-tabset
@@ -337,7 +305,7 @@ df |>
 
 #### Voluntary surveillance based on clinical samples
 
-This surveillance is based on data collected from the regional clinical microbiology laboratories. Since 2015, all data on clinical isolates from humans have been collected through Svebar, an automated surveillance system that collects all culture results from participating clinical microbiology laboratories. Currently, 23 laboratories submit data to Svebar (May 2026). It is not possible to deduplicate data from Svebar since personal identification numbers are not included in the system. Consequently, duplicate findings from blood and other samples are included. Patients with highly resistant isolates tend to be sampled more frequently, which may lead to an overestimate of resistance levels in certain analyses (@tbl-3-3). Most antibiotic resistance levels presented in this report are based on non-selective susceptibility testing data from at least five laboratories, thus avoiding bias from hierarchical testing and regional differences. When data presented are based on selective testing, this will be indicated in the graphs and tables. The 95% confidence intervals are presented in all figures presenting resistance data. 
+This surveillance is based on data collected from the regional clinical microbiology laboratories. Since 2015, all data on clinical isolates from humans have been collected through Svebar, an automated surveillance system that collects all culture results from participating clinical microbiology laboratories. Currently, 23 laboratories submit data to Svebar (May 2026). It is not possible to deduplicate data from Svebar since personal identification numbers are not included in the system. Consequently, duplicate findings from blood and other samples are included. Patients with highly resistant isolates tend to be sampled more frequently, which may lead to an overestimate of resistance levels in certain analyses (@tbl-3-3). Most antibiotic resistance levels presented in this report are based on non-selective susceptibility testing data from at least five laboratories, thus avoiding bias from hierarchical testing and regional differences. When the data presented are based on selective testing, this will be indicated in the graphs and tables. The 95% confidence intervals are presented in all figures presenting resistance data. 
 
 Data from Svebar are used for reporting both to EARS-Net (an ECDC surveillance system) and to GLASS (a WHO surveillance system). Prior to 2015, ResNet, a national surveillance programme on antibiotic resistance, was used to collect data. From 2015 and onwards, these yearly data are based on SIR reported by the clinical microbiology laboratories to Svebar.
 
@@ -350,8 +318,7 @@ Data from Svebar are used for reporting both to EARS-Net (an ECDC surveillance s
 data <- load_from_excel(path_file = "data/Table_3.3_coverage_Svebar.xlsx")
 
 df <- data$fig_data |> 
-   rename(Variable = Year)# |> 
-  #pivot_longer(cols = -cat, names_to = "year")
+   rename(Variable = Year)
  
 ```
 
@@ -368,19 +335,12 @@ df |>
 ###### Data
 ```{r}
 df |> 
-  make_table_data_tab(file_name = "Table-3-3")
+  make_table_data_tab(file_name = "Table3-3")
 ```
 :::
 
 
-
 ##### Microbiological characterisation programs
 
-The Public Health Agency of Sweden provides microbiological characterisation programs for verification and characterisation of isolates that participating laboratories send in. An overview is given in @tbl-3-1.
-
-
-
-
-
-
+The Public Health Agency of Sweden provides microbiological characterisation programmes for verification and characterisation of isolates that participating laboratories send in. An overview is given in @tbl-3-1.
 

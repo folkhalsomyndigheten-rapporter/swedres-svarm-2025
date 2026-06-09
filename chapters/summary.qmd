@@ -8,7 +8,7 @@ toc: true
 #| warning: false
 #| message: false
 source("../_common.R")
-status(type = "polishing")
+status(type = "ready2publish")
 ```
 
 # Summary {.unnumbered}
@@ -58,29 +58,29 @@ Furthermore, the occurrence of resistance among bacteria from animals has genera
 
 ### Antibiotic sales in human medicine
 
-The total amount of antibiotics sold in Sweden decreased by 2.8 percent in 2025 and now stands at 10.67 DDD per 1,000 inhabitants and day, which is approximately the same as the previous year. This includes all antibiotic sales in human medicine. It includes all antibiotics sold on prescription to individuals and on requisition to various healthcare facilities.
+The total amount of antibiotics sold in Sweden decreased by 2.8% in 2025 and now stands at 10.67 DDD per 1,000 inhabitants and day, which is approximately the same as the previous year. This includes all antibiotic sales in human medicine. It includes all antibiotics sold on prescription to individuals and on requisition to various healthcare facilities.
 
-### Primary care
+### Outpatient care
 
-The number of antibiotic prescriptions dispensed at pharmacies during the year was 256 prescriptions per 1,000 inhabitants, a decrease of 5.7 percent compared to 2024. Among the country's 21 regions, 9 regions achieved the national target of a maximum of 250 prescriptions per 1,000 inhabitants. Sales decreased in all age groups, most notably in the group of children aged 5–14 years, where it decreased by 22.4 percent compared to the previous year.
+The number of antibiotic prescriptions dispensed at pharmacies during the year was 256 prescriptions per 1,000 inhabitants, a decrease of 5.7% compared to 2024. Among the country's 21 regions, 9 regions achieved the national target of a maximum of 250 prescriptions per 1,000 inhabitants. Sales decreased in all age groups, most notably in the group of children aged 5–14 years, where it decreased by 22% compared to the previous year.
 
-Antibiotic sales on prescription in dental care decreased by 2.6 percent in 2025 compared to the previous year, accounting for 7.0 percent of all dispensed antibiotic prescriptions during the year. Since 2007, antibiotic sales in dental care have decreased by almost half.
+Antibiotic sales on prescription in dental care decreased by 2.6% in 2025 compared to the previous year, accounting for 7.0% of all dispensed antibiotic prescriptions during the year. Since 2007, antibiotic sales in dental care have decreased by almost half.
 
-### Hospitals and other forms of care
+### Inpatient care
 
-Total sales of antibiotics on requisition to healthcare facilities increased in 2025 by 2.5 percent compared to 2024. Sales increased in 13 out of 21 regions during the same period. As in previous years, there were large regional variations in the sales of antibiotics on requisition.
+Total sales of antibiotics on requisition to healthcare facilities increased in 2025 by 2.5% compared to 2024.  
 
 ### Antibiotic sales in veterinary medicine
 
-Sales of antibiotics for animals from pharmacies in Sweden amounted to 9,053 kilograms in 2025. Since 2016, sales of most antibiotic classes have decreased or remained stable. However, compared to previous years, sales of aminoglycosides have increased significantly since 2022, although the increase between 2024 and 2025 was more limited. The increase is explained by rising use of aminoglycosides for the treatment of post-weaning diarrhoea as a result of the withdrawal in 2022 of veterinary medicinal products with a high content of zinc oxide. Compared to 2024, sales of aminopenicillins also increased, mainly due to increased sales for poultry, and to a lesser extent for pigs, dogs, and cats.
+Sales of antibiotics for animals from pharmacies in Sweden amounted to 9,053 kilograms in 2025. Since 2016, sales of most antibiotic classes have decreased or remained stable. However, compared to previous years, sales of aminoglycosides have increased significantly since 2022, although the increase between 2024 and 2025 was more limited. The increase is explained by rising use of aminoglycosides for the treatment of post-weaning diarrhoea as a result of the withdrawal of veterinary medicinal products with a high content of zinc oxide in 2022. Compared to 2024, sales of aminopenicillins also increased, mainly due to increased sales for poultry, and to a lesser extent for pigs, dogs and cats.
 
-Of the total use in 2025, approximately 57 percent was narrow-spectrum penicillin. Sales of antibiotics that should be used particularly restrictively (fluoroquinolones, third-generation cephalosporins, and polymyxins) were already low in 2016 and have since decreased substantially. Over the same ten-year period, the proportion of products for the treatment of individual animals has been around or above 90 percent of total sales.
+Of the total use in 2025, approximately 57% was narrow-spectrum penicillin. Sales of antibiotics that should be used particularly restrictively (fluoroquinolones, third-generation cephalosporins and polymyxins) were already low in 2016 and have since decreased substantially. Over the same ten-year period, the proportion of products for the treatment of individual animals has been around or above 90% of total sales.
 
-Total sales of antibiotics for animals have decreased by more than two-thirds since 1986, when the use of growth-promoting antibiotics ceased. This is corrected for changes in the number of animals of different species over the years. In the 1990s, the use of antibiotics as medicines for entire animal groups decreased, and in the last two decades, there has also been a decrease in the use of antibiotics for the treatment of individual animals.
+Total sales of antibiotics for animals have decreased by more than two-thirds since 1986, when the use of growth-promoting antibiotics was prohibited. This includes a correction for changes in the number of animals of different species over the years. In the 1990s, the use of antibiotics as medicines for entire animal groups decreased, and in the last two decades, there has also been a decrease in the use of antibiotics for the treatment of individual animals.
 
 ### Comparison of sales in human and veterinary medicine
 
-In 2025, 61.7 tonnes of antibiotics were sold for the treatment of humans and 9.0 tonnes for the treatment of animals (excluding products for intramammary or intrauterine use). Expressed in relation to body weight (milligrams of active substance per estimated kilogram of biomass), sales were 86.5 milligrams per kilogram for humans and 11.8 milligrams per kilogram for animals.
+In 2025, 62 tonnes of antibiotics were sold for the treatment of humans and 9.0 tonnes for the treatment of animals (excluding products for intramammary or intrauterine use). Expressed in relation to body weight (milligrams of active substance per estimated kilogram of biomass), sales were 87 milligrams per kilogram for humans and 12 milligrams per kilogram for animals.
 
 
 
@@ -92,21 +92,21 @@ ESBL-producing Enterobacterales in humans have been notifiable since 2007. It is
 
 #### Results 2025, Enterobacterales with ESBL
 
-- Number of reported cases: 13,524 (previous year 12,527), relative change: 8.0 percent increase.
+- Number of reported cases: 13,524 (previous year 12,527), relative change: 8.0% increase.
 
-- Number of cases with blood poisoning: 1,149 (previous year 1,055).
+- Number of bloodstream infections: 1,149 (previous year 1,055).
 
-- As in previous years, *E. coli* was the most common species, at 83 percent, followed by *Klebsiella pneumoniae*, at 12 percent.
+- As in previous years, *E. coli* was the most common species at 83%, followed by *Klebsiella pneumoniae* at 12%.
 
-- The proportion of *E. coli* from blood cultures that were resistant to third-generation cephalosporins was 9.0 percent.
+- The proportion of *E. coli* from blood cultures that were resistant to third-generation cephalosporins was 9.0%.
 
 ### Results 2025, Enterobacterales with ESBL~CARBA~
 
-- Number of reported cases: 487 (previous year 410), relative change: 19 percent increase.
+- Number of reported cases: 487 (previous year 410), relative change: 19% increase.
 
-- Number of cases with blood poisoning: 36 (previous year 22).
+- Number of bloodstream infections: 36 (previous year 22).
 
-- *E. coli* was the most common species, at 70 percent, followed by *K. pneumoniae*, at 25 percent.
+- *E. coli* was the most common species, at 70%, followed by *K. pneumoniae*, at 25%.
 
 - The number of *E. coli* from blood cultures that were resistant to meropenem was 8 out of 10,571, compared to 5 out of 10,499 in 2024.
 
@@ -116,7 +116,7 @@ Seventy-five clusters, with between two and twenty-one cases each, have been ide
 
 Bacteria that produce ESBL are not notifiable when found in animals. Such bacteria are generally rare in animals in Sweden. Previously, the occurrence in broilers was high, but it has decreased in recent years. In 2025, the occurrence of ESBL-producing *E. coli* was investigated in faecal samples from slaughter pigs and broilers, as well as in meat samples from pigs and cattle, using selective methods.
 
-Such bacteria were found in 2 percent of the faecal samples from slaughter pigs and <1 percent of the meat samples from pork and beef, but not in any of the samples from faecal samples from broilers.
+Such bacteria were found in 2% of the faecal samples from slaughter pigs and <1% of the meat samples from pork and beef, but not in any of the samples from faecal samples from broilers.
 
 Bacteria that produce ESBL~CARBA~ have not been confirmed in domestic animals in Sweden.
 
@@ -124,22 +124,22 @@ Bacteria that produce ESBL~CARBA~ have not been confirmed in domestic animals in
 
 ### *Staphylococcus aureus* resistant to meticillin (MRSA), humans
 
-Community-acquired infection has long been the most common type in humans infected with MRSA in Sweden, accounting for half of the cases. Family/household transmission and community-acquired infection accounted for 25 percent and 23 percent of cases, respectively.
+Community-acquired infection has long been the most common type in humans infected with MRSA in Sweden, accounting for half of the cases. Family/household transmission and community-acquired infection accounted for 25% and 23% of cases, respectively.
 
 #### Results 2025
 
-- Number of reported cases: 4,147 (previous year 3,937), relative change: 5 percent increase.
+- Number of reported cases: 4,147 (previous year 3,937), relative change: 5% increase.
 
-- Number of cases with blood poisoning: 131 (previous year 123).
+- Number of bloodstream infections: 131 (previous year 123).
 
 ### *Staphylococcus aureus* resistant to meticillin (MRSA), animals
 
-During the year, MRSA was isolated from pigs in a study using selective culture methods and sporadically in clinical samples from dogs, horses, and cats. The occurrence in pigs is insufficiently investigated, but in a study with sampling of slaughter pigs at the abattoir and selective culture methods, MRSA was detected in 29 percent of the tested slaughter groups. How well this reflects the occurrence on farms is not known. In dogs and cats, the number of MRSA cases was 10 and 6, respectively. The types that dominate in these are the same as those found in humans, which suggests that humans are the source of infection. In horses, the number of MRSA cases was 7, which is lower than in 2020–21 (27 and 23 cases, respectively), when there were outbreaks of MRSA in equine hospitals.
+During the year, MRSA was isolated from pigs in a study using selective culture methods and sporadically in clinical samples from dogs, horses and cats. The occurrence in pigs is insufficiently investigated, but in a study with sampling of slaughter pigs at the abattoir and selective culture methods, MRSA was detected in 29% of the tested slaughter groups. How well this reflects the occurrence on farms is not known. In dogs and cats, the number of MRSA cases was 10 and 6, respectively. The types that dominate in these are the same as those found in humans, which suggests that humans are the source of infection. In horses, the number of MRSA cases was 7, which is lower than in 2020–21 (27 and 23 cases, respectively), when there were outbreaks of MRSA in equine hospitals.
 
 
 ### *Staphylococcus pseudintermedius* resistant to meticillin (MRSP), animals
 
-In 2025, the number of reported cases of meticillin-resistant *Staphylococcus pseudintermedius* (MRSP) in animals was at approximately the same level as in recent years. A total of 45 cases of MRSP were reported to the Swedish Board of Agriculture, of which 43 were from dogs, one from a cat, and one from a guinea pig. All isolates except one were available for further investigation. In the first few years after MRSP was found in animals in Sweden, almost all cases were of a certain sequence type (ST71). In recent years, more different sequence types have occurred (22 different in 2025), with ST551 being the most common.
+In 2025, the number of reported cases of meticillin-resistant *Staphylococcus pseudintermedius* (MRSP) in animals was at approximately the same level as in recent years. A total of 45 cases of MRSP were reported to the Swedish Board of Agriculture, of which 43 were from dogs, one from a cat and one from a guinea pig. All isolates except one were available for further investigation. In the first few years after MRSP was found in animals in Sweden, almost all cases were of a certain sequence type (ST71). In recent years, a greater variety of sequence types have emerged (22 different types in 2025), with ST551 being the most common.
 
 MRSP is not notifiable when found in humans.
 
@@ -148,9 +148,9 @@ MRSP is not notifiable when found in humans.
 
 #### Results 2025
 
-- Number of reported cases: 211 (previous year 148), relative change: 43 percent increase.
+- Number of reported cases: 211 (previous year 148), relative change: 43% increase.
 
-- Number of cases with blood poisoning: 13 (previous year 12).
+- Number of bloodstream infections: 13 (previous year 12).
 
 
 ### *Enterococcus faecium* and *Enterococcus faecalis* resistant to vancomycin (VRE), humans
@@ -159,24 +159,24 @@ The number of VRE cases varies greatly from year to year, depending on how many 
 
 #### Results 2025
 
-- Number of reported cases: 516 (previous year 390), relative change: 32 percent increase.
+- Number of reported cases: 516 (previous year 390), relative change: 32% increase.
 
-- Number of reported cases of *E. faecium* with vancomycin resistance: 502 (previous year 372), relative change: 35 percent increase.
+- Number of reported cases of *E. faecium* with vancomycin resistance: 502 (previous year 372), relative change: 35% increase.
 
 - Number of reported cases of *E. faecalis* with vancomycin resistance: 14 (previous year 18).
 
 - Eight cases of VRE were reported with both *E. faecium* and *E. faecalis*.
 
-- Number of cases with blood poisoning: 10 (previous year 6).
+- Number of bloodstream infections: 10 (previous year 6).
 
 During the year, there were eight major hospital-related outbreaks with 10–37 cases each. In addition, twenty-nine outbreaks with 2–5 cases each were reported.
 
 
 ## Resistance in zoonotic bacteria
 
-*Salmonella* is rare in animals in Sweden, and isolated strains are usually susceptible to antibiotics. Resistance to fluoroquinolones is rare. Among 108 isolates from animals in 2025, 85 percent were susceptible to all tested antibiotics. For *Salmonella* species, resistance among faecal and urine isolates from humans was highest for fluoroquinolones, at 21 percent. No resistance to carbapenems was reported among *Salmonella* from animals. *Salmonella* from invasive infections in humans are more resistant than isolates from animals in Sweden. This is probably because a large proportion of cases in humans are infected abroad or through imported food.
+*Salmonella* is rare in animals in Sweden, and isolated strains are usually susceptible to antibiotics. Resistance to fluoroquinolones is rare. Among 108 isolates from animals in 2025, 85% were susceptible to all tested antibiotics. For *Salmonella* species, resistance among faecal and urine isolates from humans was highest for fluoroquinolones, at 21%. No resistance to carbapenems was reported among *Salmonella* from animals. *Salmonella* from invasive infections in humans are more often resistant than isolates from animals in Sweden. This is probably because a large proportion of cases in humans are infected abroad or through imported food.
 
-*Campylobacter* from animals in Sweden are usually susceptible to relevant antibiotics, and resistance to erythromycin is very rare. In *Campylobacter jejuni* from humans, resistance to ciprofloxacin was 56 percent and to tetracycline 30 percent in 2025. Resistance to erythromycin was 0.8 percent.
+*Campylobacter* from animals in Sweden are usually susceptible to relevant antibiotics, and resistance to erythromycin is very rare. In *Campylobacter jejuni* from humans, resistance to ciprofloxacin was 56% and to tetracycline was 30% in 2025. Resistance to erythromycin was 0.8%.
 
 Infections caused by *Salmonella* or *Campylobacter* are generally not treated with antibiotics in either humans or animals. In humans, resistance is therefore only determined for a small proportion of isolates, most of which concern serious infections.
 
@@ -185,26 +185,26 @@ Infections caused by *Salmonella* or *Campylobacter* are generally not treated w
 
 All data for these compilations are collected automatically via Svebar, a collaboration between the clinical microbiology laboratories and the Public Health Agency of Sweden.
 
-- *E. coli*: Resistance in blood isolates to ceftazidime and cefotaxime was 8.1 and 9.0 percent, respectively. Resistance to ciprofloxacin was 15 and 12 percent in isolates from blood and urine, respectively, an important consideration when choosing empirical treatment for febrile urinary tract infections.
+- *E. coli*: Resistance in blood isolates to ceftazidime and cefotaxime was 8.1% and 9.0%, respectively. Resistance to ciprofloxacin was 15% and 12% in isolates from blood and urine, respectively, an important consideration when choosing empirical treatment for febrile urinary tract infections.
 
-- In the age and gender distribution of results for *E. coli* from urine, certain differences are seen between the groups. Particularly clear is the high ciprofloxacin resistance (16–20 percent) in men aged 20 and older.
+- In the age and gender distribution of results for *E. coli* from urine, certain differences are seen between the groups. Particularly clear is the high ciprofloxacin resistance (16–20%) in men aged 20 and older.
 
-- *K. pneumoniae*: Resistance in blood isolates to cefotaxime and ceftazidime was 11 percent for each antibiotic. As with *E. coli*, resistance to ciprofloxacin is now relatively high, at 15 and 12 percent in isolates from blood and urine, respectively.
+- *K. pneumoniae*: Resistance in blood isolates to cefotaxime and ceftazidime was 11% for each antibiotic. As with *E. coli*, resistance to ciprofloxacin is now relatively high, at 15% and 12% in isolates from blood and urine, respectively.
 
-- *S. aureus*: Resistance to cefoxitin (which indicates MRSA) in isolates from blood has decreased to 2.4 percent, from 2.6 percent in 2024. For samples from skin and soft tissues, cefoxitin resistance was 2.9 percent.
+- *S. aureus*: Resistance to cefoxitin (which indicates MRSA) in isolates from blood has decreased to 2.4%, from 2.6% in 2024. For samples from skin and soft tissue, cefoxitin resistance was 2.9%.
 
-- *E. faecalis* and *E. faecium*: Vancomycin resistance in isolates from blood was 0.1 and 2.2 percent, respectively. For *E. faecium*, the increase in high-level aminoglycoside resistance has continued since 2022.
+- *E. faecalis* and *E. faecium*: Vancomycin resistance in isolates from blood was 0.1% and 2.2%, respectively. For *E. faecium*, the increase in high-level aminoglycoside resistance has continued since 2022.
 
-- The proportion of *S. pneumoniae* with penicillin resistance (PRP) from blood cultures was 8.0 percent.
+- The proportion of *S. pneumoniae* with penicillin resistance (PRP) from blood cultures was 8.0%.
 
 - *Clostridioides difficile*: The incidence has been relatively stable since 2018 and is now at 60 cases per 100,000 inhabitants and year. Antibiotic resistance was not investigated in 2025.
 
 
 ## Resistance in clinical isolates from animals
 
-Bacteria that cause disease in animals are still mostly susceptible to the antibiotics commonly used. For example, bacteria that cause respiratory infections in livestock and horses are generally susceptible to benzylpenicillin, but resistance occurs, for example, in *Pasteurella multocida* from calves. Penicillin resistance is, however, common in *Staphylococcus pseudintermedius* from dogs and occurs in *S. aureus* from horses and *Staphylococcus felis* from cats. Resistance in *E. coli* from different animal species also occurs and is most common in isolates from faecal samples from young pigs. Resistance testing is justified for the selection of appropriate antibiotics for treatment, especially for *E. coli* and *Brachyspira* spp.
+Bacteria that cause disease in animals are still mostly susceptible to commonly used antibiotics. For example, bacteria that cause respiratory infections in livestock and horses are generally susceptible to benzylpenicillin, but resistance occurs, for example, in *Pasteurella multocida* from calves. Penicillin resistance is, however, common in *Staphylococcus pseudintermedius* from dogs and occurs in *S. aureus* from horses and *Staphylococcus felis* from cats. Resistance in *E. coli* from different animal species also occurs and is most common in isolates from faecal samples from young pigs. Resistance testing is justified for the selection of appropriate antibiotics for treatment, especially for *E. coli* and *Brachyspira* spp.
 
 
 ## Indicator bacteria from healthy animals
 
-Resistance in *E. coli* in the intestinal flora of healthy animals can be used as an indicator of the spread of antibiotic resistance in the bacterial flora of an animal population and indirectly as an indicator of the extent of antibiotic use in animals. In Sweden, the occurrence of resistance in these indicator bacteria is low in most of the animal species investigated, and the situation is favourable from an international perspective. For example, 79 and 68 percent of *E. coli* from healthy broilers and slaughter pigs in the most recent surveys were susceptible to all tested substances.
+Resistance in *E. coli* in the intestinal flora of healthy animals can be used as an indicator of the spread of antibiotic resistance in the bacterial flora of an animal population and indirectly as an indicator of the extent of antibiotic use in animals. In Sweden, the occurrence of resistance in these indicator bacteria is low in most of the animal species investigated, and the situation is favourable from an international perspective. For example, 79% and 68% of *E. coli* from healthy broilers and slaughter pigs in the most recent surveys were susceptible to all tested substances.

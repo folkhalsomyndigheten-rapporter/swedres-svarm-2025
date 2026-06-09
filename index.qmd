@@ -68,7 +68,7 @@ SE-751 89 Uppsala, Sweden
 
 Phone: +46 (0) 18 67 40 00 
 
-E-mail: svarm@sva.se 
+E-mail: svarm@sva.se
 
 www.sva.se 
 
@@ -90,13 +90,6 @@ Swedres-Svarm 2025. Sales of antibiotics and occurrence of antibiotic resistance
     url       = {https://folkhalsomyndigheten-rapporter.github.io/swedres-svarm-2025}
 }
 ```
-
-
-
-
-ISSN2001-7901 
-
-Swedish Veterinary Agency article no. SVAKOM230.2024 
 
 **This title and Previous Swedres and Svarm reports are available for download at:** [www.sva.se/swedres-svarm](www.sva.se/swedres-svarm/){target="_blank"}
 

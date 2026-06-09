@@ -24,13 +24,13 @@ status(type = "polishing")
 
 ### *Neisseria gonorrhoeae*, mandatory reporting
 
-Gonorrhoea is a notifiable infection and in 2025, 4 268 cases (40.2 cases per 100 000 inhabitants) of gonococcal infections were reported to the Public Health Agency of Sweden. This represents a relatively stable incidence compared to 2024 (4 365 cases, 41.2 cases per 100 000 inhabitants). As in earlier years, most of the gonorrhoea cases in 2025 were identified in the three largest counties of Sweden, which comprise the cities Stockholm, Göteborg, and Malmö, respectively. Clinical isolates are in the present report described from the National Reference Laboratory for Sexually Transmitted Infections (an external body of the Public Health Agency of Sweden), Department of Laboratory Medicine, Clinical Microbiology, Örebro University Hospital, Örebro; Department of Clinical Microbiology, Karolinska University Hospital, Huddinge; Department of Clinical Microbiology, Umeå University Hospital, Umeå; and Clinical Microbiology, Infection Prevention and Control, Office for Medical Services, Lund, Sweden. In 2025, the antimicrobial susceptibility of 2 540 clinical *N. gonorrhoeae* isolates (one different per infection episode) is presented. 
+Gonorrhoea is a notifiable infection and in 2025, 4 268 cases (40.2 cases per 100 000 inhabitants) of gonococcal infections were reported to the Public Health Agency of Sweden. This represents a relatively stable incidence compared to 2024 (4 365 cases, 41.2 cases per 100 000 inhabitants). As in earlier years, most of the gonorrhoea cases in 2025 were identified in the three largest counties of Sweden, which comprise the cities Stockholm, Göteborg and Malmö, respectively. Clinical isolates  in the present report are described by the National Reference Laboratory for Sexually Transmitted Infections (an external body of the Public Health Agency of Sweden), Department of Laboratory Medicine, Clinical Microbiology, Örebro University Hospital, Örebro; Department of Clinical Microbiology, Karolinska University Hospital, Huddinge; Department of Clinical Microbiology, Umeå University Hospital, Umeå; and Clinical Microbiology, Infection Prevention and Control, Office for Medical Services, Lund, Sweden. In 2025, the antimicrobial susceptibility of 2 540 clinical *N. gonorrhoeae* isolates (one different per infection episode) is presented. 
 
-Antimicrobial susceptibility testing was performed according to standardised and quality assured methodology using Etest for MIC determination of ceftriaxone, cefixime, azithromycin, spectinomycin, ciprofloxacin, and tetracycline. The current clinical resistance breakpoints from the European Committee on Antimicrobial Susceptibility Testing were used for ceftriaxone, cefixime, ciprofloxacin, spectinomycin, and tetracycline. EUCAST does not state any clinical resistance breakpoint for azithromycin and in this report the EUCAST Epidemiological Cut-Off (ECOFF), distinguishing isolates with azithromycin resistance mechanisms, is instead used for azithromycin.
+Antimicrobial susceptibility testing was performed according to standardised and quality-assured methodology using Etest for MIC determination of ceftriaxone, cefixime, azithromycin, spectinomycin, ciprofloxacin and tetracycline. The current clinical resistance breakpoints from the European Committee on Antimicrobial Susceptibility Testing were used for ceftriaxone, cefixime, ciprofloxacin, spectinomycin and tetracycline. EUCAST does not state any clinical resistance breakpoint for azithromycin and in this report the EUCAST Epidemiological Cut-Off (ECOFF), distinguishing isolates with azithromycin resistance mechanisms, is instead used for azithromycin.
 
 
 
-Briefly, the level of resistance to ciprofloxacin remains very high (69% in 2025). The proportion of isolates above the azithromycin ECOFF (MIC>1 mg/L) was 26%, which represents an increase since 2024 (22%). The resistance to cefixime remained low, but it had doubled since 2024 (increased from 0.4% to 0.7%). For the fourth consecutive year since 2014, ceftriaxone-resistant cases (n=9) were identified in Sweden, and the resistance had increased from 0.1% in 2024 to 0.4% in 2025, which is a major concern. Ceftriaxone is the last remaining option for empirical antimicrobial monotherapy of gonorrhoea and it is a major concern if ceftriaxone-resistant strains will start to spread widely, which has been observed in especially some Asian countries such as Cambodia, China, Japan, and Vietnam. No gonococcal isolates resistant to spectinomycin have yet been detected in Sweden. However, the availability of spectinomycin can be limited (in Sweden as in most countries globally), and it is not suitable as monotherapy for pharyngeal gonorrhoea. Finally, the National Reference Laboratory for Sexually Transmitted Infections in Örebro also examined the susceptibility to tetracycline in 2025. This testing was initiated due to the interest of using doxycycline post-exposure prophylaxis (Doxy-PEP) against bacterial sexually transmitted infections (syphilis, chlamydia and gonorrhoea). The level of resistance to tetracycline was 54% (similar to 57% in 2024), which indicates that it is unlikely that Doxy-PEP will significantly reduce the incidence of gonorrhoea cases in Sweden (@tbl-3-13).    
+In short, the level of resistance to ciprofloxacin remains very high (69% in 2025). The proportion of isolates above the azithromycin ECOFF (MIC>1 mg/L) was 26%, which represents an increase since 2024 (22%). The resistance to cefixime remained low, but it had doubled since 2024 (increased from 0.4% to 0.7%). For the fourth consecutive year since 2014, ceftriaxone-resistant cases (n=9) were identified in Sweden, and the resistance had increased from 0.1% in 2024 to 0.4% in 2025, which is a major concern. Ceftriaxone is the last remaining option for empirical antimicrobial monotherapy of gonorrhoea and it is a major concern if ceftriaxone-resistant strains start to spread widely. For example, this has been observed in some Asian countries, such as Cambodia, China, Japan and Vietnam. No gonococcal isolates resistant to spectinomycin have yet been detected in Sweden. However, the availability of spectinomycin can be limited (in Sweden as in most countries globally), and it is not suitable as monotherapy for pharyngeal gonorrhoea. Finally, the National Reference Laboratory for Sexually Transmitted Infections in Örebro also examined the susceptibility to tetracycline in 2025. This testing was initiated due to the interest of using doxycycline post-exposure prophylaxis (Doxy-PEP) against bacterial sexually transmitted infections (syphilis, chlamydia and gonorrhoea). The level of resistance to tetracycline was 54% (similar to 57% in 2024), which indicates that it is unlikely that Doxy-PEP will significantly reduce the incidence of gonorrhoea cases in Sweden (@tbl-3-13).    
 
 
 
@@ -70,46 +70,6 @@ p <- df |>
                         lwd=.5) +
   geom_point_interactive(aes(tooltip=tooltip_p),
                          hover_nearest = TRUE) +
-  scale_y_continuous(expand = c(0,0),
-                     labels = perc_100,
-                     limits = c(0,100)) +
-  scale_x_discrete(expand=c(0,0.2)) +
-  
-  labs(y= "Resistance (%)",
-       x= "Year") +
-  guides(color=guide_legend(nrow=2),
-         #legend.text = element_text(size = 8)
-         ) +
-  scale_color_SweSva() + 
-  add_fohm_caption() +
-  theme_SweSva() +
-  theme(plot.subtitle = element_text(vjust = -15)) 
-
-make_dynamic_plot(plot = p, filename = "Fig3-X")
-```
-
-###### Additional Figure facet
-
-```{r}
-##| label: fig-3-ngon1
-#| fig-cap: !expr glue::glue("{data$fig_cap}")
-#| fig-alt: !expr glue::glue("{data$fig_alt}")
-#| warning: false
-p <- df |> 
-  mutate(data_id = row_number(),
-         tooltip_l = glue::glue('{antibiotic}'),
-         tooltip_p  = glue::glue('<b>Year:</b> {year}
-                                   <b>Antibiotic:</b> {antibiotic}
-                                   <b>Resistance:</b> {round(value,2)}%')) |> 
-  ggplot(aes(x=factor(year),
-             y=value,
-             color=antibiotic,
-             group=antibiotic, 
-             data_id = data_id)) +
-  geom_line_interactive(aes(tooltip=tooltip_l),
-                        lwd=.5) +
-  geom_point_interactive(aes(tooltip=tooltip_p),
-                         hover_nearest = TRUE) +
   #scale_y_continuous(expand = c(0,0),
   #                   labels = perc_100,
   #                   limits = c(0,100)) +
@@ -119,12 +79,10 @@ p <- df |>
        x= "Year") +
   guides(color=guide_legend(nrow=2),
          ) +
-  facet_grid(~hl) +
+  facet_wrap(~hl,scales="free_y") +
   ggh4x::facetted_pos_scales(y = list("high" = scale_y_continuous(limits=c(0,100)),
-                                      "low" = scale_y_continuous(limits=c(0,25)))) +
-    #ggh4x::facet_grid2(. ~ hl, scales = "free_y", independent = "y")
+                                      "low" = scale_y_continuous(limits=c(0,10)))) +
 
-  #facet_grid(~hl, scales="free")
   scale_color_SweSva() + 
   add_fohm_caption() +
   theme_SweSva() +
@@ -133,89 +91,10 @@ theme_SweSva_rotate() +
   theme(plot.subtitle = element_text(vjust = -15),
         strip.text = element_blank()) 
 
-make_dynamic_plot(plot = p, filename = "Fig3-X-facet")
+make_dynamic_plot(plot = p, filename = "Fig3-X")
 ```
 
-###### Additional Figure low
 
-```{r}
-##| label: fig-3-ngon1
-#| fig-cap: !expr glue::glue("{data$fig_cap}")
-#| fig-alt: !expr glue::glue("{data$fig_alt}")
-#| warning: false
-p <- df |> 
-  filter(hl=="low") |> 
-  mutate(data_id = row_number(),
-         tooltip_l = glue::glue('{antibiotic}'),
-         tooltip_p  = glue::glue('<b>Year:</b> {year}
-                                   <b>Antibiotic:</b> {antibiotic}
-                                   <b>Resistance:</b> {round(value,2)}%')) |> 
-  ggplot(aes(x=factor(year),
-             y=value,
-             color=antibiotic,
-             group=antibiotic, 
-             data_id = data_id)) +
-  geom_line_interactive(aes(tooltip=tooltip_l),
-                        lwd=.5) +
-  geom_point_interactive(aes(tooltip=tooltip_p),
-                         hover_nearest = TRUE) +
-  scale_y_continuous(expand = c(0,0),
-                     labels = perc_25,
-                     limits = c(0,25)) +
-  scale_x_discrete(expand=c(0,0.2)) +
-  
-  labs(y= "Resistance (%)",
-       x= "Year") +
-  guides(color=guide_legend(nrow=2),
-         ) +
-  scale_color_SweSva() + 
-  add_fohm_caption() +
-  theme_SweSva() +
-  theme(plot.subtitle = element_text(vjust = -15)) 
-
-make_dynamic_plot(plot = p, filename = "Fig3-X-low")
-```
-
-###### Additional Figure high
-
-```{r}
-#| fig-cap: !expr glue::glue("{data$fig_cap}")
-#| fig-alt: !expr glue::glue("{data$fig_alt}")
-#| warning: false
-p <- df |> 
-    filter(hl=="high") |> 
-
-  mutate(data_id = row_number(),
-         tooltip_l = glue::glue('{antibiotic}'),
-         tooltip_p  = glue::glue('<b>Year:</b> {year}
-                                   <b>Antibiotic:</b> {antibiotic}
-                                   <b>Resistance:</b> {round(value,2)}%')) |> 
-  ggplot(aes(x=factor(year),
-             y=value,
-             color=antibiotic,
-             group=antibiotic, 
-             data_id = data_id)) +
-  geom_line_interactive(aes(tooltip=tooltip_l),
-                        lwd=.5) +
-  geom_point_interactive(aes(tooltip=tooltip_p),
-                         hover_nearest = TRUE) +
-  scale_y_continuous(expand = c(0,0),
-                     labels = perc_100,
-                     limits = c(0,100)) +
-  scale_x_discrete(expand=c(0,0.2)) +
-  
-  labs(y= "Resistance (%)",
-       x= "Year") +
-  guides(color=guide_legend(nrow=2),
-         #legend.text = element_text(size = 8)
-         ) +
-  scale_color_SweSva() + 
-  add_fohm_caption() +
-  theme_SweSva() +
-  theme(plot.subtitle = element_text(vjust = -15)) 
-
-make_dynamic_plot(plot = p, filename = "Fig3-X-high")
-```
 ###### Data
 ```{r}
 df |> 

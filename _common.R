@@ -94,7 +94,7 @@ make_table_data_tab <- function(
     # Remove temporary columns
     dplyr::select(-contains(".tmp")) |> 
     # remoce all markdown character
-    mutate(across(everything(), ~ str_remove_all(., "\\\\|\\*|\\||<sub>|</sub>|~|<br>")))
+    mutate(across(everything(), ~ str_remove_all(., "\\\\|\\*|\\**|\\||<sub>|</sub>|~|<br>")))
   
   # Create the DT datatable with buttons and options
   dt_table <- datatable(
@@ -405,9 +405,13 @@ theme_SweSva <- function(text_size=11,
       axis.text.x = if (use_markdown("axis.text.x")) 
         ggtext::element_markdown(angle = 0, hjust = 0.5, size = text_size) 
       else ggplot2::element_text(angle = 0, hjust = 0.5, size = text_size),
+      #axis.text.y = if (use_markdown("axis.text.y")) 
+      #  ggtext::element_markdown(angle = 0, size = text_size,hjust=1) 
+      #else ggplot2::element_text(angle = 0, size = text_size),
+      
       axis.text.y = if (use_markdown("axis.text.y")) 
-        ggtext::element_markdown(angle = 0, size = text_size,hjust=1) 
-      else ggplot2::element_text(angle = 0, size = text_size),
+        ggtext::element_markdown(angle = 0, size = text_size, hjust = 1, margin = margin(r = 1, unit = "mm"))
+      else ggplot2::element_text(angle = 0, size = text_size, hjust = 1, margin = margin(r = 1, unit = "mm")),
       
       axis.ticks.x = element_line(linetype = "solid",
                                   linewidth = 0.25, 

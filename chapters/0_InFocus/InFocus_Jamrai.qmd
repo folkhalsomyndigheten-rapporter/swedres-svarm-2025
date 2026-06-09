@@ -21,7 +21,7 @@ status(type = "ready2publish")
 ```
 
 
-::: {.callout-note appearance="simple" collapse="false"}
+::: {.callout-note appearance="simple" collapse="false" #infoc-jamrai}
 ## [In-focus]{.in-focus} - JAMRAI 2 {.unnumbered}  
 
 
@@ -41,7 +41,7 @@ For more information, please visit [www.eu-jamrai.eu](https://eu-jamrai.eu/){tar
 #### Strengthened Surveillance from a One Health Perspective
 
 ::: {.column-margin}
-![JAMREye logo](images/Jamreye_primary-Colour-RGB.svg){#fig-jamreye width="80%"}
+![JAMREye logo](images/Jamreye_primary-Colour-RGB.svg){#infocfig-jamreye width="80%"}
 
 :::
 
@@ -50,7 +50,7 @@ The Public Health Agency of Sweden is co-leading the work package on One Health 
 The EARS-Vet part of JAMRAI 2 aims to fill in a gap on AMR surveillance in bacterial pathogens of animals in Europe. More specifically, EARS-Vet aims to report on the AMR situation, follow AMR trends and detect emerging AMR in bacterial pathogens of animals in Europe. For example, EARS-Vet will support antimicrobial stewardship programs in veterinary medicine, generate minimum inhibitory concentration (MIC) distributions as a basis for setting epidemiological cut-off values (ECOFFs) and clinical breakpoints (CBP) for the interpretation of AST results in veterinary medicine, and estimate the burden of AMR in animal health. Hence, EARS-Vet intends to complement the existing antimicrobial resistance and consumption surveillance systems by covering animal species, bacterial pathogens of animals and antibiotics of relevance to veterinary and human medicine, which are not included in other European monitoring programs.
 
 Sweden is also involved in EARS-Env were possibilities for harmonised monitoring of anthropogenic impact on occurrence of AMR in the environment is discussed.
-To strengthen AMR surveillance in humans in Europe, the Public Health Agency of Sweden, together with colleagues in Luxembourg, has created the public dashboard [JAMREYE](https://eu-jamrai.eu/surveillance/surveillance-dashboard/){target="_blank"}, which displays national AMR surveillance in 30 European countries. This tool can be used to identify gaps in surveillance and monitor countries' implementation of policy commitments (@fig-jamreye).
+To strengthen AMR surveillance in humans in Europe, the Public Health Agency of Sweden, together with colleagues in Luxembourg, has created the public dashboard [JAMREYE](https://eu-jamrai.eu/surveillance/surveillance-dashboard/){target="_blank"}, which displays national AMR surveillance in 30 European countries. This tool can be used to identify gaps in surveillance and monitor countries' implementation of policy commitments (@infocfig-jamreye).
 
 #### Improved Access to Antibiotics
 
