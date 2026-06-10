@@ -32,7 +32,7 @@ In Sweden, all veterinary medicinal products are sold by pharmacies. All pharmac
 
 For confidentiality reasons, sales of antibiotic classes with less than three products on the market have been aggregated in @tbl-21. 
 
-The sales of veterinary medicinal products for mixing into feed used in aquaculture for food production are not included in the data referred to above, as such feed is traded from other countries. Data on prescriptions for fish are collected through a separate system, described in Comments by animal species, Fish (@sec-sales-fish). 
+The sales of veterinary medicinal products for mixing into feed used in aquaculture for food production are not included in the data referred to above, as such feed is traded from other countries. Data on prescriptions for fish are collected through a separate system, described in [Comments by animal species, Fish](#sec-sales-fish). 
 
 Further details on data sources and inclusion criteria are given in [Materials and methods, sales of antibiotics](#sec-mms).  
 
@@ -85,7 +85,7 @@ Of the overall sales expressed as kg active substance, around 90% are products f
 
 Since 2016, sales of most classes of antibiotics have decreased or remained relatively stable (@tbl-21). Compared to 2024, however, sales of aminopenicillins increased in 2025, mainly due to increased sales for poultry, as well as proportionally smaller increases in sales for pigs, dogs and cats. 
 
-Since the withdrawal of veterinary medicinal products with high levels of zinc oxide in 2022, sales of aminoglycosides have increased in Sweden, reflecting an increased use of aminoglycosides for treatment of post-weaning diarrhoea in pigs. After reaching a peak in 2023, sales decreased in 2024 followed by a slight increase in 2025, see Comments on data by animal species, Pigs (@sec-sales-pigs). 
+Since the withdrawal of veterinary medicinal products with high levels of zinc oxide in 2022, sales of aminoglycosides have increased in Sweden, reflecting an increased use of aminoglycosides for treatment of post-weaning diarrhoea in pigs. After reaching a peak in 2023, sales decreased in 2024 followed by a slight increase in 2025, see [Comments on data by animal species, Pigs](#sec-sales-pigs). 
 
 #### Sales on special license 
 
@@ -164,9 +164,6 @@ To correct for changes in the numbers of animals over time, a population correct
 In @fig-22, the total sales of antibiotics for animals (including sales for companion animals) from 1980 onwards are presented as mg of active substance per PCU, using figures for 2024 as a proxy for PCU in 2025. As sales for use in aquaculture are not included in the data presented, fish have been excluded from the PCU given in the annual [ESUAvet reports](https://www.ema.europa.eu/en/veterinary-regulatory-overview/antimicrobial-resistance-veterinary-medicine/european-sales-use-antimicrobials-veterinary-medicine-esuavet-annual-surveillance-reports){target="_blank"} and the previous [ESVAC reports](https://www.ema.europa.eu/en/veterinary-regulatory-overview/antimicrobial-resistance-veterinary-medicine/european-surveillance-veterinary-antimicrobial-consumption-esvac-2009-2023){target="_blank"}. Another difference from data published in the ESUAvet and ESVAC reports is that data on products for use in companion animals are included in @fig-22. 
 
 
-FIXME the footnotes need some kind of formatting solution.
-
-
 ```{r}
 #| include: false
 # hidden chunk to read captions
@@ -183,7 +180,7 @@ fig_22_fn <- c("Data from 2010-2015 are uncertain because of a lack of completen
 #| label: fig-22
 #| message: false
 #| warning: false
-#| fig-cap: !expr make_fig_caption(fig_22_cap, fig_22_fn) # figure has a footnote so using a helper
+#| fig-cap: !expr fig_22_cap
 #| fig-alt: !expr fig_22_alt
 
 dat_22_long <- dat_22$fig_data |> 
