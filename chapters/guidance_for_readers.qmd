@@ -35,7 +35,7 @@ Resistance in bacteria from humans and sales for humans to the left and resistan
 ```{r}
 #| label: fig-guidance
 #| echo: false
-#| fig-width: 25
+#| fig-width: 30
 #| fig-cap: "Schematic view of antimicrobial sales and resistance monitored in Sweden 2025. Resistance in bacteria from humans and sales for humans to the left and resistance in bacteria from animals and food and sales for animals to the right."
 #| fig-alt: "Schematic view of antimicrobial sales and resistance monitored in Sweden 2025."
 knitr::include_graphics("images/FigurAntibioticResistanceSwedres2025.png", dpi = 600)
@@ -101,9 +101,28 @@ In Svarm, *Escherichia coli*, and sometimes *Enterococcus faecalis* and *E. faec
 The terms multidrug resistance (MDR), multiresistance and multiresistant are in Svarm generally used for isolates with acquired resistance to three or more antibiotic classes. However, for aminoglycosides every substance is considered separately because of the complexity of the resistance mechanisms against this class. Furthermore, for staphylococci each subclass of beta-lactams is considered separately but for Enterobacterales all beta-lactams are considered as one class. 
 
 
-## ABBREVIATIONS
+## Abbreviations
 
-**TA BESLUT OM ABBREVIATIONS**
+### Abbreviations
+
+```{r}
+#| message: false
+#| warning: false
+data <- load_from_excel(path_file = "data/Abbr_common_Guidance.xlsx")
+
+df <- data$fig_data |> 
+  dplyr::select(Abbreviation,Antibiotic)
+```
+
+
+```{r}
+#| label: tbl-abbr
+#| tbl-cap: !expr glue::glue("{data$fig_cap}")
+df |> 
+  make_table_data_tab()
+```
+
+### Abbreviations antibiotics
 
 ```{r}
 #| message: false
@@ -116,12 +135,11 @@ df <- data$fig_data |>
 
 
 ```{r}
-#| label: tbl-abbr
+#| label: tbl-abbr-antibiotics
 #| tbl-cap: !expr glue::glue("{data$fig_cap}")
 df |> 
   make_table_data_tab()
-  #gt()|> 
-  #gt_theme_SweSva() 
 ```
+
 
 

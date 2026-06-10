@@ -19,7 +19,7 @@ The **Swedres-Svarm Report** is a collaborative publication by the [Public Healt
 ::: callout-note
 This book is built using the `Quarto` publishing system, with data presented and visualised using `ggplot2`, `ggiraph`, and `dt`. The source code is available on GitHub.
 
-#### What is new in this Edition?
+#### What is new in this format?
 
 The new edition of this annual report has undergone a comprehensive update, featuring:
 
@@ -58,7 +58,7 @@ Phone: +46 (0) 10 205 20 00
 
 E-mail: info@folkhalsomyndigheten.se 
 
-www.folkhalsomyndigheten.se 
+[www.folkhalsomyndigheten.se](www.folkhalsomyndigheten.se){target="_blank"}
 
  
 
@@ -70,7 +70,7 @@ Phone: +46 (0) 18 67 40 00
 
 E-mail: svarm@sva.se
 
-www.sva.se 
+[www.sva.se](www.sva.se){target="_blank"} 
 
 ### License
 

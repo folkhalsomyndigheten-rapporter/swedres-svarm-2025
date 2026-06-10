@@ -14,18 +14,6 @@ status(type = "ready2publish")
 
 # Sammanfattning {.unnumbered}
 
-Under lång tid har Sverige haft en gynnsam situation jämfört med många andra länder när det gäller antibiotikaresistens hos bakterier från människor och det läget kvarstår fortfarande. En av anledningarna är att vi har effektiva strategier för att främja en ansvarsfull användning av antibiotika och begränsa spridningen av antibiotikaresistens.  
-
-Trots det ses en ökning av rapporterade fall av anmälningspliktiga antibiotikaresistenta bakterier och det visar på vikten av ett kontinuerligt och konsekvent arbete mot antibiotikaresistens inom Strama, vårdhygien och smittskydd. Inom sjukvården ses återkommande utbrott av vankomycinresistenta enterokocker och ett ökande antal vårdrelaterade kluster av ESBL~CARBA~. För att förebygga vårdrelaterade infektioner är det avgörande att basala hygienrutiner efterlevs och att smittskyddsåtgärder tillämpas konsekvent i vårdmiljöer. 
-
-Spridning av antibiotikaresistens sker även ute i samhället. Förutom spridning i samhället av MRSA som setts under en längre tid ser vi nu tecken på samhällsspridning av ESBL~CARBA~. Detta betonar vikten av att fortsatt arbeta brett med frågan genom till exempel [Antibiotikasmart Sverige](https://www.folkhalsomyndigheten.se/antibiotikasmart-sverige/){target="_blank"} som syftar till att stödja alla i samhället att agera antibiotikasmart – individer, verksamheter och beslutsfattare på olika nivåer.  
-
-Antibiotikaförsäljningen inom humanmedicinen i Sverige sjönk markant under pandemin, men steg under 2022 och 2023. Under 2024 var försäljningen i stort sett oförändrad jämfört med föregående år. Under 2025 minskade försäljningen jämfört med året innan och ligger fortfarande under prepandemiska nivåer. Antibiotikaförsäljningen har minskat generellt sedan toppen i 1992 och störst minskning under denna period observerades hos barn i åldrarna 0–4 år.  
-
-Inom veterinärmedicinen har antibiotikaförsäljningen minskat kraftigt sedan mitten av åttiotalet för att de senare åren ha stabiliserats på en jämförelsevis låg nivå. Försäljningen av aminoglykosider för gruppbehandling har dock ökat påtagligt sedan 2022, vilket förklaras av ett ökat behov av behandling av avvänjningsdiarré hos gris efter tillbakadragandet under 2022 av förebyggande veterinärmedicinska läkemedel med hög halt av zinkoxid. 
-
-Vidare har förekomsten av resistens bland bakterier från djur generellt sett varit stabilt låg. För vissa substanser och bakterier har förekomsten över tid till och med minskat. Ett sådant exempel är ESBL-bildande *Escherichia coli* hos slaktkyckling. Det finns dock undantag, exempelvis har förekomsten av resistens mot ampicillin, sulfonamider och trimetoprim ökat hos slumpmässigt utvalda *E. coli* hos såväl slaktkyckling som slaktgris. 
-
 :::{.callout-note}
 ## Viktiga fynd 2025
 
@@ -54,6 +42,19 @@ Vidare har förekomsten av resistens bland bakterier från djur generellt sett v
 - Bakterier som bildar ESBL~CARBA~ har inte bekräftats hos tamdjur i Sverige. 
 
 :::
+
+Under lång tid har Sverige haft en gynnsam situation jämfört med många andra länder när det gäller antibiotikaresistens hos bakterier från människor och det läget kvarstår fortfarande. En av anledningarna är att vi har effektiva strategier för att främja en ansvarsfull användning av antibiotika och begränsa spridningen av antibiotikaresistens.  
+
+Trots det ses en ökning av rapporterade fall av anmälningspliktiga antibiotikaresistenta bakterier och det visar på vikten av ett kontinuerligt och konsekvent arbete mot antibiotikaresistens inom Strama, vårdhygien och smittskydd. Inom sjukvården ses återkommande utbrott av vankomycinresistenta enterokocker och ett ökande antal vårdrelaterade kluster av ESBL~CARBA~. För att förebygga vårdrelaterade infektioner är det avgörande att basala hygienrutiner efterlevs och att smittskyddsåtgärder tillämpas konsekvent i vårdmiljöer. 
+
+Spridning av antibiotikaresistens sker även ute i samhället. Förutom spridning i samhället av MRSA som setts under en längre tid ser vi nu tecken på samhällsspridning av ESBL~CARBA~. Detta betonar vikten av att fortsatt arbeta brett med frågan genom till exempel [Antibiotikasmart Sverige](https://www.folkhalsomyndigheten.se/antibiotikasmart-sverige/){target="_blank"} som syftar till att stödja alla i samhället att agera antibiotikasmart – individer, verksamheter och beslutsfattare på olika nivåer.  
+
+Antibiotikaförsäljningen inom humanmedicinen i Sverige sjönk markant under pandemin, men steg under 2022 och 2023. Under 2024 var försäljningen i stort sett oförändrad jämfört med föregående år. Under 2025 minskade försäljningen jämfört med året innan och ligger fortfarande under prepandemiska nivåer. Antibiotikaförsäljningen har minskat generellt sedan toppen i 1992 och störst minskning under denna period observerades hos barn i åldrarna 0–4 år.  
+
+Inom veterinärmedicinen har antibiotikaförsäljningen minskat kraftigt sedan mitten av åttiotalet för att de senare åren ha stabiliserats på en jämförelsevis låg nivå. Försäljningen av aminoglykosider för gruppbehandling har dock ökat påtagligt sedan 2022, vilket förklaras av ett ökat behov av behandling av avvänjningsdiarré hos gris efter tillbakadragandet under 2022 av förebyggande veterinärmedicinska läkemedel med hög halt av zinkoxid. 
+
+Vidare har förekomsten av resistens bland bakterier från djur generellt sett varit stabilt låg. För vissa substanser och bakterier har förekomsten över tid till och med minskat. Ett sådant exempel är ESBL-bildande *Escherichia coli* hos slaktkyckling. Det finns dock undantag, exempelvis har förekomsten av resistens mot ampicillin, sulfonamider och trimetoprim ökat hos slumpmässigt utvalda *E. coli* hos såväl slaktkyckling som slaktgris. 
+
 
 ## Försäljning av antibiotika 
 
