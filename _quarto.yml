@@ -55,7 +55,7 @@ book:
         - chapters/preface.qmd
         - chapters/contributors.qmd
         - chapters/summary.qmd
-        - chapters/samanfattning.qmd
+        - chapters/sammanfattning.qmd
         - chapters/0_InFocus/InFocus_Jamrai.qmd
         - chapters/guidance_for_readers.qmd
 
