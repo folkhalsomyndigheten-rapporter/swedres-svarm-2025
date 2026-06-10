@@ -25,7 +25,7 @@ status(type = "polishing")
 
 In Sweden, findings of carbapenemase-producing Enterobacterales (ESBL~CARBA~) and methicillin-resistant coagulase-positive staphylococci in animals are notifiable (SJVFS 2021:10 and previously SJVFS 2012:24 with amendments). In the monitoring, the attention regarding methicillin-resistant coagulase-positive staphylococci is mainly directed towards methicillin-resistant *Staphylococcus aureus* (MRSA) and *Staphylococcus pseudintermedius* (MRSP). Furthermore, as Enterobacterales producing classical ESBLs (ESBL~A~) or plasmid-mediated AmpC (ESBL~M~) as well as vancomycin resistant enterococci (VRE) are notifiable when detected in humans, specific attention is also paid to these bacteria in animals. 
 
-### ESBL-producing Enterobacterales
+### ESBL-producing Enterobacterales {#sec-ESBL}
 
 #### Healthy farm animals 
 
@@ -242,7 +242,7 @@ df |>
 :::
 
 
-### Methicillin-resistant *Staphylococcus aureus* (MRSA)
+### Methicillin-resistant *Staphylococcus aureus* (MRSA) {#sec-MRSA-animals}
 
 In Sweden, methicillin-resistant *Staphylococcus aureus* (MRSA) in animals was first verified in 2006 and made notifiable in 2008 (SJVFS 2021:10 and previous legislation). Since then, most cases in domesticated animals have been detected in passive monitoring of clinical sampling in infected animals. Isolates of *S. aureus* with resistance to oxacillin or cefoxitin have been further analysed with confirmatory tests. Screening studies for active monitoring have been performed in pigs, cattle, horses, dogs and hedgehogs during different years (see below). Cases from 2025 are presented in @tbl-44 and data regarding index cases of clinical isolates and isolates from screenings are shown as [supplementary material](https://www.sva.se/en/what-we-do/antibiotics/svarm-resistance-monitoring/supplementary-material/){target="_blank"} on the SVA web. 
 
