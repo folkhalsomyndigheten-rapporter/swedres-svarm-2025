@@ -28,7 +28,7 @@ Data on occurrence of notifiable antibiotic resistance in bacteria as well as da
 Data on resistance in bacteria from humans are mainly obtained from clinical microbiology laboratories and in addition via notifications from clinicians. They are compiled by the Public Health Agency of Sweden in Swedres. In contrast, data on animals and food, compiled by the Swedish Veterinary Agency, are from the national monitoring program in the veterinary field Svarm. This program is specifically designed to monitor resistance in bacteria from animals and food and is organised and run at the Swedish Veterinary Agency. Data in the veterinary field also emanate from other sources, such as the SvarmPat project and specific research projects. For details on data sources see respective bacteria in Antibiotic resistance in animals and Background data, material, methods and references. 
 
 
-#### Schematic view of antimicrobial sales and resistance monitored in Sweden 2025.  
+#### Schematic view of antimicrobial sales and resistance monitored in Sweden 2025  
 
 Resistance in bacteria from humans and sales for humans to the left and resistance in bacteria from animals and food and sales for animals to the right (@fig-guidance).
 
