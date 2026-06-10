@@ -99,8 +99,11 @@ make_dynamic_plot(plot = p, filename = "Fig1-1")
 ###### Figure (alternative)
 
 ```{r}
+#| fig-cap: !expr glue::glue("{data$fig_cap}")
+#| fig-alt: !expr glue::glue("{data$fig_alt}")
+#| message: false
 #| warning: false
-#| fig-height: 10
+#| fig-height: 15
 tmp_swe <-  df |> filter(region=="**Sweden**") |> transmute(year,
                                                         sweden=value)
 
