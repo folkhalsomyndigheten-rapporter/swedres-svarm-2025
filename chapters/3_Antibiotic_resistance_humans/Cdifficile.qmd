@@ -16,7 +16,7 @@ execute:
 #| warning: false
 #| message: false
 source("../../_common.R")
-status(type = "polishing")
+status(type = "ready2publish")
 ```
 
 ## *Clostridioides difficile*
@@ -25,7 +25,6 @@ status(type = "polishing")
 
 In 2025, 6 067 new CDI cases were reported, corresponding to an incidence of 60 cases per 100 000 inhabitants (total number and incidence corrected for missing data from one laboratory). A case is considered new if at least eight weeks have elapsed since the previous positive test, otherwise it is counted as an ongoing illness episode or recurrence. The incidence is similar to the average incidence observed in the last three years (incidence 61). As in previous years, there are major differences between regions (range 26-119 cases per 100 000 inhabitants; @fig-3-35).
 
-@fig-3-35 is Figure_3.35_25.xlsx
 
 ::: panel-tabset
 ```{r}
@@ -64,11 +63,8 @@ p <- df |>
            position="dodge", stat="identity",width = .9) +
   labs(y = "Region",
        x = "Incidence (cases/100 000 inhabitants)") +
-  #scale_y_discrete(expand=c(0,.1)) +
-  scale_x_continuous(expand=c(0,.1)) + # 0,.1
+  scale_x_continuous(expand=c(0,.1)) + 
   scale_fill_SweSva() + 
-  #  fohm_theme() +
-  #theme(axis.text.x = element_text(angle=90, vjust=0.5,hjust=1)) +
   theme_SweSva() +
   add_fohm_caption() +
   theme(axis.text.x = element_text(angle=0, vjust = 0, hjust = 0.5),
@@ -81,7 +77,7 @@ p <- df |>
   )
 
   
-make_dynamic_plot(plot = p, filename = "fig-3-35")
+make_dynamic_plot(plot = p, filename = "Fig3-41")
 ```
 
 
@@ -90,7 +86,7 @@ make_dynamic_plot(plot = p, filename = "fig-3-35")
 
 ```{r}
 df |>
-  make_table_data_tab(file_name = "fig-3-35")
+  make_table_data_tab(file_name = "Fig3-41")
 ```
 :::
 

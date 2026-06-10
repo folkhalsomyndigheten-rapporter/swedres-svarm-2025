@@ -16,7 +16,7 @@ execute:
 #| warning: false
 #| message: false
 source("../../_common.R")
-status(type = "polishing")
+status(type = "ready2publish")
 ```
 
 ## *Escherichia coli*, *Klebsiella pneumoniae*, and other Enterobacterales with ESBL and ESBL~CARBA~
@@ -36,8 +36,6 @@ The ESBL incidence increased to 128 new cases per 100 000 inhabitants in 2025, s
 The gender and age distribution has not changed much since the surveillance started and reflects the expected occurrence of urinary tract infections in the different groups. Children under one year of age (n=464, incidence 474) had the highest incidence, followed by the elderly, 85 years and older (n=1 353, incidence 445). The high incidence in neonates is probably a result of screening and contact tracing at neonatal units. Among the elderly, urinary tract infections are common bacterial infections explaining the high incidence in this group. As in previous years, the most commonly reported species was *E. coli*, found in 83% of all cases, followed by *K. pneumoniae* with 12%. The remaining cases comprised of several other species of Enterobacterales. 
 
 
-
-@fig-3-4 is Figure_3.4_25.xlsx
 
 ::: panel-tabset
 ###### Figure
@@ -85,21 +83,18 @@ p <- df |>
   theme_SweSva() +
   theme(plot.subtitle = element_text(vjust = -15)) 
 
-make_dynamic_plot(plot = p, filename = "Fig3-4")
+make_dynamic_plot(plot = p, filename = "Fig3-7")
 ```
 ###### Data
 ```{r}
 df |> 
   rename("Sample type" = feature,
          "Incidens (cases/100 000 inhabitants)" = value) |> 
-  make_table_data_tab(file_name = "Fig3-4")
+  make_table_data_tab(file_name = "Fig3-7")
 ```
 :::
 
 
-
-
-@fig-3-5 is Figure_3.5_25.xlsx
 
 ::: panel-tabset
 ```{r}
@@ -142,7 +137,7 @@ p <- df |>
   theme(plot.subtitle = element_text(vjust = -7)) +
   add_fohm_caption()
 
-make_dynamic_plot(plot = p, filename = "Fig3-5")
+make_dynamic_plot(plot = p, filename = "Fig3-8")
 
 ```
 ###### Data
@@ -151,7 +146,7 @@ df |>
   transmute("Type" = feature,
             year,
             "Incidence (cases/100 000 inhabitants)" = value) |> 
-  make_table_data_tab(file_name = "Fig3-5")
+  make_table_data_tab(file_name = "Fig3-8")
 ```
 :::
 
@@ -194,7 +189,6 @@ A total of 75 clusters or pairwise linked cases of ESBL~CARBA~ were identified i
 In summary, the increase in incidence of cases with ESBL~CARBA~ in 2025 was particularly driven by domestic cases and among cases with clinical infections or carriers of *E. coli* with ESBL~CARBA~. The number of clusters reported as healthcare-related increased from 16 to 29 between 2023 and 2025.
 
 
-@fig-3-6 is Figure_3.6_25.xlsx
 
 ::: panel-tabset
 ###### Figure
@@ -237,19 +231,18 @@ p <- df |>
   theme_SweSva() +
   theme(plot.subtitle = element_text(vjust = -15))
 
-make_dynamic_plot(plot = p, filename = "Fig3-6")
+make_dynamic_plot(plot = p, filename = "Fig3-9")
 ```
 ###### Data
 ```{r}
 df |> 
   rename("Infection type" = feature,
          "Incidens (cases/100 000 inhabitants)" = value) |> 
-  make_table_data_tab(file_name = "Fig3-6")
+  make_table_data_tab(file_name = "Fig3-9")
 ```
 :::
 
 
-@fig-3-7 is Figure_3.7_25.xlsx
 
 ::: panel-tabset
 ###### Figure
@@ -267,7 +260,6 @@ df <- data$fig_data |>
 #| fig-alt: !expr glue::glue("{data$fig_alt}")
 #| warning: false
 p <- df |> 
-  #filter(!feature %in% c("No information, K pneumoniae","No information, E. coli")) |> 
   filter(!grepl("No information", feature)) |> 
   mutate(data_id = row_number(),
          tooltip_l = md_to_html(glue::glue('{feature}')),
@@ -292,8 +284,7 @@ p <- df |>
   scale_color_SweSva() + 
   add_fohm_caption() +
   theme_SweSva(markdown = c("legend.text")) +
-  theme(plot.subtitle = element_text(vjust = -15)) #+
-#theme_SweSva_rotate()
+  theme(plot.subtitle = element_text(vjust = -15))
 
 make_dynamic_plot(plot = p, filename = "Fig3-10")
 ```
@@ -308,7 +299,6 @@ df |>
 :::
 
 
-@fig-3-8 is Figure_3.8_25.xlsx
 
 ::: panel-tabset
 ###### Figure
@@ -317,7 +307,7 @@ data <- load_from_excel(path_file = "data/Figure_3.8_25.xlsx")
 
 df <- data$fig_data |>
   pivot_longer(cols = -c("Species","Year"), names_to = "feature") |> 
-  mutate(#facet.tmp = gsub("^\\*+|\\*+$", "", Species),
+  mutate(
          feature.tmp = case_when(feature=="*bla*~OXA-48-like~" ~"*bla*<sub>OXA-48-like</sub>",
                                  feature=="*bla*~IMP/IMI/GES~" ~"*bla*<sub>IMP/IMI/GES</sub>",
                                  feature=="*bla*~KPC~" ~"*bla*<sub>KPC</sub>",
@@ -375,17 +365,13 @@ df |>
 
 
 
-@fig-3-9 is Figure_3.9_carba-geno-feno.xlsx 
 
 ::: panel-tabset
 
 ```{r}
-# Till Julius: Det är viktigt att skilja på 0% och "-", då "-" innebär att vi inte testat, och 0% innebär just 0%
 data <- load_from_excel(path_file = "data/Figure_3.9_carba-geno-feno.xlsx")
 
 df <- data$fig_data |> 
-  #pivot_longer(cols = -antibiotic, names_to = "tmp") |> 
-  #separate(tmp, into = c("species","gene"),sep = "_") |> 
   mutate(value = resistence*100,
          gene = case_when(gene == "*bla*~OXA-48-like~" ~ "*bla*<sub>OXA-48-like</sub>",
                           gene=="*bla*~KPC~" ~"*bla*<sub>KPC</sub>",
@@ -393,7 +379,7 @@ df <- data$fig_data |>
                           .default = gene), 
          gene = factor(gene, levels = c("*bla*<sub>OXA-48-like</sub>","*bla*<sub>NDM</sub>","*bla*<sub>KPC</sub>"))
          ) |> 
-  complete(antibiotic,species, gene, fill = list(value = 0))  # or fill = list(value = NA)
+  complete(antibiotic,species, gene, fill = list(value = 0))  
 
 eucast_ordning <- data$fig_data |> distinct(antibiotic) |> pull(antibiotic)
 ```
@@ -427,28 +413,23 @@ p <- df |>
   #scale_fill_SweSva() + 
   scale_fill_manual(
     breaks = c("*bla*<sub>OXA-48-like</sub>","*bla*<sub>NDM</sub>","*bla*<sub>KPC</sub>"),
-    values = c("#0065AC", "#FA6400", "#009284"),#c("#FF0000", "#0000FF","green"),
+    values = c("#0065AC", "#FA6400", "#009284"),
     labels = c("*bla*<sub>OXA-48-like</sub>","*bla*<sub>NDM</sub>","*bla*<sub>KPC</sub>")
   ) +
-    theme_SweSva(markdown = c("legend.text")) +
+  theme_SweSva(markdown = c("legend.text")) +
   theme_SweSva_facet(markdown = "strip.text") +
-
-  theme(axis.text.y = element_text(hjust=1)) +
   add_fohm_caption() +
-  theme(axis.text.x = element_text(angle=0, vjust = 0, hjust = 0.5),
+  theme(axis.text.y = element_text(hjust=1),
+        axis.text.x = element_text(angle=0, vjust = 0, hjust = 0.5),
         panel.spacing.x = unit(1, "lines"),
         panel.grid.major.x = element_line(linetype = "solid", 
                                           linewidth = 0.25, 
                                           color = "#999999"),
-        panel.grid.major.y = element_blank() ) +
-  theme(
-    #strip.text = element_text(face="italic"),
-    #legend.text = ggtext::element_markdown(),
-    plot.margin = margin(0, .4, 0, 0, "cm")  # Top, Right, Bottom, Left
+        panel.grid.major.y = element_blank(),
+        plot.margin = margin(0, .4, 0, 0, "cm")  # Top, Right, Bottom, Left
   )
 
-
-make_dynamic_plot(plot = p, filename = "Fig3-12-geno")
+make_dynamic_plot(plot = p, filename = "Fig3-12")
 ```
 
 ##### Additional Figure - *bla*<sub>OXA-48-like</sub>
@@ -481,26 +462,22 @@ p <- df |>
   #scale_fill_SweSva() + 
   scale_fill_manual(
     breaks = c("*bla*<sub>OXA-48-like</sub>","*bla*<sub>NDM</sub>","*bla*<sub>KPC</sub>"),
-    values = c("#0065AC", "#FA6400", "#009284"),#c("#FF0000", "#0000FF","green"),
+    values = c("#0065AC", "#FA6400", "#009284"),
     labels = c("*bla*<sub>OXA-48-like</sub>","*bla*<sub>NDM</sub>","*bla*<sub>KPC</sub>")
   ) +
     theme_SweSva(markdown = c("legend.text")) +
   theme_SweSva_facet(markdown = "strip.text") +
 
-  theme(axis.text.y = element_text(hjust=1)) +
-  add_fohm_caption() +
-  theme(axis.text.x = element_text(angle=0, vjust = 0, hjust = 0.5),
+   add_fohm_caption() +
+  theme(axis.text.y = element_text(hjust=1),
+        axis.text.x = element_text(angle=0, vjust = 0, hjust = 0.5),
         panel.spacing.x = unit(1, "lines"),
         panel.grid.major.x = element_line(linetype = "solid", 
                                           linewidth = 0.25, 
                                           color = "#999999"),
-        panel.grid.major.y = element_blank() ) +
-  theme(
-    #strip.text = element_text(face="italic"),
-    #legend.text = ggtext::element_markdown(),
-    plot.margin = margin(0, .4, 0, 0, "cm")  # Top, Right, Bottom, Left
+        panel.grid.major.y = element_blank(),
+        plot.margin = margin(0, .4, 0, 0, "cm")  # Top, Right, Bottom, Left
   )
-
 
 make_dynamic_plot(plot = p, filename = "Fig3-12-oxa48")
 ```
@@ -535,13 +512,12 @@ p <- df |>
   #scale_fill_SweSva() + 
   scale_fill_manual(
     breaks = c("*bla*<sub>OXA-48-like</sub>","*bla*<sub>NDM</sub>","*bla*<sub>KPC</sub>"),
-    values = c("#0065AC", "#FA6400", "#009284"),#c("#FF0000", "#0000FF","green"),
+    values = c("#0065AC", "#FA6400", "#009284"),
     labels = c("*bla*<sub>OXA-48-like</sub>","*bla*<sub>NDM</sub>","*bla*<sub>KPC</sub>")
   ) +
     theme_SweSva(markdown = c("legend.text")) +
   theme_SweSva_facet(markdown = "strip.text") +
-
-  add_fohm_caption() +
+ add_fohm_caption() +
   theme(axis.text.y = element_text(hjust=1),
         axis.text.x = element_text(angle=0, vjust = 0, hjust = 0.5),
         panel.spacing.x = unit(1, "lines"),
@@ -561,7 +537,6 @@ make_dynamic_plot(plot = p, filename = "Fig3-12-ndm")
 df |> 
     mutate(species = str_replace_all(species, "\\*|<sub>|</sub>", ""),
          gene = str_replace_all(gene, "\\*|<sub>|</sub>|~", "")) |> 
-  ## alla E. coli (oavsett antibiotika) som ska ha na (tomt) för KPC, sen ska Klebsiella ha tomt för OXA-48/NDM/KPC för de tre antibiotika som inte testats, men där ska inte E. coli har tomt
   mutate(value = case_when(species=="E. coli" & gene=="blaKPC" ~ NA,
                          species=="K. pneumoniae" & 
                            gene %in% c("blaOXA-48-like","blaNDM","blaKPC") &
@@ -586,7 +561,6 @@ For invasive isolates, resistance is stable over the years. Resistance to ciprof
 The age and gender distributions among patients with *E. coli* isolated from urine reflects the expected occurrence of UTI in the different groups. The high level of ciprofloxacin resistance must be considered when choosing empirical treatment for febrile UTI for men in all age-groups (@fig-3-13). @fig-3-14 illustrates that cefotaxime-resistant isolates (ESBL) often display resistance to multiple additional antibiotic classes.
 
 
-@fig-3-11 is Figure_3-11_Eco_blod
 
 ```{r}
 #| message: false
@@ -643,30 +617,28 @@ p <- df |>
   ) +
   scale_x_discrete(expand = c(0,0.2)) +
   scale_y_continuous(limits=c(0,25),
-                     breaks = perc_25) +#scales::pretty_breaks()) +
+                     breaks = perc_25) +
   guides(color=guide_legend(nrow=3)) +
-  
   labs(x="Year",
        y="Resistance (%)") +
-  scale_color_manual(values = col_SweSva_9) +   # scale_color_SweSva() +
+  scale_color_manual(values = col_SweSva_9) +   
   theme_SweSva() +
   theme(plot.subtitle = element_text(vjust = -15)) +
-  
+
   add_fohm_caption()
 
 
 make_dynamic_plot(plot = p, 
-                  filename = "fig-3-11")
+                  filename = "Fig3-13")
 ```
 ###### Data
 ```{r}
 df |> 
-  make_table_data_tab(file_name = "fig-3-11")
+  make_table_data_tab(file_name = "Fig3-13")
 ```
 :::
 
 
-@fig-3-ecol_kpn is Figure_3.ny_Ecol_Kpn_blod_samtidig_resistens
 
 ::: panel-tabset
 ```{r}
@@ -675,11 +647,8 @@ df |>
 data <- load_from_excel(path_file = "data/Figure_3.ny_Ecol_Kpn_blod_samtidig_resistens.xlsx")
 df <- data$fig_data |>
   janitor::clean_names()
-#rename(antibiotic = Antibiotic,
-#       species = Species) #|> 
-#pivot_longer(cols = -c(antibiotic,species), names_to = "feature")
-eucast_ordning <- df |> distinct(antibiotic) |> pull(antibiotic)
 
+eucast_ordning <- df |> distinct(antibiotic) |> pull(antibiotic)
 ```
 
 ###### Figure
@@ -701,19 +670,14 @@ p <- df |>
              fill=as.factor(species),
              data_id = data_id)) +
   geom_col_interactive(aes(tooltip = tooltip_b),width = 0.5, position = position_dodge(0.7)) +
-  #geom_bar_interactive(aes(tooltip = tooltip_b, width = .8),
-  #         position="dodge", stat="identity") +
+
   labs(x="Resistance (%)",
        y = "Antibiotic") +
-  #scale_x_continuous(expand = c(0,0),limits=c(0,round(max(df$value)*1.2,-2))) +
-  #theme(axis.text.y = element_text(hjust=0))+
-  #  scale_y_continuous(expand=c(0,.1)) +
-  #scale_fill_fohm() +
-  scale_x_continuous(expand=c(0,.1)) + # 0,.1
+ 
+  scale_x_continuous(expand=c(0,.1)) + 
   
   scale_fill_SweSva() + 
   theme_SweSva(markdown = c("legend.text")) +
-  #theme(axis.text.y = element_text(hjust=1)) +
   add_fohm_caption() +
   theme(axis.text.y = element_text(hjust=1),
         plot.margin = margin(0, .4, 0, 0, "cm"),  # Top, Right, Bottom, Left
@@ -723,19 +687,18 @@ p <- df |>
   )
 
 
-make_dynamic_plot(plot = p, filename = "Fig3-1")
+make_dynamic_plot(plot = p, filename = "Fig3-14")
 ```
 ###### Data
 ```{r}
 df |> 
   rename("Species" = species,
          "Antibiotic resistance among cefotaxim resistant (%)" = percent_r) |> 
-  make_table_data_tab(file_name = "Fig3-1")
+  make_table_data_tab(file_name = "Fig3-14")
 ```
 :::
 
 
-@fig-3-12 is  Figure_3.12_25.xlsx
 
 ```{r}
 #| message: false
@@ -794,7 +757,7 @@ p <- df |>
                             width=.15,linewidth = .5
   ) +
   scale_x_discrete(expand = c(0,0.2)) +
-  scale_y_continuous(breaks = perc_100,#scales::pretty_breaks(), 
+  scale_y_continuous(breaks = perc_100,
                      limits = c(0,50)) +
   guides(color=guide_legend(nrow=2)) +
   
@@ -808,16 +771,15 @@ p <- df |>
 
 
 make_dynamic_plot(plot = p, 
-                  filename = "fig-3-12")
+                  filename = "Fig3-15")
 ```
 ###### Data
 ```{r}
 df |> 
-  make_table_data_tab(file_name = "fig-3-12")
+  make_table_data_tab(file_name = "Fig3-15")
 ```
 :::
 
-@fig-3-13 is Figure_3.13_25.xlsx
 
 ```{r}
 #| message: false
@@ -858,23 +820,14 @@ p <- df |>
                                     <b>Resistance:</b> {round(r_perc,2)}%
                                 <b>Confidence interval:</b>{ci}'
          )) |> 
-  #filter(antibiotic =="Cefadroxil") |> 
-  
   ggplot(aes(x = r_perc,
              y = age_cat, 
              fill=factor(antibiotic),
              data_id = antibiotic)) +
   geom_col_interactive(aes(tooltip = tooltip_b),
                        width = 0.9, #0.6
-                       position = position_dodge(preserve = "single")) + ## 0.7
-  #geom_errorbarh_interactive(aes(xmin = r_perc - felstapel_low,
-  #                              xmax = r_perc + felstapel_high,
-  #                              tooltip = tooltip_b), 
-  #                          color="black",orientation = "x",
-  #                          position = position_dodge(preserve = "single"),
-  #                          width=.15,linewidth = .5
-  #) +
-  labs(x="Percentage resistance (%)",
+                       position = position_dodge(preserve = "single")) + 
+  labs(x="Resistance (%)",
        y = "Age category") +
   scale_x_continuous(expand=c(0,0.2)) +
   scale_y_discrete(limits=rev) +
@@ -898,17 +851,16 @@ p <- df |>
   )
 
 
-make_dynamic_plot(plot = p, filename = "fig-3-13")
+make_dynamic_plot(plot = p, filename = "Fig3-16")
 ```
 ###### Data
 ```{r}
 df |> 
-  make_table_data_tab(file_name = "fig-3-13")
+  make_table_data_tab(file_name = "Fig3-16")
 ```
 
 :::
 
-@tbl-3-4 Table_3.4-Eco
 
 ```{r}
 #| message: false
@@ -942,8 +894,6 @@ df |>
 For invasive isolates, the resistance levels have slowly increased over a ten-year period but the carbapenem resistance remains low. The resistance to cefotaxime was 11% (@tbl-3-5 and @fig-3-14). Resistance to commonly prescribed oral antibiotics for treatment of urinary tract infections caused by *K. pneumoniae* has gradually increased during the last years with the exception of mecillinam (@fig-3-15). Cefadroxil resistance, which can be used as an indicator for ESBL production, was 8.5%. Similar to in *E. coli*, the high levels of resistance to ciprofloxacin, 12%, must be taken into account when choosing empiric treatment for febrile UTI. 
 
 
-
-@fig-3-14 is Figure_3-14_Kpn_blod
 
 ```{r}
 #| message: false
@@ -1003,10 +953,9 @@ p <- df |>
   scale_y_continuous(breaks = perc_25,
                      limits=c(0,25)) +
   guides(color=guide_legend(nrow=3)) +
-  scale_color_manual(values = col_SweSva_9) +  #c(fohmR::fohm_pal("diagram_discrete"),fohmR::fohm_pal("main")[3])) +   # scale_color_SweSva() +
+  scale_color_manual(values = col_SweSva_9) +  
   labs(x="Year",
        y="Resistance (%)") +
-  # scale_color_SweSva() +
   theme_SweSva() +
   theme(plot.subtitle = element_text(vjust = -15),
         legend.text = element_text(size = 10)) +
@@ -1014,18 +963,17 @@ p <- df |>
 
 
 make_dynamic_plot(plot = p, 
-                  filename = "fig-3-14")
+                  filename = "Fig3-17")
 ```
 ###### Data
 ```{r}
 df |> 
-  make_table_data_tab(file_name = "fig-3-14")
+  make_table_data_tab(file_name = "Fig3-17")
 ```
 :::
 
 
 
-@fig-3-15 is Figure_3.15_25.xlsx
 
 ```{r}
 #| message: false
@@ -1090,24 +1038,20 @@ p <- df |>
        y="Resistance (%)") +
   scale_color_SweSva() +
   theme_SweSva() +
-  #theme(plot.subtitle = element_text(vjust = -15)) +
-  
   add_fohm_caption()
 
-
 make_dynamic_plot(plot = p, 
-                  filename = "fig-3-15")
+                  filename = "Fig3-18")
 ```
 ###### Data
 ```{r}
 df |> 
-  make_table_data_tab(file_name = "fig-3-15")
+  make_table_data_tab(file_name = "Fig3-18")
 ```
 :::
 
 
 
-@tbl-3-5 is Table_3-5-Kpn
 
 ```{r}
 #| message: false

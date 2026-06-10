@@ -17,7 +17,7 @@ execute:
 #| warning: false
 #| message: false
 source("../../_common.R")
-status(type = "drafting")
+status(type = "polishing")
 ```
 
 ## Zoonotic pathogens
@@ -56,7 +56,7 @@ make_mic_gt(data = tbl$data,
 data <- load_from_excel(path_file = "data/Tabell 4.6 salm.xlsx")
 df <- data$fig_data
 df |>
-  make_table_data_tab(file_name = "tab46")
+  make_table_data_tab(file_name = "Table4-6")
 ```
 :::
 
@@ -82,7 +82,7 @@ make_mic_gt(data = tbl$data,
 data <- load_from_excel(path_file = "data/Tabell 4.7 salm.xlsx")
 df <- data$fig_data
 df |>
-  make_table_data_tab(file_name = "tab47")
+  make_table_data_tab(file_name = "Table4-7")
 ```
 :::
 
@@ -119,7 +119,7 @@ make_mic_gt(data = tbl$data,
 data <- load_from_excel(path_file = "data/Tabell 4.9 camp.xlsx")
 df <- data$fig_data
 df |>
-  make_table_data_tab(file_name = "tab49")
+  make_table_data_tab(file_name = "Table4-8")
 ```
 :::
 
@@ -149,7 +149,7 @@ df_fig_43 <- dat_43$fig_data |>
   mutate(tooltip_l = glue::glue('{Year}'),
            tooltip_p = paste0("<b>Year:</b> ", Year, "<br><b>Percent resistance:</b> ", Total,"%"),
          data_id = paste(Total, Year, sep = "_"),
-         one_col = "one_color_SweSva")
+         one_col = "Ciprofloxacin resistance in *Campylobacter coli* from pigs")
 
 yrs <- sort(unique(dat_43$fig_data$Year))
 y_max <- max(df_fig_43$Total, na.rm = TRUE) + 5
@@ -163,28 +163,26 @@ p_43 <- ggplot(df_fig_43,
                    data_id = data_id)) +
   geom_line_interactive(aes(tooltip=tooltip_l),
                         lwd=0.5) +
-  geom_point_interactive(aes(tooltip = tooltip_p)) +
+  geom_point_interactive(aes(tooltip = tooltip_p),hover_nearest = T) +
   scale_x_discrete(expand=c(0,0.2)) +#continuous(breaks = yrs, minor_breaks = NULL) +
   scale_y_continuous(limits = c(0, 50),
                      expand = c(0,0.2),
                      breaks = perc_100) + #y_max), breaks = seq(0, y_max, by = 5)) +
-  scale_color_SweSva() +
+  scale_color_manual(values= one_color_SweSva[[1]]) +
   labs(x = "Year",
        y = "Resistance (%)", color = NULL) +
-  theme_SweSva() +
+  theme_SweSva(markdown = c("legend.text")) +
   #theme(axis.text.x = element_text(angle = 45, hjust = 1, vjust = 1), plot.subtitle = element_text(vjust = +2)) +
-  add_sva_caption() +
-  theme(legend.position = "none",
-        plot.subtitle = element_text(vjust = +2)) 
+  add_sva_caption() 
 
 
-make_dynamic_plot(plot = p_43, filename = "fig-43")
+make_dynamic_plot(plot = p_43, filename = "Fig4-3")
 ```
 
 ###### Data
 ```{r}
 dat_43$fig_data |> 
-  make_table_data_tab()
+  make_table_data_tab(file_name = "Fig4-3")
 ```
 :::
 

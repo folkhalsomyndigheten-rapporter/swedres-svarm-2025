@@ -31,7 +31,7 @@ In Sweden, findings of carbapenemase-producing Enterobacterales (ESBL~CARBA~) an
 
 ##### *Escherichia coli* 
 
-In Sweden, ESBL~CARBA~ in animals are notifiable but not ESBL~A~ or ESBL~M~. In 2025, various samples from healthy farm animals were screened for *Escherichia coli* resistant to ESCs and carbapenems using selective media. Isolates with reduced susceptibility were further investigated by genome sequencing for presence of transferable genes coding for ESC resistance (@sec-NEEDS-TO-BE-ADDED-WHEN-SECTION-IS-READY for details see Material and methods, resistance in bacteria from animals).  
+In Sweden, ESBL~CARBA~ in animals are notifiable but not ESBL~A~ or ESBL~M~. In 2025, various samples from healthy farm animals were screened for *Escherichia coli* resistant to ESCs and carbapenems using selective media. Isolates with reduced susceptibility were further investigated by genome sequencing for presence of transferable genes coding for ESC resistance (for details see [Material and methods, resistance in bacteria from animals](#sec-mmr)).  
 
 Active screening for *E. coli* resistant to ESCs in healthy farm animals using faecal samples collected at slaughter has been performed since 2008. The proportions of samples positive for *E. coli* with ESBL~A~ or ESBL~M~ in screenings of healthy animals are available as supplementary material on [the SVA web page](https://www.sva.se/en/what-we-do/antibiotics/svarm-resistance-monitoring/supplementary-material/){target="_blank"}. 
 
@@ -55,7 +55,7 @@ Carbapenem-resistant *E. coli* was not isolated from any of the 100 investigated
 
 *Escherichia coli* with ESC-resistance was not isolated from any of the 100 investigated samples (@tbl-41). This is the first time since selective methods to detect *E. coli* with ESC-resistance among broilers was introduced in the Svarm monitoring in 2010 that all samples were negative. However, only a limited number of samples were investigated in 2025, and it is uncertain if the situation will remain when a larger number of samples are investigated in 2026. 
 
-Due to differences in methodology over the years, changes in the proportion of positive samples over the whole time period cannot be directly assessed. However, some comparison with earlier years is possible, as the samples from 2015 and the first half of 2016 as well as the samples from 2021 were cultured in duplicate with both methods that were relevant for the respective years (@sec-NEEDS-TO-BE-ADDED-WHEN-SECTION-IS-READY for details on methodology see Material and methods, resistance in bacteria from animals in relevant Swedres-Svarm reports). The difference in the proportion of broiler caecal samples positive for *E. coli* with ESBL~A~ or ESBL~M~ since 2016 is statistically significant (p<0.01, X^2^; @fig-41). This decrease is most likely explained by decreased occurrence of such bacteria in the breeding pyramid [@nilsson2020decreased]. 
+Due to differences in methodology over the years, changes in the proportion of positive samples over the whole time period cannot be directly assessed. However, some comparison with earlier years is possible, as the samples from 2015 and the first half of 2016 as well as the samples from 2021 were cultured in duplicate with both methods that were relevant for the respective years (for details on methodology see [Material and methods, resistance in bacteria from animals](#sec-mmr) in current or previous Swedres-Svarm reports). The difference in the proportion of broiler caecal samples positive for *E. coli* with ESBL~A~ or ESBL~M~ since 2016 is statistically significant (p<0.01, X^2^; @fig-41). This decrease is most likely explained by decreased occurrence of such bacteria in the breeding pyramid @nilsson2020decreased. 
 
 ```{r}
 #| include: false
@@ -111,20 +111,20 @@ p_41 <- ggplot(df_fig_41,
   add_sva_caption() +
   theme(plot.subtitle = element_text(vjust = -15))
 
-make_dynamic_plot(plot = p_41, filename = "fig-41")
+make_dynamic_plot(plot = p_41, filename = "Fig4-1")
 ```
 
 ###### Data
 ```{r}
 dat_41_long |> 
-  make_table_data_tab()
+  make_table_data_tab(file_name = "Fig4-1")
 ```
 :::
 
 #### Meat samples 
 ##### *Escherichia coli* 
 
-In Sweden, neither carbapenemase-producing Enterobacterales (ESBL~CARBA~), nor classical ESBLs (ESBL~A~) or plasmid-mediated AmpC (ESBL~M~) are notifiable in food. Active screening for *Escherichia coli* resistant to ESCs in meat samples collected at retail has been performed since 2008. During 2025, pig and cattle meat samples were screened for *E. coli* resistant to ESCs and carbapenems using selective media (@sec-NEEDS-TO-BE-ADDED-WHEN-SECTION-IS-READY for details see Material and methods, resistance in bacteria from animals).  
+In Sweden, neither carbapenemase-producing Enterobacterales (ESBL~CARBA~), nor classical ESBLs (ESBL~A~) or plasmid-mediated AmpC (ESBL~M~) are notifiable in food. Active screening for *Escherichia coli* resistant to ESCs in meat samples collected at retail has been performed since 2008. During 2025, pig and cattle meat samples were screened for *E. coli* resistant to ESCs and carbapenems using selective media (for details see[Material and methods, resistance in bacteria from animals](#sec-mmr)).  
 
 Samples from pig and cattle meat were collected at retail by municipal environmental departments in nine different municipalities in Sweden. The samples were distributed throughout the year and among the municipalities in order to get a representative sampling. Furthermore, consignments of pig and cattle meat from countries outside EU imported via border control posts in Sweden were sampled by personnel from the National Food Agency (SLV). 
 
@@ -176,7 +176,7 @@ tab_41$table
 ```{r}
 df <- src_41$fig_data
 df |>
-  make_table_data_tab(file_name = "tab41")
+  make_table_data_tab(file_name = "Table4-1")
 ```
 :::
 
@@ -211,7 +211,7 @@ tab_42$table
 ```{r}
 df <- src_42$fig_data
 df |>
-  make_table_data_tab(file_name = "tab42")
+  make_table_data_tab(file_name = "Table4-2")
 ```
 :::
 
@@ -237,7 +237,7 @@ tab_43$table
 ```{r}
 df <- src_43$fig_data
 df |>
-  make_table_data_tab(file_name = "tab43")
+  make_table_data_tab(file_name = "Table4-3")
 ```
 :::
 
@@ -269,13 +269,13 @@ tab_44$table
 ```{r}
 df <- src_44$fig_data
 df |>
-  make_table_data_tab(file_name = "tab44")
+  make_table_data_tab(file_name = "Table4-4")
 ```
 :::
 
 #### Farm animals 
 
-Screening studies in pigs have been performed five times since 2006, with two positive samples from pigs at slaughter in 2010. A screening was performed in all 39 nucleus and multiplying herds present in 2014, and all samples were negative. In 2025, an EU-wide baseline study on the prevalence of MRSA in pigs at slaughterhouses was performed. MRSA was detected in 60 (29%) of investigated slaughter groups. All the investigated isolates carried *mecA* and belonged to CC398. *Spa*-type t034 was most common (n=50), followed by t011 (n=7) and a few t571 (n=3). How well this reflects the occurrence on farm is not known but sampling of farms with piglets is being performed in 2025/2026. 
+Screening studies in pigs have been performed five times since 2006, with two positive samples from pigs at slaughter in 2010. A screening was performed in all 39 nucleus and multiplying herds present in 2014, and all samples were negative. In 2025, an EU-wide baseline study on the prevalence of MRSA in pigs at slaughterhouses was performed. MRSA was detected in 60 (29%) of investigated slaughter groups. All the investigated isolates carried *mecA* and belonged to CC398. *Spa*-type t034 was most common (n=50), followed by t011 (n=7) and a few t571 (n=3). How well this reflects the occurrence on farm is not known but sampling of farms with piglets is being performed in 2025/2026.
 
 In dairy cattle, active monitoring of selected isolates of beta-lactamase-producing *S. aureus* from milk samples has been ongoing since 2010, and about 1 540 isolates have been tested up to and including 2025. The monitoring is performed on isolates with anonymised origin. Since 2010, five PVL-negative isolates with *mecC*, two PVL-negative isolates with *mecA* and one PVL-positive isolate with *mecA* have been detected. In 2012, PVL-positive MRSA with *mecA* was isolated from several animals in a dairy herd [@unnerstad2018suspected]. In 2025, no MRSA was detected among the 44 isolates screened for occurrence of *mecA* and *mecC*. 
 
@@ -319,8 +319,9 @@ fig_42_alt <- dat_42$fig_alt
 
 
 df_fig_42 <- dat_42$fig_data |>
-  mutate(tooltip = paste0("<b>Year:</b> ", Year, "<br><b>Total number of MRSP:</b> ", Total), data_id = paste(Total, Year, sep = "_"),
-         one_col = "one_color_SweSva")
+  mutate(tooltip = paste0("<b>Year:</b> ", Year, "<br><b>Total number of MRSP:</b> ", Total), 
+         data_id = paste(Total, Year, sep = "_"),
+         one_col = "Number of cases with MRSP")
 
 yrs <- sort(unique(df_fig_42$Year))
 
@@ -333,27 +334,25 @@ p_42 <- ggplot(df_fig_42,
                    data_id = data_id)) +
   geom_line_interactive(aes(tooltip=glue::glue('{Year}')),
                         lwd=0.5) +
-  ggiraph::geom_point_interactive(aes(tooltip = tooltip)) +
+  geom_point_interactive(aes(tooltip = tooltip),hover_nearest = T) +
   scale_x_discrete(expand=c(0,0.2)) +
   scale_y_continuous(limits=c(0,150),
                      expand=c(0,0.2)
                      ) +
-  scale_color_SweSva() +
+  scale_color_manual(values= one_color_SweSva[[1]]) +
   labs(x = "Year",
-       y = "Number of cases with MRSP", color = NULL) +
+       y = "Number of cases with MRSP") +
   theme_SweSva() +
   add_sva_caption() +
-  theme_SweSva_rotate() +
-  theme(legend.position = "none") +
-  theme(plot.subtitle = element_text(vjust = +2)) 
+  theme_SweSva_rotate() 
 
-make_dynamic_plot(plot = p_42, filename = "fig-42")
+make_dynamic_plot(plot = p_42, filename = "Fig4-2")
 ```
 
 ###### Data
 ```{r}
 dat_42$fig_data |> 
-  make_table_data_tab()
+  make_table_data_tab(file_name = "Fig4-2")
 ```
 :::
 
@@ -384,6 +383,6 @@ tab_45$table
 ```{r}
 df <- src_45$fig_data
 df |>
-  make_table_data_tab(file_name = "tab45")
+  make_table_data_tab(file_name = "Table4-5")
 ```
 :::

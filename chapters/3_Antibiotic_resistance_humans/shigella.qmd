@@ -16,7 +16,7 @@ execute:
 #| warning: false
 #| message: false
 source("../../_common.R")
-status(type = "polishing")
+status(type = "ready2publish")
 ```
 
 ## *Shigella* species
@@ -37,7 +37,6 @@ The number of reported Shigella cases in 2025 remained stable compared to 2024. 
 
 In 2025, 203 isolates of Shigella in feacal samples were reported in Svebar and AST results were available for 194 isolates. The majority of isolates with AST were *S. sonnei* and *S. flexneri*, with 53% and 24% of the isolates, respectively. None of the isolates were carbapenem resistant (@fig-3-shigella). The number of isolates with an AST available for analysis was low. Hence, results should be interpreted with caution. The increase in cefotaxime resistance indicates a higher presence of ESBL among the tested isolates.
 
-@fig-3-shigella is Table_3.12_ShigellaSpp_21_25
 
 ```{r}
 #| message: false
@@ -46,12 +45,7 @@ data <- load_from_excel(path_file = "data/Table_3.12_ShigellaSpp_21_25.xlsx")
 
 df <- data$fig_data |> 
   mutate(across(c(3:4), as.numeric)) |> 
- # rename(antibiotic = Antibiotic,
-#         year = Year,
-#         r_perc = `% R`,
- #        ci = `95% CI`) |> 
   janitor::clean_names() |> 
-  
   ## confidence interval
   rename(r_perc = percent_r,
          tot_antal = n_tested) |> 
@@ -94,7 +88,7 @@ tooltip_p = glue::glue('<b>Year:</b> {year}
                             linewidth = .5
   ) +
   scale_x_discrete(expand = c(0,0.2)) +
-    scale_y_continuous(breaks = perc_100, #fohm_perc_breaks,#scales::pretty_breaks(), 
+    scale_y_continuous(breaks = perc_100,
                        limits=c(0,100)) +
     guides(color=guide_legend(nrow=3)) +
 
@@ -107,13 +101,13 @@ tooltip_p = glue::glue('<b>Year:</b> {year}
   add_fohm_caption()
 
 make_dynamic_plot(plot = p, 
-                  filename = "Fig-3-shigella")
+                  filename = "Fig3-37")
 ```
 
 ###### Data
 ```{r}
 df |> 
-  make_table_data_tab(file_name = "Fig-3-shigella")
+  make_table_data_tab(file_name = "Fig3-37")
 ```
 :::
 

@@ -16,6 +16,12 @@
   color: #009284;
 }
 
+.nav-footer {
+  background-image: url('_assets/images/Omslags_siluett2.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
 /* table options from main.Bj87-r26.css  */
 /*
 

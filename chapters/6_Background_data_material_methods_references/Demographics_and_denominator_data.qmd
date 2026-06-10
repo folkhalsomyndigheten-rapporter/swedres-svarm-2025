@@ -19,7 +19,7 @@ source("../../_common.R")
 status(type = "drafting")
 ```
 
-## Demographics and denominator data
+## Demographics and denominator data {#sec-demographics}
 ### Humans
 
 @tbl-6-1
@@ -28,10 +28,7 @@ status(type = "drafting")
 #| warning: false
 data <- load_from_excel(path_file = "data/Kap6_Demographics_table_6_1_2025_260511.xlsx")
 
-df <- data$fig_data #|> 
-#   mutate(across(-1, as.numeric)) 
-#df$`1-4 years `
-
+df <- data$fig_data 
 ```
 
 ```{r}
@@ -48,7 +45,7 @@ df |>
 #| warning: false
 data <- load_from_excel(path_file = "data/Kap6_Demographics_table_6_2_2025_260511.xlsx")
 
-df <- data$fig_data #|>    mutate(across(-1, as.numeric)) 
+df <- data$fig_data 
 ```
 
 ```{r}
@@ -62,11 +59,11 @@ df |>
 
 ### Animals
 
-Official statistics on agriculture in Sweden is provided by the Board of Agriculture. The Board of Agriculture maintains a statistical database accessible online (www.jordbruksverket.se). Annual figures on the number of animals are given in @tbl-6-3, on animals slaughtered in @tbl-6-4 and @tbl-6-5 and average herd size in @tbl-6-6. Readers are referred to the Board of Agriculture for further information. 
+Official statistics on agriculture in Sweden are provided by the Board of Agriculture. The Board of Agriculture maintains a statistical database accessible online (www.jordbruksverket.se). Annual figures on the number of animals are given in @tbl-6-3, on animals slaughtered in @tbl-6-4 and @tbl-6-5 and average herd size in @tbl-6-6. Readers are referred to the Board of Agriculture for further information. 
 
 In brief, the number of dairy cows and pigs has decreased notably over the last three decades, but herd size has increased. During the same period, the number of beef cows has increased, as well as the number of chickens slaughtered. 
 
-Estimates of the number of dogs and cats are available from the Board of Agriculture for 2006 and 2012, and in studies by the company Novus in 2017, 2020, 2024, and 2026. In 2012 the numbers of dogs and cats in Sweden were estimated to 784 000 and 1 159 000, respectively. The corresponding figures for 2026 were 951 000 and 1 582 000.   
+Estimates of the number of dogs and cats are available from the Board of Agriculture for 2006 and 2012, and in studies by the company Novus in 2017, 2020, 2024 and 2026. In 2012, the numbers of dogs and cats in Sweden were estimated to 784 000 and 1 159 000, respectively. The corresponding figures for 2026 were 951 000 and 1 582 000.   
 
  
 ```{r}

@@ -18,7 +18,7 @@ execute:
 #| warning: false
 #| message: false
 source("../../_common.R")
-status(type = "polishing")
+status(type = "ready2publish")
 ```
 
 
@@ -31,8 +31,6 @@ Resistance levels are stable for most antibiotics in both blood isolates and non
 
 In total, 56 unique (per patient, year, species and sequence type) *Pseudomonas* spp. isolates were analysed in 2025, of which 15 belonged to the microbiological surveillance programme for ESBL~CARBA~-producing *Pseudomonas* spp. Eight of these isolates carried a *bla*~NDM~-gene, three *bla*~NDM~, two *bla*~VIM~ and two *bla*~IMP~. Three clusters were active during 2025, with four patients in the two largest clusters (*bla*~NDM~, *bla*~GES~) and two patients in the remaining cluster (*bla*~NDM~).
 
-
-@tbl-3-10 is Figure_3.29_Pae_blood.xlsx
 
 ::: panel-tabset
 ###### Figure
@@ -85,7 +83,7 @@ p <- df |>
                             width=.15,linewidth = .5
   ) +
   scale_x_discrete(expand = c(0,0.2)) +
-    scale_y_continuous(breaks = perc_25,#scales::pretty_breaks(),
+    scale_y_continuous(breaks = perc_25,
                        limits=c(0,25)) +
   guides(color=guide_legend(nrow=3)) +
 
@@ -98,7 +96,7 @@ p <- df |>
   add_fohm_caption()
 
 make_dynamic_plot(plot = p, 
-                  filename = "Hannas_1st_plot")
+                  filename = "Fig3-32")
 ```
 ###### Data
 ```{r}
@@ -109,12 +107,10 @@ df |>
             "number of resistent tests" = r_antal,
             "% resistent" = r_perc,
             "Confidence interval" = ci) |> 
-  make_table_data_tab(file_name = "Hannas_1st_plot_data")
+  make_table_data_tab(file_name = "Fig3-32")
 ```
 :::
 
-
-@fig-3-30 is Figure_3.30_PAE_Othr_2016_2025
 
 ::: panel-tabset
 ##### Figure 
@@ -169,20 +165,18 @@ p <- df |>
   add_fohm_caption()
 
 make_dynamic_plot(plot = p, 
-                  filename = "Fig3.30_PAE_other")
+                  filename = "Fig3-33")
 ```
 
 ##### Data
 ```{r}
 df |> 
-   make_table_data_tab(file_name = "Fig3.30_PAE_other")
+   make_table_data_tab(file_name = "Fig3-33")
 ```
 :::
 
 
 
-
-@tbl-3-10 is Table_3.10_Pae
 
 ```{r}
 #| message: false
@@ -207,7 +201,7 @@ df |>
 ###### Data
 ```{r}
 df |> 
-  make_table_data_tab(file_name = "Table3-10")
+  make_table_data_tab(file_name = "Table3-9")
 ```
 :::
 

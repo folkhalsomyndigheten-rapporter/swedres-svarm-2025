@@ -16,7 +16,7 @@ execute:
 #| warning: false
 #| message: false
 source("../../_common.R")
-status(type = "polishing")
+status(type = "ready2publish")
 ```
 
 ## *Salmonella*
@@ -45,7 +45,6 @@ A total of 1 790 *Salmonella enterica* isolates were reported in Svebar, with 73
 Since 2021, the number of isolates found in blood with AST results has ranged between 45-152 per year and antibiotic (@fig-3-salmo1). The data may contain duplicates and there is a risk of overestimation of the resistance. Hence, results should be interpreted with caution. The general increase in resistance among faecal and urine isolates seen in 2022 (@fig-3-37) was probably linked to the increase of Salmonella isolates carrying ESBL. This increase then declined in the following years. In 2025, no significant changes were seen in resistance. Almost four-fifths of the Salmonella from faecal and urine samples were fully susceptible to azithromycin, cefotaxime and ciprofloxacin (@tbl-3-17). 
 
 
-@fig-3-37 is Figure_3.37_SalmonellaSpp_FecesUrin_2016_2025
 
 ```{r}
 #| message: false
@@ -56,7 +55,7 @@ df <- data$fig_data |>
   janitor::clean_names() |> 
   select(-c(no_of_laboratories,identifier)) |> 
   mutate(antibiotic = str_to_title(str_to_lower(antibiotic))) |> 
-## confidence interval
+  ## confidence interval
   rename(r_perc = salm_spp_percent_r,
          tot_antal = number_of_isolats_with_ast) |> 
   mutate(r_antal = round(tot_antal*(r_perc/100),0)) |> 
@@ -75,11 +74,11 @@ df <- data$fig_data |>
 
 p <- df |>
   mutate(data_id=row_number(),
-  tooltip_p = glue::glue('<b>Year:</b> {year}
+         tooltip_p = glue::glue('<b>Year:</b> {year}
                           <b>Antibiotic:</b> {antibiotic}
                           <b>Resistance:</b> {round(r_perc,2)}%
                           <b>Confidence interval:</b> {ci}'
-                                ),
+         ),
          tooltip_l = glue::glue('{antibiotic}')) |> 
   ggplot(aes(x= factor(year),
              y=r_perc,
@@ -95,40 +94,39 @@ p <- df |>
                             width=.15,linewidth = .5
   ) +
   scale_x_discrete(expand = c(0,0.2)) +
-    scale_y_continuous(breaks = perc_100,
-                       limits = c(0,50)
-                       ) +
+  scale_y_continuous(breaks = perc_100,
+                     limits = c(0,50)
+  ) +
   guides(color=guide_legend(nrow=3)) +
-
+  
   labs(x="Year",
        y="Resistance (%)") +
   scale_color_SweSva() +
   theme_SweSva() +
   theme(plot.subtitle = element_text(vjust = -15),
         legend.text = element_text(size=10)) +
-
+  
   add_fohm_caption()
 
 make_dynamic_plot(plot = p, 
-                  filename = "fig-3-37")
+                  filename = "Fig3-44")
 ```
 ###### Data
 ```{r}
 df |> 
-    transmute(year,
+  transmute(year,
             antibiotic,
             n_tested = tot_antal,
             n_resistant = r_antal,
             r_perc, 
             ci
-            ) |> 
-  make_table_data_tab(file_name = "fig-3-37")
+  ) |> 
+  make_table_data_tab(file_name = "Fig3-44")
 ```
 :::
 
 
 
-@tbl-3-15 is Table_3.15_Salmonella_Blod_FU_jmf2025
 
 ```{r}
 #| message: false
@@ -146,18 +144,17 @@ df <- data$fig_data |>
 #| tbl-cap: !expr glue::glue("{data$fig_cap}")
 df |> 
   gt()|> 
- gt_theme_SweSva()
+  gt_theme_SweSva()
 ```
 
 ###### Data
 ```{r}
 df |> 
-  make_table_data_tab(file_name = "Table3-15")
+  make_table_data_tab(file_name = "Table3-11")
 ```
 :::
 
 
-@fig-3-salmo1 is Table_3.16_Salmonella_blod_21_25
 
 ```{r}
 #| message: false
@@ -166,10 +163,7 @@ data <- load_from_excel(path_file = "data/Table_3.16_Salmonella_blod_21_25.xlsx"
 
 df <- data$fig_data |>
   janitor::clean_names() |> 
-   # select(-c(identifier)) |> 
-
-    #mutate(antibiotic = str_to_title(str_to_lower(antibiotic))) |> 
-## confidence interval
+  ## confidence interval
   mutate(r_perc = as.numeric(percent_r),
          r_antal = number_of_resistant_isolates,
          tot_antal = n_tested) |> 
@@ -177,8 +171,7 @@ df <- data$fig_data |>
   group_by(antibiotic, year) %>%
   na.omit() |> 
   get_wilson_ci()
-  
- # mutate(across(c(3:4), as.numeric))
+
 ```
 
 ::: panel-tabset
@@ -192,11 +185,11 @@ df <- data$fig_data |>
 
 p <- df |>
   mutate(data_id=row_number(),
-  tooltip_p = glue::glue('<b>Year:</b> {year}
+         tooltip_p = glue::glue('<b>Year:</b> {year}
                           <b>Antibiotic:</b> {antibiotic}
                           <b>Resistance:</b> {round(r_perc,2)}%
                           <b>Confidence interval:</b> {ci}'
-                                ),
+         ),
          tooltip_l = glue::glue('{antibiotic}')) |> 
   ggplot(aes(x= factor(year),
              y=r_perc,
@@ -212,36 +205,21 @@ p <- df |>
                             width=.15,linewidth = .5
   ) +
   scale_x_discrete(expand = c(0,0.2)) +
-    scale_y_continuous(breaks = perc_100,#scales::pretty_breaks(), 
-                       limits = c(0,50)
-                       ) +
+  scale_y_continuous(breaks = perc_100, 
+                     limits = c(0,50)
+  ) +
   guides(color=guide_legend(nrow=3)) +
-
+  
   labs(x="Year",
        y="Resistance (%)") +
   scale_color_SweSva() +
   theme_SweSva() +
   theme(plot.subtitle = element_text(vjust = -15),
         legend.text = element_text(size=8)) +
-
   add_fohm_caption()
 
- # scale_x_discrete(expand = c(0,0.2)) +
-#    scale_y_continuous(breaks = perc_100,#scales::pretty_breaks(),
-#                       limits=c(0,50)
-#                       ) +
-#    guides(color=guide_legend(nrow=3)) +#
-#
-#  labs(x="Year",
-#       y="Resistence (%)") +
-#  scale_color_SweSva() +
-#  theme_SweSva() +
-#  theme(plot.subtitle = element_text(vjust = -15),
-#        legend.text = element_text(size=8)) +
-#  add_fohm_caption()
-
 make_dynamic_plot(plot = p, 
-                  filename = "Tab3-16")
+                  filename = "Fig3-45")
 ```
 
 ###### Data
@@ -253,19 +231,17 @@ df |>
             n_resistant = r_antal,
             r_perc, 
             ci
-            ) |> 
-  make_table_data_tab(file_name = "Table3-14")
+  ) |> 
+  make_table_data_tab(file_name = "Fig3-45")
 ```
 :::
 
-
-@tbl-3-17 is Table_3.17_Salmonella_kombres_21_25
 
 ```{r}
 #| message: false
 #| warning: false
 data <- load_from_excel(path_file = "data/Table_3.17_Salmonella_kombres_21_25.xlsx")
-df <- data$fig_data #|>  mutate(across(c(2:3), as.numeric))
+df <- data$fig_data 
 ```
 
 ::: panel-tabset
@@ -275,13 +251,13 @@ df <- data$fig_data #|>  mutate(across(c(2:3), as.numeric))
 #| tbl-cap: !expr glue::glue("{data$fig_cap}")
 df |> 
   gt()|> 
- gt_theme_SweSva()
+  gt_theme_SweSva()
 ```
 
 ###### Data
 ```{r}
 df |> 
-  make_table_data_tab(file_name = "Table3-17")
+  make_table_data_tab(file_name = "Table3-12")
 ```
 :::
 

@@ -16,7 +16,7 @@ execute:
 #| warning: false
 #| message: false
 source("../../_common.R")
-status(type = "polishing")
+status(type = "ready2publish")
 ```
 
 ## *Candidozyma auris*
@@ -29,7 +29,6 @@ In Sweden, *C. auris* has only occurred in sporadic cases among individuals who 
 Isolates from five patients, two women and three men age 20-77 years, were collected within the programme in 2025 and characterised with species confirmation and antifungal susceptibility results (AFST) at the national reference laboratory for fungi, at Karolinska University Hospital. The AFST results of these are shown in @tbl-3-cauris as resistance patterns. As expected, all isolates show elevated MICs for fluconazole, as the majority of *C. auris* strains have acquired resistance to the drug. Three isolates also show elevated MICs and resistance to anidulafungin, which is perhaps less expected, as *C. auris* resistance to echinocandins is less frequently reported (@tbl-3-cauris). 
 
 
-@tbl-3-cauris is Table_3.x_Cauris
 
 ```{r}
 #| message: false
@@ -52,7 +51,7 @@ df |>
 ###### Data
 ```{r}
 df |> 
-  make_table_data_tab(file_name = "Table3-cauris")
+  make_table_data_tab(file_name = "Table3-10")
 ```
 :::
 
