@@ -16,7 +16,7 @@ execute:
 #| warning: false
 #| message: false
 source("../_common.R")
-status(type = "polishing")
+status(type = "ready2publish")
 ```
 
 # Guidance for readers {.unnumbered #sec-g4r}
@@ -111,7 +111,7 @@ The terms multidrug resistance (MDR), multiresistance and multiresistant are in 
 data <- load_from_excel(path_file = "data/Abbr_common_Guidance.xlsx")
 
 df <- data$fig_data |> 
-  dplyr::select(Abbreviation,Antibiotic)
+  dplyr::select(Abbreviation,Definition)
 ```
 
 
@@ -119,7 +119,8 @@ df <- data$fig_data |>
 #| label: tbl-abbr
 #| tbl-cap: !expr glue::glue("{data$fig_cap}")
 df |> 
-  make_table_data_tab()
+  make_table_data_tab(file_name = "Abbreviations",
+                      page_length = 100)
 ```
 
 ### Abbreviations antibiotics
@@ -138,7 +139,8 @@ df <- data$fig_data |>
 #| label: tbl-abbr-antibiotics
 #| tbl-cap: !expr glue::glue("{data$fig_cap}")
 df |> 
-  make_table_data_tab()
+   make_table_data_tab(file_name = "Abbreviations_antibiotics",
+                      page_length = 100)
 ```
 
 
