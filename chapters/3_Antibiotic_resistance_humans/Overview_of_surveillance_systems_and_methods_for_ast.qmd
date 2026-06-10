@@ -130,10 +130,11 @@ df <- data$fig_data |>
 #| warning: false
 
 p <- df |>
-  mutate(data_id = row_number(),
+  mutate(gender = factor(gender, levels=c("Women","Men","Total")),
+         data_id = row_number(),
          tooltip_l = glue::glue('{gender}'),
-         tooltip_p  = glue::glue('<b>Yearr:</b> {year}
-         <b>Gender:</b> {gender}
+         tooltip_p  = glue::glue('<b>Year:</b> {year}
+                                   <b>Gender:</b> {gender}
                                    <b>Resistance:</b> {round(r_perc,2)}% ')) |>
   
   ggplot(aes(x= factor(year),
@@ -145,7 +146,6 @@ p <- df |>
                         lwd=0.5) +
   geom_point_interactive(aes(tooltip = tooltip_p),
                          hover_nearest = TRUE) +
-  
   scale_x_discrete(expand = c(0,0.2)) +
   scale_y_continuous(breaks = perc_25, 
                      limits=c(0,25)) +
@@ -163,7 +163,7 @@ make_dynamic_plot(plot = p,
 ###### Data
 ```{r}
 df |> 
-  make_table_data_tab(file_name = "Fig3-1")
+  make_table_data_tab(file_name = "Fig3-2")
 ```
 :::
 
@@ -186,10 +186,11 @@ df <- data$fig_data |>
 #| warning: false
 
 p <- df |>
-  mutate(data_id = row_number(),
-         tooltip_l = glue::glue('{gender}'),
-         tooltip_p  = glue::glue('<b>Year:</b> {year}
-         <b>Gender:</b> {gender}
+    mutate(gender = factor(gender, levels=c("Women","Men","Total")),
+           data_id = row_number(),
+           tooltip_l = glue::glue('{gender}'),
+           tooltip_p  = glue::glue('<b>Year:</b> {year}
+                                    <b>Gender:</b> {gender}
                                    <b>Resistance:</b> {round(r_perc,2)}% ')) |>
   ggplot(aes(x= factor(year),
              y=r_perc,
