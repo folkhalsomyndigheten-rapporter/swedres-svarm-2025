@@ -62,25 +62,25 @@ book:
     # Parts and chapters
     - part: "Chapter 1" 
       chapters:
-       # - chapters/1_Sales_antibiotics_humans/Intro.qmd
+        - chapters/1_Sales_antibiotics_humans/Intro.qmd
         - chapters/1_Sales_antibiotics_humans/Main.qmd
        
 
     - part: "Chapter 2" 
       chapters:
-        #- chapters/2_Sales_antibiotics_animals/Intro.qmd
+        - chapters/2_Sales_antibiotics_animals/Intro.qmd
         - chapters/2_Sales_antibiotics_animals/Main.qmd
         - chapters/2_Sales_antibiotics_animals/InFocus.qmd
 
     - part: "Chapter 3" # 
       chapters:
-        #- chapters/3_Antibiotic_resistance_humans/Intro.qmd
+        - chapters/3_Antibiotic_resistance_humans/Intro.qmd
         - chapters/3_Antibiotic_resistance_humans/Main.qmd
     #    - chapters/3_Antibiotic_resistance_humans/InFocus.qmd
 
     - part: "Chapter 4" 
       chapters:
-        #- chapters/4_Antibiotic_resistance_animals/Intro.qmd
+        - chapters/4_Antibiotic_resistance_animals/Intro.qmd
         - chapters/4_Antibiotic_resistance_animals/Main.qmd
         - chapters/4_Antibiotic_resistance_animals/InFocus_MRSP_animals.qmd
         - chapters/4_Antibiotic_resistance_animals/InFocus_SvarmPat.qmd
