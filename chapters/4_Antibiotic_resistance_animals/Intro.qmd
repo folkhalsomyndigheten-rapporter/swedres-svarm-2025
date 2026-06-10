@@ -2,9 +2,7 @@
 format:
   html:
     embed-resources: false
-    toc: true
-    toc-depth: 5
-    toc-expand: true
+
 execute:
   cache: false
   echo: false
