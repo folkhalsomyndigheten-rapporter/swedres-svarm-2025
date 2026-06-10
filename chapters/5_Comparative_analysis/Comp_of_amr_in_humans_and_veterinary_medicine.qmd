@@ -22,7 +22,7 @@ status(type = "polishing")
 ## Comparison of antibiotic resistance in human and veterinary medicine {#sec-cashv}
 
 
-### ESBL-producing enterobacterales
+### ESBL-producing Enterobacterales
 
 Enterobacterales with ESBL~A~ or ESBL~M~, and their corresponding genes, can transfer between animals and humans @efsa2011scientific, @debeen2014dissemination. The main route would be via food, but the possibility for direct transfer when handling animals should be kept in mind. 
 
