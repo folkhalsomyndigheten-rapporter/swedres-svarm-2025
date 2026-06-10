@@ -16,7 +16,7 @@ execute:
 #| warning: false
 #| message: false
 source("../../_common.R")
-status(type = "polishing")
+status(type = "ready2publish")
 ```
 
 ## *Acinetobacter* spp.
@@ -97,7 +97,7 @@ p <- df |>
   add_fohm_caption()
 
 make_dynamic_plot(plot = p, 
-                  filename = "Ace_spp_blood")
+                  filename = "Fig3-34")
 ```
 ###### Data
 ```{r}
@@ -108,7 +108,7 @@ df |>
             "number of resistent tests" = r_antal,
             "% resistent" = r_perc,
             "Confidence interval" = ci) |> 
-  make_table_data_tab(file_name = "Ace_spp_blood")
+  make_table_data_tab(file_name = "Fig3-34")
 ```
 :::
 

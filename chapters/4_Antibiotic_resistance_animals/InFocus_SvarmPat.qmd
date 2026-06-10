@@ -24,13 +24,11 @@ status(type = "polishing")
 
 ::: {.callout-note appearance="simple" collapse="false" #infoc-svarmpat}
 
-## [In-focus]{.in-focus} - SvarmPat {.unnumbered #sec-svarmpat}
+## [In-focus]{.in-focus} - SvarmPat {.unnumbered}
 
 ### SvarmPat – monitoring of resistance in pathogens from farm animals
 
-<!---
-SvarmPat – monitoring of resistance in pathogens from farm animals OR resistance monitoring in farm animal pathogens 
---->
+
 The SvarmPat programme (Swedish Veterinary Antibiotic Resistance Monitoring – farm animal pathogens) is a project in cooperation between Farm & Animal Health and SVA that started in 2005. It is financed by the Swedish Board of Agriculture.  
 
 The purpose of SvarmPat is to reduce emergence and spread of antibiotic resistance in pathogenic bacteria from farm animals, including farmed fish. This is achieved by monitoring and documenting antibiotic resistance in farm animal pathogens, by activities that increase knowledge of antibiotic resistance and prudent use of antibiotics, and by communication of knowledge to practitioners and farmers. Respiratory pathogens from farm animals are generally susceptible to benzylpenicillin, but penicillin resistance occurs in *Pasteurella multocida* and *Mannheimia haemolytica* from calves and in *Mannheimia haemolytica* and *Bibersteinia trehalosi* from sheep. Resistance is particularly common in *Escherichia coli* isolates from pigs with diarrhoea. Even if most isolates of farm animal pathogens are susceptible to first line antibiotics, susceptibility testing is warranted for guidance in antibiotic therapy as well as monitoring of resistance trends. 

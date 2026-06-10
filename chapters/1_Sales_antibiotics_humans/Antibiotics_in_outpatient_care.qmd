@@ -717,6 +717,8 @@ df <- data$fig_data |>
   dplyr::select(age_group,women,men) |> 
   pivot_longer(-age_group,names_to = "gender",
                names_transform = str_to_title) 
+
+order <- data$fig_data |> pull(`Age group`)
 ```
 ###### Figure
 ```{r}
@@ -730,7 +732,7 @@ p <- df |>
           tooltip_b = glue::glue('<b>Age group:</b> {age_group}
                                  <b>Gender:</b> {gender}
                                  <b>Prescriptions/1 000 inhabitants per year:</b> {round(value,2)}'),
-          
+          age_group = factor(age_group, levels=order),
           gender = factor(gender, levels = c("Women","Men"))
           ) |> 
   ggplot(aes(x = age_group,
@@ -745,7 +747,6 @@ p <- df |>
   scale_x_discrete(expand=c(0,0.2)) +
   scale_fill_SweSva() + 
   theme_SweSva() +
-  #theme_SweSva_rotate() +
   add_fohm_caption()
 
 make_dynamic_plot(plot = p, filename = "Fig1-11")
@@ -1028,6 +1029,8 @@ data <- load_from_excel(path_file = "data/fig-1-16.xlsx")
 df <- data$fig_data |> 
   dplyr::select(Year:"85 - years") |> 
   pivot_longer(-Year,names_to = "group") 
+order <- df |> distinct(group) |> pull(group)
+
 ```
 
 ```{r}
@@ -1041,7 +1044,7 @@ p <- df |>
           tooltip_b = glue::glue('<b>Year:</b> {Year}
                                     <b>Group:</b> {group}
                                     <b>Prescriptions/1 000 inhabitants and year :</b> {round(value,2)}'),
-          group = factor(group, levels = c("All age groups","<1 years","1-4 years","5-19 years","20-44 years", "45-64 years","65-84 years","85- years"))
+          group = factor(group, levels = order)
           ) |> 
 
   ggplot(aes(x = group,

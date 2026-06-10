@@ -22,7 +22,7 @@ status(type = "ready2publish")
 ```
 
 ::: {.callout-note appearance="simple" collapse="false" #infoc-salestopical}
-## [In-focus]{.in-focus} - Sales of topical antimicrobial products {.unnumbered #infoc-salestopical}
+## [In-focus]{.in-focus} - Sales of topical antimicrobial products {.unnumbered}
 
 ### Sales of antimicrobial products formulated for topical use
   

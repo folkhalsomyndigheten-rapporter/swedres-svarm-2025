@@ -24,7 +24,7 @@ status(type = "drafting")
 
 Isolates tested are from clinical submissions of samples to SVA, if not otherwise stated. For many samples, information on the indication for sampling was not available but the vast majority of submissions were likely from animals with infections. Therefore, data may be biased towards samples from treated animals or from herds where antibiotic treatment is common. Any assessments of trends are based on the assumption that this bias is inherent throughout the observation period. Furthermore, in some cases there was more than one animal sampled from the same herd. Likewise, regarding horses, dogs and cats, duplicates based on animal identity have not been excluded. 
 
-In Svarm, isolates are, when possible, classified as susceptible or resistant by ECOFFs issued by EUCAST (see @sec-g4r Guidance for readers for details). This classifies isolates with acquired reduced susceptibility as resistant, which is relevant for monitoring purposes, but it should be understood that this does not always imply clinical resistance.
+In Svarm, isolates are, when possible, classified as susceptible or resistant by ECOFFs issued by EUCAST (see [Guidance for readers](#sec-g4r) for details). This classifies isolates with acquired reduced susceptibility as resistant, which is relevant for monitoring purposes, but it should be understood that this does not always imply clinical resistance.
 
 ### Pigs {#sec-clinical-pigs}
 #### *Escherichia coli* 
@@ -404,7 +404,7 @@ dat_46_long |>
 
 #### *Actinobacillus pleuropneumoniae*
 
-Isolates of *Actinobacillus pleuropneumoniae* are mostly from post-mortem investigations of lungs. Isolates from 2024 and 2025 were included in the MIC distribution. From 2024, 17 isolates were collected in a SvarmPat project (see @sec-crossref-InFocusSvarmPat-WillBeFixedLater) where acute lesions in lungs and pericardium were sampled at slaughter. Data from 2025 and back to 2005 show that the resistance situation is favourable and almost no resistance has been detected to tested antibiotics during this period, including penicillin (@tbl-413). Since pneumonia caused by *A. pleuropneumoniae* is an important disease in pigs, sampling and susceptibility testing is desirable if emerging resistance is to be detected early. For treatment of *Actinobacillus pleuropneumoniae* with MICs within the wild type distribution of penicillin (MIC 0.12 – 0.5 mg/L), increased exposure to penicillin is required [@medical2022dosage]. Exposure includes e.g. administration route, dose and dosing interval. 
+Isolates of *Actinobacillus pleuropneumoniae* are mostly from post-mortem investigations of lungs. Isolates from 2024 and 2025 were included in the MIC distribution. From 2024, 17 isolates were collected in a SvarmPat project (see @infoc-svarmpat) where acute lesions in lungs and pericardium were sampled at slaughter. Data from 2025 and back to 2005 show that the resistance situation is favourable and almost no resistance has been detected to tested antibiotics during this period, including penicillin (@tbl-413). Since pneumonia caused by *A. pleuropneumoniae* is an important disease in pigs, sampling and susceptibility testing is desirable if emerging resistance is to be detected early. For treatment of *Actinobacillus pleuropneumoniae* with MICs within the wild type distribution of penicillin (MIC 0.12 – 0.5 mg/L), increased exposure to penicillin is required [@medical2022dosage]. Exposure includes e.g. administration route, dose and dosing interval. 
 
 ::: {.panel-tabset}
 ###### Table
@@ -437,7 +437,7 @@ df |>
 
 #### *Pasteurella multocida* 
 
-Clinical isolates of *Pasteurella multocida* are mostly from the respiratory tract. Eight of the isolates from 2024 were collected in a SvarmPat project (see @sec-svarmpat) where acute lesions in lungs and pericardium were sampled at slaughter. All tested isolates were susceptible to relevant antibiotics including penicillin, however three isolates were resistant to trimetoprim-sulphamethoxazole (@tbl-414).  
+Clinical isolates of *Pasteurella multocida* are mostly from the respiratory tract. Eight of the isolates from 2024 were collected in a SvarmPat project (see @infoc-svarmpat) where acute lesions in lungs and pericardium were sampled at slaughter. All tested isolates were susceptible to relevant antibiotics including penicillin, however three isolates were resistant to trimetoprim-sulphamethoxazole (@tbl-414).  
 
 ::: {.panel-tabset}
 ###### Table

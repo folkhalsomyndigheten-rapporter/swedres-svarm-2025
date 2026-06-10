@@ -16,7 +16,7 @@ execute:
 #| warning: false
 #| message: false
 source("../../_common.R")
-status(type = "polishing")
+status(type = "ready2publish")
 ```
 
 ## *Staphylococcus aureus* including MRSA
@@ -49,7 +49,6 @@ In summary, the incidence of MRSA increased in 2025, surpassing pre-pandemic lev
 
 
 
-@fig-3-16 is Figure_3.16_25.xlsx
 
 ::: panel-tabset
 ###### Figure
@@ -82,26 +81,24 @@ p <- df |>
                         lwd=.5) +
   geom_point_interactive(aes(tooltip=tooltip_p),
                          hover_nearest = TRUE) +
-    scale_y_continuous(expand = c(0,0),
-                       limits=c(0,50)) +
-scale_x_discrete(expand=c(0,0.2)) +
+  scale_y_continuous(expand = c(0,0),
+                     limits=c(0,50)) +
+  scale_x_discrete(expand=c(0,0.2)) +
   labs(y= "Incidence (cases/100 000 inhabitants)",
        x= "Year") +
-    guides(color=guide_legend(nrow=1)) +
+  guides(color=guide_legend(nrow=1)) +
   scale_color_SweSva() + 
   add_fohm_caption() +
-  theme_SweSva() #+
-    #theme(plot.subtitle = element_text(vjust = -15)) #+
-  #theme_SweSva_rotate()
+  theme_SweSva() 
 
-make_dynamic_plot(plot = p, filename = "Fig3-16")
+make_dynamic_plot(plot = p, filename = "Fig3-19")
 ```
 ###### Data
 ```{r}
 df |> 
   rename("Infection type" = feature,
          "Incidens (cases/100 000 inhabitants)" = value) |> 
-  make_table_data_tab(file_name = "Fig3-16")
+  make_table_data_tab(file_name = "Fig3-19")
 ```
 :::
 
@@ -114,7 +111,6 @@ The proportion of MRSA from blood and in skin and soft tissue infections is 2.4%
 
 
 
-@fig-3-18 is Figure_3.18_Sau_blod
 
 ```{r}
 #| message: false
@@ -123,16 +119,16 @@ data <- load_from_excel(path_file = "data/Figure_3.18_Sau_blod.xlsx")
 
 df <- data$fig_data |>  
   mutate(across(everything(), as.character)) |>
-    rename(antibiotic = Antibiotic) |> 
-
+  rename(antibiotic = Antibiotic) |> 
+  
   pivot_longer(cols = -antibiotic, names_to = "year_tmp") |> 
   separate(year_tmp, into = c("year","feat"),sep = "-") |> 
   mutate(feat = str_remove(feat,"\r\n")) |> 
   mutate(value = as.numeric(value)) |> 
   pivot_wider(names_from = feat, values_from = value) |> 
-    janitor::clean_names() |> 
-
-## confidence interval
+  janitor::clean_names() |> 
+  
+  ## confidence interval
   rename(r_perc = percent_r,
          tot_antal = n_tested) |> 
   mutate(r_antal = round(tot_antal*(r_perc/100),0)) |> 
@@ -152,11 +148,11 @@ df <- data$fig_data |>
 p <- df |>
   filter(antibiotic != "Vancomycin") |> 
   mutate(data_id=row_number(),
-       tooltip_p = glue::glue('<b>Year:</b>{year}
+         tooltip_p = glue::glue('<b>Year:</b>{year}
                           <b>Antibiotic:</b>{antibiotic}
                           <b>Resistance:</b> {round(r_perc,2)}%
                           <b>Confidence interval:</b> {ci}'
-                                ),
+         ),
          tooltip_l = glue::glue('{antibiotic}')) |> 
   ggplot(aes(x= year,
              y=r_perc,
@@ -172,33 +168,31 @@ p <- df |>
                             width=.15,linewidth = .5
   ) +
   scale_x_discrete(expand = c(0,0.2)) +
-    scale_y_continuous(breaks = perc_25,
-                       limits=c(0,25) #scales::pretty_breaks(), limits=c(0,8)
-                       ) +
+  scale_y_continuous(breaks = perc_25,
+                     limits=c(0,25) 
+  ) +
   guides(color=guide_legend(nrow=3)) +
-  scale_color_manual(values =  col_SweSva_9) +# c(fohmR::fohm_pal("diagram_discrete"),fohmR::fohm_pal("main")[3])) +   # scale_color_SweSva() +
+  scale_color_manual(values =  col_SweSva_9) +
   labs(x="Year",
        y="Resistance (%)") +
- # scale_color_SweSva() +
   theme_SweSva() +
-    theme(plot.subtitle = element_text(vjust = -15),
-          legend.text = element_text(size=8)) +
+  theme(plot.subtitle = element_text(vjust = -15),
+        legend.text = element_text(size=8)) +
   add_fohm_caption()
 
 
 make_dynamic_plot(plot = p, 
-                  filename = "fig-3-18")
+                  filename = "Fig3-20")
 ```
 ###### Data
 ```{r}
 df |> 
-  make_table_data_tab(file_name = "fig-3-18")
+  make_table_data_tab(file_name = "Fig3-20")
 ```
 :::
 
 
 
-@fig-3-19 is Figure_3.19_SAU_Skin_2016_2025
 
 ::: panel-tabset
 ##### Figure 
@@ -222,11 +216,11 @@ df <- data$fig_data |>
 #| warning: false
 p <- df |>
   mutate(data_id=row_number(),
-    tooltip_p = glue::glue('<b>Year:</b> {year}
+         tooltip_p = glue::glue('<b>Year:</b> {year}
                           <b>Antibiotic:</b> {antibiotic}
                           <b>Resistance:</b> {round(r_perc,2)}%
                           <b>Confidence interval:</b> {ci}'
-                                ),
+         ),
          tooltip_l = glue::glue('{antibiotic}')) |> 
   ggplot(aes(x= year,
              y=r_perc,
@@ -242,9 +236,9 @@ p <- df |>
                             width=.15,linewidth = .5
   ) +
   scale_x_discrete(expand = c(0,0.2)) +
-    scale_y_continuous(breaks = perc_25,
-                       limits=c(0,25)
-) +
+  scale_y_continuous(breaks = perc_25,
+                     limits=c(0,25)
+  ) +
   labs(x="Year",
        y="Resistance (%)") +
   scale_color_SweSva() +
@@ -252,17 +246,16 @@ p <- df |>
   add_fohm_caption()
 
 make_dynamic_plot(plot = p, 
-                  filename = "Fig3.19_Saureus_skin")
+                  filename = "Fig3-21")
 ```
 ##### Data
 ```{r}
 df |> 
-   make_table_data_tab(file_name = "Fig3.19_Saureus_skin")
+  make_table_data_tab(file_name = "Fig3-21")
 ```
 :::
 
 
-@tbl-3-6 is Table_3.6_SAU_blod_hud_jmf2025.xlsx
 
 ```{r}
 #| message: false

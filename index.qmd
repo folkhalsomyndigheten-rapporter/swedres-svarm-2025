@@ -15,7 +15,7 @@ status(type = "ready2publish")
 The **Swedres-Svarm Report** is a collaborative publication by the [Public Health Agency of Sweden (Folkhälsomyndigheten)](https://www.folkhalsomyndigheten.se/){target="_blank"} and the [Swedish Veterinary Agency (Statens veterinärmedicinska anstalt)](https://www.sva.se/){target="_blank"}, analysing sales of antibiotics and the occurrence of antibiotic resistance in Sweden. The report combines data from humans and animals to provide a comprehensive overview of current trends, and has been jointly published for over two decades.
 
 ::: {.grid}  
-::: {.g-col-10}
+::: {.g-col-12}
 ::: callout-note
 This book is built using the `Quarto` publishing system, with data presented and visualised using `ggplot2`, `ggiraph`, and `dt`. The source code is available on GitHub.
 
