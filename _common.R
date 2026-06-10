@@ -68,8 +68,10 @@ make_table_data_tab <- function(
     # Remove temporary columns
     dplyr::select(-contains(".tmp")) |>
     # remoce all markdown character
-    mutate(across(everything(), ~ str_remove_all(., "\\\\|\\*|\\**|\\||<sub>|</sub>|~|<br>")))
-
+    #mutate(across(everything(), ~ str_remove_all(., "\\\\|\\*|\\*\\*|\\||<sub>|</sub>|~|<br>")))
+    rename_with(~ str_replace_all(., "&gt;", ">") %>% str_remove_all("\\\\|\\*+|\\||<sub>.*?</sub>|<sup>.*?</sup>|~|<br>")) %>%
+    mutate(across(everything(),
+                  ~ str_replace_all(., "&gt;", ">") %>% str_remove_all("\\\\|\\*+|\\||<sub>.*?</sub>|<sup>.*?</sup>|~|<br>")))
   # Create the DT datatable with buttons and options
   dt_table <- datatable(
     cleaned_data,
