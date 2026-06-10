@@ -60,7 +60,7 @@ df |>
 ```
 :::
 
-As in previous years, resistance to ampicillin, tetracycline and trimethoprim-sulphamethoxazole were the most common resistance traits. Resistance to ampicillin and to trimethoprim-sulphamethoxazole has increased considerably from 1995 with a peak in 2015-2016 but from 2019 there is a downward trend for trimethoprim-sulphamethoxazole (@fig-44). Resistance to neomycin was comparatively low throughout this period (1995-2025) despite increased sales of veterinary medicinal products aimed at treating post-weaning diarrhoea in later years (see Sales of antibiotics for animals, comments on data by animal species). This differs from data displayed in @fig-45, taken from [SVA’s interactive resistance monitoring tool SvarmIT](https://www.sva.se/en/what-we-do/antibiotics/svarm-resistance-monitoring/svarmit/){target="_blank"}, which includes all susceptibility-tested *E. coli* from pigs (i.e. not limited to ETEC). The occurrence of resistance to trimethoprim-sulphamethoxazole is also higher in the material in SvarmIT. The reason for the observed differences is unclear; however, it should be noted that the number of isolates is relatively small for both materials. 
+As in previous years, resistance to ampicillin, tetracycline and trimethoprim-sulphamethoxazole were the most common resistance traits. Resistance to ampicillin and to trimethoprim-sulphamethoxazole has increased considerably from 1995 with a peak in 2015-2016 but from 2019 there is a downward trend for trimethoprim-sulphamethoxazole (@fig-44). Resistance to neomycin was comparatively low throughout this period (1995-2025) despite increased sales of veterinary medicinal products aimed at treating post-weaning diarrhoea in later years (see [Sales of antibiotics for animals, Comments on data by animal species](#sec-use-comments). This differs from data displayed in @fig-45, taken from [SVA’s interactive resistance monitoring tool SvarmIT](https://www.sva.se/en/what-we-do/antibiotics/svarm-resistance-monitoring/svarmit/){target="_blank"}, which includes all susceptibility-tested *E. coli* from pigs (i.e. not limited to ETEC). The occurrence of resistance to trimethoprim-sulphamethoxazole is also higher in the material in SvarmIT. The reason for the observed differences is unclear; however, it should be noted that the number of isolates is relatively small for both materials. 
 
 
 ```{r}
@@ -690,7 +690,7 @@ dat_47_long |>
 
 #### *Mycoplasma bovis* 
 
-Isolates of *Mycoplasma bovis* are from clinical submissions of nasal swabs or post-mortem investigations of lungs from calves with respiratory disease from 2024-2025. Recently published ECOFFs for enrofloxacin and florfenicol are used in @tbl-419. All isolates were susceptible to enrofloxacin, and one isolate (2%) was resistant to florfenicol. In the isolates from 2020-2023 no florfenicol resistance was detected ([see Swedres-Svarm 2023](https://www.sva.se/media/cegdew24/swedres-svarm-2023.pdf){target="_blank"}). For tetracycline and gamithromycin, the MICs were higher than the tested range in 81% and 92% of the isolates, respectively. Mycoplasmas are intrinsically resistant to beta-lactams due to their lack of cell wall. 
+Isolates of *Mycoplasma bovis* are from clinical submissions of nasal swabs or post-mortem investigations of lungs from calves with respiratory disease from 2024-2025. Recently published ECOFFs for enrofloxacin and florfenicol are used in @tbl-419. All isolates were susceptible to enrofloxacin, and one isolate (2%) was resistant to florfenicol. In the isolates from 2020-2023 no florfenicol resistance was detected (see [Swedres-Svarm 2023](https://www.sva.se/media/cegdew24/swedres-svarm-2023.pdf){target="_blank"}). For tetracycline and gamithromycin, the MICs were higher than the tested range in 81% and 92% of the isolates, respectively. Mycoplasmas are intrinsically resistant to beta-lactams due to their lack of cell wall. 
 
 ::: {.panel-tabset}
 ###### Table
@@ -726,7 +726,7 @@ df |>
 
 Isolates of *Flavobacterium psychrophilum* are from clinical submissions of farmed fish, most of them from outbreaks of disease. More than one isolate can be analysed from the same outbreak. More than one phenotype is detected in more than half of such cases (data not shown). Data from 2021-2025 are compiled and presented as distributions of MICs in [@tbl-421]. Most isolates are from rainbow trout. Epidemiological cut-offs issued by CLSI are used [@clsi2020b] when available. Resistance to oxolinic acid and oxytetracycline was high in this material whereas no resistance to florfenicol was detected.  
 
-In @fig-48 resistance to tetracycline and quinolones (nalidixic acid or oxolinic acid) in *F. psychrophilum* 2005-2025 is shown. A three-year moving average is used. There is a marked increase in resistance to these antibiotics over the years despite a limited use up until recently (See Sales of antibiotics for animals, comments on data by animal species). For nalidixic acid/oxolinic acid a downward trend was seen after a peak in 2012, however this downward trend has turned in the latest years. Genome sequencing was used for analysis of a temporally and geographically representative set of *F. psychrophilum* isolates from outbreaks among Swedish farmed salmonid fish. The results indicate repeated nationwide introductions of new clones, presumably by trade of fish and eggs. It is probable that such introductions have contributed to the observed increase in resistance [@soderlund2018genome]. 
+In @fig-48 resistance to tetracycline and quinolones (nalidixic acid or oxolinic acid) in *F. psychrophilum* 2005-2025 is shown. A three-year moving average is used. There is a marked increase in resistance to these antibiotics over the years despite a limited use up until recently (see [Sales of antibiotics for animals, Comments on data by animal species](#sec-use-comments)). For nalidixic acid/oxolinic acid a downward trend was seen after a peak in 2012, however this downward trend has turned in the latest years. Genome sequencing was used for analysis of a temporally and geographically representative set of *F. psychrophilum* isolates from outbreaks among Swedish farmed salmonid fish. The results indicate repeated nationwide introductions of new clones, presumably by trade of fish and eggs. It is probable that such introductions have contributed to the observed increase in resistance [@soderlund2018genome]. 
 
 ::: {.panel-tabset}
 ###### Table
@@ -1173,7 +1173,7 @@ dat_410_long |>
 ```
 :::
 
-Forty-seven percent (25/53) were susceptible to all the tested antibiotics. Four isolates (8%) were resistant to three or more of the tested antibiotics (i.e. multiresistant), compared to the figures in 2015-2024 (0-5%) (see [previous Swedres-Svarm reports](https://www.sva.se/en/what-we-do/antibiotics/svarm-resistance-monitoring/swedres-svarm-reports/){target="_blank"}). No isolate was resistant to cefoxitin (MIC >4 mg/L). For more information on MRSA isolated from horses in Sweden, see “Notifiable diseases”, Methicillin-resistant *Staphylococcus aureus* (MRSA). 
+Forty-seven percent (25/53) were susceptible to all the tested antibiotics. Four isolates (8%) were resistant to three or more of the tested antibiotics (i.e. multiresistant), compared to the figures in 2015-2024 (0-5%) (see [previous Swedres-Svarm reports](https://www.sva.se/en/what-we-do/antibiotics/svarm-resistance-monitoring/swedres-svarm-reports/){target="_blank"}). No isolate was resistant to cefoxitin (MIC >4 mg/L). For more information on MRSA isolated from horses in Sweden, see [Notifiable diseases, Methicillin-resistant *Staphylococcus aureus* (MRSA)](#sec-MRSP-animals). 
 
 The isolates were screened for erythromycin-induced clindamycin resistance; one isolate displayed such resistance. 
 
@@ -1233,7 +1233,7 @@ Eighty percent (679/846) of the isolates were susceptible to all the tested anti
 
 For comparison of resistance in *E. coli* of different origin see [Comparative analysis](#sec-ca). The most common phenotype, resistance to ampicillin, tetracycline and trimethoprim-sulphamethoxazole, was detected in 65% (23/35) of the multiresistant isolates. Of the eleven isolates resistant to four or more antibiotics, all but one had this phenotype.
 
-Seventeen (2%) of the *E. coli* isolates were resistant to cefotaxime (MIC >0.25mg/L), and all were available for further testing. Genes conferring transferable ESC resistance were detected in four of the isolates. All four carried the gene *bla*~CTX-M-15~. For more information about ESBL-producing Enterobacterales isolated from dogs in Sweden, see “Notifiable diseases” ESBL-producing Enterobacterales. One of the isolates was resistant to colistin (MIC >2mg/L) but negative in PCR analysis of the *mcr-1* to *mcr-9* genes. None of the isolates were resistant to meropenem (MIC>0.12mg/L). 
+Seventeen (2%) of the *E. coli* isolates were resistant to cefotaxime (MIC >0.25mg/L), and all were available for further testing. Genes conferring transferable ESC resistance were detected in four of the isolates. All four carried the gene *bla*~CTX-M-15~. For more information about ESBL-producing Enterobacterales isolated from dogs in Sweden, see [Notifiable diseases, ESBL-producing Enterobacterales](#sec-ESBL). One of the isolates was resistant to colistin (MIC >2mg/L) but negative in PCR analysis of the *mcr-1* to *mcr-9* genes. None of the isolates were resistant to meropenem (MIC>0.12mg/L). 
 
 ```{r}
 #| include: false
@@ -1441,7 +1441,7 @@ Isolates of *Staphylococcus pseudintermedius* are from clinical submissions of s
 
 Resistance to tetracycline (19%) was the most common trait in 2025, followed by neomycin (13%), chloramphenicol (10%) and fusidic acid (8%) (@tbl-432). The proportion of multiresistance was 4% (25/596). Sixty percent (15/25) of the multiresistant isolates were resistant to three antibiotics; 16% (4/25) to four, and 20% (5/25) to five. One isolate was resistant to six antibiotics. Of the multiresistant isolates, resistance to tetracycline, neomycin and chloramphenicol was the most common phenotype at 52% (13/25). 
 
-Four of the isolates were resistant to oxacillin (MIC >0.25 mg/L). All were tested with PCR for detection of the *mecA* and *mecC* genes, three were positive and one was negative. For more information on MRSP isolated from dogs in Sweden, see [Notifiable diseases, Methicillin-resistant *Staphylococcus pseudintermedius*](#sec-MRSP-animals). 
+Four of the isolates were resistant to oxacillin (MIC >0.25 mg/L). All were tested with PCR for detection of the *mecA* and *mecC* genes, three were positive and one was negative. For more information on MRSP isolated from dogs in Sweden, see [Notifiable diseases, Methicillin-resistant *Staphylococcus pseudintermedius* (MRSP)](#sec-MRSP-animals). 
 
 ::: {.panel-tabset}
 ###### Table
@@ -1643,9 +1643,9 @@ dat_413_long |>
 ```
 :::
 
-Seventy-six percent (324/428) of the *E. coli* isolates were susceptible to all the tested antibiotics. The proportion of multiresistance was 2% (10/428). Six of the multiresistant isolates were resistant to three antibiotics, two to four and two to five antibiotics. All of them were resistant to ampicillin and all but one were also resistant to trimethoprim-sulphamethoxazole. For comparison of resistance in *E. coli* of different origin, see “Comparative analysis”. 
+Seventy-six percent (324/428) of the *E. coli* isolates were susceptible to all the tested antibiotics. The proportion of multiresistance was 2% (10/428). Six of the multiresistant isolates were resistant to three antibiotics, two to four and two to five antibiotics. All of them were resistant to ampicillin and all but one were also resistant to trimethoprim-sulphamethoxazole. For comparison of resistance in *E. coli* of different origin, see [Comparative analysis](#sec-ca). 
 
-Nine of the *E. coli* isolates were resistant to cefotaxime (MIC >0.25 mg/L) and all were available for further testing. A gene conferring transferable ESC resistance was detected in one of the isolates (*bla*~CTX-M-15~). For more information on ESBL isolated from cats in Sweden, see “Notifiable diseases”, ESBL-producing Enterobacterales. One isolate was resistant to colistin (MIC >2mg/L) but was negative in PCR analysis of the *mcr-1* to *mcr-9* genes. No isolate was resistant to meropenem (MIC >0.12mg/L). 
+Nine of the *E. coli* isolates were resistant to cefotaxime (MIC >0.25 mg/L) and all were available for further testing. A gene conferring transferable ESC resistance was detected in one of the isolates (*bla*~CTX-M-15~). For more information on ESBL isolated from cats in Sweden, see [Notifiable diseases, ESBL-producing Enterobacterales](#sec-ESBL). One isolate was resistant to colistin (MIC >2mg/L) but was negative in PCR analysis of the *mcr-1* to *mcr-9* genes. No isolate was resistant to meropenem (MIC >0.12mg/L). 
 
 
 #### *Staphylococcus felis* 
