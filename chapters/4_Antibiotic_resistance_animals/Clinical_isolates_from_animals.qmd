@@ -1078,47 +1078,7 @@ df |>
 Isolates of *Staphylococcus aureus* are from clinical submissions of samples from skin lesions, excluding wounds and abscesses, from horses. Due to the introduction of an AMR panel with substances and cut-off values for topical treatment, the number of isolates tested for systemic treatment has declined during the past years. 
 
 Resistance to penicillin due to penicillinase production is still the most common trait (25%). A new routine has been implemented in the diagnostic lab in 2024 – all *Staphylococcus aureus* isolates from horses are tested for penicillinase production as in previous years, but not all of the negative isolates are tested on the full AMR panel for staphylococci. Instead, they are followed by a comment to the clinician that the isolate does not produce beta-lactamase and can be treated with penicillin. Isolates tested on the full AMR panel are reported in @tbl-427. 
-
-::: {.panel-tabset}
-###### Table
-```{r}
-#| label: tbl-427
-#| echo: false
-#| message: false
-#| warning: false
-
-tbl <- make_mic_table_from_excel("data/Table 4.27 S.aureus häst.xlsx")
-
-make_mic_gt(data = tbl$data,
-            mic_cols = tbl$mic_cols,
-            breakpoint_col = "Cut-off value (mg/L)",
-            tested_range_col = "Tested range (mg/L)",
-            footnotes = c("Denotes resistance, including inducible resistance (1 isolate).",
-                          "Denotes beta-lactamase production, all tested isolates included (n=85).",
-                          "Concentration of trimethoprim given, tested in concentration ratio 1/20 (trimethoprim/sulphamethoxazole)."))
-
-
-```
-
-###### Data
-```{r}
-data <- load_from_excel(path_file = "data/Table 4.27 S.aureus häst.xlsx",  sheet = "data")
-df <- data$fig_data
-df |>
-  make_table_data_tab(file_name = "tab427")
-```
-:::
-
-
-```{r}
-#| include: false
-# hidden chunk to read captions
-dat_410 <- load_from_excel("data/Fig 4.10 S.aureus HÄST.xlsx", sheet = "data")
-fig_410_cap <- dat_410$fig_cap
-fig_410_alt <- dat_410$fig_alt 
-```
-
-
+ 
 The proportions of resistance to gentamicin, tetracycline and trimethoprim-sulphamethoxazole have differed slightly over the years and trends are difficult to estimate (@fig-410). Resistance to fusidic acid has varied and increased to 6% in 2025 (@tbl-427 and [previous Swedres-Svarm reports](https://www.sva.se/en/what-we-do/antibiotics/svarm-resistance-monitoring/swedres-svarm-reports/){target="_blank"}). 
 
 ::: {.panel-tabset}
@@ -1172,6 +1132,45 @@ dat_410_long |>
   make_table_data_tab()
 ```
 :::
+
+::: {.panel-tabset}
+###### Table
+```{r}
+#| label: tbl-427
+#| echo: false
+#| message: false
+#| warning: false
+
+tbl <- make_mic_table_from_excel("data/Table 4.27 S.aureus häst.xlsx")
+
+make_mic_gt(data = tbl$data,
+            mic_cols = tbl$mic_cols,
+            breakpoint_col = "Cut-off value (mg/L)",
+            tested_range_col = "Tested range (mg/L)",
+            footnotes = c("Denotes resistance, including inducible resistance (1 isolate).",
+                          "Denotes beta-lactamase production, all tested isolates included (n=85).",
+                          "Concentration of trimethoprim given, tested in concentration ratio 1/20 (trimethoprim/sulphamethoxazole)."))
+
+
+```
+
+###### Data
+```{r}
+data <- load_from_excel(path_file = "data/Table 4.27 S.aureus häst.xlsx",  sheet = "data")
+df <- data$fig_data
+df |>
+  make_table_data_tab(file_name = "tab427")
+```
+:::
+
+
+```{r}
+#| include: false
+# hidden chunk to read captions
+dat_410 <- load_from_excel("data/Fig 4.10 S.aureus HÄST.xlsx", sheet = "data")
+fig_410_cap <- dat_410$fig_cap
+fig_410_alt <- dat_410$fig_alt 
+```
 
 Forty-seven percent (25/53) were susceptible to all the tested antibiotics. Four isolates (8%) were resistant to three or more of the tested antibiotics (i.e. multiresistant), compared to the figures in 2015-2024 (0-5%) (see [previous Swedres-Svarm reports](https://www.sva.se/en/what-we-do/antibiotics/svarm-resistance-monitoring/swedres-svarm-reports/){target="_blank"}). No isolate was resistant to cefoxitin (MIC >4 mg/L). For more information on MRSA isolated from horses in Sweden, see [Notifiable diseases, Methicillin-resistant *Staphylococcus aureus* (MRSA)](#sec-MRSP-animals). 
 
@@ -1553,36 +1552,6 @@ df |>
 
 Isolates are from clinical sampling of urine, submitted either as urine or cultures from dip-slides or other agar plates. As in previous years and in *Escherichia coli* isolated from dog urine (@tbl-430), resistance to ampicillin was the most common trait in 2025 (@tbl-435 and @fig-413). In comparison, in *E. coli* isolated from the genital tract of horses (mares), resistance to trimethoprim-sulphamethoxazole was most common (@tbl-425 and @fig-49). The proportions of resistance in the *E. coli* isolated from cat urine have differed somewhat throughout the years and trends are difficult to estimate (@fig-413). 
 
-::: {.panel-tabset}
-###### Table
-```{r}
-#| label: tbl-435
-#| echo: false
-#| message: false
-#| warning: false
-
-# Read source data from the Excel sheet
-tbl <- make_mic_table_from_excel("data/Table 4.35 E.coli katt.xlsx")
-
-make_mic_gt(data = tbl$data,
-            mic_cols = tbl$mic_cols,
-            breakpoint_col = "Cut-off value (mg/L)",
-            tested_range_col = "Tested range (mg/L)",
-            footnotes = c("Nine isolates with MIC >0.25mg/L were available for verification. A gene conferring transferable ESC resistance was detected in one of the isolates.",
-                          "Concentration of trimethoprim given, tested in concentration ratio 1/20 (trimethoprim/sulphamethoxazole)."))
-
-
-```
-
-###### Data
-```{r}
-data <- load_from_excel(path_file = "data/Table 4.35 E.coli katt.xlsx",  sheet = "data")
-df <- data$fig_data
-df |>
-  make_table_data_tab(file_name = "tab435")
-```
-:::
-
 ```{r}
 #| include: false
 # hidden chunk to read captions
@@ -1590,7 +1559,6 @@ dat_413 <- load_from_excel("data/Fig 4.13 E.coli KATT.xlsx", sheet = "data")
 fig_413_cap <- dat_413$fig_cap
 fig_413_alt <- dat_413$fig_alt 
 ```
-
 
 ::: {.panel-tabset}
 ###### Figure
@@ -1640,6 +1608,36 @@ make_dynamic_plot(plot = p_413, filename = "fig-413")
 ```{r}
 dat_413_long |> 
   make_table_data_tab()
+```
+:::
+
+::: {.panel-tabset}
+###### Table
+```{r}
+#| label: tbl-435
+#| echo: false
+#| message: false
+#| warning: false
+
+# Read source data from the Excel sheet
+tbl <- make_mic_table_from_excel("data/Table 4.35 E.coli katt.xlsx")
+
+make_mic_gt(data = tbl$data,
+            mic_cols = tbl$mic_cols,
+            breakpoint_col = "Cut-off value (mg/L)",
+            tested_range_col = "Tested range (mg/L)",
+            footnotes = c("Nine isolates with MIC >0.25mg/L were available for verification. A gene conferring transferable ESC resistance was detected in one of the isolates.",
+                          "Concentration of trimethoprim given, tested in concentration ratio 1/20 (trimethoprim/sulphamethoxazole)."))
+
+
+```
+
+###### Data
+```{r}
+data <- load_from_excel(path_file = "data/Table 4.35 E.coli katt.xlsx",  sheet = "data")
+df <- data$fig_data
+df |>
+  make_table_data_tab(file_name = "tab435")
 ```
 :::
 
