@@ -38,7 +38,7 @@ Infection with Salmonella species are divided into three notifiable diseases in 
 In 2025, half of the notifiable Salmonella infections were acquired in Sweden and almost half (48%) of the cases acquired salmonellosis abroad. For 2%, information was lacking. There have been five outbreaks with ten or more cases during the year, one of which included more than 100 cases with *S*. Enteritidis. This outbreak was linked to domestically produced eggs. The second largest outbreak had 48 cases infected with either of four different serotypes (*S*. Typhimurium, *S*. Richmond, *S*. Kinondoni, *S*. Newport) included. This outbreak was international and linked to alfalfa sprouts. No case was reported with Salmonella carrying ESBL~CARBA~.
 
 
-### *Salmonella* spp., from blood or faecal and urine samples 
+### *Salmonella*, from blood or faecal and urine samples 
 
 A total of 1 790 *Salmonella enterica* isolates were reported in Svebar, with 73% (n= 1 306) from faecal samples, 18% (n= 318) from blood and 6% (n= 104) from urine. For these sampling materials, approximately half had AST results reported. A comparison for 2025 is presented in @tbl-3-15.
 
