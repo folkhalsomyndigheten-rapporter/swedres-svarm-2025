@@ -170,9 +170,9 @@ df |>
 :::
 
 
-### *Streptococcus pneumoniae*, from blood
+### *S. pneumoniae*, from blood
 
-Among invasive infections, the proportion of PcG non-susceptible isolates was 8.0% in 2025 (@fig-3-27).
+Among invasive infections, the proportion of benzylpenicillin non-susceptible isolates was 8.0% in 2025 (@fig-3-27).
 
 
 ```{r}
