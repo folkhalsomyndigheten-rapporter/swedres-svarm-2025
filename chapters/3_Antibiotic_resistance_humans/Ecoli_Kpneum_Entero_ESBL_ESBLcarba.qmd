@@ -19,7 +19,7 @@ source("../../_common.R")
 status(type = "ready2publish")
 ```
 
-## *Escherichia coli*, *Klebsiella pneumoniae*, and other Enterobacterales with ESBL and ESBL~CARBA~
+## *Escherichia coli*, *Klebsiella pneumoniae* and other Enterobacterales with ESBL and ESBL~CARBA~
 
 ### Mandatory reporting of ESBL-producing Enterobacterales
 
