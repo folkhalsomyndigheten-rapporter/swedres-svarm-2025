@@ -7,6 +7,7 @@ execute:
   echo: false
   warnings: false
   error: false
+#bibliography: ../../references.bib
 ---
 
 ```{r}
@@ -30,7 +31,7 @@ The WHO has set a target for at least 60% of all antibiotics consumed in each co
 
 #### Consumption of Access, Watch, and Reserve antibiotics in Sweden
 
-76.5% of antibiotics (J01 excluding methenamine J01XX05) sold in 2025 were Access antibiotics, while Watch antibiotics made up 23.2% of all antibiotics sold and the remaining 0.3% consisted of antibiotics from the Reserve group. As expected, the proportion of Watch antibiotics was higher in inpatient care than in outpatient care, i.e. 31.8% versus 21.7% @fig-1-19. Most Reserve antibiotics were sold to inpatient care, but a small proportion was also prescribed in outpatient care and consisted mainly of linezolid, colistin and aztreonam. The sector classified as “inpatient care” also includes antibiotics supplied to other care providers than hospitals, such as some elderly homes and dental care. Thus, it is reasonable to assume that the proportions of Watch and Reserve antibiotics used in hospitals may be higher in reality than the estimates presented here. In addition, since certain antibiotics prescribed and sold on license could not be included (see [Methods section, sales of antibiotics](#sec-mms)), it is reasonable to assume that the overall proportions of prescription for these antibiotics may be somewhat underestimated.
+77% of antibiotics (J01 excluding methenamine J01XX05) sold in 2025 were Access antibiotics, while Watch antibiotics made up 23% of all antibiotics sold and the remaining 0.3% consisted of antibiotics from the Reserve group. As expected, the proportion of Watch antibiotics was higher in inpatient care than in outpatient care, i.e. 32% versus 22% @fig-1-19. Most Reserve antibiotics were sold to inpatient care, but a small proportion was also prescribed in outpatient care and consisted mainly of linezolid, colistin and aztreonam. The sector classified as “inpatient care” also includes antibiotics supplied to other care providers than hospitals, such as some elderly homes and dental care. Thus, it is reasonable to assume that the proportions of Watch and Reserve antibiotics used in hospitals may be higher in reality than the estimates presented here. In addition, since certain antibiotics prescribed and sold on license could not be included (see [Methods section, sales of antibiotics](#sec-mms)), it is reasonable to assume that the overall proportions of prescription for these antibiotics may be somewhat underestimated.
 
 
 Over the last 20 years, the proportion of Access antibiotics has stayed somewhat stable between 77-80%, @fig-1-20. Simultaneously, the proportion of Watch antibiotics increased, while the prescribing of Reserve antibiotics has gradually increased since the early 2000s, as these proportions are smaller in general (@fig-1-21 and @fig-1-22). In 2025, the proportion of Access antibiotics sold was substantially unchanged while the sales of Watch as well as Reserve antibiotics increased. 

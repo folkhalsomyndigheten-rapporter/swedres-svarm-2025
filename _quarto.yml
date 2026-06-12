@@ -94,10 +94,11 @@ book:
       chapters:
         #- chapters/6_Background_data_material_methods_references/Intro.qmd
         - chapters/6_Background_data_material_methods_references/Main.qmd
-
-  appendices:
+    
     - references.qmd
-    - chapters/technical.qmd
+  #appendices:
+  #  - references.qmd
+  #  - chapters/technical.qmd
 
 # Document metadata
 # This forces Quarto to print "Editor" or "Editors" instead of "Author"

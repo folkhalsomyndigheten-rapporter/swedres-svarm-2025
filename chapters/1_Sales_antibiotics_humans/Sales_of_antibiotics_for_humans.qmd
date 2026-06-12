@@ -7,6 +7,7 @@ execute:
   echo: false
   warnings: false
   error: false
+#bibliography: ../../references.bib
 ---
 
 ```{r}
