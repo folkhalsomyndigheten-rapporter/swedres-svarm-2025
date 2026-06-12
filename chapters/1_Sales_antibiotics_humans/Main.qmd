@@ -14,6 +14,3 @@ format: html
 {{< include International_recommended_targets_for_antibiotic_consumption.qmd >}}
 
 {{< include Adverse_reactions_antibiotic_use.qmd >}}
-
-
-
