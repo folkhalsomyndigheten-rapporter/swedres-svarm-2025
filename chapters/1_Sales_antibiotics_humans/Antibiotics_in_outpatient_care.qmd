@@ -387,7 +387,7 @@ df |>
 
 #### Comments
 
-The recommended first-line treatment for lower RTIs in Sweden is penicillin V (J01CE02) @Lakemedelsverket2008. In 2025, the total sales of antibiotics commonly used to treat RTIs were lower than in 2024, and remain lower than pre-pandemic levels. Trend analysis based on data during the period 2000-2025 showed a significant decrease in the sales of penicillin, cephalosporines, macrolides and doxycycline. Amoxicillin with an enzyme inhibitor (J01CR02) showed an increase since 2017. For amoxicillin, however, there is a significant increase at the beginning of the period (between the years 2000 and 2001) followed by a decrease during the period 2002–2025.
+The recommended first-line treatment for lower RTIs in Sweden is penicillin V (J01CE02) @Behandlingsrekommendation. In 2025, the total sales of antibiotics commonly used to treat RTIs were lower than in 2024, and remain lower than pre-pandemic levels. Trend analysis based on data during the period 2000-2025 showed a significant decrease in the sales of penicillin, cephalosporines, macrolides and doxycycline. Amoxicillin with an enzyme inhibitor (J01CR02) showed an increase since 2017. For amoxicillin, however, there is a significant increase at the beginning of the period (between the years 2000 and 2001) followed by a decrease during the period 2002–2025.
 
 ::: panel-tabset
 ###### Figure
@@ -464,7 +464,7 @@ df |>
 
 #### Comments
 
-According to national treatment recommendations, pivmecillinam and nitrofurantoin are first-line treatments for UTIs in women aged 15 or older and in men with afebrile symptomatic UTIs @Lakemedelsverket2017.
+According to national treatment recommendations, pivmecillinam and nitrofurantoin are first-line treatments for UTIs in women aged 15 or older and in men with afebrile symptomatic UTIs @Behandlingsrekommendation.
 In line with treatment recommendations, 87% of the antibiotics commonly prescribed for UTIs that were sold to women aged 15-79 in 2025 consisted of these two antibiotics. The increase in sales of pivmecillinam (J01CA08) can be attributed to a recommendation from Strama to use it instead of nitrofurantoin (J01XE) when appropriate, due to a risk of shortage for pivmecillinam @Strama2026. This guidance has been withdrawn, as nitrofurantoin is no longer considered to be at risk for shortages.
 In men aged 65 or older, fluoroquinolones made up 33% of the UTI antibiotics sold in 2025. In this group, the trend analysis shows a significant increase in the sales of nitrofurantoin and trimethoprim with sulphonamides during the period 2000-2025. Sales of fluoroquinolones and trimethoprim show a significant decrease since the beginning of the 2000s. Sales of pivmecillinam increased in this population since 2005, according to trend analysis. Note that since 2021, norfloxacin (J01MA06) has been removed from the market and only ciprofloxacin (J01MA02) remains among the fluoroquinolones. 
 
