@@ -339,7 +339,7 @@ df |>
 :::
 
 
-##### Microbiological characterisation programs
+##### Microbiological characterisation programmes
 
 The Public Health Agency of Sweden provides microbiological characterisation programmes for verification and characterisation of isolates that participating laboratories send in. An overview is given in @tbl-3-1.
 
