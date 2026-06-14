@@ -2,7 +2,6 @@
 format:
   html:
     embed-resources: false
-
 execute:
   cache: false
   echo: false
@@ -114,13 +113,7 @@ make_dynamic_plot(plot = p,
 ###### Data
 ```{r}
 df |> 
-  transmute(year,
-            antibiotic,
-            n_tested = tot_antal,
-            n_resistant = r_antal,
-            r_perc, 
-            ci
-  ) |> 
+   transmute(antibiotic, year, "Total number" = tot_antal, "Resistance (%)"=r_perc, "95% CI" = ci) |> 
   make_table_data_tab(file_name = "Fig3-44")
 ```
 :::
@@ -225,13 +218,7 @@ make_dynamic_plot(plot = p,
 ###### Data
 ```{r}
 df |> 
-  transmute(year,
-            antibiotic,
-            n_tested,
-            n_resistant = r_antal,
-            r_perc, 
-            ci
-  ) |> 
+  transmute(antibiotic, year, "Total number" = tot_antal, "Resistance (%)"=r_perc, "95% CI" = ci) |> 
   make_table_data_tab(file_name = "Fig3-45")
 ```
 :::

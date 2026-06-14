@@ -7,7 +7,6 @@ execute:
   echo: false
   warnings: false
   error: false
-#bibliography: ../../references.bib
 ---
 
 ```{r}
@@ -26,7 +25,7 @@ status(type = "ready2publish")
 
 #### WHO AWaRe classification
 
-The WHO has set a target for at least 60% of all antibiotics consumed in each country to be from the Access group @WHO2025. There are no separate targets for hospital and community consumption based on the AWaRe classification. In 2023, the Council of the European Union (EU) adopted new recommendations aimed at increasing efforts to combat antimicrobial resistance @EUCouncil2023. The recommendation set a slightly more ambitious national target: at least 65% of all antibiotics consumed should be from the Access group in the AWaRe classification. 
+The WHO has set a target for at least 60% of all antibiotics consumed in each country to be from the Access group @WHO2025. There are no separate targets for hospital and community consumption based on the AWaRe classification. In 2023, the Council of the European Union (EU) adopted new recommendations aimed at increasing efforts to combat antimicrobial resistance [@EUCouncil2023]. The recommendation set a slightly more ambitious national target: at least 65% of all antibiotics consumed should be from the Access group in the AWaRe classification. 
 
 
 #### Consumption of Access, Watch, and Reserve antibiotics in Sweden
@@ -36,7 +35,7 @@ The WHO has set a target for at least 60% of all antibiotics consumed in each co
 
 Over the last 20 years, the proportion of Access antibiotics has stayed somewhat stable between 77-80%, @fig-1-20. Simultaneously, the proportion of Watch antibiotics increased, while the prescribing of Reserve antibiotics has gradually increased since the early 2000s, as these proportions are smaller in general (@fig-1-21 and @fig-1-22). In 2025, the proportion of Access antibiotics sold was substantially unchanged while the sales of Watch as well as Reserve antibiotics increased. 
 
-Sweden exceeds the WHO minimum target for Access antibiotics of 60%, the Council of the EU recommended national target for Access antibiotics of at least 65% as well as the new national target of maintaining a level above 75% according to the new national strategy against antimicrobial resistance in Sweden @SwedishGovernment2026. Note that the Council of the EU uses data from ESAC-Net, which includes methenamine (J01XX05) in AWaRe analysis @ECDC2023. Including methenamine, Sweden continues to exceed the Council of the EU recommended target of at least 65% Access group antibiotics. Although the consumption of Reserve group antibiotics seems to be low, the increased prescribing of these substances merits further review. 
+Sweden exceeds the WHO minimum target for Access antibiotics of 60%, the Council of the EU recommended national target for Access antibiotics of at least 65% as well as the new national target of maintaining a level above 75% according to the new national strategy against antimicrobial resistance in Sweden @SwedishGovernment2026. Note that the Council of the EU uses data from ESAC-Net, which includes methenamine (J01XX05) in AWaRe analysis [@ECDC2023]. Including methenamine, Sweden continues to exceed the Council of the EU recommended target of at least 65% Access group antibiotics. Although the consumption of Reserve group antibiotics seems to be low, the increased prescribing of these substances merits further review. 
 
 
 
@@ -56,7 +55,12 @@ df <- data$fig_data |>
 #| fig-cap: !expr glue::glue("{data$fig_cap}")
 #| fig-alt: !expr glue::glue("{data$fig_alt}")
 #| warning: false
-p <-  df |> 
+p <-  df |>
+  mutate(category = case_when(category=="Access" ~ "3_Access",
+                              category=="Watch" ~ "2_Watch",
+                              category=="Reserve" ~ "1_Reserve",
+                              .default = NA
+  )) |> 
   mutate(data_id = row_number(),
          tooltip_b = glue::glue('<b>Category:</b> {category}
                                     <b>Group:</b> {group}
@@ -71,15 +75,19 @@ p <-  df |>
        y = "Proportion (%)") +
   scale_y_continuous(expand=c(0,.1)) +
   scale_x_discrete(expand=c(0,0.2)) +
-  scale_fill_SweSva() + 
+  #scale_fill_SweSva() + 
   theme_SweSva() +
-  add_fohm_caption()
+  add_fohm_caption() +
+  scale_fill_manual(labels = function(x) gsub(".*_", "", x),
+                    values = c("3_Access"="#0065AC","2_Watch"="#FA6400","1_Reserve"="#009284")
+  ) 
 
 make_dynamic_plot(plot = p, filename = "Fig1-18")
 ```
 ###### Data
 ```{r}
 df |> 
+  rename("Proportion (%)" = value) |> 
   make_table_data_tab(file_name = "Fig1-18")
 ```
 :::
@@ -137,6 +145,7 @@ make_dynamic_plot(plot = p, filename = "Fig1-19")
 ###### Data
 ```{r}
 df |> 
+  rename("Proportion (%)" = value) |> 
   make_table_data_tab(file_name = "Fig1-19")
 ```
 :::
@@ -189,6 +198,7 @@ make_dynamic_plot(plot = p, filename = "Fig1-20")
 ###### Data
 ```{r}
 df |> 
+  rename("Proportion (%)" = value) |> 
   make_table_data_tab(file_name = "Fig1-20")
 ```
 :::
@@ -229,7 +239,6 @@ p <- df |>
                          hover_nearest = TRUE) +
   scale_y_continuous(expand = c(0,0), limits = c(0,2)) + 
   scale_x_discrete(expand=c(0,0.2)) +
-  
   labs(y= "Proportion (%)",
        x="Year") +
   scale_color_SweSva() + 
@@ -243,6 +252,7 @@ make_dynamic_plot(plot = p, filename = "Fig1-21")
 ###### Data
 ```{r}
 df |> 
+  rename("Proportion (%)" = value) |> 
   make_table_data_tab(file_name = "Fig1-21")
 ```
 :::

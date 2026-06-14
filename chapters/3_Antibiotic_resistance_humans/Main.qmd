@@ -1,9 +1,8 @@
 ---
-#title: "Antibiotic resistance in humans"
-format: html
-#author: 
-#  - name: "Hanna Billström"
-#    affiliations: "Public Health Agency of Sweden"
+format: 
+  html:
+    toc: true
+    toc-depth: 2
 ---
 # Antibiotic resistance in humans {#sec-arh}
 

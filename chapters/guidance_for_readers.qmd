@@ -103,7 +103,7 @@ The terms multidrug resistance (MDR), multiresistance and multiresistant are in 
 
 ## Abbreviations
 
-### Abbreviations
+### Abbreviations - common
 
 ```{r}
 #| message: false
@@ -123,7 +123,7 @@ df |>
                       page_length = 100)
 ```
 
-### Abbreviations antibiotics
+### Abbreviations - antibiotics
 
 ```{r}
 #| message: false

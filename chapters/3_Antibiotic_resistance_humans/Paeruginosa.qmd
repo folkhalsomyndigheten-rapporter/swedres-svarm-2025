@@ -2,9 +2,6 @@
 format:
   html:
     embed-resources: false
-   # toc: true
-   # toc-depth: 2
-    #toc-expand: true
 execute:
   cache: false
   echo: false
@@ -84,9 +81,9 @@ p <- df |>
   ) +
   scale_x_discrete(expand = c(0,0.2)) +
     scale_y_continuous(breaks = perc_25,
-                       limits=c(0,25)) +
+                       limits=c(0,25),
+                       expand=c(0,0.2)) +
   guides(color=guide_legend(nrow=3)) +
-
   labs(x="Year",
        y="Resistance (%)") +
   scale_color_SweSva() +
@@ -101,12 +98,7 @@ make_dynamic_plot(plot = p,
 ###### Data
 ```{r}
 df |> 
-  transmute(antibiotic,
-            year,
-            "number of total tests" = tot_antal,
-            "number of resistent tests" = r_antal,
-            "% resistent" = r_perc,
-            "Confidence interval" = ci) |> 
+   transmute(antibiotic, year, "Total number" = tot_antal, "Resistance (%)"=r_perc, "95% CI" = ci) |> 
   make_table_data_tab(file_name = "Fig3-32")
 ```
 :::
@@ -123,8 +115,9 @@ df <- data$fig_data |>
   janitor::clean_names() |> 
   rename(r_perc = proportion_of_resistant_isolates,
          felstapel_low = felstapel_lag,
-         felstapel_high = felstapel_hog) |> 
-  mutate(ci = paste0(felstapel_low,"-",felstapel_high),
+         felstapel_high = felstapel_hog,
+         tot_antal=number_of_isolats_with_ast) |> 
+  mutate(ci = paste0(x95_percent_lag,"-",x95_percent_hog),
          r_perc = r_perc*100)
 ```
 
@@ -171,6 +164,7 @@ make_dynamic_plot(plot = p,
 ##### Data
 ```{r}
 df |> 
+    transmute(antibiotic, year, "Total number" = tot_antal, "Resistance (%)"=r_perc, "95% CI" = ci) |> 
    make_table_data_tab(file_name = "Fig3-33")
 ```
 :::

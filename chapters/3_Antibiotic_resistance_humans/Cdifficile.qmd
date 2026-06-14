@@ -2,7 +2,6 @@
 format:
   html:
     embed-resources: false
-
 execute:
   cache: false
   echo: false
@@ -86,6 +85,7 @@ make_dynamic_plot(plot = p, filename = "Fig3-41")
 
 ```{r}
 df |>
+  rename("Incidence (cases/100 000 inhabitants)"=value) |> 
   make_table_data_tab(file_name = "Fig3-41")
 ```
 :::

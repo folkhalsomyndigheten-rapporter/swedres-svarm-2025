@@ -8,7 +8,6 @@ execute:
   echo: false
   warnings: false
   error: false
-#bibliography: ../../references.bib
 ---
 
 ```{r}
@@ -17,7 +16,7 @@ execute:
 #| warning: false
 #| message: false
 source("../../_common.R")
-status(type = "polishing")
+status(type = "ready2publish")
 ```
 
 
@@ -31,9 +30,9 @@ In Sweden, findings of carbapenemase-producing Enterobacterales (ESBL~CARBA~) an
 
 ##### *Escherichia coli* 
 
-In Sweden, ESBL~CARBA~ in animals are notifiable but not ESBL~A~ or ESBL~M~. In 2025, various samples from healthy farm animals were screened for *Escherichia coli* resistant to ESCs and carbapenems using selective media. Isolates with reduced susceptibility were further investigated by genome sequencing for presence of transferable genes coding for ESC resistance (for details see [Material and methods, Resistance in bacteria from animals](#sec-mmr)).  
+In Sweden, ESBL~CARBA~ in animals are notifiable but not ESBL~A~ or ESBL~M~. In 2025, various samples from healthy farm animals were screened for *Escherichia coli* resistant to ESCs and carbapenems using selective media. Isolates with reduced susceptibility were further investigated by genome sequencing for presence of transferable genes coding for ESC resistance (for details see @#sec-backdatamm - [Material and methods, Resistance in bacteria from animals](#sec-mmr)).  
 
-Active screening for *E. coli* resistant to ESCs in healthy farm animals using faecal samples collected at slaughter has been performed since 2008. The proportions of samples positive for *E. coli* with ESBL~A~ or ESBL~M~ in screenings of healthy animals are available as [supplementary material](https://www.sva.se/en/what-we-do/antibiotics/svarm-resistance-monitoring/supplementary-material/){target="_blank"} on the SVA web page. 
+Active screening for *E. coli* resistant to ESCs in healthy farm animals using faecal samples collected at slaughter has been performed since 2008. The proportions of samples positive for *E. coli* with ESBL~A~ or ESBL~M~ in screenings of healthy animals are available as [Supplementary material](https://www.sva.se/en/what-we-do/antibiotics/svarm-resistance-monitoring/supplementary-material/){target="_blank"} on the SVA web page. 
 
 ###### Fattening pigs 
 
@@ -55,7 +54,7 @@ Carbapenem-resistant *E. coli* was not isolated from any of the 100 investigated
 
 *Escherichia coli* with ESC-resistance was not isolated from any of the 100 investigated samples (@tbl-41). This is the first time since selective methods to detect *E. coli* with ESC-resistance among broilers was introduced in the Svarm monitoring in 2010 that all samples were negative. However, only a limited number of samples were investigated in 2025, and it is uncertain if the situation will remain when a larger number of samples are investigated in 2026. 
 
-Due to differences in methodology over the years, changes in the proportion of positive samples over the whole time period cannot be directly assessed. However, some comparison with earlier years is possible, as the samples from 2015 and the first half of 2016 as well as the samples from 2021 were cultured in duplicate with both methods that were relevant for the respective years (for details on methodology see [Material and methods, Resistance in bacteria from animals](#sec-mmr) in current or previous Swedres-Svarm reports). The difference in the proportion of broiler caecal samples positive for *E. coli* with ESBL~A~ or ESBL~M~ since 2016 is statistically significant (p<0.01, X^2^; @fig-41). This decrease is most likely explained by decreased occurrence of such bacteria in the breeding pyramid @nilsson2020decreased. 
+Due to differences in methodology over the years, changes in the proportion of positive samples over the whole time period cannot be directly assessed. However, some comparison with earlier years is possible, as the samples from 2015 and the first half of 2016 as well as the samples from 2021 were cultured in duplicate with both methods that were relevant for the respective years (for details on methodology see @#sec-backdatamm - [Material and methods, Resistance in bacteria from animals](#sec-mmr) in current or previous Swedres-Svarm reports). The difference in the proportion of broiler caecal samples positive for *E. coli* with ESBL~A~ or ESBL~M~ since 2016 is statistically significant (p<0.01, X^2^; @fig-41). This decrease is most likely explained by decreased occurrence of such bacteria in the breeding pyramid [@nilsson2020decreased]. 
 
 ```{r}
 #| include: false
@@ -117,6 +116,7 @@ make_dynamic_plot(plot = p_41, filename = "Fig4-1")
 ###### Data
 ```{r}
 dat_41_long |> 
+  rename("Proportion (%) of samples with ESBL" = value) |> 
   make_table_data_tab(file_name = "Fig4-1")
 ```
 :::
@@ -124,11 +124,11 @@ dat_41_long |>
 #### Meat samples 
 ##### *Escherichia coli* 
 
-In Sweden, neither carbapenemase-producing Enterobacterales (ESBL~CARBA~), nor classical ESBLs (ESBL~A~) or plasmid-mediated AmpC (ESBL~M~) are notifiable in food. Active screening for *Escherichia coli* resistant to ESCs in meat samples collected at retail has been performed since 2008. During 2025, pig and cattle meat samples were screened for *E. coli* resistant to ESCs and carbapenems using selective media (for details see [Material and methods, Resistance in bacteria from animals](#sec-mmr)).  
+In Sweden, neither carbapenemase-producing Enterobacterales (ESBL~CARBA~), nor classical ESBLs (ESBL~A~) or plasmid-mediated AmpC (ESBL~M~) are notifiable in food. Active screening for *Escherichia coli* resistant to ESCs in meat samples collected at retail has been performed since 2008. During 2025, pig and cattle meat samples were screened for *E. coli* resistant to ESCs and carbapenems using selective media (for details see @#sec-backdatamm - [Material and methods, Resistance in bacteria from animals](#sec-mmr)).  
 
 Samples from pig and cattle meat were collected at retail by municipal environmental departments in nine different municipalities in Sweden. The samples were distributed throughout the year and among the municipalities in order to get a representative sampling. Furthermore, consignments of pig and cattle meat from countries outside EU imported via border control posts in Sweden were sampled by personnel from the National Food Agency (SLV). 
 
-The proportions of samples positive for *E. coli* with ESBL~A~ or ESBL~M~ in screenings of meat sampled at retail are available as [supplementary material](https://www.sva.se/en/what-we-do/antibiotics/svarm-resistance-monitoring/supplementary-material/){target="_blank"} on the SVA web page. 
+The proportions of samples positive for *E. coli* with ESBL~A~ or ESBL~M~ in screenings of meat sampled at retail are available as [Supplementary material](https://www.sva.se/en/what-we-do/antibiotics/svarm-resistance-monitoring/supplementary-material/){target="_blank"} on the SVA web page. 
 
 ###### Pig meat 
 
@@ -182,9 +182,9 @@ df |>
 
 #### Clinical isolates from companion animals and horses
 
-In Svarm, there are no recurring active screenings for ESBL-producing Enterobacterales in healthy companion animals or horses. However, results of the screenings for ESC resistant *E. coli* that have been performed are available as [supplementary material](https://www.sva.se/en/what-we-do/antibiotics/svarm-resistance-monitoring/supplementary-material/){target="_blank"} on the SVA web page. 
+In Svarm, there are no recurring active screenings for ESBL-producing Enterobacterales in healthy companion animals or horses. However, results of the screenings for ESC resistant *E. coli* that have been performed are available as [Supplementary material](https://www.sva.se/en/what-we-do/antibiotics/svarm-resistance-monitoring/supplementary-material/){target="_blank"} on the SVA web page. 
 
-For a number of years, funding from the Swedish Board of Agriculture has enabled SVA to perform confirmation of suspected ESC-resistance in clinical isolates of Enterobacterales free of charge for referring laboratories. During 2025, 38 submitted isolates of Enterobacterales with phenotypic resistance to ESCs from companion animals and horses were confirmed to produce ESBL~A~ and/or ESBL~M~ by genome sequencing (@tbl-42). The isolates were from cats (n=6), dogs (n=14) and horses (n=18). The majority of the isolates from cats and dogs were *E. coli* and the most common gene was *bla*~CTX-M-15~. For horses, the majority of the isolates belonged to the *Enterobacter* sp. cloacae complex and the most common gene was *bla*~SHV-12~. Data regarding clinical isolates from cats, dogs and horses confirmed to produce ESBL~A~ and/or ESBL~M~ is available as [supplementary material](https://www.sva.se/en/what-we-do/antibiotics/svarm-resistance-monitoring/supplementary-material/){target="_blank"} on the SVA web page.  
+For a number of years, funding from the Swedish Board of Agriculture has enabled SVA to perform confirmation of suspected ESC-resistance in clinical isolates of Enterobacterales free of charge for referring laboratories. During 2025, 38 submitted isolates of Enterobacterales with phenotypic resistance to ESCs from companion animals and horses were confirmed to produce ESBL~A~ and/or ESBL~M~ by genome sequencing (@tbl-42). The isolates were from cats (n=6), dogs (n=14) and horses (n=18). The majority of the isolates from cats and dogs were *E. coli* and the most common gene was *bla*~CTX-M-15~. For horses, the majority of the isolates belonged to the *Enterobacter* sp. cloacae complex and the most common gene was *bla*~SHV-12~. Data regarding clinical isolates from cats, dogs and horses confirmed to produce ESBL~A~ and/or ESBL~M~ is available as [Supplementary material](https://www.sva.se/en/what-we-do/antibiotics/svarm-resistance-monitoring/supplementary-material/){target="_blank"} on the SVA web page.  
 
 About three quarters of the investigated isolates were resistant to at least two antibiotics besides beta-lactams, i.e. multiresistant. The most common resistances were against trimethoprim-sulphonamides (65%) and gentamicin (54%). Resistance to quinolones and tetracycline were also common traits. For the years 2021-2025 the occurrence of resistance to quinolones was higher among isolates from companion animals than among isolates from horses. On the contrary, the occurrence of resistance to gentamicin and trimethoprim-sulphonamides was higher among isolates from horses than among isolates from companion animals (@tbl-43). 
 
@@ -244,7 +244,7 @@ df |>
 
 ### Methicillin-resistant *Staphylococcus aureus* (MRSA) {#sec-MRSA-animals}
 
-In Sweden, methicillin-resistant *Staphylococcus aureus* (MRSA) in animals was first verified in 2006 and made notifiable in 2008 (SJVFS 2021:10 and previous legislation). Since then, most cases in domesticated animals have been detected in passive monitoring of clinical sampling in infected animals. Isolates of *S. aureus* with resistance to oxacillin or cefoxitin have been further analysed with confirmatory tests. Screening studies for active monitoring have been performed in pigs, cattle, horses, dogs and hedgehogs during different years (see below). Cases from 2025 are presented in @tbl-44 and data regarding index cases of clinical isolates and isolates from screenings are shown as [supplementary material](https://www.sva.se/en/what-we-do/antibiotics/svarm-resistance-monitoring/supplementary-material/){target="_blank"} on the SVA web. 
+In Sweden, methicillin-resistant *Staphylococcus aureus* (MRSA) in animals was first verified in 2006 and made notifiable in 2008 (SJVFS 2021:10 and previous legislation). Since then, most cases in domesticated animals have been detected in passive monitoring of clinical sampling in infected animals. Isolates of *S. aureus* with resistance to oxacillin or cefoxitin have been further analysed with confirmatory tests. Screening studies for active monitoring have been performed in pigs, cattle, horses, dogs and hedgehogs during different years (see below). Cases from 2025 are presented in @tbl-44 and data regarding index cases of clinical isolates and isolates from screenings are shown as [Supplementary material](https://www.sva.se/en/what-we-do/antibiotics/svarm-resistance-monitoring/supplementary-material/){target="_blank"} on the SVA web. 
 
 ::: {.panel-tabset}
 ###### Table
@@ -287,7 +287,7 @@ Up to and including 2025, a total of 309 cases of MRSA in companion animals and 
 
 In 2025, MRSA was detected in clinical samples from wound infections and abscesses in ten dogs and six cats (@tbl-44). During the years the identified *spa*-types have varied, and most have previously been detected in humans. In 2025, one dog carried the horse-related t011 and two dogs carried the livestock-associated t034 ([supplementary material](https://www.sva.se/en/what-we-do/antibiotics/svarm-resistance-monitoring/supplementary-material/){target="_blank"}, @tbl-44). 
 
-In 2025, MRSA was isolated from seven horses, which is fewer cases compared to 2020-2024, and the number of cases is back to the level during the years 2007-2019 when between one and nine cases were notified per year ([supplementary material](https://www.sva.se/en/what-we-do/antibiotics/svarm-resistance-monitoring/supplementary-material/){target="_blank"}, @tbl-44). In 2020 and 2021, the increase was partly explained by outbreaks of MRSA in equine hospitals (*spa*-type t1971, t034 and t011). Historically, MRSA *spa*-type t011 has been dominating among horses in Sweden and in 2025, the *spa*-type was detected in five of the seven cases. The remaining two MRSA isolates were one each of *spa*-types t1257 and t1451 (@tbl-44). All the mentioned *spa*-types have also been detected more or less frequently in MRSA from humans.
+In 2025, MRSA was isolated from seven horses, which is fewer cases compared to 2020-2024, and the number of cases is back to the level during the years 2007-2019 when between one and nine cases were notified per year ([Supplementary material](https://www.sva.se/en/what-we-do/antibiotics/svarm-resistance-monitoring/supplementary-material/){target="_blank"}, @tbl-44). In 2020 and 2021, the increase was partly explained by outbreaks of MRSA in equine hospitals (*spa*-type t1971, t034 and t011). Historically, MRSA *spa*-type t011 has been dominating among horses in Sweden and in 2025, the *spa*-type was detected in five of the seven cases. The remaining two MRSA isolates were one each of *spa*-types t1257 and t1451 (@tbl-44). All the mentioned *spa*-types have also been detected more or less frequently in MRSA from humans.
 
 #### Wild animals
 

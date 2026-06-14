@@ -7,7 +7,6 @@ execute:
   echo: false
   warnings: false
   error: false
-#bibliography: ../../references.bib
 ---
 
 ```{r}
@@ -19,7 +18,7 @@ source("../../_common.R")
 status(type = "ready2publish")
 ```
 
-After the exceptional changes in antibiotic sales during 2020 and 2021 – driven by the COVID-19 pandemic - total sales began to rise again in 2022 and continued to increase through 2023, while remaining lower than before the pandemic. The increase due to the rebound effect seen after the pandemic has slowed down as the sales remained substantially unchanged during 2024 and reduced in 2025 compared to the previous year. Throughout 2025, the epidemiological situation remained within normal parameters, with no significant deviations observed @FOHM2026.
+After the exceptional changes in antibiotic sales during 2020 and 2021 – driven by the COVID-19 pandemic - total sales began to rise again in 2022 and continued to increase through 2023, while remaining lower than before the pandemic. The increase due to the rebound effect seen after the pandemic has slowed down as the sales remained substantially unchanged during 2024 and reduced in 2025 compared to the previous year. Throughout 2025, the epidemiological situation remained within normal parameters, with no significant deviations observed [@FOHM2026].
  
 The data sources and methodology underlying the statistics presented in this chapter are described in the Materials and methods, sales of antibiotics section. Due to regulations regarding the confidentiality of sales data, detailed data for substances and substance groups cannot be shown measured in DDD per 1 000 inhabitants. This affects the section for total sales as well as inpatient care.  
 
@@ -36,7 +35,7 @@ The data sources and methodology underlying the statistics presented in this cha
 
 ##### Comments
 
-Nationally, the sales of antibiotics in 2025 remained below the sales volumes observed in 2019, prior to the COVID-19 pandemic. The sale levels in 2025 are lower compared to the previous year. The decrease was also observed regionally as sales volumes in 2025 decreased in 19 of 21 regions compared to 2024. The sales were higher in six of 21 regions compared to sales volumes observed in 2019. A comparison with the population-weighted mean of the EU/EEA countries from 2012-2022 @ECDC2023 and projectory over the following years confirms Sweden’s conservative position regarding antibiotic prescribing. Due to regulations regarding the confidentiality of sales data, detailed data for substance groups cannot be shown.
+Nationally, the sales of antibiotics in 2025 remained below the sales volumes observed in 2019, prior to the COVID-19 pandemic. The sale levels in 2025 are lower compared to the previous year. The decrease was also observed regionally as sales volumes in 2025 decreased in 19 of 21 regions compared to 2024. The sales were higher in six of 21 regions compared to sales volumes observed in 2019. A comparison with the population-weighted mean of the EU/EEA countries from 2012-2022 [@ECDC2023] and projectory over the following years confirms Sweden’s conservative position regarding antibiotic prescribing. Due to regulations regarding the confidentiality of sales data, detailed data for substance groups cannot be shown.
 
 
 
@@ -78,7 +77,7 @@ p <- df |>
              fill=factor(year),
              data_id = data_id)) +
   geom_col_interactive(aes(tooltip = tooltip_b),width = 0.5, position = position_dodge(0.7)) +
-  labs(x=NULL,
+  labs(x="Region",
        y = "DDD/1 000 inhabitants per day") +
   scale_y_continuous(expand=c(0,.2),
                      labels = scales::label_number(),
@@ -104,7 +103,7 @@ make_dynamic_plot(plot = p, filename = "Fig1-1")
 #| fig-alt: !expr glue::glue("{data$fig_alt}")
 #| message: false
 #| warning: false
-#| fig-height: 15
+#| fig-height: 25
 tmp_swe <-  df |> filter(region=="**Sweden**") |> transmute(year,
                                                         sweden=value)
 
@@ -144,6 +143,7 @@ make_dynamic_plot(plot = p, filename = "Fig1-1alt")
 
 ```{r}
 df |>
+      rename("DDD/1 000 inhabitants per day"=value) |> 
   make_table_data_tab(file_name = "Fig1-1")
 ```
 :::

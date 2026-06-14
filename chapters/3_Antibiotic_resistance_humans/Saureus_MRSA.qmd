@@ -2,7 +2,6 @@
 format:
   html:
     embed-resources: false
-
 execute:
   cache: false
   echo: false
@@ -37,6 +36,7 @@ Community-acquired infections continue to be the most prominent route of acquiri
 
 
 ### Microbiological surveillance programme, MRSA
+
 Epidemiological typing of MRSA includes species identification, mecA/C and PVL detection, *spa*-typing, sequence typing (MLST) and genetic relatedness analysis, based on whole genome sequencing. The overall analyses for the national surveillance program 2025 are delayed. Below are preliminary results based on those reported to Sminet and from the analyses performed at the Public Health Agency so far.
 *Spa*-type (n=1 483) or sequence type (ST, n=1 702) was reported to Sminet for 3 134 cases (76%). At the Public Health Agency, *spa*-typing was performed for about 450 isolates in addition to those included in the national microbiological surveillance programe. For a few cases, both *spa*-type and sequence type were reported. Over the past five years, the same 13 *spa*-types have consistently been among the top ten most common each year. These 13 types constituted 56% of all typed clinical isolates in 2025. While the ranking of the most common *spa*-types somewhat varied over time, t304 has been the most prevalent every year for the past seven years. Additionally, the proportion of PVL-positive isolates was higher in clinical infection than in carriers. Among whole-genome sequenced isolates from clinical cases with ST reported to Sminet (n=1 002), the most common type was ST22 (14%, n=372), followed by ST8 and ST6.
 
@@ -46,9 +46,6 @@ In 2025, the Public Health Agency sequenced 100 isolates for regions as part of 
 
 #### Comments
 In summary, the incidence of MRSA increased in 2025, surpassing pre-pandemic levels from the three prior years. The increase was most pronounced in domestically acquired cases and in cases with clinical infections. Additionally, the number of cases with MRSA in bloodstream infections continued to increase.
-
-
-
 
 ::: panel-tabset
 ###### Figure
@@ -81,8 +78,8 @@ p <- df |>
                         lwd=.5) +
   geom_point_interactive(aes(tooltip=tooltip_p),
                          hover_nearest = TRUE) +
-  scale_y_continuous(expand = c(0,0),
-                     limits=c(0,50)) +
+  scale_y_continuous(limits=c(0,50),
+                     expand=c(0,0.2)) +
   scale_x_discrete(expand=c(0,0.2)) +
   labs(y= "Incidence (cases/100 000 inhabitants)",
        x= "Year") +
@@ -103,13 +100,9 @@ df |>
 :::
 
 
-
-
 ### *Staphylococcus aureus* from blood and skin and soft tissue cultures
 
 The proportion of MRSA from blood and in skin and soft tissue infections is 2.4% and 2.9% respectively (@tbl-3-6, @fig-3-18 and @fig-3-19). Susceptibility testing to vancomycin is not routinely performed on cefoxitin-susceptible *S. aureus* and in 2025, 239 of 7 177 (3.3%) isolates from blood were tested for vancomycin resistance with no resistance detected.
-
-
 
 
 ```{r}
@@ -127,7 +120,6 @@ df <- data$fig_data |>
   mutate(value = as.numeric(value)) |> 
   pivot_wider(names_from = feat, values_from = value) |> 
   janitor::clean_names() |> 
-  
   ## confidence interval
   rename(r_perc = percent_r,
          tot_antal = n_tested) |> 
@@ -169,7 +161,8 @@ p <- df |>
   ) +
   scale_x_discrete(expand = c(0,0.2)) +
   scale_y_continuous(breaks = perc_25,
-                     limits=c(0,25) 
+                     limits=c(0,25),
+                     expand=c(0,0.2)
   ) +
   guides(color=guide_legend(nrow=3)) +
   scale_color_manual(values =  col_SweSva_9) +
@@ -187,11 +180,10 @@ make_dynamic_plot(plot = p,
 ###### Data
 ```{r}
 df |> 
+  transmute(antibiotic, year, "Total number" = tot_antal, "Resistance (%)"=r_perc, "95% CI" = ci) |> 
   make_table_data_tab(file_name = "Fig3-20")
 ```
 :::
-
-
 
 
 ::: panel-tabset
@@ -205,8 +197,9 @@ df <- data$fig_data |>
   janitor::clean_names() |> 
   rename(r_perc = percent_r,
          felstapel_low = felstapel_lag,
-         felstapel_high = felstapel_hog) |> 
-  mutate(ci = paste0(felstapel_low,"-",felstapel_high))
+         felstapel_high = felstapel_hog,
+         tot_antal = number_of_isolats_with_ast) |> 
+  mutate(ci = paste0(x95_percent_lag,"-",x95_percent_lag))
 ```
 
 ```{r}
@@ -237,7 +230,8 @@ p <- df |>
   ) +
   scale_x_discrete(expand = c(0,0.2)) +
   scale_y_continuous(breaks = perc_25,
-                     limits=c(0,25)
+                     limits=c(0,25),
+                     expand=c(0,0.2)
   ) +
   labs(x="Year",
        y="Resistance (%)") +
@@ -251,6 +245,7 @@ make_dynamic_plot(plot = p,
 ##### Data
 ```{r}
 df |> 
+  transmute(antibiotic, year, "Total number" = tot_antal, "Resistance (%)"=r_perc, "95% CI" = ci) |> 
   make_table_data_tab(file_name = "Fig3-21")
 ```
 :::

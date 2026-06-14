@@ -8,7 +8,6 @@ execute:
   echo: false
   warnings: false
   error: false
-#bibliography: ../../references.bib
 ---
 
 ```{r}
@@ -17,7 +16,7 @@ execute:
 #| warning: false
 #| message: false
 source("../../_common.R")
-status(type = "polishing")
+status(type = "ready2publish")
 ```
 
 ## Comparison of antibiotic sales in human and veterinary medicine 
@@ -28,7 +27,7 @@ For human medicinal products with antibiotics, the numbers on the total amount o
 
 For veterinary medicinal products with antibiotics, data on sales of antibiotics for use in animals (QJ01 and QA07AA) are those presented in Sales of antibiotics for animals except products for intramammary and intrauterine use (QG01 and QJ51). Sales for aquaculture were not included, nor were sales of drugs authorised for human use but sold for use in animals.  
 
-To estimate the biomass of the human population, data on population numbers by age were multiplied with the corresponding average body weights from studies made by Statistics Sweden in 2016. For animal body mass, the data on population correction unit for 2024 was used as a proxy for 2025 @ema2025sales2024. This unit roughly corresponds to the total biomass of major animal populations, excluding dogs and cats. 
+To estimate the biomass of the human population, data on population numbers by age were multiplied with the corresponding average body weights from studies made by Statistics Sweden in 2016. For animal body mass, the data on population correction unit for 2024 was used as a proxy for 2025 [@ema2025sales2024]. This unit roughly corresponds to the total biomass of major animal populations, excluding dogs and cats. 
 
 ### Total sales  
 

@@ -1,8 +1,8 @@
 ---
-format: html
-#author: 
-#  - name: "SVA name "
-#    affiliations: "Swedish Veterinary Agency"
+format: 
+  html:
+    toc: true
+    toc-depth: 3
 ---
 
 # Sales of antibiotics in animals {#sec-asa}
@@ -10,6 +10,3 @@ format: html
 {{< include Sales_of_antibiotics_for_animals.qmd >}}
 
 {{< include Comments_on_data_by_animal_species.qmd >}}
-
-
-

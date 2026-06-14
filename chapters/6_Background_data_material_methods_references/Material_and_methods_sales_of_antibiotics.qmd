@@ -16,7 +16,7 @@ execute:
 #| warning: false
 #| message: false
 source("../../_common.R")
-status(type = "drafting")
+status(type = "ready2publish")
 ```
 
 
@@ -34,7 +34,7 @@ All pharmacies in Sweden are required to provide statistics on sales of all prod
 
 Since 1988, the Anatomical Therapeutic Chemical (ATC) and ATCvet classification systems recommended by the WHO are used in Sweden for national drug statistics. For drugs sold for use in humans and to facilitate drug utilisation studies from a medical point of view, the measure defined daily dose (DDD) is used as a unit of comparison in drug statistics. The DDD for a drug is established on the basis of the assumed average dose per day for the drug given to adults for its main indication. If possible, the DDD is given as the amount of active substance. The DDDs are usually equal for all dosage forms of a preparation. The statistical data systems of the Swedish eHealth Agency are upgraded annually according to the recommendations made by the WHO Collaborating Centre for Drug Statistics Methodology in Oslo, Norway. Sales figures are presented as number of DDDs per 1 000 inhabitants per day, which gives an estimate of the proportion of the population daily exposed to a particular drug. This number is a rough estimate and should be interpreted with caution. 
 
-All data on the number of DDDs in this report are displayed in the 2025 version of the ATC/DDD index, available at https://www.whocc.no/atc_ddd_index/. 
+All data on the number of DDDs in this report are displayed in the 2025 version of the ATC/DDD index, available at [www.whocc.no/atc_ddd_index](https://www.whocc.no/atc_ddd_index/){target="_blank"}. 
 
 ### Antibiotic sales in humans 
 
@@ -54,7 +54,7 @@ For antibiotics sold in Sweden on a special license, information regarding stren
 
 ### Trend analysis 
 
-In the report, some general regression models were executed in the @sec-ash (Sales of antibiotics in humans). Time was used as explanatory variable and the outcome was the sales of antibiotics, adjusted for population size in Sweden, data on population provided by the eHealth Agency. The analyses were executed on a basis of a negative binomial distribution. 
+In the report, some general regression models were executed in @sec-ash - [Sales of antibiotics in humans](#sec-ash). Time was used as explanatory variable and the outcome was the sales of antibiotics, adjusted for population size in Sweden, data on population provided by the eHealth Agency. The analyses were executed on a basis of a negative binomial distribution. 
 
 ### The Swedish Prescribed Drug Register 
 

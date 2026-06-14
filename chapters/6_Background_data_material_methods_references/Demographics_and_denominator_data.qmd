@@ -16,7 +16,7 @@ execute:
 #| warning: false
 #| message: false
 source("../../_common.R")
-status(type = "drafting")
+status(type = "ready2publish")
 ```
 
 ## Demographics and denominator data {#sec-demographics}
@@ -24,7 +24,7 @@ status(type = "drafting")
 
 Official statistics on population in Sweden are provided by Statistics Sweden to the eHealth Agency. The number of people per age group and region in 2025 are provided in @tbl-6-1 and in total in Sweden from 2000-2025 in @tbl-6-2. These figures are used for calculation of antibiotic sales in humans.
 
-@tbl-6-1
+
 ```{r}
 #| message: false
 #| warning: false
@@ -41,7 +41,6 @@ df |>
   gt_theme_SweSva() 
 ```
 
-@tbl-6-2
 ```{r}
 #| message: false
 #| warning: false

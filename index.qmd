@@ -1,4 +1,5 @@
 ---
+format: html
 toc: false
 ---
 
@@ -93,7 +94,9 @@ Public Health Agency of Sweden & The Swedish Veterinary Agency of Sweden. (2025)
 }
 ```
 
-**This title and Previous Swedres and Svarm reports are available for download at:** [www.sva.se/swedres-svarm](www.sva.se/swedres-svarm/){target="_blank"}
+### Archive
+This title and Previous Swedres and Svarm reports are available for download at: [www.sva.se/swedres-svarm](www.sva.se/swedres-svarm/){target="_blank"}.
 
-**Cover by:** Ingvar Westerdahl/Thomas Isaksson
+### Cover acknowledgment
+Cover designed by Ingvar Westerdahl and Thomas Isaksson.
 

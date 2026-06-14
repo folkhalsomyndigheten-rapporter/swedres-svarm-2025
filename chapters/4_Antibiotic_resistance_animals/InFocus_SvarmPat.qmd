@@ -2,8 +2,6 @@
 format:
   html:
     embed-resources: false
-    toc: true
-    toc-depth: 3
 
 execute:
   cache: false
@@ -19,15 +17,14 @@ execute:
 #| warning: false
 #| message: false
 source("../../_common.R")
-status(type = "polishing")
+status(type = "ready2publish")
 ```
 
-::: {.callout-note appearance="simple" collapse="false" #infoc-svarmpat}
+::: {.callout .callout-infocus #infoc-svarmpat .unnumbered}
 
 ## [In-focus]{.in-focus} - SvarmPat {.unnumbered}
 
 ### SvarmPat – monitoring of resistance in pathogens from farm animals
-
 
 The SvarmPat programme (Swedish Veterinary Antibiotic Resistance Monitoring – farm animal pathogens) is a project in cooperation between Farm & Animal Health and SVA that started in 2005. It is financed by the Swedish Board of Agriculture.  
 

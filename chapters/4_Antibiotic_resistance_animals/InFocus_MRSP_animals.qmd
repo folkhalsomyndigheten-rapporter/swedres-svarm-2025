@@ -17,10 +17,10 @@ execute:
 #| warning: false
 #| message: false
 source("../../_common.R")
-status(type = "polishing")
+status(type = "ready2publish")
 ```
 
-::: {.callout-note appearance="simple" collapse="false" #infoc-mrsp}
+::: {.callout .callout-infocus #infoc-mrsp .unnumbered}
 
 ## [In-focus]{.in-focus} - MRSP clonal populations in Swedish dogs and cats {.unnumbered}
 

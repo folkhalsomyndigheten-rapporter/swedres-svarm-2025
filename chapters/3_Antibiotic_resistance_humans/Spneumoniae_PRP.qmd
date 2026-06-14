@@ -2,7 +2,6 @@
 format:
   html:
     embed-resources: false
-
 execute:
   cache: false
   echo: false
@@ -43,11 +42,11 @@ Sine 2025, EUCAST introduced new breakpoints for benzylpenicillin for pneumococc
 The Public Health Agency collects all pneumococcal isolates with oxacillin 1 µg < 9 mm (according to disc diffusion) for serotyping. In 2025, 254 isolates with reduced susceptibility to penicillin were collected (including the 211 isolates from cases of PRP). The serotype distribution was, in descending order: 19F (11%), NT (11%), 19A (10%), 11A (9%), 35B (7%). 9N (6%), 23B (5%), 15A (5%), 23A (4%), 6C and 3 (3%). 
 
 #### Clusters and outbreaks
+
 No PRP clusters were identified in 2025. 
 
 #### Comments
 In summary, the number of PRP cases continued to increase in 2025. However, the number of invasive cases remained stable. Over the past decade, the PRP incidence has risen in Sweden. Changes in diagnostics may have contributed to this trend. 
-
 
 
 ::: panel-tabset
@@ -82,18 +81,15 @@ p <- df |>
   geom_point_interactive(aes(tooltip=tooltip_p),
                          hover_nearest = TRUE,
                          #size=.5
-                         ) +
-    scale_y_continuous(expand = c(0,0.2),
-                       limits=c(0,3)) +
- scale_x_discrete(expand = c(0,0.2)) +
+  ) +
+  scale_y_continuous(expand = c(0,0.2),
+                     limits=c(0,3)) +
+  scale_x_discrete(expand = c(0,0.2)) +
   labs(y= "Incidence (cases/100 000 inhabitants)",
        x= "Year") +
-#    guides(color=guide_legend(nrow=2)) +
   scale_color_SweSva() + 
   add_fohm_caption() +
   theme_SweSva() #+
-    #theme(plot.subtitle = element_text(vjust = -15))# +
-  #theme_SweSva_rotate()
 
 make_dynamic_plot(plot = p, filename = "Fig3-27")
 ```
@@ -134,9 +130,9 @@ spec_ordning <- data$fig_data |> pull(serotype)
 #| warning: false
 p <- df |> 
   
-   mutate(serotype = factor(serotype, levels = spec_ordning),
-          data_id = row_number(),
-          tooltip_b = glue::glue('<b>Year:</b> {year}
+  mutate(serotype = factor(serotype, levels = spec_ordning),
+         data_id = row_number(),
+         tooltip_b = glue::glue('<b>Year:</b> {year}
                                     <b>Number of total isolates:</b> {isolates_tot}
                                     <b>Proportion of isolates:</b> {round(value,0)}%')) |> 
   
@@ -148,11 +144,9 @@ p <- df |>
   labs(x="Serotypes",
        y = "Proportion of isolates (%)") +
   scale_y_continuous(expand = c(0,0),limits=c(0,30)) +
-  #facet_grid(~pcv_group, scales="free_x") +
   scale_x_discrete(expand=c(0,0.2)) +
   scale_fill_SweSva() + 
   theme_SweSva() +
-  #theme_SweSva_facet() +
   add_fohm_caption() 
 
 
@@ -164,7 +158,7 @@ df |>
   transmute(year,
             serotype,
             "Total number of isolates" = isolates_tot,
-         "Proportion of isolates (%)" = value) |> 
+            "Proportion of isolates (%)" = value) |> 
   make_table_data_tab(file_name = "Fig3-28")
 ```
 :::
@@ -182,16 +176,16 @@ data <- load_from_excel(path_file = "data/Figure_3.27_SPN_blood.xlsx")
 
 df <- data$fig_data |>  
   mutate(across(everything(), as.character)) |>
-    rename(antibiotic = Antibiotic) |> 
-
+  rename(antibiotic = Antibiotic) |> 
+  
   pivot_longer(cols = -antibiotic, names_to = "year_tmp") |> 
   separate(year_tmp, into = c("year","feat"),sep = "-") |> 
   mutate(feat = str_remove(feat,"\r\n")) |> 
   mutate(value = as.numeric(value)) |> 
   pivot_wider(names_from = feat, values_from = value) |> 
-    janitor::clean_names() |> 
-
-## confidence interval
+  janitor::clean_names() |> 
+  
+  ## confidence interval
   rename(r_perc = percent_r,
          tot_antal = n_tested) |> 
   mutate(r_antal = round(tot_antal*(r_perc/100),0)) |> 
@@ -213,7 +207,7 @@ p <- df |>
                           <b>Antibiotic:</b> {antibiotic}
                           <b>Resistance:</b> {round(r_perc,2)}%
                           <b>Confidence interval:</b> {ci}'
-                                ),
+         ),
          tooltip_l = glue::glue('{antibiotic}')) |> 
   ggplot(aes(x= year,
              y=r_perc,
@@ -229,17 +223,17 @@ p <- df |>
                             width=.15,linewidth = .5
   ) +
   scale_x_discrete(expand = c(0,0.2)) +
-    scale_y_continuous(breaks = perc_25,#scales::pretty_breaks(),
-                       limits=c(0,25)) +
+  scale_y_continuous(breaks = perc_25,#scales::pretty_breaks(),
+                     limits=c(0,25)) +
   guides(color=guide_legend(nrow=3)) +
-
+  
   labs(x="Year",
        y="Resistance (%)") +
   scale_color_SweSva() +
   theme_SweSva() +
-    theme(plot.subtitle = element_text(vjust = -15),
-          legend.text = element_text(size=10)) +
-
+  theme(plot.subtitle = element_text(vjust = -15),
+        legend.text = element_text(size=10)) +
+  
   add_fohm_caption()
 
 

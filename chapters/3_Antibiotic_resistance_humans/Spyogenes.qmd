@@ -97,9 +97,7 @@ p <- df |>
   scale_color_SweSva() +
   theme_SweSva() +
     theme(plot.subtitle = element_text(vjust = -15)) +
-
   add_fohm_caption()
-
 
 make_dynamic_plot(plot = p, 
                   filename = "Fig3-35")
@@ -107,6 +105,7 @@ make_dynamic_plot(plot = p,
 ###### Data
 ```{r}
 df |> 
+    transmute(antibiotic, year, "Total number" = tot_antal, "Resistance (%)"=r_perc, "95% CI" = ci) |> 
   make_table_data_tab(file_name = "Fig3-35")
 ```
 :::

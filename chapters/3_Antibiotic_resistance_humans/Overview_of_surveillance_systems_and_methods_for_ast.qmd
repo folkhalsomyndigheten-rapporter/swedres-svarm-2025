@@ -92,7 +92,8 @@ p <- df |>
   
   scale_x_discrete(expand = c(0,0.2)) +
   scale_y_continuous(breaks = perc_25,
-                     limits = c(0,25)) +
+                     limits = c(0,25),
+                     expand=c(0,0.2)) +
   labs(x="Year",
        y="Resistance (%)") +
   scale_color_SweSva() +
@@ -106,6 +107,7 @@ make_dynamic_plot(plot = p,
 ###### Data
 ```{r}
 df |> 
+  rename("Resistance (%)"=r_perc) |> 
   make_table_data_tab(file_name = "Fig3-1")
 ```
 :::
@@ -148,7 +150,8 @@ p <- df |>
                          hover_nearest = TRUE) +
   scale_x_discrete(expand = c(0,0.2)) +
   scale_y_continuous(breaks = perc_25, 
-                     limits=c(0,25)) +
+                     limits=c(0,25),
+                     expand=c(0,0.2)) +
   
   labs(x="Year",
        y="Resistance (%)") +
@@ -163,6 +166,7 @@ make_dynamic_plot(plot = p,
 ###### Data
 ```{r}
 df |> 
+    rename("Resistance (%)"=r_perc) |> 
   make_table_data_tab(file_name = "Fig3-2")
 ```
 :::
@@ -202,7 +206,8 @@ p <- df |>
 
   scale_x_discrete(expand = c(0,0.2)) +
     scale_y_continuous(breaks = perc_25, 
-                       limits=c(0,25)) +
+                       limits=c(0,25),
+                       expand=c(0,0.2)) +
 
   labs(x="Year",
        y="Resistance (%)") +
@@ -216,6 +221,7 @@ make_dynamic_plot(plot = p,
 ###### Data
 ```{r}
 df |> 
+    rename("Resistance (%)"=r_perc) |> 
   make_table_data_tab(file_name = "Fig3-3")
 ```
 :::
@@ -304,11 +310,10 @@ df |>
 
 #### Voluntary surveillance based on clinical samples
 
-This surveillance is based on data collected from the regional clinical microbiology laboratories. Since 2015, all data on clinical isolates from humans have been collected through Svebar, an automated surveillance system that collects all culture results from participating clinical microbiology laboratories. Currently, 23 laboratories submit data to Svebar (May 2026). It is not possible to deduplicate data from Svebar since personal identification numbers are not included in the system. Consequently, duplicate findings from blood and other samples are included. Patients with highly resistant isolates tend to be sampled more frequently, which may lead to an overestimate of resistance levels in certain analyses (@tbl-3-3). Most antibiotic resistance levels presented in this report are based on non-selective susceptibility testing data from at least five laboratories, thus avoiding bias from hierarchical testing and regional differences. When the data presented are based on selective testing, this will be indicated in the graphs and tables. The 95% confidence intervals are presented in all figures presenting resistance data.For details, see [Material and Methods](#sec-mmh) 
+This surveillance is based on data collected from the regional clinical microbiology laboratories. Since 2015, all data on clinical isolates from humans have been collected through Svebar, an automated surveillance system that collects all culture results from participating clinical microbiology laboratories. Currently, 23 laboratories submit data to Svebar (May 2026). It is not possible to deduplicate data from Svebar since personal identification numbers are not included in the system. Consequently, duplicate findings from blood and other samples are included. Patients with highly resistant isolates tend to be sampled more frequently, which may lead to an overestimate of resistance levels in certain analyses (@tbl-3-3). Most antibiotic resistance levels presented in this report are based on non-selective susceptibility testing data from at least five laboratories, thus avoiding bias from hierarchical testing and regional differences. When the data presented are based on selective testing, this will be indicated in the graphs and tables. The 95% confidence intervals were calculated using the Wilson method [@Wilson1927] and are shown in all resistance data figures.
 
 Data from Svebar are used for reporting both to [EARS-Net (an ECDC surveillance system)](https://www.ecdc.europa.eu/en/about-us/networks/disease-networks-and-laboratory-networks/ears-net-data){target="_blank"} and to [GLASS (a WHO surveillance system)](https://www.who.int/initiatives/glass){target="_blank"}. Prior to 2015, ResNet, a national surveillance programme on antibiotic resistance, was used to collect data. From 2015 and onwards, these yearly data are based on SIR reported by the clinical microbiology laboratories to Svebar.
 
-@tbl-3-3 is Table_3.3-covergare_Svebar
 
 
 ```{r}

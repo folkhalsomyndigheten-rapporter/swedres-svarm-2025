@@ -2,7 +2,6 @@
 format:
   html:
     embed-resources: false
-
 execute:
   cache: false
   echo: false
@@ -85,7 +84,8 @@ tooltip_p = glue::glue('<b>Year:</b> {year}
   ) +
   scale_x_discrete(expand = c(0,0.2)) +
   scale_y_continuous(breaks = perc_25,
-                     limits=c(0,25)) + 
+                     limits=c(0,25),
+                     expand=c(0,0.2)) + 
   labs(x="Year",
        y="Resistance (%)") +
   scale_color_SweSva() +
@@ -98,6 +98,7 @@ make_dynamic_plot(plot = p,
 ##### Data
 ```{r}
 df |> 
+    transmute(antibiotic, year, "Total number" = tot_antal, "Resistance (%)"=r_perc, "95% CI" = ci) |> 
    make_table_data_tab(file_name = "Fig3-36")
 ```
 :::

@@ -21,7 +21,8 @@ source("../../_common.R")
 status(type = "ready2publish")
 ```
 
-::: {.callout-note appearance="simple" collapse="false" #infoc-salestopical}
+::: {.callout .callout-infocus #infoc-salestopical .unnumbered}
+
 ## [In-focus]{.in-focus} - Sales of topical antimicrobial products {.unnumbered}
 
 ### Sales of antimicrobial products formulated for topical use
@@ -73,10 +74,11 @@ p_2IF1 <- ggplot(dat_2IF1_long,
   geom_bar_interactive(stat = "identity", position = "stack") +
   scale_fill_SweSva() +
   labs(x = "Year",
-       y = "Number of packages", fill = NULL) +
+       y = "Number of packages") +
   scale_y_continuous(limits = c(0, 120000), 
                      breaks = seq(0, 120000, by = 20000),
-                     labels = scales::label_number(), expand = c(0,0.2)) +
+                     labels = scales::label_number(), 
+                     expand = c(0,0.2)) +
   scale_x_discrete(expand = c(0,0.2)) +
   theme_SweSva() +
   theme(axis.text.x = element_text(hjust = 0.5)) +
@@ -120,7 +122,8 @@ fig_2IF2_alt <- dat_2IF2$fig_alt
 
 # no need to convert to long format as PowerBI already did this
 dat_2IF2_long <- dat_2IF2$fig_data |>
-    mutate(Species = factor(Species, levels = c("Dog", "Cat", "Horse", "Other", "Production animals")))
+    mutate(Species = factor(Species, levels = c("Dog", "Cat", "Horse",
+                                                "Other", "Production animals")))
 
 p_2IF2 <- ggplot(dat_2IF2_long, aes(x = Species, y = `Packages sold`, fill = `Target site`)) +
   geom_bar_interactive(aes(tooltip = paste0("<b>Species:</b> ", `Species`,
@@ -135,7 +138,6 @@ p_2IF2 <- ggplot(dat_2IF2_long, aes(x = Species, y = `Packages sold`, fill = `Ta
                      labels = scales::label_number(),
                      expand = c(0,0.2)) +
     scale_x_discrete(expand = c(0,0.2)) +
-
   theme_SweSva() +
   theme(axis.text.x = element_text(hjust = 0.5)) +
   add_sva_caption()
@@ -177,9 +179,13 @@ fig_2IF3_alt <- dat_2IF3$fig_alt
 dat_2IF3_long <- dat_2IF3$fig_data
 dat_2IF3_long <- dat_2IF3_long |>
   #workaround to determine the order in bars because scale_fill_SweSva overriders it
-  mutate(stack_order = factor(`Type of antimicrobial effect`, levels = c("Antiviral", "Antifungal", "Antibiotic and antifungal", "Antibiotic")))
+  mutate(stack_order = factor(`Type of antimicrobial effect`, 
+                              levels = c("Antiviral", "Antifungal", 
+                                         "Antibiotic and antifungal",
+                                         "Antibiotic")))
 
-p_2IF3 <- ggplot(dat_2IF3_long, aes(x = `Target site`, y = `Packages sold`, fill = `Type of antimicrobial effect`, group = stack_order)) +
+p_2IF3 <- ggplot(dat_2IF3_long,
+                 aes(x = `Target site`, y = `Packages sold`, fill = `Type of antimicrobial effect`, group = stack_order)) +
   geom_bar_interactive(aes(tooltip = paste0("<b>Target site:</b> ", `Target site`, 
                                             "<br><b>Type:</b> ", `Type of antimicrobial effect`,
                                             "<br><b>Value:</b> ", `Packages sold`),
@@ -187,14 +193,11 @@ p_2IF3 <- ggplot(dat_2IF3_long, aes(x = `Target site`, y = `Packages sold`, fill
                        stat = "identity", position = "fill") +
   scale_fill_SweSva() +
   labs(x = "Target site",
-       y = "Number of packages (%)", 
-       fill = NULL) +
-  scale_y_continuous(labels = perc_100,#scales::percent_format(),
-                     #limits = c(0,100),
+       y = "Number of packages (%)") +
+  scale_y_continuous(labels = perc_100,
                      expand = c(0,0)) +
   scale_x_discrete(expand = c(0,0.2)) +
   theme_SweSva() +
-  #theme(axis.text.x = element_text(hjust = 0.5)) +
   add_sva_caption()
 
   
@@ -234,21 +237,25 @@ dat_2IF4_long <- dat_2IF4$fig_data |>
   mutate(Target = factor(`Target site`, levels = c("Dermatological", "Ophthalmological", "Otological")), 
          stack_order = factor(`Product class`, levels = c("Veterinary medicinal product", "Human medicinal product")))
 
-p_2IF4 <- ggplot(dat_2IF4_long, aes(x = `Target site`, y = `Packages sold`, fill = `Product class`, group = stack_order)) +
+p_2IF4 <- ggplot(dat_2IF4_long,
+                 aes(x = `Target site`,
+                     y = `Packages sold`, 
+                     fill = `Product class`,
+                     group = stack_order)) +
   geom_bar_interactive(aes(tooltip = paste0("<b>Target site:</b> ", `Target site`,
                                             "<br><b>Product class:</b> ", `Product class`,
                                             "<br><b>Value:</b> ", `Packages sold`),
                            data_id = paste(`Target site`, `Product class`)), 
                        stat = "identity", position = "stack") +
   scale_fill_SweSva() +
-  labs(x = "Target site", y = "Number of packages", fill = NULL) +
+  labs(x = "Target site",
+       y = "Number of packages") +
   scale_y_continuous(limits = c(0, 50000), 
                      breaks = seq(0, 50000, by = 10000),
                      labels = scales::label_number(),
                      expand = c(0,0.2)) +
   scale_x_discrete(expand = c(0,0.2)) +
   theme_SweSva() +
-  #theme(axis.text.x = element_text(hjust = 0.5)) +
   add_sva_caption()
 
 make_dynamic_plot(plot = p_2IF4, filename = "fig-2IF4")
@@ -299,8 +306,6 @@ dat_2IF5_long  <- dat_2IF5$fig_data |>
          Period = factor(Period, levels = c("05-07", "23-25")),
          `Product type` = factor(`Product type`, levels = c("Veterinary medicinal products", "Human medicinal products")))
 
-
-
 p_21F5 <- dat_2IF5_long |> 
   mutate(data_id = paste(Indication, `Animal species`, Period, `Product type`),
          tooltip_b = paste0("<b>Target site:</b> ", 
@@ -317,9 +322,7 @@ p_21F5 <- dat_2IF5_long |>
   ggh4x::facet_nested(~ Indication + `Animal species`, scales = "free_x") +
   scale_fill_SweSva() +
   labs(x = "Years (2000)",
-       y = "Number of packages (average)", 
-       fill = NULL) +
-
+       y = "Number of packages (average)") +
   scale_y_continuous(limits = c(0, 80000), 
                      breaks = seq(0, 80000, by = 10000),
                      labels = scales::label_number(),
@@ -329,17 +332,18 @@ p_21F5 <- dat_2IF5_long |>
   theme(plot.subtitle = element_text(vjust = -12),
         axis.text.x = element_text(angle=0,
                                    hjust = 0.5),
-        strip.text = element_text(size=10)) +
+        strip.text = element_text(size=9,margin = margin(0, 0, 1.2, 0))
+        ) +
   add_sva_caption() 
 
-make_dynamic_plot(plot = p_21F5, filename = "fig-2IF5")
+make_dynamic_plot(plot = p_21F5, filename = "Fig2-IF5")
 ```
 
 
 ###### Data
 ```{r}
 dat_2IF5_long |>
-  make_table_data_tab()
+  make_table_data_tab(file_name = "Fig2-IF5")
 ```
 :::
 
