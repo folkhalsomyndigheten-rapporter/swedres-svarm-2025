@@ -99,30 +99,7 @@ div.csl-indent {
 <link href="../site_libs/dt-core-1.13.6/css/jquery.dataTables.extra.css" rel="stylesheet">
 <script src="../site_libs/dt-core-1.13.6/js/jquery.dataTables.min.js"></script><script src="../site_libs/jszip-1.13.6/jszip.min.js"></script><link href="../site_libs/dt-ext-buttons-1.13.6/css/buttons.dataTables.min.css" rel="stylesheet">
 <script src="../site_libs/dt-ext-buttons-1.13.6/js/dataTables.buttons.min.js"></script><script src="../site_libs/dt-ext-buttons-1.13.6/js/buttons.html5.min.js"></script><script src="../site_libs/dt-ext-buttons-1.13.6/js/buttons.colVis.min.js"></script><script src="../site_libs/dt-ext-buttons-1.13.6/js/buttons.print.min.js"></script><link href="../site_libs/crosstalk-1.2.2/css/crosstalk.min.css" rel="stylesheet">
-<script src="../site_libs/crosstalk-1.2.2/js/crosstalk.min.js"></script><!-- Konfigurera Content Security Policy (CSP)
-Mål: Blockera externa script och skydda mot XSS-attacker.
-Hur?
-
-
-Lägg till CSP i era HTML-filer:
-
-I er anpassade header.html (eller direkt i Quarto-dokumenten)
-
---><meta http-equiv="Content-Security-Policy" content="default-src 'self';
-               script-src 'self' 'unsafe-inline';
-               style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
-               img-src 'self' data:;
-               font-src 'self' https://fonts.gstatic.com;">
-<!-- 
-Förklaring:
-
-'self': Tillåter endast resurser från er egen domän.
-'unsafe-inline': Tillåter inline-script och -stilar (nödvändigt för htmlwidgets).
-data:: Tillåter data-URL:er (t.ex. för bilder i diagram).
-connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
-
-
---><link rel="stylesheet" href="../styles.css">
+<script src="../site_libs/crosstalk-1.2.2/js/crosstalk.min.js"></script><link rel="stylesheet" href="../styles.css">
 </head>
 <body class="nav-sidebar floating quarto-light"><script id="quarto-html-before-body" type="application/javascript">
     const toggleBodyColorMode = (bsSheetEl) => {
@@ -354,7 +331,7 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapters/samanfattning.html" class="sidebar-item-text sidebar-link">
+  <a href="../chapters/sammanfattning.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Sammanfattning</span></a>
   </div>
 </li>
@@ -492,6 +469,12 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
 </li>
       </ul>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true">
@@ -502,12 +485,6 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
       </div>
       <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">
 <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../references.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">References</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../chapters/technical.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Acknowledgement of technical tools used</span></a>
@@ -522,10 +499,27 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="99"><h2 id="toc-title">Table of contents</h2>
    
+  <ul>
+<li>
+<a href="#antibiotic-sales" id="toc-antibiotic-sales" class="nav-link active" data-scroll-target="#antibiotic-sales">Antibiotic sales</a>
   <ul class="collapse">
-<li><a href="#antibiotic-sales" id="toc-antibiotic-sales" class="nav-link active" data-scroll-target="#antibiotic-sales">Antibiotic sales</a></li>
-  <li><a href="#antibiotic-resistance" id="toc-antibiotic-resistance" class="nav-link" data-scroll-target="#antibiotic-resistance">Antibiotic resistance</a></li>
-  <li><a href="#abbreviations" id="toc-abbreviations" class="nav-link" data-scroll-target="#abbreviations">ABBREVIATIONS</a></li>
+<li><a href="#swedres---humans" id="toc-swedres---humans" class="nav-link" data-scroll-target="#swedres---humans">Swedres - Humans</a></li>
+  </ul>
+</li>
+  <li>
+<a href="#antibiotic-resistance" id="toc-antibiotic-resistance" class="nav-link" data-scroll-target="#antibiotic-resistance">Antibiotic resistance</a>
+  <ul class="collapse">
+<li><a href="#swedres---humans-1" id="toc-swedres---humans-1" class="nav-link" data-scroll-target="#swedres---humans-1">Swedres - Humans</a></li>
+  <li><a href="#svarm---animals-and-food" id="toc-svarm---animals-and-food" class="nav-link" data-scroll-target="#svarm---animals-and-food">Svarm - Animals and food</a></li>
+  </ul>
+</li>
+  <li>
+<a href="#abbreviations" id="toc-abbreviations" class="nav-link" data-scroll-target="#abbreviations">Abbreviations</a>
+  <ul class="collapse">
+<li><a href="#abbreviations---common" id="toc-abbreviations---common" class="nav-link" data-scroll-target="#abbreviations---common">Abbreviations - common</a></li>
+  <li><a href="#abbreviations---antibiotics" id="toc-abbreviations---antibiotics" class="nav-link" data-scroll-target="#abbreviations---antibiotics">Abbreviations - antibiotics</a></li>
+  </ul>
+</li>
   </ul></nav>
     </div>
 <!-- main -->
@@ -544,26 +538,14 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   
 
 
-</header><div class="status">
-<div class="callout callout-style-simple callout-note">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-body-container">
-<p>You are reading the work-in-progress version of the Swedres-Svarm report 2025. This part should be readable but is currently undergoing final polishing. You can find last years report <a href="https://www.sva.se/media/amupibfr/swedres-svarm-2024-webb.pdf" class="uri">https://www.sva.se/media/amupibfr/swedres-svarm-2024-webb.pdf</a>.</p>
-</div>
-</div>
-</div>
-</div>
-<p>The Swedres-Svarm report is the result of a cooperation between the Public Health Agency of Sweden and the Swedish Veterinary Agency with the aim to present data relating to both humans and animals on the sales of antibiotics and on antibiotic resistance in a joint report.</p>
+</header><p>The Swedres-Svarm report is the result of a cooperation between the Public Health Agency of Sweden and the Swedish Veterinary Agency with the aim to present data relating to both humans and animals on the sales of antibiotics and on antibiotic resistance in a joint report.</p>
 <p>Data on occurrence of notifiable antibiotic resistance in bacteria as well as data on resistance in zoonotic bacteria and in bacteria from clinical submissions are presented. Additionally, the report includes data on sales of antibiotics and resistance in so called indicator bacteria from healthy animals and from food of animal origin.</p>
 <p>Data on resistance in bacteria from humans are mainly obtained from clinical microbiology laboratories and in addition via notifications from clinicians. They are compiled by the Public Health Agency of Sweden in Swedres. In contrast, data on animals and food, compiled by the Swedish Veterinary Agency, are from the national monitoring program in the veterinary field Svarm. This program is specifically designed to monitor resistance in bacteria from animals and food and is organised and run at the Swedish Veterinary Agency. Data in the veterinary field also emanate from other sources, such as the SvarmPat project and specific research projects. For details on data sources see respective bacteria in Antibiotic resistance in animals and Background data, material, methods and references.</p>
-<section id="schematic-view-of-antimicrobial-sales-and-resistance-monitored-in-sweden-2025." class="level4"><h4 class="anchored" data-anchor-id="schematic-view-of-antimicrobial-sales-and-resistance-monitored-in-sweden-2025.">Schematic view of antimicrobial sales and resistance monitored in Sweden 2025.</h4>
+<section id="schematic-view-of-antimicrobial-sales-and-resistance-monitored-in-sweden-2025" class="level4"><h4 class="anchored" data-anchor-id="schematic-view-of-antimicrobial-sales-and-resistance-monitored-in-sweden-2025">Schematic view of antimicrobial sales and resistance monitored in Sweden 2025</h4>
 <p>Resistance in bacteria from humans and sales for humans to the left and resistance in bacteria from animals and food and sales for animals to the right (<a href="#fig-guidance" class="quarto-xref">Figure&nbsp;<span>1</span></a>).</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-guidance" class="quarto-float quarto-figure quarto-figure-center anchored" alt="Schematic view of antimicrobial sales and resistance monitored in Sweden 2025." data-fig-align="center">
+<div id="fig-guidance" class="quarto-float quarto-figure quarto-figure-center anchored" data-fig-align="center" alt="Schematic view of antimicrobial sales and resistance monitored in Sweden 2025.">
 <figure class="quarto-float quarto-float-fig figure"><figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-guidance-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca"><strong>Figure</strong>&nbsp;1<strong>.</strong> Schematic view of antimicrobial sales and resistance monitored in Sweden 2025. Resistance in bacteria from humans and sales for humans to the left and resistance in bacteria from animals and food and sales for animals to the right.
 </figcaption><div aria-describedby="fig-guidance-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="images/FigurAntibioticResistanceSwedres2025.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:80.0%" alt="Schematic view of antimicrobial sales and resistance monitored in Sweden 2025.">
@@ -585,23 +567,23 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
 <figure class="quarto-float quarto-float-tbl figure"><figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-indic-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca"><strong>Table</strong>&nbsp;1<strong>.</strong> Oral antibiotics commonly prescribed for specific therapeutic areas in Sweden
 </figcaption><div aria-describedby="tbl-indic-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<div id="qofnijskwg" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#qofnijskwg table {
+<div id="wzqbmzrsvz" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#wzqbmzrsvz table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#qofnijskwg thead, #qofnijskwg tbody, #qofnijskwg tfoot, #qofnijskwg tr, #qofnijskwg td, #qofnijskwg th {
+#wzqbmzrsvz thead, #wzqbmzrsvz tbody, #wzqbmzrsvz tfoot, #wzqbmzrsvz tr, #wzqbmzrsvz td, #wzqbmzrsvz th {
   border-style: none;
 }
 
-#qofnijskwg p {
+#wzqbmzrsvz p {
   margin: 0;
   padding: 0;
 }
 
-#qofnijskwg .gt_table {
+#wzqbmzrsvz .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -627,12 +609,12 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   border-left-color: #D3D3D3;
 }
 
-#qofnijskwg .gt_caption {
+#wzqbmzrsvz .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#qofnijskwg .gt_title {
+#wzqbmzrsvz .gt_title {
   color: #333333;
   font-size: 16px;
   font-weight: initial;
@@ -644,7 +626,7 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   border-bottom-width: 0;
 }
 
-#qofnijskwg .gt_subtitle {
+#wzqbmzrsvz .gt_subtitle {
   color: #333333;
   font-size: 14px;
   font-weight: initial;
@@ -656,7 +638,7 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   border-top-width: 0;
 }
 
-#qofnijskwg .gt_heading {
+#wzqbmzrsvz .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -668,13 +650,13 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   border-right-color: #D3D3D3;
 }
 
-#qofnijskwg .gt_bottom_border {
+#wzqbmzrsvz .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#qofnijskwg .gt_col_headings {
+#wzqbmzrsvz .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -689,7 +671,7 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   border-right-color: #D3D3D3;
 }
 
-#qofnijskwg .gt_col_heading {
+#wzqbmzrsvz .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -709,7 +691,7 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   overflow-x: hidden;
 }
 
-#qofnijskwg .gt_column_spanner_outer {
+#wzqbmzrsvz .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -721,15 +703,15 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   padding-right: 4px;
 }
 
-#qofnijskwg .gt_column_spanner_outer:first-child {
+#wzqbmzrsvz .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#qofnijskwg .gt_column_spanner_outer:last-child {
+#wzqbmzrsvz .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#qofnijskwg .gt_column_spanner {
+#wzqbmzrsvz .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -741,11 +723,11 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   width: 100%;
 }
 
-#qofnijskwg .gt_spanner_row {
+#wzqbmzrsvz .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#qofnijskwg .gt_group_heading {
+#wzqbmzrsvz .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -771,7 +753,7 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   text-align: left;
 }
 
-#qofnijskwg .gt_empty_group_heading {
+#wzqbmzrsvz .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -786,15 +768,15 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   vertical-align: middle;
 }
 
-#qofnijskwg .gt_from_md > :first-child {
+#wzqbmzrsvz .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#qofnijskwg .gt_from_md > :last-child {
+#wzqbmzrsvz .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#qofnijskwg .gt_row {
+#wzqbmzrsvz .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -813,7 +795,7 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   overflow-x: hidden;
 }
 
-#qofnijskwg .gt_stub {
+#wzqbmzrsvz .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -826,7 +808,7 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   padding-right: 5px;
 }
 
-#qofnijskwg .gt_stub_row_group {
+#wzqbmzrsvz .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -840,15 +822,15 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   vertical-align: top;
 }
 
-#qofnijskwg .gt_row_group_first td {
+#wzqbmzrsvz .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#qofnijskwg .gt_row_group_first th {
+#wzqbmzrsvz .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#qofnijskwg .gt_summary_row {
+#wzqbmzrsvz .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -858,16 +840,16 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   padding-right: 5px;
 }
 
-#qofnijskwg .gt_first_summary_row {
+#wzqbmzrsvz .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#qofnijskwg .gt_first_summary_row.thick {
+#wzqbmzrsvz .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#qofnijskwg .gt_last_summary_row {
+#wzqbmzrsvz .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -877,7 +859,7 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   border-bottom-color: #D3D3D3;
 }
 
-#qofnijskwg .gt_grand_summary_row {
+#wzqbmzrsvz .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -887,7 +869,7 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   padding-right: 5px;
 }
 
-#qofnijskwg .gt_first_grand_summary_row {
+#wzqbmzrsvz .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -897,7 +879,7 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   border-top-color: #D3D3D3;
 }
 
-#qofnijskwg .gt_last_grand_summary_row_top {
+#wzqbmzrsvz .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -907,11 +889,11 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   border-bottom-color: #D3D3D3;
 }
 
-#qofnijskwg .gt_striped {
+#wzqbmzrsvz .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#qofnijskwg .gt_table_body {
+#wzqbmzrsvz .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -920,7 +902,7 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   border-bottom-color: #D3D3D3;
 }
 
-#qofnijskwg .gt_footnotes {
+#wzqbmzrsvz .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -934,7 +916,7 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   border-right-color: #D3D3D3;
 }
 
-#qofnijskwg .gt_footnote {
+#wzqbmzrsvz .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -943,7 +925,7 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   padding-right: 5px;
 }
 
-#qofnijskwg .gt_sourcenotes {
+#wzqbmzrsvz .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -957,7 +939,7 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   border-right-color: #D3D3D3;
 }
 
-#qofnijskwg .gt_sourcenote {
+#wzqbmzrsvz .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -965,72 +947,72 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   padding-right: 5px;
 }
 
-#qofnijskwg .gt_left {
+#wzqbmzrsvz .gt_left {
   text-align: left;
 }
 
-#qofnijskwg .gt_center {
+#wzqbmzrsvz .gt_center {
   text-align: center;
 }
 
-#qofnijskwg .gt_right {
+#wzqbmzrsvz .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#qofnijskwg .gt_font_normal {
+#wzqbmzrsvz .gt_font_normal {
   font-weight: normal;
 }
 
-#qofnijskwg .gt_font_bold {
+#wzqbmzrsvz .gt_font_bold {
   font-weight: bold;
 }
 
-#qofnijskwg .gt_font_italic {
+#wzqbmzrsvz .gt_font_italic {
   font-style: italic;
 }
 
-#qofnijskwg .gt_super {
+#wzqbmzrsvz .gt_super {
   font-size: 65%;
 }
 
-#qofnijskwg .gt_footnote_marks {
+#wzqbmzrsvz .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#qofnijskwg .gt_asterisk {
+#wzqbmzrsvz .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#qofnijskwg .gt_indent_1 {
+#wzqbmzrsvz .gt_indent_1 {
   text-indent: 5px;
 }
 
-#qofnijskwg .gt_indent_2 {
+#wzqbmzrsvz .gt_indent_2 {
   text-indent: 10px;
 }
 
-#qofnijskwg .gt_indent_3 {
+#wzqbmzrsvz .gt_indent_3 {
   text-indent: 15px;
 }
 
-#qofnijskwg .gt_indent_4 {
+#wzqbmzrsvz .gt_indent_4 {
   text-indent: 20px;
 }
 
-#qofnijskwg .gt_indent_5 {
+#wzqbmzrsvz .gt_indent_5 {
   text-indent: 25px;
 }
 
-#qofnijskwg .katex-display {
+#wzqbmzrsvz .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#qofnijskwg div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#wzqbmzrsvz div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -1042,7 +1024,7 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
 <tbody class="gt_table_body">
 <tr class="odd">
 <td class="gt_row gt_left" headers="Indication" style="text-align: left; font-weight: bold; border-top-width: 1px; border-top-style: solid; border-top-color: #dddddd; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #dddddd; border-left-width: 1px; border-left-style: solid; border-left-color: #dddddd; border-right-width: 1px; border-right-style: solid; border-right-color: #dddddd; background-color: #F9F9F9;">Respiratory tract infections (RTIs)&nbsp;</td>
-<td class="gt_row gt_left" headers="Antibiotics included" style="text-align: center; border-top-width: 1px; border-top-style: solid; border-top-color: #dddddd; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #dddddd; border-left-width: 1px; border-left-style: solid; border-left-color: #dddddd; border-right-width: 1px; border-right-style: solid; border-right-color: #dddddd; background-color: #F9F9F9;">Doxycycline (J01AA02; excluding packages larger than 50 tablets), penicillin V (J01CE02), amoxicillin (J01CA04), amoxicillin with enzyme inhibitor (J01CR02), cephalosporins (J01DB-DE; excluding ceftibuten J01DD14) and&nbsp;&nbsp;</td>
+<td class="gt_row gt_left" headers="Antibiotics included" style="text-align: center; border-top-width: 1px; border-top-style: solid; border-top-color: #dddddd; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #dddddd; border-left-width: 1px; border-left-style: solid; border-left-color: #dddddd; border-right-width: 1px; border-right-style: solid; border-right-color: #dddddd; background-color: #F9F9F9;">Doxycycline (J01AA02; excluding packages larger than 50 tablets), penicillin V (J01CE02), amoxicillin (J01CA04), amoxicillin with enzyme inhibitor (J01CR02), cephalosporins (J01DB-DE; excluding ceftibuten J01DD14) and&nbsp;macrolides (J01FA).</td>
 </tr>
 <tr class="even">
 <td class="gt_row gt_left gt_striped" headers="Indication" style="text-align: left; font-weight: bold; border-top-width: 1px; border-top-style: solid; border-top-color: #dddddd; border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: #dddddd; border-left-width: 1px; border-left-style: solid; border-left-color: #dddddd; border-right-width: 1px; border-right-style: solid; border-right-color: #dddddd;">Urinary tract infections (UTIs)&nbsp;</td>
@@ -1069,18 +1051,18 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
 <p>Most of the data on resistance in Swedres is derived from routine diagnostic samples sent for testing at clinical microbiological laboratories. The results are mostly presented as proportion of resistance in tables or graphs. The methods used for antibiotic susceptibility testing, whether MIC determination or disk diffusion method, are standardised by European Committee on Antimicrobial Susceptibility Testing (EUCAST) and available online at <a href="https://www.eucast.org/" target="_blank">www.eucast.org</a>.<br>
 The methods and breakpoints routinely used in Sweden are available at <a href="https://www.nordicast.org/" target="_blank">www.nordicast.org</a>. EUCAST also presents yearly updated interpretative criteria for clinical use in human medicine, i.e.&nbsp;clinical breakpoints.</p>
 </section><section id="svarm---animals-and-food" class="level3"><h3 class="anchored" data-anchor-id="svarm---animals-and-food">Svarm - Animals and food</h3>
-<p>Data on resistance in Svarm are from MIC determinations performed at the Swedish Veterinary Agency using broth microdilution following the standards of the Clinical and Laboratory Standards Institute <span class="citation" data-cites="clsi2024a">(<a href="../references.html#ref-clsi2024a" role="doc-biblioref">1</a>)</span>. Results for isolates of zoonotic and indicator bacteria are interpreted according to ECOFFs from EUCAST (<a href="https://www.eucast.org/" target="_blank">www.eucast.org</a>). Clinical isolates from animals are generally classified by ECOFFs when such values are available. Interpretive criteria used are available as supplementary material on the <a href="https://www.sva.se/en/what-we-do/antibiotics/svarm-resistance-monitoring/supplementary-material/" target="_blank">SVA</a> web page.</p>
+<p>Data on resistance in Svarm are from MIC determinations performed at the Swedish Veterinary Agency using broth microdilution following the standards of the Clinical and Laboratory Standards Institute <span class="citation" data-cites="clsi2024a">(<a href="../references.html#ref-clsi2024a" role="doc-biblioref">Clinical and Laboratory Standards Institute (CLSI) 2024</a>)</span>. Results for isolates of zoonotic and indicator bacteria are interpreted according to ECOFFs from EUCAST (<a href="https://www.eucast.org/" target="_blank">www.eucast.org</a>). Clinical isolates from animals are generally classified by ECOFFs when such values are available. Interpretive criteria used are available as supplementary material on the <a href="https://www.sva.se/en/what-we-do/antibiotics/svarm-resistance-monitoring/supplementary-material/" target="_blank">SVA</a> web page.</p>
 <p>ECOFFs classify isolates with acquired reduced susceptibility as non-wild type. In Svarm, non-wild type isolates are called “resistant”. This classification is relevant for monitoring purposes, but it should be understood that resistance defined in this manner not always implies clinical resistance.</p>
 <p>Since the first report from Svarm, the interpretive criteria for some combinations of bacteria and substance have been changed. To facilitate comparisons when retrospect data are presented, levels of resistance have been recalculated using current interpretive criteria if not otherwise stated.</p>
 <section id="indicator-bacteria-in-animals" class="level4"><h4 class="anchored" data-anchor-id="indicator-bacteria-in-animals">Indicator bacteria in animals</h4>
 <p>In Svarm, <em>Escherichia coli</em>, and sometimes <em>Enterococcus faecalis</em> and <em>E. faecium</em> serve as indicators for presence of antibiotic resistance in the enteric flora of healthy animals and in the flora contaminating food. The prevalence of acquired resistance in such commensal bacteria in animals indicates the magnitude of the selective pressure from use of antibiotics in an animal population. Most bacteria of the enteric flora are unlikely to cause disease, but they can be reservoirs for resistance genes that can spread to bacteria that cause infections in animals or humans. Prevalence of resistance in indicator bacteria contaminating meat indicates the magnitude of the potential human exposure to such reservoirs in food producing animals.</p>
 </section><section id="multidrug-resistance" class="level4"><h4 class="anchored" data-anchor-id="multidrug-resistance">Multidrug resistance</h4>
 <p>The terms multidrug resistance (MDR), multiresistance and multiresistant are in Svarm generally used for isolates with acquired resistance to three or more antibiotic classes. However, for aminoglycosides every substance is considered separately because of the complexity of the resistance mechanisms against this class. Furthermore, for staphylococci each subclass of beta-lactams is considered separately but for Enterobacterales all beta-lactams are considered as one class.</p>
-</section></section></section><section id="abbreviations" class="level2"><h2 class="anchored" data-anchor-id="abbreviations">ABBREVIATIONS</h2>
-<p><strong>TA BESLUT OM ABBREVIATIONS</strong></p>
+</section></section></section><section id="abbreviations" class="level2"><h2 class="anchored" data-anchor-id="abbreviations">Abbreviations</h2>
+<section id="abbreviations---common" class="level3"><h3 class="anchored" data-anchor-id="abbreviations---common">Abbreviations - common</h3>
 <div class="cell" data-layout-align="center">
 <div id="tbl-abbr" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-layout-align="center">
-<figure class="quarto-float quarto-float-tbl figure"><figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-abbr-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca"><strong>Table</strong>&nbsp;2<strong>.</strong> Abbreviations of generic antibiotic names&nbsp;
+<figure class="quarto-float quarto-float-tbl figure"><figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-abbr-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca"><strong>Table</strong>&nbsp;2<strong>.</strong> Abbreviations and definitions used in antimicrobial resistance surveillance.
 </figcaption><div aria-describedby="tbl-abbr-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
 
@@ -1150,8 +1132,88 @@ The methods and breakpoints routinely used in Sweden are available at <a href="h
       color: #666666 !important;
     }
   </style>
-<div class="datatables html-widget html-fill-item" id="htmlwidget-bb0362d0c4dee27f85cb" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-bb0362d0c4dee27f85cb">{"x":{"filter":"none","vertical":false,"extensions":["Buttons"],"data":[["Amp","Chl","Cip","Cli","Ctx","Enr","Ery","Fus","Gen","Lzd","Mem","Nit","Tet","Tmp","Sxt"],["Ampicillin","Chloramphenicol","Ciprofloxacin","Clindamycin","Cefotaxime","Enrofloxacin","Erythromycin","Fusidic acid","Gentamicin","Linezolid","Meropenem","Nitrofurantoin","Tetracycline","Trimethoprim","Trimethoprim-sulphamethoxazole"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Abbreviation<\/th>\n      <th>Antibiotic<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"dom":"Blfrtip","autoWidth":true,"buttons":[{"extend":"copy"},{"extend":"csv","filename":"default"},{"extend":"excel","filename":"default"}],"pageLength":5,"lengthMenu":[[5,10,25,50,-1],["5","10","25","50","All"]],"rownames":false,"columnDefs":[{"name":"Abbreviation","targets":0},{"name":"Antibiotic","targets":1}],"order":[],"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item" id="htmlwidget-b8e28c0b87dd011e7059" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-b8e28c0b87dd011e7059">{"x":{"filter":"none","vertical":false,"extensions":["Buttons"],"data":[["AST","ATC","BSI","CDI","DDD","ECDC","ECOFF","EARS-Net","ESAC-Net","EMA","ESC","ESBL","ESBLA","ESBLM","ESBLCARBA","EUCAST","GBS","GES","GLASS","HLAR","IMI","IMP","KPC","MALDI-TOF MS","MDR","MIC","MLST","MRSA","MRSP","NDM","NordicAST","OXA-48","PHAS","PRP","PVL","RSV","RTI","spa","ST","Strama","TB","UTI","VIM","VRE","XDR"],["Antimicrobial susceptibility testing","Anatomical Therapeutic Chemical classification system","Bloodstream infection","Clostridioides difficile infection","Defined daily dose","European Centre for Disease Prevention and Control","Epidemiological cut-off value for non-susceptibility","European Antimicrobial Resistance Surveillance Network","European Surveillance of Antimicrobial Consumption Network","The European Medicines Agency","Extended spectrum cephalosporin","Extended spectrum beta-lactamase","Extended spectrum beta-lactamase, plasmid-mediated, inhibited by clavulanic acid (A = classical)","Extended spectrum beta-lactamase inhibited by cloxacillin, also called plasmid-mediated AmpC (M = miscellaneous)","Extended spectrum beta-lactamase with activity against carbapenems","European Committee on Antimicrobial Susceptibility Testing","Streptococcus agalactiae (Group B streptococci)","Guiana extended-spectrum beta-lactamase","Global Antimicrobial Resistance and Use Surveillance System","High-level aminoglycoside resistance (e.g. in Enterococcus)","Imipenem-hydrolysing beta-lactamase","Imipenemase","Klebsiella pneumoniae carbapenemase","Matrix-assisted-laser-desorption/ionisation time-of-flight mass spectrometry","Multidrug resistance, i.e. phenotypic resistance to three or more antibiotic classes","Minimal inhibitory concentration","Multilocus sequence typing","Methicillin-resistant Staphylococcus aureus","Methicillin-resistant Staphylococcus pseudintermedius","New Delhi metallo-beta-lactamase","Nordic Committee on Antimicrobial Susceptibility Testing","Oxacillinase-48","Public Health Agency of Sweden","Streptococcus pneumoniae resistant to penicillin","Panton-Valentine leukocidin","Respiratory syncytial virus","Respiratory tract infection","Staphylococcus aureus protein A gene","Sequence type","Swedish strategic programme against antibiotic resistance","Tuberculosis","Urinary tract infection","Verona integron-encoded metallo-beta-lactamase","Vancomycin-resistant enterococci","Extreme drug resistance (used for Mycobacterium tuberculosis)"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Abbreviation<\/th>\n      <th>Definition<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"dom":"Blfrtip","autoWidth":true,"buttons":[{"extend":"copy"},{"extend":"csv","filename":"SwedresSvarm2025_Data_Abbreviations"},{"extend":"excel","filename":"SwedresSvarm2025_Data_Abbreviations"}],"pageLength":100,"lengthMenu":[[5,10,25,50,-1],["5","10","25","50","All"]],"rownames":false,"columnDefs":[{"name":"Abbreviation","targets":0},{"name":"Definition","targets":1}],"order":[],"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+</figure>
+</div>
+</div>
+</section><section id="abbreviations---antibiotics" class="level3"><h3 class="anchored" data-anchor-id="abbreviations---antibiotics">Abbreviations - antibiotics</h3>
+<div class="cell" data-layout-align="center">
+<div id="tbl-abbr-antibiotics" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-layout-align="center">
+<figure class="quarto-float quarto-float-tbl figure"><figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-abbr-antibiotics-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca"><strong>Table</strong>&nbsp;3<strong>.</strong> Abbreviations of generic antibiotic names&nbsp;
+</figcaption><div aria-describedby="tbl-abbr-antibiotics-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+
+  <style>
+    /* Table container */
+    .dataTables_wrapper {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+
+    /* Header styling: blue background, white text, bold, centered */
+    table.dataTable thead th {
+      background-color: #3764a0 !important;
+      color: white !important;
+      font-weight: bold !important;
+      text-align: center !important;
+      padding: 8px !important;
+      border: 1px solid #dddddd !important;
+    }
+
+    /* First column header left-aligned */
+    table.dataTable thead th:first-child {
+      text-align: left !important;
+    }
+
+    /* Body styling: borders and padding */
+    table.dataTable tbody td {
+      padding: 8px !important;
+      border: 1px solid #dddddd !important;
+      text-align: center !important;
+    }
+
+    /* First column body left-aligned and bold */
+    table.dataTable tbody td:first-child {
+      text-align: left !important;
+      font-weight: bold !important;
+    }
+
+    /* Alternating row colors */
+    table.dataTable tbody tr:nth-child(even) {
+      background-color: #f9f9f9 !important;
+    }
+
+    table.dataTable tbody tr:nth-child(odd) {
+      background-color: white !important;
+    }
+
+    /* Hover effect (optional) */
+    table.dataTable tbody tr:hover {
+      background-color: #f0f0f0 !important;
+    }
+
+    /* Buttons styling */
+    .buttons-copy, .buttons-csv, .buttons-excel {
+      background-color: #3764a0 !important;
+      color: white !important;
+      border: none !important;
+      padding: 6px 12px !important;
+      margin-right: 5px !important;
+      border-radius: 4px !important;
+    }
+
+    /* Pagination and length menu styling */
+    .dataTables_length, .dataTables_filter, .dataTables_info, .dataTables_paginate {
+      font-size: 12px !important;
+      color: #666666 !important;
+    }
+  </style>
+<div class="datatables html-widget html-fill-item" id="htmlwidget-a15a448d8ee26f2c0d8b" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-a15a448d8ee26f2c0d8b">{"x":{"filter":"none","vertical":false,"extensions":["Buttons"],"data":[["Amp","Chl","Cip","Cli","Ctx","Enr","Ery","Fus","Gen","Lzd","Mem","Nit","Tet","Tmp","Sxt"],["Ampicillin","Chloramphenicol","Ciprofloxacin","Clindamycin","Cefotaxime","Enrofloxacin","Erythromycin","Fusidic acid","Gentamicin","Linezolid","Meropenem","Nitrofurantoin","Tetracycline","Trimethoprim","Trimethoprim-sulphamethoxazole"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Abbreviation<\/th>\n      <th>Antibiotic<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"dom":"Blfrtip","autoWidth":true,"buttons":[{"extend":"copy"},{"extend":"csv","filename":"SwedresSvarm2025_Data_Abbreviations_antibiotics"},{"extend":"excel","filename":"SwedresSvarm2025_Data_Abbreviations_antibiotics"}],"pageLength":100,"lengthMenu":[[5,10,25,50,-1],["5","10","25","50","All"]],"rownames":false,"columnDefs":[{"name":"Abbreviation","targets":0},{"name":"Antibiotic","targets":1}],"order":[],"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </figure>
@@ -1159,13 +1221,12 @@ The methods and breakpoints routinely used in Sweden are available at <a href="h
 </div>
 
 
-<div id="refs" class="references csl-bib-body" role="list" style="display: none">
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
 <div id="ref-clsi2024a" class="csl-entry" role="listitem">
-<div class="csl-left-margin">1. </div>
-<div class="csl-right-inline">CLSI. Performance standards for antimicrobial disk and dilution susceptibility tests for bacteria isolated from animals; sixth edition CLSI standard VET01 Ed6. Wayne, PA, USA: Clinical; Laboratory Standards Institute; 2024. </div>
+Clinical and Laboratory Standards Institute (CLSI). 2024. <em>Performance Standards for Antimicrobial Disk and Dilution Susceptibility Tests for Bacteria Isolated from Animals; Sixth Edition CLSI Standard VET01 Ed6</em>. Wayne, PA, USA.
 </div>
 </div>
-</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+</section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right
     if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
@@ -1251,7 +1312,7 @@ The methods and breakpoints routinely used in Sweden are available at <a href="h
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/www\.sva\.se\/djurhaelsa\/antibiotika\/oevervakning\/swedres-svarm\/");
+        var filterRegex = new RegExp("https:\/\/folkhalsomyndigheten-rapporter\.github\.io\/swedres-svarm-2025");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
@@ -1591,7 +1652,7 @@ The methods and breakpoints routinely used in Sweden are available at <a href="h
 </div> <!-- /content -->
 <footer class="footer"><div class="nav-footer">
     <div class="nav-footer-left">
-<p><img src="../Folkhalsomyndigheten_L_RGB_ENG.png" alt="PHAS Logo" style="height:60px;"><img src="../SVA_logo_English_margin.png" alt="SVA Logo" style="height:60px;"></p>
+<p><img src="../Folkhalsomyndigheten_L_RGB_ENG.png" alt="PHAS Logo" style="height:60px;"><img src="../SVA logo English crop.png" alt="SVA Logo" style="height:40px;"></p>
 </div>   
     <div class="nav-footer-center">
       <ul class="footer-items list-unstyled">

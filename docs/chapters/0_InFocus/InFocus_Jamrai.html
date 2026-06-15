@@ -32,7 +32,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
 <link href="../../chapters/guidance_for_readers.html" rel="next">
-<link href="../../chapters/samanfattning.html" rel="prev">
+<link href="../../chapters/sammanfattning.html" rel="prev">
 <link href="../../cover2025.png" rel="icon" type="image/png">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -74,32 +74,9 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script><style>html{ scroll-behavior: smooth; }</style>
-<!-- Konfigurera Content Security Policy (CSP)
-Mål: Blockera externa script och skydda mot XSS-attacker.
-Hur?
-
-
-Lägg till CSP i era HTML-filer:
-
-I er anpassade header.html (eller direkt i Quarto-dokumenten)
-
---><meta http-equiv="Content-Security-Policy" content="default-src 'self';
-               script-src 'self' 'unsafe-inline';
-               style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
-               img-src 'self' data:;
-               font-src 'self' https://fonts.gstatic.com;">
-<!-- 
-Förklaring:
-
-'self': Tillåter endast resurser från er egen domän.
-'unsafe-inline': Tillåter inline-script och -stilar (nödvändigt för htmlwidgets).
-data:: Tillåter data-URL:er (t.ex. för bilder i diagram).
-connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
-
-
---><link rel="stylesheet" href="../../styles.css">
+<link rel="stylesheet" href="../../styles.css">
 </head>
-<body class="nav-sidebar floating slimcontent quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+<body class="nav-sidebar floating quarto-light"><script id="quarto-html-before-body" type="application/javascript">
     const toggleBodyColorMode = (bsSheetEl) => {
       const mode = bsSheetEl.getAttribute("data-mode");
       const bodyEl = window.document.querySelector("body");
@@ -329,7 +306,7 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../chapters/samanfattning.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/sammanfattning.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Sammanfattning</span></a>
   </div>
 </li>
@@ -467,6 +444,12 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
 </li>
       </ul>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true">
@@ -477,12 +460,6 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
       </div>
       <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">
 <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../references.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">References</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../chapters/technical.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Acknowledgement of technical tools used</span></a>
@@ -498,7 +475,7 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
         
     </div>
 <!-- main -->
-<main class="content page-columns page-full" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../index.html">Welcome</a></li><li class="breadcrumb-item"><a href="../../chapters/0_InFocus/InFocus_Jamrai.html"><span class="in-focus">In-focus</span> - JAMRAI 2</a></li></ol></nav><div class="quarto-title">
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../index.html">Welcome</a></li><li class="breadcrumb-item"><a href="../../chapters/0_InFocus/InFocus_Jamrai.html"><span class="in-focus">In-focus</span> - JAMRAI 2</a></li></ol></nav><div class="quarto-title">
 <h1 class="title">
 <span class="in-focus">In-focus</span> - JAMRAI 2</h1>
 </div>
@@ -514,24 +491,34 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   
 
 
-</header><div id="infoc-jamrai" class="callout callout-style-simple callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="true" aria-label="Toggle callout">
+</header><div id="infoc-jamrai" class="callout callout-style-simple callout-none no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Note&nbsp;1<strong>.</strong> EU-JAMRAI 2: European collaboration for implementing measures against antimicrobial resistance
+In FOCUS&nbsp;1<strong>.</strong> EU-JAMRAI 2: European collaboration for implementing measures against antimicrobial resistance
 </div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
-
+<div id="fig-jamrai-logo" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure"><figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-jamrai-logo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca"><strong>Figure</strong>&nbsp;1<strong>.</strong> An EU-funded initiative to combat <strong>antimicrobial resistance (AMR)</strong> and <strong>healthcare-associated infections (HAIs)</strong>. It coordinates actions, shares best practices, and implements strategies across Europe to improve infection prevention, antimicrobial stewardship, and surveillance. The goal is to strengthen public health and ensure sustainable antibiotic use in human and animal health sectors.
+</figcaption><div aria-describedby="fig-jamrai-logo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/EUjamrai_Square_Simple_Color.png" class="img-fluid figure-img" style="width:30.0%">
+</div>
+</figure>
+</div>
 <section id="eu-jamrai-2-in-brief" class="level4"><h4 class="anchored" data-anchor-id="eu-jamrai-2-in-brief">EU-<span style="color:#0fdbd5">JAMRAI 2</span> in Brief</h4>
 <p>EU-JAMRAI 2 (Joint Action on Antimicrobial Resistance and Healthcare-Associated Infections) is a European initiative aimed at strengthening countries efforts to prevent healthcare-associated infections and antimicrobial resistance (AMR) from a One Health perspective (<a href="#fig-jamrai-logo" class="quarto-xref">Figure&nbsp;<span>1</span></a>). The initiative is central to fulfilling the EU Council recommendation on AMR and brings together approximately 120 partner organisations across 30 countries. Sweden participates through the Public Health Agency of Sweden, the National Board of Health and Welfare, the Swedish Veterinary Agency (SVA), the Medical Products Agency and the Swedish Research Council, contributing to all aspects of the work. The Public Health Agency of Sweden plays a leading role, co-leading two work packages and overseeing the Swedish efforts.</p>
 <p>For more information, please visit <a href="https://eu-jamrai.eu/" target="_blank">www.eu-jamrai.eu</a>.</p>
+<div id="fig-jamreye" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure"><figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-jamreye-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca"><strong>Figure</strong>&nbsp;2<strong>.</strong> JAMREye logo
+</figcaption><div aria-describedby="fig-jamreye-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/Jamreye_primary-Colour-RGB.svg" class="img-fluid figure-img" style="width:30.0%">
+</div>
+</figure>
+</div>
 </section><section id="strengthened-surveillance-from-a-one-health-perspective" class="level4"><h4 class="anchored" data-anchor-id="strengthened-surveillance-from-a-one-health-perspective">Strengthened Surveillance from a One Health Perspective</h4>
-
 <p>The Public Health Agency of Sweden is co-leading the work package on One Health surveillance of AMR, with the goal of achieving stronger, more purposeful, and comprehensive AMR surveillance in humans, animals, and the environment across Europe. This includes establishing two new European surveillance systems for AMR: one for clinical infections in animals (EARS-Vet) and one for the environment (EARS-Env). The work also involves improving national One Health reporting in Europe and developing indicators to harmonise and advance One Health analyses. Notably, the digitisation of the annual report, Swedres-Svarm, has been made possible through funding from JAMRAI.</p>
 <p>The EARS-Vet part of JAMRAI 2 aims to fill in a gap on AMR surveillance in bacterial pathogens of animals in Europe. More specifically, EARS-Vet aims to report on the AMR situation, follow AMR trends and detect emerging AMR in bacterial pathogens of animals in Europe. For example, EARS-Vet will support antimicrobial stewardship programs in veterinary medicine, generate minimum inhibitory concentration (MIC) distributions as a basis for setting epidemiological cut-off values (ECOFFs) and clinical breakpoints (CBP) for the interpretation of AST results in veterinary medicine, and estimate the burden of AMR in animal health. Hence, EARS-Vet intends to complement the existing antimicrobial resistance and consumption surveillance systems by covering animal species, bacterial pathogens of animals and antibiotics of relevance to veterinary and human medicine, which are not included in other European monitoring programs.</p>
 <p>Sweden is also involved in EARS-Env were possibilities for harmonised monitoring of anthropogenic impact on occurrence of AMR in the environment is discussed. To strengthen AMR surveillance in humans in Europe, the Public Health Agency of Sweden, together with colleagues in Luxembourg, has created the public dashboard <a href="https://eu-jamrai.eu/surveillance/surveillance-dashboard/" target="_blank">JAMREYE</a>, which displays national AMR surveillance in 30 European countries. This tool can be used to identify gaps in surveillance and monitor countries’ implementation of policy commitments (<a href="#fig-jamreye" class="quarto-xref">Figure&nbsp;<span>2</span></a>).</p>
@@ -543,23 +530,6 @@ Note&nbsp;1<strong>.</strong> EU-JAMRAI 2: European collaboration for implementi
 </section>
 </div>
 </div>
-</div><div class="no-row-height column-margin column-container"><div class="callout-1-contents callout-collapse collapse show callout-margin-content callout-margin-content-simple">
-<div id="fig-jamrai-logo" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure"><figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-jamrai-logo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca"><strong>Figure</strong>&nbsp;1<strong>.</strong> An EU-funded initiative to combat <strong>antimicrobial resistance (AMR)</strong> and <strong>healthcare-associated infections (HAIs)</strong>. It coordinates actions, shares best practices, and implements strategies across Europe to improve infection prevention, antimicrobial stewardship, and surveillance. The goal is to strengthen public health and ensure sustainable antibiotic use in human and animal health sectors.
-</figcaption><div aria-describedby="fig-jamrai-logo-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="images/EUjamrai_Square_Simple_Color.png" class="img-fluid figure-img" style="width:100.0%">
-</div>
-</figure>
-</div>
-</div><div class="callout-1-contents callout-collapse collapse show callout-margin-content callout-margin-content-simple">
-<div id="fig-jamreye" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure"><figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-fig" id="fig-jamreye-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca"><strong>Figure</strong>&nbsp;2<strong>.</strong> JAMREye logo
-</figcaption><div aria-describedby="fig-jamreye-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="images/Jamreye_primary-Colour-RGB.svg" class="img-fluid figure-img" style="width:80.0%">
-</div>
-</figure>
-</div>
-</div></div>
 
 
 
@@ -649,7 +619,7 @@ Note&nbsp;1<strong>.</strong> EU-JAMRAI 2: European collaboration for implementi
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/www\.sva\.se\/djurhaelsa\/antibiotika\/oevervakning\/swedres-svarm\/");
+        var filterRegex = new RegExp("https:\/\/folkhalsomyndigheten-rapporter\.github\.io\/swedres-svarm-2025");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
@@ -976,7 +946,7 @@ Note&nbsp;1<strong>.</strong> EU-JAMRAI 2: European collaboration for implementi
     }
   });
   </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
-      <a href="../../chapters/samanfattning.html" class="pagination-link" aria-label="Sammanfattning">
+      <a href="../../chapters/sammanfattning.html" class="pagination-link" aria-label="Sammanfattning">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Sammanfattning</span>
       </a>          
   </div>
@@ -989,7 +959,7 @@ Note&nbsp;1<strong>.</strong> EU-JAMRAI 2: European collaboration for implementi
 </div> <!-- /content -->
 <footer class="footer"><div class="nav-footer">
     <div class="nav-footer-left">
-<p><img src="../../Folkhalsomyndigheten_L_RGB_ENG.png" alt="PHAS Logo" style="height:60px;"><img src="../../SVA_logo_English_margin.png" alt="SVA Logo" style="height:60px;"></p>
+<p><img src="../../Folkhalsomyndigheten_L_RGB_ENG.png" alt="PHAS Logo" style="height:60px;"><img src="../../SVA logo English crop.png" alt="SVA Logo" style="height:40px;"></p>
 </div>   
     <div class="nav-footer-center">
       <ul class="footer-items list-unstyled">

@@ -22,97 +22,6 @@
   background-position: center;
   background-repeat: no-repeat;
 }
-/* table options from main.Bj87-r26.css  */
-/*
-
-.table-sortable__btn:before {
-    border-top: solid 7px #ffffff;
-    border-bottom-width: 0
-}
-
-.dir-desc .table-sortable__btn:before {
-    display: block
-}
-
-.table-sortable__btn:after {
-    border-bottom: solid 7px #ffffff;
-    border-top-width: 0
-}
-
-.table-sortable__btn:hover {
-    background-color: #18437c;
-    color: #fff
-}
-
-.table-sortable__btn:focus-visible {
-    background-color: #11a784;
-    color: #000;
-    outline: 2px solid #18437c;
-    outline-offset: -1px
-}
-
-.header {
-    height: 72px;
-    max-width: 1480px;
-    display: flex;
-    align-items: center;
-    position: relative;
-    border-bottom: 3px solid #215396
-}
-
-
-/*.callout-body-container{
-  background-color: 
-}
-
-
-  
-.callout {
-    margin: 50px 0;
-    padding: 50px 30px;
-    border-radius: 4px;
-    background-color: #e8edf4
-}
-*/
-
-/* Standardize font and alignment for all tables */
-/*
-table {
-  font-family: "Open Sans", serif;
-  font-size: 10px;
-  border-collapse: collapse;
-  width: 100%;
-  margin-bottom: 1.5em;
-}
-*/
-/* Table headers (for both DT and gt) */
-/*
-table th {
-  background-color: #f2f2f2;
-  color: #333;
-  font-weight: bold;
-  text-align: center !important;
-  padding: 8px;
-  border: 1px solid #ddd;
-}
-
-/* Table cells (for both DT and gt) */
-/*
-table td {
-  padding: 8px;
-  border: 1px solid #ddd;
-  text-align: left;
-}
-*/
-/* Table caption (for both DT and gt) */
-/*
-table caption {
-  font-size: 10px;
-  font-weight: bold;
-  text-align: left;
-  margin-bottom: 0.5em;
-  caption-side: top;
-}
 
 /* DT-specific styling */
 
@@ -155,4 +64,48 @@ table caption {
   background-color: #f9f9f9;
 }
 
-*/
+/* in-focus callout styling */
+
+.callout-in-focus-swesva {
+  border: 2px solid #d3d3d3;
+  border-radius: 0.25rem;
+  border-left: 5px solid #3764a0;
+  background-color: #FFFFFF;
+  padding: 1rem 1rem 1rem 1rem;
+  margin: 1rem 0;
+}
+
+.callout-infocus {
+  --callout-color: #3764a0;
+  --callout-background: #FFFFFF;
+  --callout-border: #d3d3d3;
+  --callout-icon: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath fill='currentColor' d='M256 0C114.6 0 0 114.6 0 256s114.6 256 256 256 256-114.6 256-256S397.4 0 256 0zm112 304c0 22.1-17.9 40-40 40h-96v96c0 22.1-17.9 40-40 40h-32c-22.1 0-40-17.9-40-40V256c0-22.1 17.9-40 40-40h96c22.1 0 40 17.9 40 40v96h96zM256 96c-22.1 0-40 17.9-40 40v32c0 22.1 17.9 40 40 40h32c22.1 0 40-17.9 40-40V136c0-22.1-17.9-40-40-40h-32z'/%3E%3C/svg%3E");
+  border: 2px solid var(--callout-border);
+  border-radius: 0.25rem;
+  border-left: 5px solid var(--callout-color);
+  background-color: var(--callout-background);
+  padding: 1rem;
+  margin: 1rem 0;
+}
+
+.callout-infocus .callout-title {
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  color: var(--callout-color);
+}
+
+.callout-infocus .callout-icon::before {
+  content: "";
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  background-image: var(--callout-icon);
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-right: 0.5rem;
+}
+
+.callout-infocus .callout-body {
+  margin-top: 0.5rem;
+}

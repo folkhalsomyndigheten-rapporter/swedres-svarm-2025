@@ -82,61 +82,6 @@ ul.task-list li input[type="checkbox"] {
 <style>html{ scroll-behavior: smooth; }</style>
 
 
-               
-
-<!-- Konfigurera Content Security Policy (CSP)
-
-Mål: Blockera externa script och skydda mot XSS-attacker.
-
-Hur?
-
-
-
-
-
-Lägg till CSP i era HTML-filer:
-
-
-
-I er anpassade header.html (eller direkt i Quarto-dokumenten)
-
-
-
--->
-
-<meta http-equiv="Content-Security-Policy" content="default-src 'self';
-
-               script-src 'self' 'unsafe-inline';
-
-               style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
-
-               img-src 'self' data:;
-
-               font-src 'self' https://fonts.gstatic.com;">
-
-
-
-<!-- 
-
-Förklaring:
-
-
-
-'self': Tillåter endast resurser från er egen domän.
-
-'unsafe-inline': Tillåter inline-script och -stilar (nödvändigt för htmlwidgets).
-
-data:: Tillåter data-URL:er (t.ex. för bilder i diagram).
-
-connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
-
-
-
-
-
--->               
-
-
 <link rel="stylesheet" href="../styles.css">
 </head>
 
@@ -378,7 +323,7 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapters/samanfattning.html" class="sidebar-item-text sidebar-link">
+  <a href="../chapters/sammanfattning.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Sammanfattning</span></a>
   </div>
 </li>
@@ -516,6 +461,12 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
 </li>
       </ul>
   </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true">
@@ -525,12 +476,6 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
           </a> 
       </div>
       <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../references.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">References</span></a>
-  </div>
-</li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../chapters/technical.html" class="sidebar-item-text sidebar-link">
@@ -573,8 +518,8 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
 <p>Hanna Billström, Jennifer Jagdmann and Ragda Obeid - Public Health Agency of Sweden</p>
 <p>Oskar Nilsson, Märit Pringle and Krista Tuominen - Swedish Veterinary Agency</p>
 </section>
-<section id="data-visualization-technical-integration-editors" class="level3">
-<h3 class="anchored" data-anchor-id="data-visualization-technical-integration-editors">Data Visualization &amp; Technical Integration Editors</h3>
+<section id="data-visualisation-technical-integration-editors" class="level3">
+<h3 class="anchored" data-anchor-id="data-visualisation-technical-integration-editors">Data Visualisation &amp; Technical Integration Editors</h3>
 <p>Maximilian Julius Lautenbach - Public Health Agency of Sweden</p>
 <p>Krista Tuominen - Swedish Veterinary Agency</p>
 </section>
@@ -583,7 +528,7 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
 <h3 class="anchored" data-anchor-id="authors-swedres">Authors Swedres</h3>
 <section id="public-health-agency-of-sweden" class="level4">
 <h4 class="anchored" data-anchor-id="public-health-agency-of-sweden">Public Health Agency of Sweden</h4>
-<p>Anette Hulth, Barbro Mäkitalo, Caroline Kaipe, Eva Morfeldt, Hanna Billström, Jessica Darenberg, Jennifer Jagdmann, Jerker Jonsson, Nadja Karamehmedovic, Nasanin Hashemi, Maximilian Julius Lautenbach, Ragda Obeid, Saga Alvring, Sofia Linnros, Sofia Ny, Thomas Åkerlund, Tomas Söderblom, Vilhelm Müller</p>
+<p>Anette Hulth, Barbro Mäkitalo, Caroline Kaipe, Eva Morfeldt, Hanna Billström, Jessica Darenberg, Jennifer Jagdmann, Jerker Jonsson, Nadja Karamehmedovic, Nasanin Hashemi, Maximilian Julius Lautenbach, Ragda Obeid, Saga Alvring, Sofia Linnros, Sofia Ny, Thomas Åkerlund, Tomas Söderblom and Vilhelm Müller</p>
 </section>
 <section id="department-of-clinical-microbiology-karolinska-university-hospital" class="level4">
 <h4 class="anchored" data-anchor-id="department-of-clinical-microbiology-karolinska-university-hospital">Department of Clinical Microbiology, Karolinska University Hospital</h4>
@@ -618,7 +563,7 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
 <h3 class="anchored" data-anchor-id="other-contributors-in-svarm">Other contributors in Svarm</h3>
 <section id="swedish-veterinary-agency-1" class="level4">
 <h4 class="anchored" data-anchor-id="swedish-veterinary-agency-1">Swedish Veterinary Agency</h4>
-<p>Boel Harbom, Natalia Amaya, Charlotta Fasth, Elisabeth Bagge, and Paulina Hysing</p>
+<p>Boel Harbom, Natalia Amaya, Charlotta Fasth, Elisabeth Bagge and Paulina Hysing</p>
 </section>
 <section id="farm-animal-health" class="level4">
 <h4 class="anchored" data-anchor-id="farm-animal-health">Farm &amp; Animal Health</h4>
@@ -728,7 +673,7 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/www\.sva\.se\/djurhaelsa\/antibiotika\/oevervakning\/swedres-svarm\/");
+        var filterRegex = new RegExp("https:\/\/folkhalsomyndigheten-rapporter\.github\.io\/swedres-svarm-2025");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
@@ -1071,7 +1016,7 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-<p><img src="../Folkhalsomyndigheten_L_RGB_ENG.png" alt="PHAS Logo" style="height:60px;"> <img src="../SVA_logo_English_margin.png" alt="SVA Logo" style="height:60px;"></p>
+<p><img src="../Folkhalsomyndigheten_L_RGB_ENG.png" alt="PHAS Logo" style="height:60px;"> <img src="../SVA logo English crop.png" alt="SVA Logo" style="height:40px;"></p>
 </div>   
     <div class="nav-footer-center">
       <ul class="footer-items list-unstyled">

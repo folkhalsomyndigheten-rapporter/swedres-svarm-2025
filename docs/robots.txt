@@ -1,1 +1,1 @@
-Sitemap: https://www.sva.se/djurhaelsa/antibiotika/oevervakning/swedres-svarm/sitemap.xml
+Sitemap: https://folkhalsomyndigheten-rapporter.github.io/swedres-svarm-2025/sitemap.xml
