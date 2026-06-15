@@ -74,30 +74,7 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script><style>html{ scroll-behavior: smooth; }</style>
-<!-- Konfigurera Content Security Policy (CSP)
-Mål: Blockera externa script och skydda mot XSS-attacker.
-Hur?
-
-
-Lägg till CSP i era HTML-filer:
-
-I er anpassade header.html (eller direkt i Quarto-dokumenten)
-
---><meta http-equiv="Content-Security-Policy" content="default-src 'self';
-               script-src 'self' 'unsafe-inline';
-               style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
-               img-src 'self' data:;
-               font-src 'self' https://fonts.gstatic.com;">
-<!-- 
-Förklaring:
-
-'self': Tillåter endast resurser från er egen domän.
-'unsafe-inline': Tillåter inline-script och -stilar (nödvändigt för htmlwidgets).
-data:: Tillåter data-URL:er (t.ex. för bilder i diagram).
-connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
-
-
---><link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../styles.css">
 </head>
 <body class="nav-sidebar floating fullcontent quarto-light"><script id="quarto-html-before-body" type="application/javascript">
     const toggleBodyColorMode = (bsSheetEl) => {
@@ -329,7 +306,7 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapters/samanfattning.html" class="sidebar-item-text sidebar-link">
+  <a href="../chapters/sammanfattning.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Sammanfattning</span></a>
   </div>
 </li>
@@ -467,6 +444,12 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
 </li>
       </ul>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true">
@@ -477,12 +460,6 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
       </div>
       <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">
 <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../references.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">References</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../chapters/technical.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Acknowledgement of technical tools used</span></a>
@@ -619,7 +596,7 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/www\.sva\.se\/djurhaelsa\/antibiotika\/oevervakning\/swedres-svarm\/");
+        var filterRegex = new RegExp("https:\/\/folkhalsomyndigheten-rapporter\.github\.io\/swedres-svarm-2025");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
@@ -959,7 +936,7 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
 </div> <!-- /content -->
 <footer class="footer"><div class="nav-footer">
     <div class="nav-footer-left">
-<p><img src="../Folkhalsomyndigheten_L_RGB_ENG.png" alt="PHAS Logo" style="height:60px;"><img src="../SVA_logo_English_margin.png" alt="SVA Logo" style="height:60px;"></p>
+<p><img src="../Folkhalsomyndigheten_L_RGB_ENG.png" alt="PHAS Logo" style="height:60px;"><img src="../SVA logo English crop.png" alt="SVA Logo" style="height:40px;"></p>
 </div>   
     <div class="nav-footer-center">
       <ul class="footer-items list-unstyled">

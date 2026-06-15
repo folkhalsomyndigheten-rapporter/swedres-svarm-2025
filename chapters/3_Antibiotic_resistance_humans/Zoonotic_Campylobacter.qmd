@@ -2,7 +2,6 @@
 format:
   html:
     embed-resources: false
-
 execute:
   cache: false
   echo: false
@@ -105,6 +104,7 @@ make_dynamic_plot(plot = p,
 ###### Data
 ```{r}
 df |> 
+    transmute(antibiotic, year, "Total number" = tot_antal, "Resistance (%)"=r_perc, "95% CI" = ci) |> 
   make_table_data_tab(file_name = "Fig3-42")
 ```
 :::
@@ -169,7 +169,6 @@ p <- df |>
                        limits=c(0,100)
                        ) +
     guides(color=guide_legend(nrow=2)) +
-
   labs(x="Year",
        y="Proportion (%)") +
   scale_color_SweSva() +
@@ -184,6 +183,7 @@ make_dynamic_plot(plot = p,
 ###### Data
 ```{r}
 df |> 
+    transmute(name, year, "Total number" = tot_antal, "Resistance (%)"=r_perc, "95% CI" = ci) |> 
   make_table_data_tab(file_name = "Fig3-43")
 ```
 :::

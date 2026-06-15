@@ -2,8 +2,6 @@
 format:
   html:
     embed-resources: false
-    toc: true
-    toc-depth: 3
 
 execute:
   cache: false
@@ -19,15 +17,14 @@ execute:
 #| warning: false
 #| message: false
 source("../../_common.R")
-status(type = "polishing")
+status(type = "ready2publish")
 ```
 
-::: {.callout-note appearance="simple" collapse="false" #infoc-svarmpat}
+::: {.callout .callout-infocus #infoc-svarmpat}
 
 ## [In-focus]{.in-focus} - SvarmPat {.unnumbered}
 
 ### SvarmPat – monitoring of resistance in pathogens from farm animals
-
 
 The SvarmPat programme (Swedish Veterinary Antibiotic Resistance Monitoring – farm animal pathogens) is a project in cooperation between Farm & Animal Health and SVA that started in 2005. It is financed by the Swedish Board of Agriculture.  
 
@@ -65,7 +62,7 @@ One of the most common infections in calves is pneumonia caused by *Pasteurella 
 *Mycoplasma bovis* infections in cattle have increased in Sweden, primarily affecting calves. A 2024 survey of 62 Swedish cattle veterinarians explored antibiotic use in treating respiratory infections, especially those caused by *M. bovis* [@Kuusela2025mycoplasmabovis]. Benzylpenicillin was the first-line treatment for general bovine respiratory disease (97%), often combined with NSAIDs (98%). For suspected *M. bovis*, tetracycline was the most chosen antibiotic (67%), followed by penicillin and florfenicol. Antibiotic choice was mainly guided by national or institutional guidelines. While 35% had treated confirmed or suspected *M. bovis* cases, many (18%) were unsure if they had. Although only 39% routinely used diagnostic sampling, two-thirds reported using it at treatment failure or herd investigations. The study highlights a need for clearer guidelines on when *M. bovis* should be suspected. 
 
 #### Ct-values a tool for quantification of respiratory pathogens? 
-In this project, the clinical relevance of real-time PCR Ct (cycle threshold) values was studied by comparing the Ct values, i.e. DNA quantities, of *Pasteurella multocida*, *Histophilus somni* and *Mannheimia haemolytica* between nasal swabs from healthy (n=100) and diseased (n=202) calves [@solvang2026kalv]. Also, the detection rates of respiratory pathogens, detected by real-time PCR for four bacterial species (*Pasteurella multocida*, *Histophilus somni* , *Mannheimia haemolytica* and *Mycoplasma bovis*) and four viral pathogens (bovine coronavirus (BCoV), bovine respiratory syncytial virus (BRSV), and parainfluenza-3 virus (PIV-3)) in nasal swabs from diseased calves and healthy calves were compared. The aim was to identify associations between specific pathogens and clinical illness. Only BRSV was significantly associated with respiratory symptoms, which confirms the importance of infection control. The study found no evidence that conclusions about clinical status can be drawn from Ct values of bacterial findings from nasal swabs. 
+In this project, the clinical relevance of real-time PCR Ct (cycle threshold) values was studied by comparing the Ct values, i.e. DNA quantities, of *Pasteurella multocida*, *Histophilus somni* and *Mannheimia haemolytica* between nasal swabs from healthy (n=100) and diseased (n=202) calves [@solvang2026kalv]. Also, the detection rates of respiratory pathogens, detected by real-time PCR for four bacterial species (*Pasteurella multocida*, *Histophilus somni* , *Mannheimia haemolytica* and *Mycoplasma bovis*) and three viral pathogens (bovine coronavirus (BCoV), bovine respiratory syncytial virus (BRSV) and parainfluenza-3 virus (PIV-3)) in nasal swabs from diseased calves and healthy calves were compared. The aim was to identify associations between specific pathogens and clinical illness. Only BRSV was significantly associated with respiratory symptoms, which confirms the importance of infection control. The study found no evidence that conclusions about clinical status can be drawn from Ct values of bacterial findings from nasal swabs. 
 
 #### Milk samples from dairy cows 
 Continuous monitoring of resistance in bacteria from clinical mastitis in dairy cows started in 2013. Randomly collected milk samples from dairy cows with clinical mastitis are cultured, isolated bacteria are susceptibility tested and information about the cow and the herd is registered.  

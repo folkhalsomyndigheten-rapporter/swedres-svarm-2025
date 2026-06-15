@@ -99,30 +99,7 @@ div.csl-indent {
 <link href="../../site_libs/dt-core-1.13.6/css/jquery.dataTables.extra.css" rel="stylesheet">
 <script src="../../site_libs/dt-core-1.13.6/js/jquery.dataTables.min.js"></script><script src="../../site_libs/jszip-1.13.6/jszip.min.js"></script><link href="../../site_libs/dt-ext-buttons-1.13.6/css/buttons.dataTables.min.css" rel="stylesheet">
 <script src="../../site_libs/dt-ext-buttons-1.13.6/js/dataTables.buttons.min.js"></script><script src="../../site_libs/dt-ext-buttons-1.13.6/js/buttons.html5.min.js"></script><script src="../../site_libs/dt-ext-buttons-1.13.6/js/buttons.colVis.min.js"></script><script src="../../site_libs/dt-ext-buttons-1.13.6/js/buttons.print.min.js"></script><link href="../../site_libs/crosstalk-1.2.2/css/crosstalk.min.css" rel="stylesheet">
-<script src="../../site_libs/crosstalk-1.2.2/js/crosstalk.min.js"></script><!-- Konfigurera Content Security Policy (CSP)
-Mål: Blockera externa script och skydda mot XSS-attacker.
-Hur?
-
-
-Lägg till CSP i era HTML-filer:
-
-I er anpassade header.html (eller direkt i Quarto-dokumenten)
-
---><meta http-equiv="Content-Security-Policy" content="default-src 'self';
-               script-src 'self' 'unsafe-inline';
-               style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
-               img-src 'self' data:;
-               font-src 'self' https://fonts.gstatic.com;">
-<!-- 
-Förklaring:
-
-'self': Tillåter endast resurser från er egen domän.
-'unsafe-inline': Tillåter inline-script och -stilar (nödvändigt för htmlwidgets).
-data:: Tillåter data-URL:er (t.ex. för bilder i diagram).
-connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
-
-
---><link rel="stylesheet" href="../../styles.css">
+<script src="../../site_libs/crosstalk-1.2.2/js/crosstalk.min.js"></script><link rel="stylesheet" href="../../styles.css">
 </head>
 <body class="nav-sidebar floating quarto-light"><script id="quarto-html-before-body" type="application/javascript">
     const toggleBodyColorMode = (bsSheetEl) => {
@@ -354,7 +331,7 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../chapters/samanfattning.html" class="sidebar-item-text sidebar-link">
+  <a href="../../chapters/sammanfattning.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Sammanfattning</span></a>
   </div>
 </li>
@@ -492,6 +469,12 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
 </li>
       </ul>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true">
@@ -502,12 +485,6 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
       </div>
       <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">
 <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../references.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">References</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../chapters/technical.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Acknowledgement of technical tools used</span></a>
@@ -522,12 +499,39 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="99"><h2 id="toc-title">Table of contents</h2>
    
+  <ul>
+<li>
+<a href="#sec-demographics" id="toc-sec-demographics" class="nav-link active" data-scroll-target="#sec-demographics"><span class="header-section-number">6.1</span> Demographics and denominator data</a>
   <ul class="collapse">
-<li><a href="#sec-demographics" id="toc-sec-demographics" class="nav-link active" data-scroll-target="#sec-demographics"><span class="header-section-number">6.1</span> Demographics and denominator data</a></li>
-  <li><a href="#sec-mms" id="toc-sec-mms" class="nav-link" data-scroll-target="#sec-mms"><span class="header-section-number">6.2</span> Materials and methods, sales of antibiotics</a></li>
-  <li><a href="#sec-mmh" id="toc-sec-mmh" class="nav-link" data-scroll-target="#sec-mmh"><span class="header-section-number">6.3</span> Material and methods for resistance in humans</a></li>
-  <li><a href="#sec-mmr" id="toc-sec-mmr" class="nav-link" data-scroll-target="#sec-mmr"><span class="header-section-number">6.4</span> Material and methods for resistance in bacteria from animals</a></li>
-  <li><a href="#svarm-2000-2025" id="toc-svarm-2000-2025" class="nav-link" data-scroll-target="#svarm-2000-2025"><span class="header-section-number">6.5</span> Svarm 2000-2025</a></li>
+<li><a href="#humans" id="toc-humans" class="nav-link" data-scroll-target="#humans"><span class="header-section-number">6.1.1</span> Humans</a></li>
+  <li><a href="#animals" id="toc-animals" class="nav-link" data-scroll-target="#animals"><span class="header-section-number">6.1.2</span> Animals</a></li>
+  </ul>
+</li>
+  <li>
+<a href="#sec-mms" id="toc-sec-mms" class="nav-link" data-scroll-target="#sec-mms"><span class="header-section-number">6.2</span> Materials and methods, sales of antibiotics</a>
+  <ul class="collapse">
+<li><a href="#legal-framework-and-distribution-of-drugs" id="toc-legal-framework-and-distribution-of-drugs" class="nav-link" data-scroll-target="#legal-framework-and-distribution-of-drugs"><span class="header-section-number">6.2.1</span> Legal framework and distribution of drugs</a></li>
+  <li><a href="#the-atc-classification-system-and-defined-daily-doses-ddd" id="toc-the-atc-classification-system-and-defined-daily-doses-ddd" class="nav-link" data-scroll-target="#the-atc-classification-system-and-defined-daily-doses-ddd"><span class="header-section-number">6.2.2</span> The ATC classification system and defined daily doses (DDD)</a></li>
+  <li><a href="#antibiotic-sales-in-humans" id="toc-antibiotic-sales-in-humans" class="nav-link" data-scroll-target="#antibiotic-sales-in-humans"><span class="header-section-number">6.2.3</span> Antibiotic sales in humans</a></li>
+  <li><a href="#completeness-of-data-reported-to-the-swedish-ehealth-agency" id="toc-completeness-of-data-reported-to-the-swedish-ehealth-agency" class="nav-link" data-scroll-target="#completeness-of-data-reported-to-the-swedish-ehealth-agency"><span class="header-section-number">6.2.4</span> Completeness of data reported to the Swedish eHealth Agency</a></li>
+  <li><a href="#data-sources-and-inclusion-criteria" id="toc-data-sources-and-inclusion-criteria" class="nav-link" data-scroll-target="#data-sources-and-inclusion-criteria"><span class="header-section-number">6.2.5</span> Data sources and inclusion criteria</a></li>
+  <li><a href="#trend-analysis" id="toc-trend-analysis" class="nav-link" data-scroll-target="#trend-analysis"><span class="header-section-number">6.2.6</span> Trend analysis</a></li>
+  <li><a href="#the-swedish-prescribed-drug-register" id="toc-the-swedish-prescribed-drug-register" class="nav-link" data-scroll-target="#the-swedish-prescribed-drug-register"><span class="header-section-number">6.2.7</span> The Swedish Prescribed Drug Register</a></li>
+  <li><a href="#definitions-of-ddd-2025" id="toc-definitions-of-ddd-2025" class="nav-link" data-scroll-target="#definitions-of-ddd-2025"><span class="header-section-number">6.2.8</span> Definitions of DDD 2025</a></li>
+  </ul>
+</li>
+  <li>
+<a href="#sec-mmr" id="toc-sec-mmr" class="nav-link" data-scroll-target="#sec-mmr"><span class="header-section-number">6.3</span> Material and methods for resistance in bacteria from animals</a>
+  <ul class="collapse">
+<li><a href="#isolation-and-identification-of-bacteria" id="toc-isolation-and-identification-of-bacteria" class="nav-link" data-scroll-target="#isolation-and-identification-of-bacteria"><span class="header-section-number">6.3.1</span> Isolation and identification of bacteria</a></li>
+  <li><a href="#susceptibility-testing" id="toc-susceptibility-testing" class="nav-link" data-scroll-target="#susceptibility-testing"><span class="header-section-number">6.3.2</span> Susceptibility testing</a></li>
+  <li><a href="#genotyping" id="toc-genotyping" class="nav-link" data-scroll-target="#genotyping"><span class="header-section-number">6.3.3</span> Genotyping</a></li>
+  <li><a href="#quality-assurance-system" id="toc-quality-assurance-system" class="nav-link" data-scroll-target="#quality-assurance-system"><span class="header-section-number">6.3.4</span> Quality assurance system</a></li>
+  <li><a href="#data-handling" id="toc-data-handling" class="nav-link" data-scroll-target="#data-handling"><span class="header-section-number">6.3.5</span> Data handling</a></li>
+  <li><a href="#cut-off-values-for-resistance" id="toc-cut-off-values-for-resistance" class="nav-link" data-scroll-target="#cut-off-values-for-resistance"><span class="header-section-number">6.3.6</span> Cut-off values for resistance</a></li>
+  </ul>
+</li>
+  <li><a href="#svarm-2000-2025" id="toc-svarm-2000-2025" class="nav-link" data-scroll-target="#svarm-2000-2025"><span class="header-section-number">6.4</span> Svarm 2000-2025</a></li>
   </ul></nav>
     </div>
 <!-- main -->
@@ -546,45 +550,33 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   
 
 
-</header><div class="status">
-<div class="callout callout-style-simple callout-important">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-body-container">
-<p>You are reading the work-in-progress version of the Swedres-Svarm report 2025. This part is currently a dumping ground for ideas, and we don’t recommend reading it. You can find last years report <a href="https://www.sva.se/media/amupibfr/swedres-svarm-2024-webb.pdf" class="uri">https://www.sva.se/media/amupibfr/swedres-svarm-2024-webb.pdf</a>.</p>
-</div>
-</div>
-</div>
-</div>
-<section id="sec-demographics" class="level2" data-number="6.1"><h2 data-number="6.1" class="anchored" data-anchor-id="sec-demographics">
+</header><section id="sec-demographics" class="level2" data-number="6.1"><h2 data-number="6.1" class="anchored" data-anchor-id="sec-demographics">
 <span class="header-section-number">6.1</span> Demographics and denominator data</h2>
 <section id="humans" class="level3" data-number="6.1.1"><h3 data-number="6.1.1" class="anchored" data-anchor-id="humans">
 <span class="header-section-number">6.1.1</span> Humans</h3>
-<p><a href="#tbl-6-1" class="quarto-xref">Table&nbsp;<span>6.1</span></a></p>
+<p>Official statistics on population in Sweden are provided by Statistics Sweden to the eHealth Agency. The number of people per age group and region in 2025 are provided in <a href="#tbl-6-1" class="quarto-xref">Table&nbsp;<span>6.1</span></a> and in total in Sweden from 2000-2025 in <a href="#tbl-6-2" class="quarto-xref">Table&nbsp;<span>6.2</span></a>. These figures are used for calculation of antibiotic sales in humans.</p>
 <div class="cell" data-layout-align="center">
 <div id="tbl-6-1" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-layout-align="center">
 <figure class="quarto-float quarto-float-tbl figure"><figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-6-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca"><strong>Table</strong>&nbsp;6.1<strong>.</strong> Denominator data (population in Sweden per region and age group) for calculation of antibiotic sales in humans, 2025. Data from the&nbsp;eHealth Agency.&nbsp;
 </figcaption><div aria-describedby="tbl-6-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<div id="bcecqbpwna" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#bcecqbpwna table {
+<div id="eyuoinptqt" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#eyuoinptqt table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#bcecqbpwna thead, #bcecqbpwna tbody, #bcecqbpwna tfoot, #bcecqbpwna tr, #bcecqbpwna td, #bcecqbpwna th {
+#eyuoinptqt thead, #eyuoinptqt tbody, #eyuoinptqt tfoot, #eyuoinptqt tr, #eyuoinptqt td, #eyuoinptqt th {
   border-style: none;
 }
 
-#bcecqbpwna p {
+#eyuoinptqt p {
   margin: 0;
   padding: 0;
 }
 
-#bcecqbpwna .gt_table {
+#eyuoinptqt .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -610,12 +602,12 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   border-left-color: #D3D3D3;
 }
 
-#bcecqbpwna .gt_caption {
+#eyuoinptqt .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#bcecqbpwna .gt_title {
+#eyuoinptqt .gt_title {
   color: #333333;
   font-size: 16px;
   font-weight: initial;
@@ -627,7 +619,7 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   border-bottom-width: 0;
 }
 
-#bcecqbpwna .gt_subtitle {
+#eyuoinptqt .gt_subtitle {
   color: #333333;
   font-size: 14px;
   font-weight: initial;
@@ -639,7 +631,7 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   border-top-width: 0;
 }
 
-#bcecqbpwna .gt_heading {
+#eyuoinptqt .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -651,13 +643,13 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   border-right-color: #D3D3D3;
 }
 
-#bcecqbpwna .gt_bottom_border {
+#eyuoinptqt .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#bcecqbpwna .gt_col_headings {
+#eyuoinptqt .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -672,7 +664,7 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   border-right-color: #D3D3D3;
 }
 
-#bcecqbpwna .gt_col_heading {
+#eyuoinptqt .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -692,7 +684,7 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   overflow-x: hidden;
 }
 
-#bcecqbpwna .gt_column_spanner_outer {
+#eyuoinptqt .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -704,15 +696,15 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   padding-right: 4px;
 }
 
-#bcecqbpwna .gt_column_spanner_outer:first-child {
+#eyuoinptqt .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#bcecqbpwna .gt_column_spanner_outer:last-child {
+#eyuoinptqt .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#bcecqbpwna .gt_column_spanner {
+#eyuoinptqt .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -724,11 +716,11 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   width: 100%;
 }
 
-#bcecqbpwna .gt_spanner_row {
+#eyuoinptqt .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#bcecqbpwna .gt_group_heading {
+#eyuoinptqt .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -754,7 +746,7 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   text-align: left;
 }
 
-#bcecqbpwna .gt_empty_group_heading {
+#eyuoinptqt .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -769,15 +761,15 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   vertical-align: middle;
 }
 
-#bcecqbpwna .gt_from_md > :first-child {
+#eyuoinptqt .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#bcecqbpwna .gt_from_md > :last-child {
+#eyuoinptqt .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#bcecqbpwna .gt_row {
+#eyuoinptqt .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -796,7 +788,7 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   overflow-x: hidden;
 }
 
-#bcecqbpwna .gt_stub {
+#eyuoinptqt .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -809,7 +801,7 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   padding-right: 5px;
 }
 
-#bcecqbpwna .gt_stub_row_group {
+#eyuoinptqt .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -823,15 +815,15 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   vertical-align: top;
 }
 
-#bcecqbpwna .gt_row_group_first td {
+#eyuoinptqt .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#bcecqbpwna .gt_row_group_first th {
+#eyuoinptqt .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#bcecqbpwna .gt_summary_row {
+#eyuoinptqt .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -841,16 +833,16 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   padding-right: 5px;
 }
 
-#bcecqbpwna .gt_first_summary_row {
+#eyuoinptqt .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#bcecqbpwna .gt_first_summary_row.thick {
+#eyuoinptqt .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#bcecqbpwna .gt_last_summary_row {
+#eyuoinptqt .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -860,7 +852,7 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   border-bottom-color: #D3D3D3;
 }
 
-#bcecqbpwna .gt_grand_summary_row {
+#eyuoinptqt .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -870,7 +862,7 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   padding-right: 5px;
 }
 
-#bcecqbpwna .gt_first_grand_summary_row {
+#eyuoinptqt .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -880,7 +872,7 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   border-top-color: #D3D3D3;
 }
 
-#bcecqbpwna .gt_last_grand_summary_row_top {
+#eyuoinptqt .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -890,11 +882,11 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   border-bottom-color: #D3D3D3;
 }
 
-#bcecqbpwna .gt_striped {
+#eyuoinptqt .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#bcecqbpwna .gt_table_body {
+#eyuoinptqt .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -903,7 +895,7 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   border-bottom-color: #D3D3D3;
 }
 
-#bcecqbpwna .gt_footnotes {
+#eyuoinptqt .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -917,7 +909,7 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   border-right-color: #D3D3D3;
 }
 
-#bcecqbpwna .gt_footnote {
+#eyuoinptqt .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -926,7 +918,7 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   padding-right: 5px;
 }
 
-#bcecqbpwna .gt_sourcenotes {
+#eyuoinptqt .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -940,7 +932,7 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   border-right-color: #D3D3D3;
 }
 
-#bcecqbpwna .gt_sourcenote {
+#eyuoinptqt .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -948,72 +940,72 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   padding-right: 5px;
 }
 
-#bcecqbpwna .gt_left {
+#eyuoinptqt .gt_left {
   text-align: left;
 }
 
-#bcecqbpwna .gt_center {
+#eyuoinptqt .gt_center {
   text-align: center;
 }
 
-#bcecqbpwna .gt_right {
+#eyuoinptqt .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#bcecqbpwna .gt_font_normal {
+#eyuoinptqt .gt_font_normal {
   font-weight: normal;
 }
 
-#bcecqbpwna .gt_font_bold {
+#eyuoinptqt .gt_font_bold {
   font-weight: bold;
 }
 
-#bcecqbpwna .gt_font_italic {
+#eyuoinptqt .gt_font_italic {
   font-style: italic;
 }
 
-#bcecqbpwna .gt_super {
+#eyuoinptqt .gt_super {
   font-size: 65%;
 }
 
-#bcecqbpwna .gt_footnote_marks {
+#eyuoinptqt .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#bcecqbpwna .gt_asterisk {
+#eyuoinptqt .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#bcecqbpwna .gt_indent_1 {
+#eyuoinptqt .gt_indent_1 {
   text-indent: 5px;
 }
 
-#bcecqbpwna .gt_indent_2 {
+#eyuoinptqt .gt_indent_2 {
   text-indent: 10px;
 }
 
-#bcecqbpwna .gt_indent_3 {
+#eyuoinptqt .gt_indent_3 {
   text-indent: 15px;
 }
 
-#bcecqbpwna .gt_indent_4 {
+#eyuoinptqt .gt_indent_4 {
   text-indent: 20px;
 }
 
-#bcecqbpwna .gt_indent_5 {
+#eyuoinptqt .gt_indent_5 {
   text-indent: 25px;
 }
 
-#bcecqbpwna .katex-display {
+#eyuoinptqt .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#bcecqbpwna div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#eyuoinptqt div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -1303,29 +1295,28 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
 </figure>
 </div>
 </div>
-<p><a href="#tbl-6-2" class="quarto-xref">Table&nbsp;<span>6.2</span></a></p>
 <div class="cell" data-layout-align="center">
 <div id="tbl-6-2" class="cell quarto-float quarto-figure quarto-figure-center anchored" data-layout-align="center">
 <figure class="quarto-float quarto-float-tbl figure"><figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-6-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca"><strong>Table</strong>&nbsp;6.2<strong>.</strong> Denominator data (population in Sweden) for calculation of antibiotic sales in humans, 2000-2025. Data from the eHealth Agency.
 </figcaption><div aria-describedby="tbl-6-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<div id="awvinmvvge" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#awvinmvvge table {
+<div id="mqpphtthri" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#mqpphtthri table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#awvinmvvge thead, #awvinmvvge tbody, #awvinmvvge tfoot, #awvinmvvge tr, #awvinmvvge td, #awvinmvvge th {
+#mqpphtthri thead, #mqpphtthri tbody, #mqpphtthri tfoot, #mqpphtthri tr, #mqpphtthri td, #mqpphtthri th {
   border-style: none;
 }
 
-#awvinmvvge p {
+#mqpphtthri p {
   margin: 0;
   padding: 0;
 }
 
-#awvinmvvge .gt_table {
+#mqpphtthri .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -1351,12 +1342,12 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   border-left-color: #D3D3D3;
 }
 
-#awvinmvvge .gt_caption {
+#mqpphtthri .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#awvinmvvge .gt_title {
+#mqpphtthri .gt_title {
   color: #333333;
   font-size: 16px;
   font-weight: initial;
@@ -1368,7 +1359,7 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   border-bottom-width: 0;
 }
 
-#awvinmvvge .gt_subtitle {
+#mqpphtthri .gt_subtitle {
   color: #333333;
   font-size: 14px;
   font-weight: initial;
@@ -1380,7 +1371,7 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   border-top-width: 0;
 }
 
-#awvinmvvge .gt_heading {
+#mqpphtthri .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1392,13 +1383,13 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   border-right-color: #D3D3D3;
 }
 
-#awvinmvvge .gt_bottom_border {
+#mqpphtthri .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#awvinmvvge .gt_col_headings {
+#mqpphtthri .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1413,7 +1404,7 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   border-right-color: #D3D3D3;
 }
 
-#awvinmvvge .gt_col_heading {
+#mqpphtthri .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1433,7 +1424,7 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   overflow-x: hidden;
 }
 
-#awvinmvvge .gt_column_spanner_outer {
+#mqpphtthri .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1445,15 +1436,15 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   padding-right: 4px;
 }
 
-#awvinmvvge .gt_column_spanner_outer:first-child {
+#mqpphtthri .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#awvinmvvge .gt_column_spanner_outer:last-child {
+#mqpphtthri .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#awvinmvvge .gt_column_spanner {
+#mqpphtthri .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1465,11 +1456,11 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   width: 100%;
 }
 
-#awvinmvvge .gt_spanner_row {
+#mqpphtthri .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#awvinmvvge .gt_group_heading {
+#mqpphtthri .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1495,7 +1486,7 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   text-align: left;
 }
 
-#awvinmvvge .gt_empty_group_heading {
+#mqpphtthri .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1510,15 +1501,15 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   vertical-align: middle;
 }
 
-#awvinmvvge .gt_from_md > :first-child {
+#mqpphtthri .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#awvinmvvge .gt_from_md > :last-child {
+#mqpphtthri .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#awvinmvvge .gt_row {
+#mqpphtthri .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1537,7 +1528,7 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   overflow-x: hidden;
 }
 
-#awvinmvvge .gt_stub {
+#mqpphtthri .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1550,7 +1541,7 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   padding-right: 5px;
 }
 
-#awvinmvvge .gt_stub_row_group {
+#mqpphtthri .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1564,15 +1555,15 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   vertical-align: top;
 }
 
-#awvinmvvge .gt_row_group_first td {
+#mqpphtthri .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#awvinmvvge .gt_row_group_first th {
+#mqpphtthri .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#awvinmvvge .gt_summary_row {
+#mqpphtthri .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1582,16 +1573,16 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   padding-right: 5px;
 }
 
-#awvinmvvge .gt_first_summary_row {
+#mqpphtthri .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#awvinmvvge .gt_first_summary_row.thick {
+#mqpphtthri .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#awvinmvvge .gt_last_summary_row {
+#mqpphtthri .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1601,7 +1592,7 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   border-bottom-color: #D3D3D3;
 }
 
-#awvinmvvge .gt_grand_summary_row {
+#mqpphtthri .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1611,7 +1602,7 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   padding-right: 5px;
 }
 
-#awvinmvvge .gt_first_grand_summary_row {
+#mqpphtthri .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1621,7 +1612,7 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   border-top-color: #D3D3D3;
 }
 
-#awvinmvvge .gt_last_grand_summary_row_top {
+#mqpphtthri .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1631,11 +1622,11 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   border-bottom-color: #D3D3D3;
 }
 
-#awvinmvvge .gt_striped {
+#mqpphtthri .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#awvinmvvge .gt_table_body {
+#mqpphtthri .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1644,7 +1635,7 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   border-bottom-color: #D3D3D3;
 }
 
-#awvinmvvge .gt_footnotes {
+#mqpphtthri .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1658,7 +1649,7 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   border-right-color: #D3D3D3;
 }
 
-#awvinmvvge .gt_footnote {
+#mqpphtthri .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1667,7 +1658,7 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   padding-right: 5px;
 }
 
-#awvinmvvge .gt_sourcenotes {
+#mqpphtthri .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1681,7 +1672,7 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   border-right-color: #D3D3D3;
 }
 
-#awvinmvvge .gt_sourcenote {
+#mqpphtthri .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1689,72 +1680,72 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   padding-right: 5px;
 }
 
-#awvinmvvge .gt_left {
+#mqpphtthri .gt_left {
   text-align: left;
 }
 
-#awvinmvvge .gt_center {
+#mqpphtthri .gt_center {
   text-align: center;
 }
 
-#awvinmvvge .gt_right {
+#mqpphtthri .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#awvinmvvge .gt_font_normal {
+#mqpphtthri .gt_font_normal {
   font-weight: normal;
 }
 
-#awvinmvvge .gt_font_bold {
+#mqpphtthri .gt_font_bold {
   font-weight: bold;
 }
 
-#awvinmvvge .gt_font_italic {
+#mqpphtthri .gt_font_italic {
   font-style: italic;
 }
 
-#awvinmvvge .gt_super {
+#mqpphtthri .gt_super {
   font-size: 65%;
 }
 
-#awvinmvvge .gt_footnote_marks {
+#mqpphtthri .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#awvinmvvge .gt_asterisk {
+#mqpphtthri .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#awvinmvvge .gt_indent_1 {
+#mqpphtthri .gt_indent_1 {
   text-indent: 5px;
 }
 
-#awvinmvvge .gt_indent_2 {
+#mqpphtthri .gt_indent_2 {
   text-indent: 10px;
 }
 
-#awvinmvvge .gt_indent_3 {
+#mqpphtthri .gt_indent_3 {
   text-indent: 15px;
 }
 
-#awvinmvvge .gt_indent_4 {
+#mqpphtthri .gt_indent_4 {
   text-indent: 20px;
 }
 
-#awvinmvvge .gt_indent_5 {
+#mqpphtthri .gt_indent_5 {
   text-indent: 25px;
 }
 
-#awvinmvvge .katex-display {
+#mqpphtthri .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#awvinmvvge div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#mqpphtthri div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -1886,23 +1877,23 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
 <figure class="quarto-float quarto-float-tbl figure"><figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-6-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca"><strong>Table</strong>&nbsp;6.3<strong>.</strong> Number of livestock and horses (in thousands) 1980-2025. From the statistical database of the Swedish Board of Agriculture.
 </figcaption><div aria-describedby="tbl-6-3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<div id="akylfqzpni" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#akylfqzpni table {
+<div id="lyzludlmug" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#lyzludlmug table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#akylfqzpni thead, #akylfqzpni tbody, #akylfqzpni tfoot, #akylfqzpni tr, #akylfqzpni td, #akylfqzpni th {
+#lyzludlmug thead, #lyzludlmug tbody, #lyzludlmug tfoot, #lyzludlmug tr, #lyzludlmug td, #lyzludlmug th {
   border-style: none;
 }
 
-#akylfqzpni p {
+#lyzludlmug p {
   margin: 0;
   padding: 0;
 }
 
-#akylfqzpni .gt_table {
+#lyzludlmug .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -1928,12 +1919,12 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   border-left-color: #D3D3D3;
 }
 
-#akylfqzpni .gt_caption {
+#lyzludlmug .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#akylfqzpni .gt_title {
+#lyzludlmug .gt_title {
   color: #333333;
   font-size: 16px;
   font-weight: initial;
@@ -1945,7 +1936,7 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   border-bottom-width: 0;
 }
 
-#akylfqzpni .gt_subtitle {
+#lyzludlmug .gt_subtitle {
   color: #333333;
   font-size: 14px;
   font-weight: initial;
@@ -1957,7 +1948,7 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   border-top-width: 0;
 }
 
-#akylfqzpni .gt_heading {
+#lyzludlmug .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1969,13 +1960,13 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   border-right-color: #D3D3D3;
 }
 
-#akylfqzpni .gt_bottom_border {
+#lyzludlmug .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#akylfqzpni .gt_col_headings {
+#lyzludlmug .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1990,7 +1981,7 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   border-right-color: #D3D3D3;
 }
 
-#akylfqzpni .gt_col_heading {
+#lyzludlmug .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2010,7 +2001,7 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   overflow-x: hidden;
 }
 
-#akylfqzpni .gt_column_spanner_outer {
+#lyzludlmug .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2022,15 +2013,15 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   padding-right: 4px;
 }
 
-#akylfqzpni .gt_column_spanner_outer:first-child {
+#lyzludlmug .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#akylfqzpni .gt_column_spanner_outer:last-child {
+#lyzludlmug .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#akylfqzpni .gt_column_spanner {
+#lyzludlmug .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -2042,11 +2033,11 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   width: 100%;
 }
 
-#akylfqzpni .gt_spanner_row {
+#lyzludlmug .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#akylfqzpni .gt_group_heading {
+#lyzludlmug .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2072,7 +2063,7 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   text-align: left;
 }
 
-#akylfqzpni .gt_empty_group_heading {
+#lyzludlmug .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2087,15 +2078,15 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   vertical-align: middle;
 }
 
-#akylfqzpni .gt_from_md > :first-child {
+#lyzludlmug .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#akylfqzpni .gt_from_md > :last-child {
+#lyzludlmug .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#akylfqzpni .gt_row {
+#lyzludlmug .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2114,7 +2105,7 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   overflow-x: hidden;
 }
 
-#akylfqzpni .gt_stub {
+#lyzludlmug .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2127,7 +2118,7 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   padding-right: 5px;
 }
 
-#akylfqzpni .gt_stub_row_group {
+#lyzludlmug .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2141,15 +2132,15 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   vertical-align: top;
 }
 
-#akylfqzpni .gt_row_group_first td {
+#lyzludlmug .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#akylfqzpni .gt_row_group_first th {
+#lyzludlmug .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#akylfqzpni .gt_summary_row {
+#lyzludlmug .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2159,16 +2150,16 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   padding-right: 5px;
 }
 
-#akylfqzpni .gt_first_summary_row {
+#lyzludlmug .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#akylfqzpni .gt_first_summary_row.thick {
+#lyzludlmug .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#akylfqzpni .gt_last_summary_row {
+#lyzludlmug .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2178,7 +2169,7 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   border-bottom-color: #D3D3D3;
 }
 
-#akylfqzpni .gt_grand_summary_row {
+#lyzludlmug .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2188,7 +2179,7 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   padding-right: 5px;
 }
 
-#akylfqzpni .gt_first_grand_summary_row {
+#lyzludlmug .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2198,7 +2189,7 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   border-top-color: #D3D3D3;
 }
 
-#akylfqzpni .gt_last_grand_summary_row_top {
+#lyzludlmug .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2208,11 +2199,11 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   border-bottom-color: #D3D3D3;
 }
 
-#akylfqzpni .gt_striped {
+#lyzludlmug .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#akylfqzpni .gt_table_body {
+#lyzludlmug .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2221,7 +2212,7 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   border-bottom-color: #D3D3D3;
 }
 
-#akylfqzpni .gt_footnotes {
+#lyzludlmug .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2235,7 +2226,7 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   border-right-color: #D3D3D3;
 }
 
-#akylfqzpni .gt_footnote {
+#lyzludlmug .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -2244,7 +2235,7 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   padding-right: 5px;
 }
 
-#akylfqzpni .gt_sourcenotes {
+#lyzludlmug .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2258,7 +2249,7 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   border-right-color: #D3D3D3;
 }
 
-#akylfqzpni .gt_sourcenote {
+#lyzludlmug .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -2266,72 +2257,72 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   padding-right: 5px;
 }
 
-#akylfqzpni .gt_left {
+#lyzludlmug .gt_left {
   text-align: left;
 }
 
-#akylfqzpni .gt_center {
+#lyzludlmug .gt_center {
   text-align: center;
 }
 
-#akylfqzpni .gt_right {
+#lyzludlmug .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#akylfqzpni .gt_font_normal {
+#lyzludlmug .gt_font_normal {
   font-weight: normal;
 }
 
-#akylfqzpni .gt_font_bold {
+#lyzludlmug .gt_font_bold {
   font-weight: bold;
 }
 
-#akylfqzpni .gt_font_italic {
+#lyzludlmug .gt_font_italic {
   font-style: italic;
 }
 
-#akylfqzpni .gt_super {
+#lyzludlmug .gt_super {
   font-size: 65%;
 }
 
-#akylfqzpni .gt_footnote_marks {
+#lyzludlmug .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#akylfqzpni .gt_asterisk {
+#lyzludlmug .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#akylfqzpni .gt_indent_1 {
+#lyzludlmug .gt_indent_1 {
   text-indent: 5px;
 }
 
-#akylfqzpni .gt_indent_2 {
+#lyzludlmug .gt_indent_2 {
   text-indent: 10px;
 }
 
-#akylfqzpni .gt_indent_3 {
+#lyzludlmug .gt_indent_3 {
   text-indent: 15px;
 }
 
-#akylfqzpni .gt_indent_4 {
+#lyzludlmug .gt_indent_4 {
   text-indent: 20px;
 }
 
-#akylfqzpni .gt_indent_5 {
+#lyzludlmug .gt_indent_5 {
   text-indent: 25px;
 }
 
-#akylfqzpni .katex-display {
+#lyzludlmug .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#akylfqzpni div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#lyzludlmug div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -2639,23 +2630,23 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
 <figure class="quarto-float quarto-float-tbl figure"><figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-6-4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca"><strong>Table</strong>&nbsp;6.4<strong>.</strong> Number of animals slaughtered (in thousands) at slaughterhouses, 1980-2025. From the statistical database of the Swedish Board of Agriculture
 </figcaption><div aria-describedby="tbl-6-4-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<div id="wredmfpzwj" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#wredmfpzwj table {
+<div id="mydpqurvwb" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#mydpqurvwb table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#wredmfpzwj thead, #wredmfpzwj tbody, #wredmfpzwj tfoot, #wredmfpzwj tr, #wredmfpzwj td, #wredmfpzwj th {
+#mydpqurvwb thead, #mydpqurvwb tbody, #mydpqurvwb tfoot, #mydpqurvwb tr, #mydpqurvwb td, #mydpqurvwb th {
   border-style: none;
 }
 
-#wredmfpzwj p {
+#mydpqurvwb p {
   margin: 0;
   padding: 0;
 }
 
-#wredmfpzwj .gt_table {
+#mydpqurvwb .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -2681,12 +2672,12 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   border-left-color: #D3D3D3;
 }
 
-#wredmfpzwj .gt_caption {
+#mydpqurvwb .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#wredmfpzwj .gt_title {
+#mydpqurvwb .gt_title {
   color: #333333;
   font-size: 16px;
   font-weight: initial;
@@ -2698,7 +2689,7 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   border-bottom-width: 0;
 }
 
-#wredmfpzwj .gt_subtitle {
+#mydpqurvwb .gt_subtitle {
   color: #333333;
   font-size: 14px;
   font-weight: initial;
@@ -2710,7 +2701,7 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   border-top-width: 0;
 }
 
-#wredmfpzwj .gt_heading {
+#mydpqurvwb .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -2722,13 +2713,13 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   border-right-color: #D3D3D3;
 }
 
-#wredmfpzwj .gt_bottom_border {
+#mydpqurvwb .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#wredmfpzwj .gt_col_headings {
+#mydpqurvwb .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2743,7 +2734,7 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   border-right-color: #D3D3D3;
 }
 
-#wredmfpzwj .gt_col_heading {
+#mydpqurvwb .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2763,7 +2754,7 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   overflow-x: hidden;
 }
 
-#wredmfpzwj .gt_column_spanner_outer {
+#mydpqurvwb .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2775,15 +2766,15 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   padding-right: 4px;
 }
 
-#wredmfpzwj .gt_column_spanner_outer:first-child {
+#mydpqurvwb .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#wredmfpzwj .gt_column_spanner_outer:last-child {
+#mydpqurvwb .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#wredmfpzwj .gt_column_spanner {
+#mydpqurvwb .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -2795,11 +2786,11 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   width: 100%;
 }
 
-#wredmfpzwj .gt_spanner_row {
+#mydpqurvwb .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#wredmfpzwj .gt_group_heading {
+#mydpqurvwb .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2825,7 +2816,7 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   text-align: left;
 }
 
-#wredmfpzwj .gt_empty_group_heading {
+#mydpqurvwb .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -2840,15 +2831,15 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   vertical-align: middle;
 }
 
-#wredmfpzwj .gt_from_md > :first-child {
+#mydpqurvwb .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#wredmfpzwj .gt_from_md > :last-child {
+#mydpqurvwb .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#wredmfpzwj .gt_row {
+#mydpqurvwb .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2867,7 +2858,7 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   overflow-x: hidden;
 }
 
-#wredmfpzwj .gt_stub {
+#mydpqurvwb .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2880,7 +2871,7 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   padding-right: 5px;
 }
 
-#wredmfpzwj .gt_stub_row_group {
+#mydpqurvwb .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -2894,15 +2885,15 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   vertical-align: top;
 }
 
-#wredmfpzwj .gt_row_group_first td {
+#mydpqurvwb .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#wredmfpzwj .gt_row_group_first th {
+#mydpqurvwb .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#wredmfpzwj .gt_summary_row {
+#mydpqurvwb .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2912,16 +2903,16 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   padding-right: 5px;
 }
 
-#wredmfpzwj .gt_first_summary_row {
+#mydpqurvwb .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#wredmfpzwj .gt_first_summary_row.thick {
+#mydpqurvwb .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#wredmfpzwj .gt_last_summary_row {
+#mydpqurvwb .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2931,7 +2922,7 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   border-bottom-color: #D3D3D3;
 }
 
-#wredmfpzwj .gt_grand_summary_row {
+#mydpqurvwb .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -2941,7 +2932,7 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   padding-right: 5px;
 }
 
-#wredmfpzwj .gt_first_grand_summary_row {
+#mydpqurvwb .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2951,7 +2942,7 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   border-top-color: #D3D3D3;
 }
 
-#wredmfpzwj .gt_last_grand_summary_row_top {
+#mydpqurvwb .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -2961,11 +2952,11 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   border-bottom-color: #D3D3D3;
 }
 
-#wredmfpzwj .gt_striped {
+#mydpqurvwb .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#wredmfpzwj .gt_table_body {
+#mydpqurvwb .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -2974,7 +2965,7 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   border-bottom-color: #D3D3D3;
 }
 
-#wredmfpzwj .gt_footnotes {
+#mydpqurvwb .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -2988,7 +2979,7 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   border-right-color: #D3D3D3;
 }
 
-#wredmfpzwj .gt_footnote {
+#mydpqurvwb .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -2997,7 +2988,7 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   padding-right: 5px;
 }
 
-#wredmfpzwj .gt_sourcenotes {
+#mydpqurvwb .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -3011,7 +3002,7 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   border-right-color: #D3D3D3;
 }
 
-#wredmfpzwj .gt_sourcenote {
+#mydpqurvwb .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -3019,72 +3010,72 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   padding-right: 5px;
 }
 
-#wredmfpzwj .gt_left {
+#mydpqurvwb .gt_left {
   text-align: left;
 }
 
-#wredmfpzwj .gt_center {
+#mydpqurvwb .gt_center {
   text-align: center;
 }
 
-#wredmfpzwj .gt_right {
+#mydpqurvwb .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#wredmfpzwj .gt_font_normal {
+#mydpqurvwb .gt_font_normal {
   font-weight: normal;
 }
 
-#wredmfpzwj .gt_font_bold {
+#mydpqurvwb .gt_font_bold {
   font-weight: bold;
 }
 
-#wredmfpzwj .gt_font_italic {
+#mydpqurvwb .gt_font_italic {
   font-style: italic;
 }
 
-#wredmfpzwj .gt_super {
+#mydpqurvwb .gt_super {
   font-size: 65%;
 }
 
-#wredmfpzwj .gt_footnote_marks {
+#mydpqurvwb .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#wredmfpzwj .gt_asterisk {
+#mydpqurvwb .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#wredmfpzwj .gt_indent_1 {
+#mydpqurvwb .gt_indent_1 {
   text-indent: 5px;
 }
 
-#wredmfpzwj .gt_indent_2 {
+#mydpqurvwb .gt_indent_2 {
   text-indent: 10px;
 }
 
-#wredmfpzwj .gt_indent_3 {
+#mydpqurvwb .gt_indent_3 {
   text-indent: 15px;
 }
 
-#wredmfpzwj .gt_indent_4 {
+#mydpqurvwb .gt_indent_4 {
   text-indent: 20px;
 }
 
-#wredmfpzwj .gt_indent_5 {
+#mydpqurvwb .gt_indent_5 {
   text-indent: 25px;
 }
 
-#wredmfpzwj .katex-display {
+#mydpqurvwb .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#wredmfpzwj div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#mydpqurvwb div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -3239,23 +3230,23 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
 <figure class="quarto-float quarto-float-tbl figure"><figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-6-5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca"><strong>Table</strong>&nbsp;6.5<strong>.</strong> Quantity of livestock slaughtered (in 1000 tonnes) at slaughterhouses, 1995-2025. From the statistical database of the Swedish Board of Agriculture.
 </figcaption><div aria-describedby="tbl-6-5-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<div id="qykurrzinc" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#qykurrzinc table {
+<div id="sfwioqkxyt" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#sfwioqkxyt table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#qykurrzinc thead, #qykurrzinc tbody, #qykurrzinc tfoot, #qykurrzinc tr, #qykurrzinc td, #qykurrzinc th {
+#sfwioqkxyt thead, #sfwioqkxyt tbody, #sfwioqkxyt tfoot, #sfwioqkxyt tr, #sfwioqkxyt td, #sfwioqkxyt th {
   border-style: none;
 }
 
-#qykurrzinc p {
+#sfwioqkxyt p {
   margin: 0;
   padding: 0;
 }
 
-#qykurrzinc .gt_table {
+#sfwioqkxyt .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -3281,12 +3272,12 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   border-left-color: #D3D3D3;
 }
 
-#qykurrzinc .gt_caption {
+#sfwioqkxyt .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#qykurrzinc .gt_title {
+#sfwioqkxyt .gt_title {
   color: #333333;
   font-size: 16px;
   font-weight: initial;
@@ -3298,7 +3289,7 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   border-bottom-width: 0;
 }
 
-#qykurrzinc .gt_subtitle {
+#sfwioqkxyt .gt_subtitle {
   color: #333333;
   font-size: 14px;
   font-weight: initial;
@@ -3310,7 +3301,7 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   border-top-width: 0;
 }
 
-#qykurrzinc .gt_heading {
+#sfwioqkxyt .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -3322,13 +3313,13 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   border-right-color: #D3D3D3;
 }
 
-#qykurrzinc .gt_bottom_border {
+#sfwioqkxyt .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#qykurrzinc .gt_col_headings {
+#sfwioqkxyt .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -3343,7 +3334,7 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   border-right-color: #D3D3D3;
 }
 
-#qykurrzinc .gt_col_heading {
+#sfwioqkxyt .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3363,7 +3354,7 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   overflow-x: hidden;
 }
 
-#qykurrzinc .gt_column_spanner_outer {
+#sfwioqkxyt .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3375,15 +3366,15 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   padding-right: 4px;
 }
 
-#qykurrzinc .gt_column_spanner_outer:first-child {
+#sfwioqkxyt .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#qykurrzinc .gt_column_spanner_outer:last-child {
+#sfwioqkxyt .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#qykurrzinc .gt_column_spanner {
+#sfwioqkxyt .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -3395,11 +3386,11 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   width: 100%;
 }
 
-#qykurrzinc .gt_spanner_row {
+#sfwioqkxyt .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#qykurrzinc .gt_group_heading {
+#sfwioqkxyt .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3425,7 +3416,7 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   text-align: left;
 }
 
-#qykurrzinc .gt_empty_group_heading {
+#sfwioqkxyt .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -3440,15 +3431,15 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   vertical-align: middle;
 }
 
-#qykurrzinc .gt_from_md > :first-child {
+#sfwioqkxyt .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#qykurrzinc .gt_from_md > :last-child {
+#sfwioqkxyt .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#qykurrzinc .gt_row {
+#sfwioqkxyt .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3467,7 +3458,7 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   overflow-x: hidden;
 }
 
-#qykurrzinc .gt_stub {
+#sfwioqkxyt .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3480,7 +3471,7 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   padding-right: 5px;
 }
 
-#qykurrzinc .gt_stub_row_group {
+#sfwioqkxyt .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3494,15 +3485,15 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   vertical-align: top;
 }
 
-#qykurrzinc .gt_row_group_first td {
+#sfwioqkxyt .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#qykurrzinc .gt_row_group_first th {
+#sfwioqkxyt .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#qykurrzinc .gt_summary_row {
+#sfwioqkxyt .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -3512,16 +3503,16 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   padding-right: 5px;
 }
 
-#qykurrzinc .gt_first_summary_row {
+#sfwioqkxyt .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#qykurrzinc .gt_first_summary_row.thick {
+#sfwioqkxyt .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#qykurrzinc .gt_last_summary_row {
+#sfwioqkxyt .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3531,7 +3522,7 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   border-bottom-color: #D3D3D3;
 }
 
-#qykurrzinc .gt_grand_summary_row {
+#sfwioqkxyt .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -3541,7 +3532,7 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   padding-right: 5px;
 }
 
-#qykurrzinc .gt_first_grand_summary_row {
+#sfwioqkxyt .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3551,7 +3542,7 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   border-top-color: #D3D3D3;
 }
 
-#qykurrzinc .gt_last_grand_summary_row_top {
+#sfwioqkxyt .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -3561,11 +3552,11 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   border-bottom-color: #D3D3D3;
 }
 
-#qykurrzinc .gt_striped {
+#sfwioqkxyt .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#qykurrzinc .gt_table_body {
+#sfwioqkxyt .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -3574,7 +3565,7 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   border-bottom-color: #D3D3D3;
 }
 
-#qykurrzinc .gt_footnotes {
+#sfwioqkxyt .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -3588,7 +3579,7 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   border-right-color: #D3D3D3;
 }
 
-#qykurrzinc .gt_footnote {
+#sfwioqkxyt .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -3597,7 +3588,7 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   padding-right: 5px;
 }
 
-#qykurrzinc .gt_sourcenotes {
+#sfwioqkxyt .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -3611,7 +3602,7 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   border-right-color: #D3D3D3;
 }
 
-#qykurrzinc .gt_sourcenote {
+#sfwioqkxyt .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -3619,72 +3610,72 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   padding-right: 5px;
 }
 
-#qykurrzinc .gt_left {
+#sfwioqkxyt .gt_left {
   text-align: left;
 }
 
-#qykurrzinc .gt_center {
+#sfwioqkxyt .gt_center {
   text-align: center;
 }
 
-#qykurrzinc .gt_right {
+#sfwioqkxyt .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#qykurrzinc .gt_font_normal {
+#sfwioqkxyt .gt_font_normal {
   font-weight: normal;
 }
 
-#qykurrzinc .gt_font_bold {
+#sfwioqkxyt .gt_font_bold {
   font-weight: bold;
 }
 
-#qykurrzinc .gt_font_italic {
+#sfwioqkxyt .gt_font_italic {
   font-style: italic;
 }
 
-#qykurrzinc .gt_super {
+#sfwioqkxyt .gt_super {
   font-size: 65%;
 }
 
-#qykurrzinc .gt_footnote_marks {
+#sfwioqkxyt .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#qykurrzinc .gt_asterisk {
+#sfwioqkxyt .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#qykurrzinc .gt_indent_1 {
+#sfwioqkxyt .gt_indent_1 {
   text-indent: 5px;
 }
 
-#qykurrzinc .gt_indent_2 {
+#sfwioqkxyt .gt_indent_2 {
   text-indent: 10px;
 }
 
-#qykurrzinc .gt_indent_3 {
+#sfwioqkxyt .gt_indent_3 {
   text-indent: 15px;
 }
 
-#qykurrzinc .gt_indent_4 {
+#sfwioqkxyt .gt_indent_4 {
   text-indent: 20px;
 }
 
-#qykurrzinc .gt_indent_5 {
+#sfwioqkxyt .gt_indent_5 {
   text-indent: 25px;
 }
 
-#qykurrzinc .katex-display {
+#sfwioqkxyt .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#qykurrzinc div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#sfwioqkxyt div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -3815,23 +3806,23 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
 <figure class="quarto-float quarto-float-tbl figure"><figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-6-6-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca"><strong>Table</strong>&nbsp;6.6<strong>.</strong> Average number of animals per holding 1995-2024. From the statistical database of the Swedish Board of Agriculture.
 </figcaption><div aria-describedby="tbl-6-6-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
-<div id="fnjzfxzdes" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#fnjzfxzdes table {
+<div id="dydcdkvsks" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#dydcdkvsks table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#fnjzfxzdes thead, #fnjzfxzdes tbody, #fnjzfxzdes tfoot, #fnjzfxzdes tr, #fnjzfxzdes td, #fnjzfxzdes th {
+#dydcdkvsks thead, #dydcdkvsks tbody, #dydcdkvsks tfoot, #dydcdkvsks tr, #dydcdkvsks td, #dydcdkvsks th {
   border-style: none;
 }
 
-#fnjzfxzdes p {
+#dydcdkvsks p {
   margin: 0;
   padding: 0;
 }
 
-#fnjzfxzdes .gt_table {
+#dydcdkvsks .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -3857,12 +3848,12 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   border-left-color: #D3D3D3;
 }
 
-#fnjzfxzdes .gt_caption {
+#dydcdkvsks .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#fnjzfxzdes .gt_title {
+#dydcdkvsks .gt_title {
   color: #333333;
   font-size: 16px;
   font-weight: initial;
@@ -3874,7 +3865,7 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   border-bottom-width: 0;
 }
 
-#fnjzfxzdes .gt_subtitle {
+#dydcdkvsks .gt_subtitle {
   color: #333333;
   font-size: 14px;
   font-weight: initial;
@@ -3886,7 +3877,7 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   border-top-width: 0;
 }
 
-#fnjzfxzdes .gt_heading {
+#dydcdkvsks .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -3898,13 +3889,13 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   border-right-color: #D3D3D3;
 }
 
-#fnjzfxzdes .gt_bottom_border {
+#dydcdkvsks .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#fnjzfxzdes .gt_col_headings {
+#dydcdkvsks .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -3919,7 +3910,7 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   border-right-color: #D3D3D3;
 }
 
-#fnjzfxzdes .gt_col_heading {
+#dydcdkvsks .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3939,7 +3930,7 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   overflow-x: hidden;
 }
 
-#fnjzfxzdes .gt_column_spanner_outer {
+#dydcdkvsks .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -3951,15 +3942,15 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   padding-right: 4px;
 }
 
-#fnjzfxzdes .gt_column_spanner_outer:first-child {
+#dydcdkvsks .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#fnjzfxzdes .gt_column_spanner_outer:last-child {
+#dydcdkvsks .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#fnjzfxzdes .gt_column_spanner {
+#dydcdkvsks .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -3971,11 +3962,11 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   width: 100%;
 }
 
-#fnjzfxzdes .gt_spanner_row {
+#dydcdkvsks .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#fnjzfxzdes .gt_group_heading {
+#dydcdkvsks .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -4001,7 +3992,7 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   text-align: left;
 }
 
-#fnjzfxzdes .gt_empty_group_heading {
+#dydcdkvsks .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -4016,15 +4007,15 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   vertical-align: middle;
 }
 
-#fnjzfxzdes .gt_from_md > :first-child {
+#dydcdkvsks .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#fnjzfxzdes .gt_from_md > :last-child {
+#dydcdkvsks .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#fnjzfxzdes .gt_row {
+#dydcdkvsks .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -4043,7 +4034,7 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   overflow-x: hidden;
 }
 
-#fnjzfxzdes .gt_stub {
+#dydcdkvsks .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -4056,7 +4047,7 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   padding-right: 5px;
 }
 
-#fnjzfxzdes .gt_stub_row_group {
+#dydcdkvsks .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -4070,15 +4061,15 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   vertical-align: top;
 }
 
-#fnjzfxzdes .gt_row_group_first td {
+#dydcdkvsks .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#fnjzfxzdes .gt_row_group_first th {
+#dydcdkvsks .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#fnjzfxzdes .gt_summary_row {
+#dydcdkvsks .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -4088,16 +4079,16 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   padding-right: 5px;
 }
 
-#fnjzfxzdes .gt_first_summary_row {
+#dydcdkvsks .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#fnjzfxzdes .gt_first_summary_row.thick {
+#dydcdkvsks .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#fnjzfxzdes .gt_last_summary_row {
+#dydcdkvsks .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -4107,7 +4098,7 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   border-bottom-color: #D3D3D3;
 }
 
-#fnjzfxzdes .gt_grand_summary_row {
+#dydcdkvsks .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -4117,7 +4108,7 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   padding-right: 5px;
 }
 
-#fnjzfxzdes .gt_first_grand_summary_row {
+#dydcdkvsks .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -4127,7 +4118,7 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   border-top-color: #D3D3D3;
 }
 
-#fnjzfxzdes .gt_last_grand_summary_row_top {
+#dydcdkvsks .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -4137,11 +4128,11 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   border-bottom-color: #D3D3D3;
 }
 
-#fnjzfxzdes .gt_striped {
+#dydcdkvsks .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#fnjzfxzdes .gt_table_body {
+#dydcdkvsks .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -4150,7 +4141,7 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   border-bottom-color: #D3D3D3;
 }
 
-#fnjzfxzdes .gt_footnotes {
+#dydcdkvsks .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -4164,7 +4155,7 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   border-right-color: #D3D3D3;
 }
 
-#fnjzfxzdes .gt_footnote {
+#dydcdkvsks .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -4173,7 +4164,7 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   padding-right: 5px;
 }
 
-#fnjzfxzdes .gt_sourcenotes {
+#dydcdkvsks .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -4187,7 +4178,7 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   border-right-color: #D3D3D3;
 }
 
-#fnjzfxzdes .gt_sourcenote {
+#dydcdkvsks .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -4195,72 +4186,72 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
   padding-right: 5px;
 }
 
-#fnjzfxzdes .gt_left {
+#dydcdkvsks .gt_left {
   text-align: left;
 }
 
-#fnjzfxzdes .gt_center {
+#dydcdkvsks .gt_center {
   text-align: center;
 }
 
-#fnjzfxzdes .gt_right {
+#dydcdkvsks .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#fnjzfxzdes .gt_font_normal {
+#dydcdkvsks .gt_font_normal {
   font-weight: normal;
 }
 
-#fnjzfxzdes .gt_font_bold {
+#dydcdkvsks .gt_font_bold {
   font-weight: bold;
 }
 
-#fnjzfxzdes .gt_font_italic {
+#dydcdkvsks .gt_font_italic {
   font-style: italic;
 }
 
-#fnjzfxzdes .gt_super {
+#dydcdkvsks .gt_super {
   font-size: 65%;
 }
 
-#fnjzfxzdes .gt_footnote_marks {
+#dydcdkvsks .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#fnjzfxzdes .gt_asterisk {
+#dydcdkvsks .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#fnjzfxzdes .gt_indent_1 {
+#dydcdkvsks .gt_indent_1 {
   text-indent: 5px;
 }
 
-#fnjzfxzdes .gt_indent_2 {
+#dydcdkvsks .gt_indent_2 {
   text-indent: 10px;
 }
 
-#fnjzfxzdes .gt_indent_3 {
+#dydcdkvsks .gt_indent_3 {
   text-indent: 15px;
 }
 
-#fnjzfxzdes .gt_indent_4 {
+#dydcdkvsks .gt_indent_4 {
   text-indent: 20px;
 }
 
-#fnjzfxzdes .gt_indent_5 {
+#dydcdkvsks .gt_indent_5 {
   text-indent: 25px;
 }
 
-#fnjzfxzdes .katex-display {
+#dydcdkvsks .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#fnjzfxzdes div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#dydcdkvsks div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
@@ -4358,20 +4349,6 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
 </figure>
 </div>
 </div>
-<div class="cell" data-layout-align="center">
-<div class="status">
-<div class="callout callout-style-simple callout-important">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-body-container">
-<p>You are reading the work-in-progress version of the Swedres-Svarm report 2025. This part is currently a dumping ground for ideas, and we don’t recommend reading it. You can find last years report <a href="https://www.sva.se/media/amupibfr/swedres-svarm-2024-webb.pdf" class="uri">https://www.sva.se/media/amupibfr/swedres-svarm-2024-webb.pdf</a>.</p>
-</div>
-</div>
-</div>
-</div>
-</div>
 </section></section><section id="sec-mms" class="level2" data-number="6.2"><h2 data-number="6.2" class="anchored" data-anchor-id="sec-mms">
 <span class="header-section-number">6.2</span> Materials and methods, sales of antibiotics</h2>
 <section id="legal-framework-and-distribution-of-drugs" class="level3" data-number="6.2.1"><h3 data-number="6.2.1" class="anchored" data-anchor-id="legal-framework-and-distribution-of-drugs">
@@ -4382,7 +4359,7 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
 </section><section id="the-atc-classification-system-and-defined-daily-doses-ddd" class="level3" data-number="6.2.2"><h3 data-number="6.2.2" class="anchored" data-anchor-id="the-atc-classification-system-and-defined-daily-doses-ddd">
 <span class="header-section-number">6.2.2</span> The ATC classification system and defined daily doses (DDD)</h3>
 <p>Since 1988, the Anatomical Therapeutic Chemical (ATC) and ATCvet classification systems recommended by the WHO are used in Sweden for national drug statistics. For drugs sold for use in humans and to facilitate drug utilisation studies from a medical point of view, the measure defined daily dose (DDD) is used as a unit of comparison in drug statistics. The DDD for a drug is established on the basis of the assumed average dose per day for the drug given to adults for its main indication. If possible, the DDD is given as the amount of active substance. The DDDs are usually equal for all dosage forms of a preparation. The statistical data systems of the Swedish eHealth Agency are upgraded annually according to the recommendations made by the WHO Collaborating Centre for Drug Statistics Methodology in Oslo, Norway. Sales figures are presented as number of DDDs per 1 000 inhabitants per day, which gives an estimate of the proportion of the population daily exposed to a particular drug. This number is a rough estimate and should be interpreted with caution.</p>
-<p>All data on the number of DDDs in this report are displayed in the 2025 version of the ATC/DDD index, available at https://www.whocc.no/atc_ddd_index/.</p>
+<p>All data on the number of DDDs in this report are displayed in the 2025 version of the ATC/DDD index, available at <a href="https://www.whocc.no/atc_ddd_index/" target="_blank">www.whocc.no/atc_ddd_index</a>.</p>
 </section><section id="antibiotic-sales-in-humans" class="level3" data-number="6.2.3"><h3 data-number="6.2.3" class="anchored" data-anchor-id="antibiotic-sales-in-humans">
 <span class="header-section-number">6.2.3</span> Antibiotic sales in humans</h3>
 <p>Sales statistics on medications have been monitored and compiled since 1975, initially by the National Corporation of Swedish Pharmacies. The sales are registered as number of DDDs, cash value and number of packages. Outpatient care data include information on the sales of prescribed drugs from all Swedish pharmacies by the prescription survey, running since 1974. The statistical material was until 1995 based on samples of dispensed prescriptions. From 1996, all prescriptions dispensed by pharmacies are included. From 1999, individually packed doses of drugs dispensed e.g.&nbsp;to the elderly are also included in the survey. Recorded data are trade name, quantity, patient fee, total cost, sex and year of birth of the patient. Data can be expressed as DDD per 1 000 inhabitants per day or number of prescriptions per 1 000 inhabitants per year. Inpatient care data include drugs delivered by all hospital pharmacies to the hospital departments (see the section “Completeness of data” below). The sales are expressed as cash value, number of packages and number of defined daily doses.</p>
@@ -4396,7 +4373,7 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
 <p>For antibiotics sold in Sweden on a special license, information regarding strength and package size may be incomplete, preventing proper DDD calculation. Therefore, when data is obtained from the Swedish eHealth Agency in DDD, these products sold on special license are not properly included and usage of certain antibiotics could be underestimated. For most antibiotic classes, this difference is negligible. However, for some antibiotic substances, such as several cephalosporins, this underestimation has a notable effect on data represented in DDD.</p>
 </section><section id="trend-analysis" class="level3" data-number="6.2.6"><h3 data-number="6.2.6" class="anchored" data-anchor-id="trend-analysis">
 <span class="header-section-number">6.2.6</span> Trend analysis</h3>
-<p>In the report, some general regression models were executed in the <a href="../1_Sales_antibiotics_humans/Main.html" class="quarto-xref"><span>Chapter 1</span></a> (Sales of antibiotics in humans). Time was used as explanatory variable and the outcome was the sales of antibiotics, adjusted for population size in Sweden, data on population provided by the eHealth Agency. The analyses were executed on a basis of a negative binomial distribution.</p>
+<p>In the report, some general regression models were executed in <a href="../1_Sales_antibiotics_humans/Main.html" class="quarto-xref"><span>Chapter 1</span></a> - <a href="../1_Sales_antibiotics_humans/Main.html">Sales of antibiotics in humans</a>. Time was used as explanatory variable and the outcome was the sales of antibiotics, adjusted for population size in Sweden, data on population provided by the eHealth Agency. The analyses were executed on a basis of a negative binomial distribution.</p>
 </section><section id="the-swedish-prescribed-drug-register" class="level3" data-number="6.2.7"><h3 data-number="6.2.7" class="anchored" data-anchor-id="the-swedish-prescribed-drug-register">
 <span class="header-section-number">6.2.7</span> The Swedish Prescribed Drug Register</h3>
 <p>Since July 2005, the National Board of Health and Welfare supplies an individual based register on all drugs prescribed and dispensed in outpatient care. The register includes information on the number of individuals treated with at least one course of antibiotics during a specific period, i.e.&nbsp;number of treated inhabitants per 1 000 total inhabitants per year (Inhabitants/1 000/year). It is also possible to follow the number of purchases per person.</p>
@@ -4474,48 +4451,17 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
       color: #666666 !important;
     }
   </style>
-<div class="datatables html-widget html-fill-item" id="htmlwidget-64804a3309ff8469b093" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-64804a3309ff8469b093">{"x":{"filter":"none","vertical":false,"extensions":["Buttons"],"data":[["J01AA02 - doxycycline ","J01AA04 - lymecycline ","J01AA07 - tetracycline ","J01AA08 - minocycline ","J01AA12 - tigecycline ","J01AA15 - omadacycline - oral ","J01CA01 - ampicillin - parenteral ","J01CA01 - ampicillin - oral ","J01CA04 – amoxicillin - oral ","J01CA08 - pivmecillinam ","J01CA12 - piperacillin ","J01CE01 - benzylpenicillin ","J01CE02 - phenoximethylpenicillin (penicillin V) ","J01CE08 - benzathine benzylpenicillin ","J01CF02 - cloxacillin ","J01CF05 - flucloxacillin ","J01CR02 - amoxicillin and enzyme inhibitor ",null,"J01CR05 - piperacillin and enzyme inhibitor ","J01DB03 - cefalexin ","J01DB04 - cefazolin ","J01DB05 - cefadroxil ","J01DC01 - cefoxitin ","J01DC02 - cefuroxime - parenteral ","J01DC02 - cefuroxime - oral ","J01DD01 - cefotaxime ","J01DD02 - ceftazidime ","J01DD04 - ceftriaxone ","J01DD08 - cefixime ","J01DD14 - ceftibuten ","J01DD52 - ceftazidime and enzyme inhibitor ","J01DF01 - aztreonam - parenteral ","J01DF01 - aztreonam - inhalation ","J01DH02 - meropenem ","J01DH03 - ertapenem ","J01DH51 - imipenem and enzyme inhibitor ","J01DH52 - meropenem and enzyme inhibitor ","J01DH56 - imipenem and enzyme inhibitor ","J01DI01 - ceftobiprole medocaril ","J01DI02 - ceftaroline fosamil ","J01DI04 - cefiderocol ","J01DI54 - ceftolozane and enzyme inhibitor ","J01EA01 - trimethoprim ","J01EC02 - sulfadiazine ","J01EE01 -sulfamethoxazole and trimethoprim ","J01FA01 - erythromycin ","J01FA01 - erythromycin erythylsuccinate tablets ","J01FA06 - roxithromycin ","J01FA09 - clarithromycin - oral ","J01FA10 - azithromycin - parenteral ","J01FA10 - azithromycin - oral ","J01FF01 - clindamycin - parenteral ","J01FF01 - clindamycin - oral ","J01FG01 - pristinamycin ","J01GB01 - tobramycin - parenteral ","J01GB01 - tobramycin - oral inhalation solution ","J01GB01 - tobramycin - oral inhalation powder ","J01GB03 - gentamicin ","J01GB06 – amikacin - parenteral ","J01GB06 – amikacin - inhalation ","J01MA01 - ofloxacin ","J01MA02 - ciprofloxacin - parenteral ","J01MA02 - ciprofloxacin - oral ","J01MA06 - norfloxacin ","J01MA12 - levofloxacin - oral/parenteral ","J01MA12 - levofloxacin - inhalation ","J01MA14 - moxifloxacin ","J01XA01 - vancomycin ","J01XA02 - teicoplanin ","J01XA04 - dalbavancin ","J01XB01 - colistin - parenteral ","J01XB01 - colistin - Inhalation ","J01XB02 - polymyxin B ","J01XC01 - fusidic acid ","J01XD01 - metronidazole ","J01XE01 - nitrofurantoin ","J01XX01 - fosfomycin - parenteral ","J01XX01 - fosfomycin - oral ","J01XX04 - spectinomycin ","J01XX05 - methenamine - hippurate ","J01XX05 - methenamine - mandelate ","J01XX08 - linezolid ","J01XX09 - daptomycin ","J01XX11 - tedizolid "],["0.1 ","0.6 ","1 ","0.2 ","0.1 ","0.3 ","6 ","2 ","1.5 ","0.6 ","14 ","3.6 ","2 ","3.6 ","2 ","2 ","1.5 ",null,"14 ","4 ","3 ","2 ","6 ","3 ","0.5 ","4 ","4 ","2 ","0.4 ","0.4 ","6 ","4 ","0.225 ","3 ","1 ","2 ","3 ","2 ","1.5 ","1.2 ","6 ","3 ","0.4 ","0.6 ","1.92 ","1 ","2 ","0.3 ","0.5 ","0.5 ","0.3 ","1.8 ","1.2 ","2 ","0.24 ","0.3 ","0.112 ","0.24 ","1 ","0.59 ","0.4 ","0.8 ","1 ","0.8 ","0.5 ","0.24 ","0.4 ","2 ","0.4 ","1.5 ","9 MU ","3 MU ","0.15 ","1.5 ","1.5 ","0.2 ","8 ","3 ","3 ","2 ","3 ","1.2 ","0.28 ","0.2 "]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Antibiotic<\/th>\n      <th>DDD (g) <\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"dom":"Blfrtip","autoWidth":true,"buttons":[{"extend":"copy"},{"extend":"csv","filename":"default"},{"extend":"excel","filename":"default"}],"pageLength":5,"lengthMenu":[[5,10,25,50,-1],["5","10","25","50","All"]],"rownames":false,"columnDefs":[{"name":"Antibiotic","targets":0},{"name":"DDD (g) ","targets":1}],"order":[],"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item" id="htmlwidget-bef942471a82e3b73176" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-bef942471a82e3b73176">{"x":{"filter":"none","vertical":false,"extensions":["Buttons"],"data":[["J01AA02 - doxycycline ","J01AA04 - lymecycline ","J01AA07 - tetracycline ","J01AA08 - minocycline ","J01AA12 - tigecycline ","J01AA15 - omadacycline - oral ","J01CA01 - ampicillin - parenteral ","J01CA01 - ampicillin - oral ","J01CA04 – amoxicillin - oral ","J01CA08 - pivmecillinam ","J01CA12 - piperacillin ","J01CE01 - benzylpenicillin ","J01CE02 - phenoximethylpenicillin (penicillin V) ","J01CE08 - benzathine benzylpenicillin ","J01CF02 - cloxacillin ","J01CF05 - flucloxacillin ","J01CR02 - amoxicillin and enzyme inhibitor ",null,"J01CR05 - piperacillin and enzyme inhibitor ","J01DB03 - cefalexin ","J01DB04 - cefazolin ","J01DB05 - cefadroxil ","J01DC01 - cefoxitin ","J01DC02 - cefuroxime - parenteral ","J01DC02 - cefuroxime - oral ","J01DD01 - cefotaxime ","J01DD02 - ceftazidime ","J01DD04 - ceftriaxone ","J01DD08 - cefixime ","J01DD14 - ceftibuten ","J01DD52 - ceftazidime and enzyme inhibitor ","J01DF01 - aztreonam - parenteral ","J01DF01 - aztreonam - inhalation ","J01DH02 - meropenem ","J01DH03 - ertapenem ","J01DH51 - imipenem and enzyme inhibitor ","J01DH52 - meropenem and enzyme inhibitor ","J01DH56 - imipenem and enzyme inhibitor ","J01DI01 - ceftobiprole medocaril ","J01DI02 - ceftaroline fosamil ","J01DI04 - cefiderocol ","J01DI54 - ceftolozane and enzyme inhibitor ","J01EA01 - trimethoprim ","J01EC02 - sulfadiazine ","J01EE01 -sulfamethoxazole and trimethoprim ","J01FA01 - erythromycin ","J01FA01 - erythromycin erythylsuccinate tablets ","J01FA06 - roxithromycin ","J01FA09 - clarithromycin - oral ","J01FA10 - azithromycin - parenteral ","J01FA10 - azithromycin - oral ","J01FF01 - clindamycin - parenteral ","J01FF01 - clindamycin - oral ","J01FG01 - pristinamycin ","J01GB01 - tobramycin - parenteral ","J01GB01 - tobramycin - oral inhalation solution ","J01GB01 - tobramycin - oral inhalation powder ","J01GB03 - gentamicin ","J01GB06 – amikacin - parenteral ","J01GB06 – amikacin - inhalation ","J01MA01 - ofloxacin ","J01MA02 - ciprofloxacin - parenteral ","J01MA02 - ciprofloxacin - oral ","J01MA06 - norfloxacin ","J01MA12 - levofloxacin - oral/parenteral ","J01MA12 - levofloxacin - inhalation ","J01MA14 - moxifloxacin ","J01XA01 - vancomycin ","J01XA02 - teicoplanin ","J01XA04 - dalbavancin ","J01XB01 - colistin - parenteral ","J01XB01 - colistin - Inhalation ","J01XB02 - polymyxin B ","J01XC01 - fusidic acid ","J01XD01 - metronidazole ","J01XE01 - nitrofurantoin ","J01XX01 - fosfomycin - parenteral ","J01XX01 - fosfomycin - oral ","J01XX04 - spectinomycin ","J01XX05 - methenamine - hippurate ","J01XX05 - methenamine - mandelate ","J01XX08 - linezolid ","J01XX09 - daptomycin ","J01XX11 - tedizolid "],["0.1 ","0.6 ","1 ","0.2 ","0.1 ","0.3 ","6 ","2 ","1.5 ","0.6 ","14 ","3.6 ","2 ","3.6 ","2 ","2 ","1.5 ",null,"14 ","4 ","3 ","2 ","6 ","3 ","0.5 ","4 ","4 ","2 ","0.4 ","0.4 ","6 ","4 ","0.225 ","3 ","1 ","2 ","3 ","2 ","1.5 ","1.2 ","6 ","3 ","0.4 ","0.6 ","1.92 ","1 ","2 ","0.3 ","0.5 ","0.5 ","0.3 ","1.8 ","1.2 ","2 ","0.24 ","0.3 ","0.112 ","0.24 ","1 ","0.59 ","0.4 ","0.8 ","1 ","0.8 ","0.5 ","0.24 ","0.4 ","2 ","0.4 ","1.5 ","9 MU ","3 MU ","0.15 ","1.5 ","1.5 ","0.2 ","8 ","3 ","3 ","2 ","3 ","1.2 ","0.28 ","0.2 "]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Antibiotic<\/th>\n      <th>DDD (g) <\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"dom":"Blfrtip","autoWidth":true,"buttons":[{"extend":"copy"},{"extend":"csv","filename":"SwedresSvarm2025_Data_default"},{"extend":"excel","filename":"SwedresSvarm2025_Data_default"}],"pageLength":5,"lengthMenu":[[5,10,25,50,-1],["5","10","25","50","All"]],"rownames":false,"columnDefs":[{"name":"Antibiotic","targets":0},{"name":"DDD (g) ","targets":1}],"order":[],"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </figure>
 </div>
 </div>
-<div class="cell" data-layout-align="center">
-<div class="status">
-<div class="callout callout-style-simple callout-important">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-body-container">
-<p>You are reading the work-in-progress version of the Swedres-Svarm report 2025. This part is currently a dumping ground for ideas, and we don’t recommend reading it. You can find last years report <a href="https://www.sva.se/media/amupibfr/swedres-svarm-2024-webb.pdf" class="uri">https://www.sva.se/media/amupibfr/swedres-svarm-2024-webb.pdf</a>.</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section></section><section id="sec-mmh" class="level2" data-number="6.3"><h2 data-number="6.3" class="anchored" data-anchor-id="sec-mmh">
-<span class="header-section-number">6.3</span> Material and methods for resistance in humans</h2>
-<p>Text here… Konfidensintervall räknades fram enligt Wilson-metoden <span class="citation" data-cites="Wilson1927">(<a href="../../references.html#ref-Wilson1927" role="doc-biblioref">1</a>)</span></p>
-<div class="cell" data-layout-align="center">
-<div class="status">
-<div class="callout callout-style-simple callout-important">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-body-container">
-<p>You are reading the work-in-progress version of the Swedres-Svarm report 2025. This part is currently a dumping ground for ideas, and we don’t recommend reading it. You can find last years report <a href="https://www.sva.se/media/amupibfr/swedres-svarm-2024-webb.pdf" class="uri">https://www.sva.se/media/amupibfr/swedres-svarm-2024-webb.pdf</a>.</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section><section id="sec-mmr" class="level2" data-number="6.4"><h2 data-number="6.4" class="anchored" data-anchor-id="sec-mmr">
-<span class="header-section-number">6.4</span> Material and methods for resistance in bacteria from animals</h2>
-<section id="isolation-and-identification-of-bacteria" class="level3" data-number="6.4.1"><h3 data-number="6.4.1" class="anchored" data-anchor-id="isolation-and-identification-of-bacteria">
-<span class="header-section-number">6.4.1</span> Isolation and identification of bacteria</h3>
+</section></section><section id="sec-mmr" class="level2" data-number="6.3"><h2 data-number="6.3" class="anchored" data-anchor-id="sec-mmr">
+<span class="header-section-number">6.3</span> Material and methods for resistance in bacteria from animals</h2>
+<section id="isolation-and-identification-of-bacteria" class="level3" data-number="6.3.1"><h3 data-number="6.3.1" class="anchored" data-anchor-id="isolation-and-identification-of-bacteria">
+<span class="header-section-number">6.3.1</span> Isolation and identification of bacteria</h3>
 <section id="antibiotic-resistance-as-notifiable-diseases" class="level4"><h4 class="anchored" data-anchor-id="antibiotic-resistance-as-notifiable-diseases">Antibiotic resistance as notifiable diseases</h4>
 <section id="esbl" class="level5"><h5 class="anchored" data-anchor-id="esbl">ESBL</h5>
 <p>ESBLA<sub>A</sub>, ESBL<sub>M</sub> and ESBL<sub>CARBA</sub>-producing <em>Escherichia coli</em> were isolated by culture on MacConkey agar (Oxoid) with cefotaxime (1 mg/L) (MacC ctx) and MacConkey agar (Oxoid) with meropenem (0.12 mg/L) (MacC mp) with prior enrichment in buffered peptone water (BPW).</p>
@@ -4537,140 +4483,96 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
 <section id="escherichia-coli" class="level5"><h5 class="anchored" data-anchor-id="escherichia-coli"><em>Escherichia coli</em></h5>
 <p>After the initial dilution in BPW and incubation (see screening for ESBL above), 10 µL was spread on MacConkey agar and incubated overnight at 44°C.</p>
 <p>Up to three lactose-positive colonies with morphology typical for <em>E. coli</em> were sub-cultured on horse blood agar (5% v/v), after which the isolates were tested for production of tryptophanase (indole). Only lactose- and indole-positive isolates with typical morphology were selected for susceptibility tests.</p>
-</section></section></section><section id="susceptibility-testing" class="level3" data-number="6.4.2"><h3 data-number="6.4.2" class="anchored" data-anchor-id="susceptibility-testing">
-<span class="header-section-number">6.4.2</span> Susceptibility testing</h3>
+</section></section></section><section id="susceptibility-testing" class="level3" data-number="6.3.2"><h3 data-number="6.3.2" class="anchored" data-anchor-id="susceptibility-testing">
+<span class="header-section-number">6.3.2</span> Susceptibility testing</h3>
 <section id="microdilution" class="level4"><h4 class="anchored" data-anchor-id="microdilution">Microdilution</h4>
-<p>At SVA, fast-growing aerobic bacteria, <em>Campylobacter</em> and bacteria from fish are tested for antibiotic susceptibility with accredited methodology using dilution methods in cation-adjusted Mueller-Hinton broth (CAMHB) (Difco). Tests are performed following the standards for microdilution of the Clinical and Laboratory Standards Institute <span class="citation" data-cites="clsi2024a">(<a href="../../references.html#ref-clsi2024a" role="doc-biblioref">2</a>)</span>. The microdilution panels used are produced by Thermo SCIENTIFIC Trek diagnostics systems (Sensititre) and for <em>Brachyspira</em> spp. the panels are produced by Merlin, Bruker. Different panels are used depending on the bacterial species tested and the purpose of the investigation (monitoring or clinical diagnostics). Minimum inhibitory concentration (MIC) is recorded as the lowest concentration of an antibiotic that inhibits bacterial growth.</p>
+<p>At SVA, fast-growing aerobic bacteria, <em>Campylobacter</em> and bacteria from fish are tested for antibiotic susceptibility with accredited methodology using dilution methods in cation-adjusted Mueller-Hinton broth (CAMHB) (Difco). Tests are performed following the standards for microdilution of the Clinical and Laboratory Standards Institute <span class="citation" data-cites="clsi2024a">(<a href="../../references.html#ref-clsi2024a" role="doc-biblioref">Clinical and Laboratory Standards Institute (CLSI) 2024b</a>)</span>. The microdilution panels used are produced by Thermo SCIENTIFIC Trek diagnostics systems (Sensititre) and for <em>Brachyspira</em> spp. the panels are produced by Merlin, Bruker. Different panels are used depending on the bacterial species tested and the purpose of the investigation (monitoring or clinical diagnostics). Minimum inhibitory concentration (MIC) is recorded as the lowest concentration of an antibiotic that inhibits bacterial growth.</p>
 <p>Some adaptations from the CLSI standard are employed. For <em>Pasteurella</em> spp. the tests are made by dilution in CAMHB supplemented with 5-10% horse serum, followed by incubation in CO<sub>2</sub> at 37°C for 16-18 hours. For testing of <em>A. pleuropneumoniae</em>, dilution in HTM broth was performed followed by incubation in CO<sub>2</sub> at 37°C for 18-24 hours. <em>Streptococcus</em> spp. were tested using CAMHB supplemented with 5-10% horse serum followed by incubation at 35°C for 16-18 hours.</p>
-<p>Susceptibility of <em>C. jejuni</em> and <em>C. coli</em> were tested according to the CLSI standard M45 Ed3 for fastidious bacteria <span class="citation" data-cites="clsi2015methods">(<a href="../../references.html#ref-clsi2015methods" role="doc-biblioref">3</a>)</span>.</p>
-<p>Susceptibility of <em>Brachyspira hyodysenteriae</em> and <em>B. pilosicoli</em> was tested by a broth dilution method described by <span class="citation" data-cites="karlsson2003antimicrobial">(<a href="../../references.html#ref-karlsson2003antimicrobial" role="doc-biblioref">4</a>)</span>, in tissue culture trays with 48 wells per plate. The wells were filled with 0.5 ml of a suspension of bacteria (1x10<sup>6</sup>-5x10<sup>6</sup> CFU/ml) in brain heart infusion broth (BHI) with 10% foetal calf serum and incubated in an anaerobic atmosphere at 37°C for four days on a shaker.</p>
-<p>Bacteria from fish are tested for antibiotic susceptibility by broth microdilution adapted for aquatic bacteria according to <span class="citation" data-cites="clsi2020a">(<a href="../../references.html#ref-clsi2020a" role="doc-biblioref">5</a>)</span>.</p>
+<p>Susceptibility of <em>C. jejuni</em> and <em>C. coli</em> were tested according to the CLSI standard M45 Ed3 for fastidious bacteria <span class="citation" data-cites="clsi2015methods">(<a href="../../references.html#ref-clsi2015methods" role="doc-biblioref">Clinical and Laboratory Standards Institute (CLSI) 2015</a>)</span>.</p>
+<p>Susceptibility of <em>Brachyspira hyodysenteriae</em> and <em>B. pilosicoli</em> was tested by a broth dilution method described by <span class="citation" data-cites="karlsson2003antimicrobial">(<a href="../../references.html#ref-karlsson2003antimicrobial" role="doc-biblioref"><span class="nocase">Karlsson et al.</span> 2003</a>)</span>, in tissue culture trays with 48 wells per plate. The wells were filled with 0.5 ml of a suspension of bacteria (1x10<sup>6</sup>-5x10<sup>6</sup> CFU/ml) in brain heart infusion broth (BHI) with 10% foetal calf serum and incubated in an anaerobic atmosphere at 37°C for four days on a shaker.</p>
+<p>Bacteria from fish are tested for antibiotic susceptibility by broth microdilution adapted for aquatic bacteria according to <span class="citation" data-cites="clsi2020a">(<a href="../../references.html#ref-clsi2020a" role="doc-biblioref">Clinical and Laboratory Standards Institute (CLSI) 2020a</a>)</span>.</p>
 <p>Phenotypic confirmatory tests for production of extended spectrum beta-lactamases (ESBLs) in Enterobacterales were performed with and without clavulanic acid in Sensititre EUVSEC2 microdilution panels and interpreted according to EUCAST.</p>
 <p>Susceptibility of <em>Mycoplasma bovis</em> was tested with broth microdilution in Mycoplasma broth with Mycoplasma selective supplement-G (Oxoid). The inoculum density was 1x10<sup>6</sup>-5x10<sup>6</sup> CFU/ml and the inoculum volume 100 µl per well and incubation was performed in CO<sub>2</sub> at 37°C for 72 hours.</p>
-</section></section><section id="genotyping" class="level3" data-number="6.4.3"><h3 data-number="6.4.3" class="anchored" data-anchor-id="genotyping">
-<span class="header-section-number">6.4.3</span> Genotyping</h3>
-<p>Suspected index isolates of MRSA and MRSP were confirmed by detection of the <em>mecA</em> or <em>mecC</em> genes, applying real-time PCR as described by Pichon et al.&nbsp;[pichon2012development]. Isolates of Enterobacterales with AmpC phenotypes were subjected to PCR, detecting genes encoding ESBL<sub>M</sub><span class="citation" data-cites="perez2002detection">(<a href="../../references.html#ref-perez2002detection" role="doc-biblioref">6</a>)</span> and ESBL<sub>A</sub><span class="citation" data-cites="woodford2006multiplex">(<a href="../../references.html#ref-woodford2006multiplex" role="doc-biblioref">7</a>)</span>; <span class="citation" data-cites="fang2008molecular">(<a href="../../references.html#ref-fang2008molecular" role="doc-biblioref">8</a>)</span>. Isolates positive in PCR for ESBL-encoding genes, <em>mecA</em>, <em>mecC</em>, phenotypically confirmed as ESBL<sub>A</sub> or suspected of being ESBL<sub>CARBA</sub> were subjected to genome sequence analysis.</p>
-<p>DNA was extracted from overnight cultures on horse blood agar using EZ1 DNA tissue kit (Qiagen, Halden, Germany), according to the recommendations of the manufacturer. DNA was sent to Clinical Genomics Stockholm, Science for Life Laboratory (Solna, Sweden) for library preparation and paired-end sequencing using Illumina technologies. Reads were trimmed with Fastp v1.1.0 <span class="citation" data-cites="chen2025fastp">(<a href="../../references.html#ref-chen2025fastp" role="doc-biblioref">9</a>)</span> and assembled with SKESA v2.4.0 <span class="citation" data-cites="souvorov2018skesa">(<a href="../../references.html#ref-souvorov2018skesa" role="doc-biblioref">10</a>)</span>. Assemblies were searched for potential contamination using Kraken2 with the MiniKraken database <span class="citation" data-cites="wood2019improved">(<a href="../../references.html#ref-wood2019improved" role="doc-biblioref">11</a>)</span>.</p>
-<p>ESBL-encoding genes and point mutations conferring elevated MIC for third generation cephalosporins were determined using AMRFinder+ v4.2.5 with database version 2026-01-21.1 <span class="citation" data-cites="feldgarden2021amrfinderplus">(<a href="../../references.html#ref-feldgarden2021amrfinderplus" role="doc-biblioref">12</a>)</span> with the species-specific –organism option where applicable, and by using Staramr v0.11.0 <span class="citation" data-cites="bharat2022correlation">(<a href="../../references.html#ref-bharat2022correlation" role="doc-biblioref">13</a>)</span> with the ResFinder database from September 9th 2025 <span class="citation" data-cites="zankari2012identification">(<a href="../../references.html#ref-zankari2012identification" role="doc-biblioref">14</a>)</span> and the PointFinder database from November 5th 2025 <span class="citation" data-cites="zankari2017pointfinder">(<a href="../../references.html#ref-zankari2017pointfinder" role="doc-biblioref">15</a>)</span>, all with the cutoff values ≥98% identity and ≥95% coverage. <em>Spa</em>-typing, a single locus sequence typing method using the polymorphic region X of the <em>spa</em> gene encoding Protein A, was performed on MRSA assemblies using SeqSphere+ v10.5.2 software (Ridom GmbH, Germany, https://spa.ridom.de). Sequence types (ST) were found in MRSA and MRSP assemblies using MLST <span class="citation" data-cites="mlst">(<a href="../../references.html#ref-mlst" role="doc-biblioref">16</a>)</span> or given STs by submitting data to Public databases for molecular typing and microbial genome diversity (www.pubmlst.org) developed by Keith Jolley <span class="citation" data-cites="jolley2018open-access">(<a href="../../references.html#ref-jolley2018open-access" role="doc-biblioref">17</a>)</span>, sited at the University of Oxford and funded by the Wellcome Trust.</p>
-</section><section id="quality-assurance-system" class="level3" data-number="6.4.4"><h3 data-number="6.4.4" class="anchored" data-anchor-id="quality-assurance-system">
-<span class="header-section-number">6.4.4</span> Quality assurance system</h3>
+</section></section><section id="genotyping" class="level3" data-number="6.3.3"><h3 data-number="6.3.3" class="anchored" data-anchor-id="genotyping">
+<span class="header-section-number">6.3.3</span> Genotyping</h3>
+<p>Suspected index isolates of MRSA and MRSP were confirmed by detection of the <em>mecA</em> or <em>mecC</em> genes, applying real-time PCR as described by Pichon et al. <span class="citation" data-cites="pichon2012development">(<a href="../../references.html#ref-pichon2012development" role="doc-biblioref"><span class="nocase">Pichon et al.</span> 2012</a>)</span>. Isolates of Enterobacterales with AmpC phenotypes were subjected to PCR, detecting genes encoding ESBL<sub>M</sub><span class="citation" data-cites="perez2002detection">(<a href="../../references.html#ref-perez2002detection" role="doc-biblioref">Perez-Perez and Hanson 2002</a>)</span> and ESBL<sub>A</sub><span class="citation" data-cites="woodford2006multiplex">(<a href="../../references.html#ref-woodford2006multiplex" role="doc-biblioref"><span class="nocase">Woodford et al.</span> 2006</a>)</span>; <span class="citation" data-cites="fang2008molecular">(<a href="../../references.html#ref-fang2008molecular" role="doc-biblioref"><span class="nocase">Fang et al.</span> 2008</a>)</span>. Isolates positive in PCR for ESBL-encoding genes, <em>mecA</em>, <em>mecC</em>, phenotypically confirmed as ESBL<sub>A</sub> or suspected of being ESBL<sub>CARBA</sub> were subjected to genome sequence analysis.</p>
+<p>DNA was extracted from overnight cultures on horse blood agar using EZ1 DNA tissue kit (Qiagen, Halden, Germany), according to the recommendations of the manufacturer. DNA was sent to Clinical Genomics Stockholm, Science for Life Laboratory (Solna, Sweden) for library preparation and paired-end sequencing using Illumina technologies. Reads were trimmed with Fastp v1.1.0 <span class="citation" data-cites="chen2025fastp">(<a href="../../references.html#ref-chen2025fastp" role="doc-biblioref">Chen 2025</a>)</span> and assembled with SKESA v2.4.0 <span class="citation" data-cites="souvorov2018skesa">(<a href="../../references.html#ref-souvorov2018skesa" role="doc-biblioref"><span class="nocase">Souvorov et al.</span> 2018</a>)</span>. Assemblies were searched for potential contamination using Kraken2 with the MiniKraken database <span class="citation" data-cites="wood2019improved">(<a href="../../references.html#ref-wood2019improved" role="doc-biblioref"><span class="nocase">Wood et al.</span> 2019</a>)</span>.</p>
+<p>ESBL-encoding genes and point mutations conferring elevated MIC for third generation cephalosporins were determined using AMRFinder+ v4.2.5 with database version 2026-01-21.1 <span class="citation" data-cites="feldgarden2021amrfinderplus">(<a href="../../references.html#ref-feldgarden2021amrfinderplus" role="doc-biblioref"><span class="nocase">Feldgarden et al.</span> 2021</a>)</span> with the species-specific –organism option where applicable, and by using Staramr v0.11.0 <span class="citation" data-cites="bharat2022correlation">(<a href="../../references.html#ref-bharat2022correlation" role="doc-biblioref"><span class="nocase">Bharat et al.</span> 2022</a>)</span> with the ResFinder database from September 9th 2025 <span class="citation" data-cites="zankari2012identification">(<a href="../../references.html#ref-zankari2012identification" role="doc-biblioref"><span class="nocase">Zankari et al.</span> 2012</a>)</span> and the PointFinder database from November 5th 2025 <span class="citation" data-cites="zankari2017pointfinder">(<a href="../../references.html#ref-zankari2017pointfinder" role="doc-biblioref"><span class="nocase">Zankari et al.</span> 2017</a>)</span>, all with the cutoff values ≥98% identity and ≥95% coverage. <em>Spa</em>-typing, a single locus sequence typing method using the polymorphic region X of the <em>spa</em> gene encoding Protein A, was performed on MRSA assemblies using SeqSphere+ v10.5.2 software (Ridom GmbH, Germany, https://spa.ridom.de). Sequence types (ST) were found in MRSA and MRSP assemblies using MLST <span class="citation" data-cites="mlst">(<a href="../../references.html#ref-mlst" role="doc-biblioref">Seemann, n.d.</a>)</span> or given STs by submitting data to Public databases for molecular typing and microbial genome diversity (www.pubmlst.org) developed by Keith Jolley <span class="citation" data-cites="jolley2018open-access">(<a href="../../references.html#ref-jolley2018open-access" role="doc-biblioref"><span class="nocase">Jolley et al.</span> 2018</a>)</span>, sited at the University of Oxford and funded by the Wellcome Trust.</p>
+</section><section id="quality-assurance-system" class="level3" data-number="6.3.4"><h3 data-number="6.3.4" class="anchored" data-anchor-id="quality-assurance-system">
+<span class="header-section-number">6.3.4</span> Quality assurance system</h3>
 <p>Laboratories performing antibiotic susceptibility testing at SVA are accredited according to ISO/IEC 17025:2017 by the Swedish Board for Accreditation and Conformity Assessment (SWEDAC) to perform antibiotic susceptibility tests with microdilution methods. The Dept. of Microbiology is accredited for isolation and identification of animal pathogens and of <em>Salmonella</em> according to the same standard. The Dept. of Animal Health and Antimicrobial Strategies is accredited for isolation of <em>E. coli</em> in the monitoring programme, both ESBL-producing and indicator <em>E. coli</em>.</p>
 <p>For susceptibility tests of zoonotic, pathogenic and indicator bacteria, <em>Escherichia coli</em> ATCC 25922, <em>Enterococcus faecalis</em> ATCC 29212, <em>Staphylococcus aureus</em> CCUG 15915 (analogue to ATCC 29213), <em>Actinobacillus pleuropneumoniae</em> ATCC 27090, <em>Trueperella pyogenes</em> CCUG 13230, <em>Acinetobacter baumannii</em> 2012-70-100-69 - EURL 69 (used for control of higher concentrations of cephalosporins and carbapenems), <em>Aeromonas salmonicida</em> subsp. <em>salmonicida</em> CCUG 2116 (analogue to ATCC 14174), <em>Flavobacterium psycrophilum</em> CCUG 35200 (analogue to ATCC 49418), <em>Mycoplasma bovis</em> Donetta PG45T ATCC 25523T and <em>Campylobacter jejuni</em> CCUG 11284 (analogue to <em>Campylobacter jejuni</em> ATCC 33560) were included as quality controls. When testing animal pathogens, relevant control strains were included and evaluated at least once weekly. For testing of <em>Brachyspira</em>, the <em>B. hyodysenteriae</em> type strain B78T ATCC 27164T was used for quality control.</p>
 <p>The Dept. of Animal Health and Antimicrobial Strategies participates yearly in two proficiency tests for antibiotic susceptibility testing, one for isolation and antibiotic susceptibility testing and one comparative test for antibiotic susceptibility testing. These are arranged by the European Union Reference Laboratory - Antimicrobial Resistance and as a national ring trial. We also participate in the DTU genomic proficiency test once a year. Likewise, the Dept. of Microbiology participates in proficiency tests concerning isolation and identification of <em>Salmonella</em> and general clinical veterinary bacteriology and susceptibility tests.</p>
-</section><section id="data-handling" class="level3" data-number="6.4.5"><h3 data-number="6.4.5" class="anchored" data-anchor-id="data-handling">
-<span class="header-section-number">6.4.5</span> Data handling</h3>
+</section><section id="data-handling" class="level3" data-number="6.3.5"><h3 data-number="6.3.5" class="anchored" data-anchor-id="data-handling">
+<span class="header-section-number">6.3.5</span> Data handling</h3>
 <p>Records such as source of cultured sample, identification results, antibiotic susceptibility etcetera were registered in a laboratory information management (LIM) system at SVA.</p>
-</section><section id="cut-off-values-for-resistance" class="level3" data-number="6.4.6"><h3 data-number="6.4.6" class="anchored" data-anchor-id="cut-off-values-for-resistance">
-<span class="header-section-number">6.4.6</span> Cut-off values for resistance</h3>
+</section><section id="cut-off-values-for-resistance" class="level3" data-number="6.3.6"><h3 data-number="6.3.6" class="anchored" data-anchor-id="cut-off-values-for-resistance">
+<span class="header-section-number">6.3.6</span> Cut-off values for resistance</h3>
 <p>For interpretation of MICs from susceptibility testing of zoonotic bacteria (<em>Salmonella</em> and <em>Campylobacter</em>) and indicator bacteria (<em>Escherichia coli</em> and enterococci), epidemiological cut-off values (ECOFFs) issued by EUCAST (www.eucast.org) or values suggested by the European Food Safety Authority are used. For some antibiotics, values based on MIC distributions obtained in Svarm are used.</p>
-<p>ECOFFs are used when available also for clinical isolates from animals. When ECOFFs are not available, or the range of concentrations tested precludes use of a recommended value, values based on MIC distributions obtained in Svarm are used, but clinical breakpoints issued by CLSI <span class="citation" data-cites="clsi2024b">(<a href="../../references.html#ref-clsi2024b" role="doc-biblioref">18</a>)</span> or epidemiological cut-offs (ECVs) issued by CLSI <span class="citation" data-cites="clsi2020b">(<a href="../../references.html#ref-clsi2020b" role="doc-biblioref">19</a>)</span> are also taken into consideration.</p>
+<p>ECOFFs are used when available also for clinical isolates from animals. When ECOFFs are not available, or the range of concentrations tested precludes use of a recommended value, values based on MIC distributions obtained in Svarm are used, but clinical breakpoints issued by CLSI <span class="citation" data-cites="clsi2024b">(<a href="../../references.html#ref-clsi2024b" role="doc-biblioref">Clinical and Laboratory Standards Institute (CLSI) 2024a</a>)</span> or epidemiological cut-offs (ECVs) issued by CLSI <span class="citation" data-cites="clsi2020b">(<a href="../../references.html#ref-clsi2020b" role="doc-biblioref">Clinical and Laboratory Standards Institute (CLSI) 2020b</a>)</span> are also taken into consideration.</p>
 <p>ECOFFs and ECVs classify isolates with acquired reduced susceptibility as non-wild type. In Svarm, non wild-type isolates are called resistant. This classification is relevant for monitoring purposes, but it should be understood that resistance defined in this manner does not always imply clinical resistance.</p>
-<div class="cell" data-layout-align="center">
-<div class="status">
-<div class="callout callout-style-simple callout-note">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-body-container">
-<p>You are reading the work-in-progress version of the Swedres-Svarm report 2025. This part should be readable but is currently undergoing final polishing. You can find last years report <a href="https://www.sva.se/media/amupibfr/swedres-svarm-2024-webb.pdf" class="uri">https://www.sva.se/media/amupibfr/swedres-svarm-2024-webb.pdf</a>.</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section></section><section id="svarm-2000-2025" class="level2" data-number="6.5"><h2 data-number="6.5" class="anchored" data-anchor-id="svarm-2000-2025">
-<span class="header-section-number">6.5</span> Svarm 2000-2025</h2>
+</section></section><section id="svarm-2000-2025" class="level2" data-number="6.4"><h2 data-number="6.4" class="anchored" data-anchor-id="svarm-2000-2025">
+<span class="header-section-number">6.4</span> Svarm 2000-2025</h2>
 <p>The number of isolates of different matrices reported in Svarm since 2000 is available as supplementary material on the <a href="https://www.sva.se/en/what-we-do/antibiotics/svarm-resistance-monitoring/supplementary-material/">SVA web page</a>.</p>
 
 
-<div id="refs" class="references csl-bib-body" role="list" style="display: none">
-<div id="ref-Wilson1927" class="csl-entry" role="listitem">
-<div class="csl-left-margin">1. </div>
-<div class="csl-right-inline">Wilson EB. Probable inference, the law of succession, and statistical inference. Journal of the American Statistical Association. 1927;22(158):209–12. </div>
-</div>
-<div id="ref-clsi2024a" class="csl-entry" role="listitem">
-<div class="csl-left-margin">2. </div>
-<div class="csl-right-inline">CLSI. Performance standards for antimicrobial disk and dilution susceptibility tests for bacteria isolated from animals; sixth edition CLSI standard VET01 Ed6. Wayne, PA, USA: Clinical; Laboratory Standards Institute; 2024. </div>
-</div>
-<div id="ref-clsi2015methods" class="csl-entry" role="listitem">
-<div class="csl-left-margin">3. </div>
-<div class="csl-right-inline">CLSI. Methods for antimicrobial dilution and susceptibility testing of infrequently isolated or fastidious bacteria; approved guideline - third edition CLSI guideline M45 Ed3. Wayne, PA, USA: Clinical; Laboratory Standards Institute; 2015. </div>
-</div>
-<div id="ref-karlsson2003antimicrobial" class="csl-entry" role="listitem">
-<div class="csl-left-margin">4. </div>
-<div class="csl-right-inline">
-<span class="nocase">Karlsson M, Fellström C, et al.</span> Antimicrobial susceptibility testing of porcine brachyspira (serpulina) species isolates. Journal of Clinical Microbiology. 2003;41:2596–604. </div>
-</div>
-<div id="ref-clsi2020a" class="csl-entry" role="listitem">
-<div class="csl-left-margin">5. </div>
-<div class="csl-right-inline">CLSI. Methods for antimicrobial broth dilution and disk diffusion susceptibility testing of bacteria isolated from aquatic animals; second edition VET03 Ed2. Wayne, PA, USA: Clinical; Laboratory Standards Institute; 2020. </div>
-</div>
-<div id="ref-perez2002detection" class="csl-entry" role="listitem">
-<div class="csl-left-margin">6. </div>
-<div class="csl-right-inline">Perez-Perez F, Hanson N. Detection of plasmid-mediated AmpC beta-lactamase genes in clinical isolates by using multiplex PCR. Journal of Clinical Microbiology. 2002;40:2153–62. </div>
-</div>
-<div id="ref-woodford2006multiplex" class="csl-entry" role="listitem">
-<div class="csl-left-margin">7. </div>
-<div class="csl-right-inline">
-<span class="nocase">Woodford N, Fagan E, et al.</span> Multiplex PCR for rapid detection of genes encoding CTX-m extended-spectrum (beta)-lactamases. Journal of Antimicrobial Chemotherapy. 2006;57:154–5. </div>
-</div>
-<div id="ref-fang2008molecular" class="csl-entry" role="listitem">
-<div class="csl-left-margin">8. </div>
-<div class="csl-right-inline">
-<span class="nocase">Fang H, Ataker F, et al.</span> Molecular epidemiology of extended-spectrum beta-lactamases among escherichia coli isolates collected in a swedish hospital and its associated health care facilities from 2001 to 2006. Journal of Clinical Microbiology. 2008;46:707–12. </div>
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-bharat2022correlation" class="csl-entry" role="listitem">
+<span class="nocase">Bharat, A, A Petkau, et al.</span> 2022. <span>“Correlation Between Phenotypic and in Silico Detection of Antimicrobial Resistance in &lt;i&gt;<span>Salmonella Enterica</span>&lt;/i&gt; in <span>Canada</span> Using <span>Staramr</span>.”</span> <em>Microorganisms</em> 10: 292.
 </div>
 <div id="ref-chen2025fastp" class="csl-entry" role="listitem">
-<div class="csl-left-margin">9. </div>
-<div class="csl-right-inline">Chen S. Fastp 1.0: An ultra-fast all-round tool for FASTQ data quality control and preprocessing. iMeta. 2025;4(e70078). </div>
+Chen, S. 2025. <span>“Fastp 1.0: An Ultra-Fast All-Round Tool for FASTQ Data Quality Control and Preprocessing.”</span> <em>iMeta</em> 4 (e70078).
 </div>
-<div id="ref-souvorov2018skesa" class="csl-entry" role="listitem">
-<div class="csl-left-margin">10. </div>
-<div class="csl-right-inline">
-<span class="nocase">Souvorov A, Agarwala R, et al.</span> SKESA: Strategic k-mer extension for scrupulous assemblies. Genome Biology. 2018;19:153. </div>
+<div id="ref-clsi2015methods" class="csl-entry" role="listitem">
+Clinical and Laboratory Standards Institute (CLSI). 2015. <em>Methods for Antimicrobial Dilution and Susceptibility Testing of Infrequently Isolated or Fastidious Bacteria; Approved Guideline - Third Edition CLSI Guideline M45 Ed3</em>. Wayne, PA, USA.
 </div>
-<div id="ref-wood2019improved" class="csl-entry" role="listitem">
-<div class="csl-left-margin">11. </div>
-<div class="csl-right-inline">
-<span class="nocase">Wood D, Lu J, et al.</span> Improved metagenomic analysis with kraken 2. Genome Biology. 2019;20:257. </div>
-</div>
-<div id="ref-feldgarden2021amrfinderplus" class="csl-entry" role="listitem">
-<div class="csl-left-margin">12. </div>
-<div class="csl-right-inline">
-<span class="nocase">Feldgarden M, Brover V, et al.</span> AMRFinderPlus and the reference gene catalog facilitate examination of the genomic links among antimicrobial resistance, stress response, and virulence. Scientific Reports. 2021;11:12728. </div>
-</div>
-<div id="ref-bharat2022correlation" class="csl-entry" role="listitem">
-<div class="csl-left-margin">13. </div>
-<div class="csl-right-inline">
-<span class="nocase">Bharat A, Petkau A, et al.</span> Correlation between phenotypic and in silico detection of antimicrobial resistance in salmonella enterica in canada using staramr. Microorganisms. 2022;10:292. </div>
-</div>
-<div id="ref-zankari2012identification" class="csl-entry" role="listitem">
-<div class="csl-left-margin">14. </div>
-<div class="csl-right-inline">
-<span class="nocase">Zankari E, Hasman H, et al.</span> Identification of acquired antimicrobial resistance genes. Journal of Antimicrobial Chemotherapy. 2012;67:2640–4. </div>
-</div>
-<div id="ref-zankari2017pointfinder" class="csl-entry" role="listitem">
-<div class="csl-left-margin">15. </div>
-<div class="csl-right-inline">
-<span class="nocase">Zankari E, Allesøe R, et al.</span> PointFinder: A novel web tool for WGS-based detection of antimicrobial resistance associated with chromosomal point mutations in bacterial pathogens. Journal of Antimicrobial Chemotherapy. 2017;72:2764–8. </div>
-</div>
-<div id="ref-mlst" class="csl-entry" role="listitem">
-<div class="csl-left-margin">16. </div>
-<div class="csl-right-inline">Seemann T. Mlst github [Internet]. Available from: <a href="https://github.com/tseemann/mlst">https://github.com/tseemann/mlst</a>
-</div>
-</div>
-<div id="ref-jolley2018open-access" class="csl-entry" role="listitem">
-<div class="csl-left-margin">17. </div>
-<div class="csl-right-inline">
-<span class="nocase">Jolley K, Bray J, et al.</span> Open-access bacterial population genomics: BIGSdb software, the PubMLST.org website and their applications. Wellcome Open Research. 2018;3(124). </div>
-</div>
-<div id="ref-clsi2024b" class="csl-entry" role="listitem">
-<div class="csl-left-margin">18. </div>
-<div class="csl-right-inline">CLSI. Performance standards for antimicrobial disk and dilution susceptibility tests for bacteria isolated from animals; seventh edition CLSI supplement VET01S Ed7. Wayne, PA, USA: Clinical; Laboratory Standards Institute; 2024. </div>
+<div id="ref-clsi2020a" class="csl-entry" role="listitem">
+Clinical and Laboratory Standards Institute (CLSI). 2020a. <em>Methods for Antimicrobial Broth Dilution and Disk Diffusion Susceptibility Testing of Bacteria Isolated from Aquatic Animals; Second Edition VET03 Ed2</em>. Wayne, PA, USA.
 </div>
 <div id="ref-clsi2020b" class="csl-entry" role="listitem">
-<div class="csl-left-margin">19. </div>
-<div class="csl-right-inline">CLSI. Performance standards for antimicrobial susceptibility testing of bacteria isolated from aquatic animals; third edition VET04 Ed3. Wayne, PA, USA: Clinical; Laboratory Standards Institute; 2020. </div>
+Clinical and Laboratory Standards Institute (CLSI). 2020b. <em>Performance Standards for Antimicrobial Susceptibility Testing of Bacteria Isolated from Aquatic Animals; Third Edition VET04 Ed3</em>. Wayne, PA, USA.
+</div>
+<div id="ref-clsi2024b" class="csl-entry" role="listitem">
+Clinical and Laboratory Standards Institute (CLSI). 2024a. <em>Performance Standards for Antimicrobial Disk and Dilution Susceptibility Tests for Bacteria Isolated from Animals; Seventh Edition CLSI Supplement VET01S Ed7</em>. Wayne, PA, USA.
+</div>
+<div id="ref-clsi2024a" class="csl-entry" role="listitem">
+Clinical and Laboratory Standards Institute (CLSI). 2024b. <em>Performance Standards for Antimicrobial Disk and Dilution Susceptibility Tests for Bacteria Isolated from Animals; Sixth Edition CLSI Standard VET01 Ed6</em>. Wayne, PA, USA.
+</div>
+<div id="ref-fang2008molecular" class="csl-entry" role="listitem">
+<span class="nocase">Fang, H, F Ataker, et al.</span> 2008. <span>“Molecular Epidemiology of Extended-Spectrum Beta-Lactamases Among &lt;i&gt;<span>Escherichia</span> Coli&lt;/i&gt; Isolates Collected in a <span>Swedish</span> Hospital and Its Associated Health Care Facilities from 2001 to 2006.”</span> <em>Journal of Clinical Microbiology</em> 46: 707–12.
+</div>
+<div id="ref-feldgarden2021amrfinderplus" class="csl-entry" role="listitem">
+<span class="nocase">Feldgarden, M, V Brover, et al.</span> 2021. <span>“AMRFinderPlus and the Reference Gene Catalog Facilitate Examination of the Genomic Links Among Antimicrobial Resistance, Stress Response, and Virulence.”</span> <em>Scientific Reports</em> 11: 12728.
+</div>
+<div id="ref-jolley2018open-access" class="csl-entry" role="listitem">
+<span class="nocase">Jolley, KA, JE Bray, et al.</span> 2018. <span>“Open-Access Bacterial Population Genomics: BIGSdb Software, the PubMLST.org Website and Their Applications.”</span> <em>Wellcome Open Research</em> 3 (124).
+</div>
+<div id="ref-karlsson2003antimicrobial" class="csl-entry" role="listitem">
+<span class="nocase">Karlsson, M, C Fellström, et al.</span> 2003. <span>“Antimicrobial Susceptibility Testing of Porcine &lt;i&gt;<span>Brachyspira (Serpulina)</span>&lt;/i&gt; Species Isolates.”</span> <em>Journal of Clinical Microbiology</em> 41: 2596–604.
+</div>
+<div id="ref-perez2002detection" class="csl-entry" role="listitem">
+Perez-Perez, FJ, and ND Hanson. 2002. <span>“Detection of Plasmid-Mediated AmpC Beta-Lactamase Genes in Clinical Isolates by Using Multiplex PCR.”</span> <em>Journal of Clinical Microbiology</em> 40: 2153–62.
+</div>
+<div id="ref-pichon2012development" class="csl-entry" role="listitem">
+<span class="nocase">Pichon, B, R Hill, et al.</span> 2012. <span>“Development of a Real-Time Quadruplex PCR Assay for Simultaneous Detection of Nuc, Panton-Valentine Leucocidin (PVL), mecA and Homologue mecALGA251.”</span> <em>Journal of Antimicrobial Chemotherapy</em> 67: 2338–41.
+</div>
+<div id="ref-mlst" class="csl-entry" role="listitem">
+Seemann, T. n.d. <em>Mlst Github</em>. <a href="https://github.com/tseemann/mlst">https://github.com/tseemann/mlst</a>.
+</div>
+<div id="ref-souvorov2018skesa" class="csl-entry" role="listitem">
+<span class="nocase">Souvorov, A, R Agarwala, et al.</span> 2018. <span>“SKESA: Strategic k-Mer Extension for Scrupulous Assemblies.”</span> <em>Genome Biology</em> 19: 153.
+</div>
+<div id="ref-wood2019improved" class="csl-entry" role="listitem">
+<span class="nocase">Wood, DE, J Lu, et al.</span> 2019. <span>“Improved Metagenomic Analysis with <span>Kraken</span> 2.”</span> <em>Genome Biology</em> 20: 257.
+</div>
+<div id="ref-woodford2006multiplex" class="csl-entry" role="listitem">
+<span class="nocase">Woodford, N, EJ Fagan, et al.</span> 2006. <span>“Multiplex PCR for Rapid Detection of Genes Encoding CTX-m Extended-Spectrum (Beta)-Lactamases.”</span> <em>Journal of Antimicrobial Chemotherapy</em> 57: 154–55.
+</div>
+<div id="ref-zankari2017pointfinder" class="csl-entry" role="listitem">
+<span class="nocase">Zankari, E, R Allesøe, et al.</span> 2017. <span>“PointFinder: A Novel Web Tool for WGS-Based Detection of Antimicrobial Resistance Associated with Chromosomal Point Mutations in Bacterial Pathogens.”</span> <em>Journal of Antimicrobial Chemotherapy</em> 72: 2764–68.
+</div>
+<div id="ref-zankari2012identification" class="csl-entry" role="listitem">
+<span class="nocase">Zankari, E, H Hasman, et al.</span> 2012. <span>“Identification of Acquired Antimicrobial Resistance Genes.”</span> <em>Journal of Antimicrobial Chemotherapy</em> 67: 2640–44.
 </div>
 </div>
 </section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
@@ -4759,7 +4661,7 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/www\.sva\.se\/djurhaelsa\/antibiotika\/oevervakning\/swedres-svarm\/");
+        var filterRegex = new RegExp("https:\/\/folkhalsomyndigheten-rapporter\.github\.io\/swedres-svarm-2025");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
@@ -5099,7 +5001,7 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
 </div> <!-- /content -->
 <footer class="footer"><div class="nav-footer">
     <div class="nav-footer-left">
-<p><img src="../../Folkhalsomyndigheten_L_RGB_ENG.png" alt="PHAS Logo" style="height:60px;"><img src="../../SVA_logo_English_margin.png" alt="SVA Logo" style="height:60px;"></p>
+<p><img src="../../Folkhalsomyndigheten_L_RGB_ENG.png" alt="PHAS Logo" style="height:60px;"><img src="../../SVA logo English crop.png" alt="SVA Logo" style="height:40px;"></p>
 </div>   
     <div class="nav-footer-center">
       <ul class="footer-items list-unstyled">

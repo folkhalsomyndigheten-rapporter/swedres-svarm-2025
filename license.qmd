@@ -5,24 +5,25 @@ format: html
 ## License {#license}
 
 ::: {.license}
-This work is licensed under the **Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License (CC BY-NC-ND 4.0)**.
+This work is licensed under the **Creative Commons Attribution-ShareAlike 4.0 International License (CC BY-SA 4.0)**.
 
-<a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="CC BY-NC-ND 4.0" src="https://licensebuttons.net/l/by-nc-nd/4.0/88x31.png" /></a>
+<a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/"><img alt="CC BY-SA 4.0" src="https://licensebuttons.net/l/by-sa/4.0/88x31.png" /></a>
 
 Text, tables, and figures may be cited and reprinted only with reference to this report. Images, photographs, and illustrations are protected by copyright.
 
 ### Terms
 
-You are free to **Share**—copy and redistribute the material in any medium or format.
+You are free to:
+- **Share** — copy and redistribute the material in any medium or format
+- **Adapt** — remix, transform, and build upon the material
 
 Under the following conditions:
 - **Attribution** — You must give appropriate credit, provide a link to the license, and indicate if changes were made.
-- **NonCommercial** — You may not use the material for commercial purposes.
-- **NoDerivatives** — You may not remix, transform, or build upon the material.
+- **ShareAlike** — If you remix, transform, or build upon the material, you must distribute your contributions under the same license as the original.
 
 ### Additional Restriction
 
 **This work and its contents may not be used to train, fine-tune, or otherwise develop artificial intelligence models, machine learning systems, or similar technologies, regardless of whether such use is commercial or non-commercial.**
 
-For the full legal text, see the [CC BY-NC-ND 4.0 license](https://creativecommons.org/licenses/by-nc-nd/4.0/legalcode).
+For the full legal text, see the [CC BY-SA 4.0 license](https://creativecommons.org/licenses/by-sa/4.0/legalcode).
 :::

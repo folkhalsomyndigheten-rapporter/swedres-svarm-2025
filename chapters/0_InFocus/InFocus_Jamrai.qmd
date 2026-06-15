@@ -20,17 +20,15 @@ status(type = "ready2publish")
 
 ```
 
+::: {.callout .callout-infocus #infoc-jamrai }
 
-::: {.callout-note appearance="simple" collapse="false" #infoc-jamrai}
 ## [In-focus]{.in-focus} - JAMRAI 2 {.unnumbered}  
 
 
 ### EU-JAMRAI 2: European collaboration for implementing measures against antimicrobial resistance
 
-::: {.column-margin}
-![An EU-funded initiative to combat **antimicrobial resistance (AMR)** and **healthcare-associated infections (HAIs)**. It coordinates actions, shares best practices, and implements strategies across Europe to improve infection prevention, antimicrobial stewardship, and surveillance. The goal is to strengthen public health and ensure sustainable antibiotic use in human and animal health sectors.](images/EUjamrai_Square_Simple_Color.png){#fig-jamrai-logo width="100%"}
 
-:::
+![An EU-funded initiative to combat **antimicrobial resistance (AMR)** and **healthcare-associated infections (HAIs)**. It coordinates actions, shares best practices, and implements strategies across Europe to improve infection prevention, antimicrobial stewardship, and surveillance. The goal is to strengthen public health and ensure sustainable antibiotic use in human and animal health sectors.](images/EUjamrai_Square_Simple_Color.png){#fig-jamrai-logo width="30%"}
 
 #### EU-<span style="color:#0fdbd5">JAMRAI 2</span> in Brief
 
@@ -38,12 +36,10 @@ EU-JAMRAI 2 (Joint Action on Antimicrobial Resistance and Healthcare-Associated 
 
 For more information, please visit [www.eu-jamrai.eu](https://eu-jamrai.eu/){target="_blank"}.
 
+![JAMREye logo](images/Jamreye_primary-Colour-RGB.svg){#fig-jamreye width="30%"}
+
 #### Strengthened Surveillance from a One Health Perspective
 
-::: {.column-margin}
-![JAMREye logo](images/Jamreye_primary-Colour-RGB.svg){#fig-jamreye width="80%"}
-
-:::
 
 The Public Health Agency of Sweden is co-leading the work package on One Health surveillance of AMR, with the goal of achieving stronger, more purposeful, and comprehensive AMR surveillance in humans, animals, and the environment across Europe. This includes establishing two new European surveillance systems for AMR: one for clinical infections in animals (EARS-Vet) and one for the environment (EARS-Env). The work also involves improving national One Health reporting in Europe and developing indicators to harmonise and advance One Health analyses. Notably, the digitisation of the annual report, Swedres-Svarm, has been made possible through funding from JAMRAI.
 

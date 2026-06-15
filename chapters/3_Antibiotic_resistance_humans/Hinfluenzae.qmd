@@ -2,7 +2,6 @@
 format:
   html:
     embed-resources: false
-
 execute:
   cache: false
   echo: false
@@ -73,17 +72,17 @@ p <- df |>
              color = antibiotic,
              data_id = antibiotic)
   ) +
-  geom_line_interactive(aes(group=antibiotic, tooltip=tooltip_l)) + #,tooltip = line_lab)) +
-  geom_point_interactive(aes(tooltip = tooltip_p),hover_nearest = TRUE) +
+  geom_line_interactive(aes(group=antibiotic, tooltip=tooltip_l)) + 
+  geom_point_interactive(aes(tooltip = tooltip_p),
+                         hover_nearest = TRUE) +
   geom_errorbar_interactive(aes(ymin = r_perc - felstapel_low,
                                 ymax = r_perc + felstapel_high,
                                 tooltip = tooltip_p), 
-                            width=.15,linewidth = .5
-  ) +
-
+                            width=.15,linewidth = .5) +
   scale_x_discrete(expand = c(0,0.2)) +
   scale_y_continuous(breaks = perc_100,
-                     limits=c(0,100)) +
+                     limits=c(0,100),
+                     expand=c(0,0.2)) +
   labs(x="Year",
        y="Resistance (%)") +
   scale_color_SweSva()+
@@ -92,18 +91,12 @@ p <- df |>
   guides(color=guide_legend(nrow=3)) +
   theme(plot.subtitle = element_text(vjust = -15))
 
-
 make_dynamic_plot(plot = p, filename = "Fig3-30")
 ```
 ###### Data
 ```{r}
 df |> 
-  transmute(antibiotic,
-            year,
-            "number of total tests" = tot_antal,
-            "number of resistent tests" = r_antal,
-            "% resistent" = r_perc,
-            "Confidence interval" = ci) |> 
+    transmute(antibiotic, year, "Total number" = tot_antal, "Resistance (%)"=r_perc, "95% CI" = ci) |> 
   make_table_data_tab(file_name = "Fig3-30")
 ```
 :::
@@ -114,7 +107,6 @@ df |>
 data <- load_from_excel(path_file = "data/Figure_3.28_Hin_nph.xlsx")
 
 df <- data$fig_data |> 
-  #pivot_longer(-Antibiotic,names_to = "year")
   mutate(across(everything(), as.character)) |> 
   pivot_longer(cols = -Antibiotic, names_to = "year_tmp") |> 
   separate(year_tmp,into = c("year","feat"),sep = " - ") |> 
@@ -163,7 +155,8 @@ p <- df |>
                             ) +
   scale_x_discrete(expand = c(0,0.2)) +
     scale_y_continuous(breaks = perc_100,
-                     limits=c(0,100)) +
+                     limits=c(0,100),
+                     expand=c(0,0.2)) +
   labs(x="Year",
        y="Resistance (%)") +
   scale_color_manual(values = col_SweSva_9) +
@@ -179,12 +172,7 @@ make_dynamic_plot(plot = p, filename = "Fig3-31")
 ###### Data
 ```{r}
 df |> 
-  transmute(antibiotic,
-            year,
-            "number of total tests" = tot_antal,
-            "number of resistent tests" = r_antal,
-            "% resistent" = r_perc,
-            "Confidence interval" = ci) |> 
+   transmute(antibiotic, year, "Total number" = tot_antal, "Resistance (%)"=r_perc, "95% CI" = ci) |> 
   make_table_data_tab(file_name = "Fig3-31")
 ```
 :::

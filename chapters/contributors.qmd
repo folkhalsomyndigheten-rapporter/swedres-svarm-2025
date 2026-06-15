@@ -14,7 +14,7 @@ Hanna Billström, Jennifer Jagdmann and Ragda Obeid - Public Health Agency of Sw
 
 Oskar Nilsson, Märit Pringle and Krista Tuominen - Swedish Veterinary Agency 
 
-### Data Visualization & Technical Integration Editors
+### Data Visualisation & Technical Integration Editors
 
 Maximilian Julius Lautenbach - Public Health Agency of Sweden 
 
@@ -28,7 +28,7 @@ Krista Tuominen - Swedish Veterinary Agency
 
 #### Public Health Agency of Sweden
 
-Anette Hulth, Barbro Mäkitalo, Caroline Kaipe, Eva Morfeldt, Hanna Billström, Jessica Darenberg, Jennifer Jagdmann, Jerker Jonsson, Nadja Karamehmedovic, Nasanin Hashemi, Maximilian Julius Lautenbach, Ragda Obeid, Saga Alvring, Sofia Linnros, Sofia Ny, Thomas Åkerlund, Tomas Söderblom, Vilhelm Müller
+Anette Hulth, Barbro Mäkitalo, Caroline Kaipe, Eva Morfeldt, Hanna Billström, Jessica Darenberg, Jennifer Jagdmann, Jerker Jonsson, Nadja Karamehmedovic, Nasanin Hashemi, Maximilian Julius Lautenbach, Ragda Obeid, Saga Alvring, Sofia Linnros, Sofia Ny, Thomas Åkerlund, Tomas Söderblom and Vilhelm Müller
 
 #### Department of Clinical Microbiology, Karolinska University Hospital 
 
@@ -64,7 +64,7 @@ Annette Backhans, Anna Bergström, Christina Greko, Annica Landén, Mattias Myre
 
 #### Swedish Veterinary Agency
 
-Boel Harbom, Natalia Amaya, Charlotta Fasth, Elisabeth Bagge, and Paulina Hysing  
+Boel Harbom, Natalia Amaya, Charlotta Fasth, Elisabeth Bagge and Paulina Hysing  
 
 #### Farm & Animal Health
 

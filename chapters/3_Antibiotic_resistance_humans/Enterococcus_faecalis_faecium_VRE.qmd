@@ -2,7 +2,6 @@
 format:
   html:
     embed-resources: false
-
 execute:
   cache: false
   echo: false
@@ -84,26 +83,24 @@ p <- df |>
   geom_point_interactive(aes(tooltip = tooltip_p), hover_nearest = TRUE) +
 
   scale_x_discrete(expand = c(0,0.2)) +
-    scale_y_continuous(breaks = scales::pretty_breaks()) +
-
+    scale_y_continuous(breaks = scales::pretty_breaks(),
+                       expand=c(0,0.2)) +
   labs(x="Year",
        y="Incidence (cases/100 000 inhabitants)") +
   scale_color_SweSva() +
   theme_SweSva() +
-  add_fohm_caption() #+
-  #theme_SweSva_rotate()
+  add_fohm_caption() 
 
 make_dynamic_plot(plot = p, 
                   filename = "Fig3-22")
 ```
 ###### Data
 ```{r}
-df |> 
+df |>
+  rename("Resistance (%)"=value) |> 
   make_table_data_tab(file_name = "Fig3-22")
 ```
 :::
-
-
 
 
 ```{r}
@@ -138,8 +135,8 @@ p <- df |>
   geom_point_interactive(aes(tooltip = tooltip_p), hover_nearest = TRUE) +
 
   scale_x_discrete(expand = c(0,0.2)) +
-    scale_y_continuous(breaks = scales::pretty_breaks()) +
-
+    scale_y_continuous(breaks = scales::pretty_breaks(),
+                       expand = c(0,0.2)) +
   labs(x="Year",
        y="Number of cases") +
     guides(color=guide_legend(nrow=2)) +
@@ -154,7 +151,8 @@ make_dynamic_plot(plot = p,
 ###### Data
 ```{r}
 df |> 
-  make_table_data_tab(file_name = "Fig3-23")
+rename("Resistance (%)" = value) |> 
+    make_table_data_tab(file_name = "Fig3-23")
 ```
 :::
 
@@ -213,6 +211,8 @@ make_dynamic_plot(plot = p, filename = "Fig3-24")
 ###### Data
 ```{r}
 df |> 
+  rename(Gene = feature,
+         "Number of cases" = value) |> 
   make_table_data_tab(file_name = "Fig3-24")
 ```
 :::
@@ -326,7 +326,8 @@ make_dynamic_plot(plot = p,
 ##### Data
 ```{r}
 df |> 
-   make_table_data_tab(file_name = "Fig3-25")
+  transmute(antibiotic, year, "Total number" = tot_antal, "Resistance (%)"=r_perc, "95% CI" = ci) |> 
+  make_table_data_tab(file_name = "Fig3-25")
 ```
 :::
 
@@ -400,6 +401,7 @@ make_dynamic_plot(plot = p,
 ##### Data
 ```{r}
 df |> 
+    transmute(antibiotic, year, "Total number" = tot_antal, "Resistance (%)"=r_perc, "95% CI" = ci) |> 
    make_table_data_tab(file_name = "Fig3-26")
 ```
 :::

@@ -1,4 +1,5 @@
 ---
+format: html
 toc: false
 ---
 
@@ -19,7 +20,7 @@ The **Swedres-Svarm Report** is a collaborative publication by the [Public Healt
 ::: callout-note
 This book is built using the `Quarto` publishing system, with data presented and visualised using `ggplot2`, `ggiraph`, and `dt`. The source code is available on GitHub.
 
-#### What is new in this Edition?
+#### What is new in this format?
 
 The new edition of this annual report has undergone a comprehensive update, featuring:
 
@@ -56,9 +57,10 @@ Solna. SE-171 82 Solna, Sweden
 
 Phone: +46 (0) 10 205 20 00 
 
-E-mail: info@folkhalsomyndigheten.se 
+E-mail: [info@folkhalsomyndigheten.se](mailto:info@folkhalsomyndigheten.se)
+ 
 
-www.folkhalsomyndigheten.se 
+[www.folkhalsomyndigheten.se](www.folkhalsomyndigheten.se){target="_blank"}
 
  
 
@@ -68,9 +70,10 @@ SE-751 89 Uppsala, Sweden
 
 Phone: +46 (0) 18 67 40 00 
 
-E-mail: svarm@sva.se
+E-mail: [svarm@sva.se](mailto:svarm@sva.se)
 
-www.sva.se 
+
+[www.sva.se](www.sva.se){target="_blank"} 
 
 ### License
 
@@ -78,7 +81,7 @@ Text, tables, and figures may be cited and reprinted only with reference to this
 
 ### Suggested citation 
 
-Swedres-Svarm 2025. Sales of antibiotics and occurrence of antibiotic resistance in Sweden. Solna/Uppsala 
+Public Health Agency of Sweden & The Swedish Veterinary Agency of Sweden. (2025). *Swedres-Svarm 2025: Consumption of antibiotics and occurrence of antibiotic resistance in Sweden.* Folkhälsomyndigheten. [https://folkhalsomyndigheten-rapporter.github.io/swedres-svarm-2025](https://folkhalsomyndigheten-rapporter.github.io/swedres-svarm-2025)
 
 ``` bibtex
 @report{SwedresSvarm2025,
@@ -91,7 +94,9 @@ Swedres-Svarm 2025. Sales of antibiotics and occurrence of antibiotic resistance
 }
 ```
 
-**This title and Previous Swedres and Svarm reports are available for download at:** [www.sva.se/swedres-svarm](www.sva.se/swedres-svarm/){target="_blank"}
+### Archive
+This title and Previous Swedres and Svarm reports are available for download at: [www.sva.se/swedres-svarm](www.sva.se/swedres-svarm/){target="_blank"}.
 
-**Cover by:** Ingvar Westerdahl/Thomas Isaksson
+### Cover acknowledgment
+Cover designed by Ingvar Westerdahl and Thomas Isaksson.
 

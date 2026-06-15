@@ -1,11 +1,5 @@
 ---
-#title: "Background, data, material, methods, and references"
 format: html
-#author: 
-#  - name: "SVA name "
-#    affiliations: "Swedish Veterinary Agency"
-#  - name: "FOHM name"
-#    affiliation: "Public Health Agency of Sweden"
 ---
 
 # Background, data, material and methods {#sec-backdatamm}
@@ -14,9 +8,9 @@ format: html
 
 {{< include Material_and_methods_sales_of_antibiotics.qmd >}}
 
-{{< include MM_resistance_humans.qmd >}}
-
 {{< include MM_resistance_in_bacteria_from_animals.qmd >}}
 
 {{< include Svarm_2000_2024.qmd >}}
+
+
 

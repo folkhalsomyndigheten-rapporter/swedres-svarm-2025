@@ -8,7 +8,6 @@ execute:
   echo: false
   warnings: false
   error: false
-#bibliography: ../../references.bib
 ---
 
 ```{r}
@@ -17,7 +16,7 @@ execute:
 #| warning: false
 #| message: false
 source("../../_common.R")
-status(type = "polishing")
+status(type = "ready2publish")
 ```
 
 ## Indicator bacteria from animals
@@ -32,7 +31,7 @@ Samples from horses were sent to SVA for analyses of intestinal parasites in the
 
 Samples of meat originating from outside the EU were collected at border control posts under the supervision of the National Food Agency (SLV). All approved border control posts were engaged in the sampling, and at each post the first eligible meat sample of each meat category was sampled. Thereafter, a predefined number of consignments, based on numbers from previous years, were randomly selected for sampling. The exact meat lots to be sampled were randomly selected by the sampling personnel at the border control posts. Samples were kept refrigerated before being sent to SVA for culture on the day of collection or the following day.
 
-All samples analysed for indicator *E. coli* from pigs and pig and cattle meat were also screened for ESC-resistant *E. coli* using selective culture on cefotaxime-supplemented media. For details on the methodology see Material and methods, resistance in bacteria from animals (@sec-mmr). 
+All samples analysed for indicator *E. coli* from pigs and pig and cattle meat were also screened for ESC-resistant *E. coli* using selective culture on cefotaxime-supplemented media. For details on the methodology see @sec-mmr - [Material and methods, Resistance in bacteria from animals](#sec-mmr). 
 
 ### *Escherichia coli*
 #### Pigs
@@ -64,7 +63,7 @@ tab_439a$table
 data <- load_from_excel(path_file = "data/Table 4.39 Resistance and multiresistance in indicator Escherichia coli.xlsx",  sheet = "multiresistance")
 df <- data$fig_data
 df |>
-  make_table_data_tab(file_name = "tab439a")
+  make_table_data_tab(file_name = "Table4-36")
 ```
 :::
 
@@ -94,7 +93,7 @@ tab_439b$table
 data <- load_from_excel(path_file = "data/Table 4.39 Resistance and multiresistance in indicator Escherichia coli.xlsx",  sheet = "resistance")
 df <- data$fig_data
 df |>
-  make_table_data_tab(file_name = "tab439b")
+  make_table_data_tab(file_name = "Table4-37")
 ```
 :::
 
@@ -119,7 +118,7 @@ make_mic_gt(data = tbl$data,
 data <- load_from_excel(path_file = "data/Table 4.40 Distribution of MICs and resistance in Escherichia coli.xlsx")
 df <- data$fig_data
 df |>
-  make_table_data_tab(file_name = "tab440")
+  make_table_data_tab(file_name = "Table4-38")
 ```
 :::
 
@@ -163,15 +162,16 @@ p <- df |>
   scale_x_continuous(labels = scales::percent_format(),
                      expand = c(0,0)) +
   scale_y_discrete(expand=c(0,0)) +
-  scale_fill_SweSva() +
+  #scale_fill_SweSva() +
     guides(fill=guide_legend(nrow=3)) +
 
-  #scale_fill_manual(
-  #  values = c("Susceptible to all tested substances" = RColorBrewer::brewer.pal(9, "Set1")[3],
-  #             "Resistant to 1 or 2 tested substances" = RColorBrewer::brewer.pal(9, "Set1")[6],
-  #             "Resistant to ≥3 tested substances" = RColorBrewer::brewer.pal(9, "Set1")[1])) +
+  scale_fill_manual(
+    values = c("Susceptible to all tested substances" = "#009284",
+               "Resistant to 1 or 2 tested substances" = "#ffcc00",
+               "Resistant to ≥3 tested substances" = "#CC1423"
+               )) +
   labs(x = "Proportion (%)", 
-       y = "Animals") +
+       y = "Species") +
   theme_SweSva() +
    theme(axis.text.y = element_text(hjust=1),
         plot.margin = margin(0, .4, 0, 0, "cm"),  # Top, Right, Bottom, Left
@@ -185,21 +185,21 @@ p <- df |>
 
   add_sva_caption()
 
-make_dynamic_plot(plot = p, filename = "fig-413-ind")
+make_dynamic_plot(plot = p, filename = "Fig4-14")
 ```
 
 ###### Data
 ```{r}
 df  |> 
-  make_table_data_tab()
+  make_table_data_tab(file_name = "Fig4-14")
 ```
 :::
 
 From an international perspective, levels of resistance in *E. coli* from pigs are low in Sweden. The proportion of isolates susceptible to all tested antibiotics has been relatively stable in recent years (68% in 2015, 71% in 2017, 71% in 2019, 64% in 2021, 73% in 2023 and 68% in 2025). However, for some substances, the situation has become less favourable (@fig-414). More specifically, the occurrence of resistance to ampicillin, sulphonamides and trimethoprim in *E. coli* from pigs has increased considerably since 2008, and the occurrence of resistance to tetracycline has increased since 2017. 
 
-Regarding substances in category B (“Restrict”) of the AMEG classification [@ema2019categorisation], resistance to polymyxins (colistin) has been tested for since 2011 but has never been detected (@fig-414). Resistance to quinolones and third-generation cephalosporins (ceftiofur 2000-2005, cefotaxime 2005-2012, and cefotaxime as well as ceftazidime from 2013 onwards) has remained stable at low rates. In 2025, none of the isolates were resistant to cefotaxime or ceftazidime.  
+Regarding substances in category B (“Restrict”) of the AMEG classification [@ema2025categorisation], resistance to polymyxins (colistin) has been tested for since 2011 but has never been detected (@fig-414). Resistance to quinolones and third-generation cephalosporins (ceftiofur 2000-2005, cefotaxime 2005-2012, and cefotaxime as well as ceftazidime from 2013 onwards) has remained stable at low rates. In 2025, none of the isolates were resistant to cefotaxime or ceftazidime.  
 
-However, using the more sensitive selective culture method, ESC-resistant *E. coli* was isolated from six (2%) of 301 samples. In five of these isolates (2%), transferable genes for resistance to ESC were found. Two isolates had the *bla*~CTX-M-15~ gene, one the *bla*~CTX-M-14~ gene, one the *bla*~CTX-M-55~ gene and one the *bla*~SHV-12~ gene. The remaining isolate had an AmpC phenotype and genome sequencing of these isolates revealed mutations causing hyper-production of AmpC beta-lactamases, i.e. a shift from C to T at position 42. For more details and comments on occurrence of resistance to ESC, see Antibiotic resistance in animals, Notifiable diseases (@sec-notifiable).  
+However, using the more sensitive selective culture method, ESC-resistant *E. coli* was isolated from six (2%) of 301 samples. In five of these isolates (2%), transferable genes for resistance to ESC were found. Two isolates had the *bla*~CTX-M-15~ gene, one the *bla*~CTX-M-14~ gene, one the *bla*~CTX-M-55~ gene and one the *bla*~SHV-12~ gene. The remaining isolate had an AmpC phenotype and genome sequencing of these isolates revealed mutations causing hyper-production of AmpC beta-lactamases, i.e. a shift from C to T at position 42. For more details and comments on occurrence of resistance to ESC, see @sec-notifiable - [Antibiotic resistance in animals, Notifiable diseases](#sec-notifiable).  
 
 ::: {.panel-tabset}
 
@@ -248,7 +248,7 @@ df_plot <- bind_rows(df_common, df_critical) |>
     data_id = paste(panel, Antimicrobial, year, sep = "_"),
     tooltip_l = glue::glue('{Antimicrobial}'),
     tooltip_p = glue::glue("<b>Panel:</b> {panel}<br>", "<b>Antimicrobial:</b> {Antimicrobial}<br>", 
-                         "<b>Year:</b> {year}<br>",  "<b>Percent resistance:</b> {round(value, 1)}%"))
+                         "<b>Year:</b> {year}<br>",  "<b>Resistance:</b> {round(value, 1)}%"))
 
 yrs <- sort(unique(prep_antimicrobial_trend_data(x$fig_data)$year))
 
@@ -265,17 +265,18 @@ p <- ggplot(df_plot,
   scale_x_continuous(breaks = yrs, minor_breaks = NULL) +
   scale_color_SweSva() +
   labs(x = "Year",
-       y = "Percent resistance (%)", color = NULL) +
+       y = "Resistance (%)", color = NULL) +
   theme_SweSva() +
   theme_SweSva_rotate() +
-  #theme(axis.text.x = element_text(angle = 45, hjust = 1, vjust = 1)) +
+  theme_SweSva_facet()+
+  theme(plot.subtitle = element_text(vjust = -15)) + 
   add_sva_caption()
 
-make_dynamic_plot(plot = p, filename = "fig-414", height = 10)
+make_dynamic_plot(plot = p, filename = "Fig4-15", height = 10)
 
 ```
 
-###### Figure alternativ
+###### Figure (alternative)
 
 ```{r}
 data <- load_from_excel("data/Fig 4.14 Resistance in Escherichia coli from fattening pigs.xlsx")
@@ -295,16 +296,18 @@ df <- data$fig_data |>
 ```
 
 ```{r}
-#| label: fig-414-alt
-#| fig-cap: !expr glue::glue("{data$fig_cap}")
-#| fig-alt: !expr glue::glue("{data$fig_alt}")
+##| fig-cap: !expr glue::glue("{data$fig_cap}")
+##| fig-alt: !expr glue::glue("{data$fig_alt}")
 #| warning: false
+#| fig-cap: "Resistance (%) for the most common resistances in *Escherichia coli* from fattening pigs 2000-2025. The number of isolates each year varies (n=140-390, 2025 n=172)."
+#| fig-alt: "Line and dot plot showing yearly resistance percentages."
+
 
 p <- df |>
   dplyr::mutate(data_id = paste(category, Antimicrobial, year, sep = "_"),
     tooltip_l = glue::glue('{Antimicrobial}'),
     tooltip_p = glue::glue("<b>Panel:</b> {category}<br>", "<b>Antimicrobial:</b> {Antimicrobial}<br>",
-                         "<b>Year:</b> {year}<br>",  "<b>Percent resistance:</b> {round(value, 1)}%")) |>
+                         "<b>Year:</b> {year}<br>",  "<b>Resistance:</b> {round(value, 1)}%")) |>
 
   ggplot(aes(x = factor(year),
                 y = value,
@@ -323,13 +326,13 @@ p <- df |>
   scale_x_discrete(expand=c(0,0.2)) + 
   scale_color_SweSva() +
   labs(x = "Year",
-       y = "Percent resistance (%)") +
+       y = "Resistance (%)") +
   theme_SweSva() +
   theme_SweSva_facet() +
   add_sva_caption() +
   theme(plot.subtitle = element_text(vjust = -15))
 
-make_dynamic_plot(plot = p, filename = "fig-414", height = 10)
+make_dynamic_plot(plot = p, filename = "Fig4-15alt")
 ```
 
 
@@ -340,7 +343,7 @@ all_ab <- x$fig_data[[1]] |> as.character() |> trimws()
 df_all <- prep_antimicrobial_trend_data(fig_data = x$fig_data, antimicrobials_keep = all_ab)
 df_all <- df_all |> dplyr::select(-value_raw)
 df_all |>
-  make_table_data_tab(file_name = "tab440")
+  make_table_data_tab(file_name = "Fig4-15")
 ```
 :::
 
@@ -369,11 +372,11 @@ make_mic_gt(data = tbl$data,
 data <- load_from_excel(path_file = "data/Table 4.41 Indicator coli horses.xlsx")
 df <- data$fig_data
 df |>
-  make_table_data_tab(file_name = "tab441")
+  make_table_data_tab(file_name = "Table4-39")
 ```
 :::
 
 #### Meat
 *Escherichia coli* was isolated from two of twelve cattle meat samples collected at the border control posts, whereas none of the three pig meat samples were positive. The detected *E. coli* isolates originated from two of four sampled cattle meat consignments. Both isolates from cattle meat were susceptible to all tested antibiotics.  
 
-This was the third time that the occurrence of resistance among indicator *E. coli* from meat sampled at border control posts was assessed in Svarm. Although little resistance has been detected thus far, the small number of recovered isolates each year limits the conclusions that can be drawn from these results. None of the isolates were resistant to cefotaxime or ceftazidime. Using a more sensitive selective culture method with cefotaxime in the agar, ESC-resistant *E. coli* was isolated from one sample of fresh cattle and pig meat. The isolates carried the *bla*~CTX-M-27~ and *bla*~DHA-1~ genes, respectively. For more details and comments on occurrence of resistance to ESC, see Antibiotic resistance in animals, Notifiable diseases (@sec-notifiable). 
+This was the third time that the occurrence of resistance among indicator *E. coli* from meat sampled at border control posts was assessed in Svarm. Although little resistance has been detected thus far, the small number of recovered isolates each year limits the conclusions that can be drawn from these results. None of the isolates were resistant to cefotaxime or ceftazidime. Using a more sensitive selective culture method with cefotaxime in the agar, ESC-resistant *E. coli* was isolated from one sample of fresh cattle and pig meat. The isolates carried the *bla*~CTX-M-27~ and *bla*~DHA-1~ genes, respectively. For more details and comments on occurrence of resistance to ESC, see @sec-notifiable - [Antibiotic resistance in animals, Notifiable diseases](#sec-notifiable). 

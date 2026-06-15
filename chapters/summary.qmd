@@ -13,18 +13,6 @@ status(type = "ready2publish")
 
 # Summary {.unnumbered}
 
-Sweden has had a favourable situation compared to many other countries regarding antibiotic resistance in bacteria from humans for a long time, and this remains the case. One reason is that Sweden has effective strategies to promote the responsible use of antibiotics and limit the spread of antibiotic resistance.
-
-Nevertheless, there is an increase in reported cases of notifiable antibiotic-resistant bacteria. This highlights the importance of continuous and consistent work with antibiotic stewardship and infection prevention and control, in healthcare as well as in the community. In healthcare, there are recurring outbreaks of vancomycin-resistant enterococci and an increasing number of healthcare-associated clusters of ESBL~CARBA~. To prevent healthcare-associated infections, it is crucial that basic hygiene routines are followed and that infection control measures are applied consistently in healthcare settings.
-
-The spread of antibiotic resistance also occurs in the community. In addition to the community spread of MRSA that has been seen over a longer period of time, there are now signs of community spread of ESBL~CARBA~. This emphasises the importance of working with a whole-of-society approach. For example, [Antibiotikasmart Sverige](https://www.folkhalsomyndigheten.se/antibiotikasmart-sverige/){target="_blank"} aims to support everyone — individuals, businesses and decision-makers at various levels — to act antibiotic-smart. 
-
-Antibiotic sales in human medicine in Sweden dropped sharply during the pandemic but rose in 2022 and 2023. In 2024, sales were largely unchanged compared to the previous year. In 2025, sales decreased compared to the previous year and remain below pre-pandemic levels. Antibiotic sales have generally declined since the peak in 1992, with the largest decrease during this period observed in children aged 0–4 years.
-
-In veterinary medicine, antibiotic sales have decreased sharply since the mid-1980s and have stabilised at a relatively low level in recent years. However, sales of aminoglycosides for group treatment have increased significantly since 2022, which is explained by an increased need for treatment of post-weaning diarrhoea in pigs following the withdrawal in 2022 of preventive veterinary medicinal products with a high content of zinc oxide.
-
-Furthermore, the occurrence of resistance among bacteria from animals has generally been low and stable. For some substances and bacteria, the occurrence has even decreased over time. One such example is ESBL-producing *Escherichia coli* in broilers. However, there are exceptions; for example, the occurrence of resistance to ampicillin, sulphonamides and trimethoprim has increased in randomly selected *E. coli* from both broilers and slaughter pigs.
-
 :::{.callout-note}
 ## Key findings 2025
 
@@ -54,15 +42,29 @@ Furthermore, the occurrence of resistance among bacteria from animals has genera
 
 :::
 
+Sweden has had a favourable situation compared to many other countries regarding antibiotic resistance in bacteria from humans for a long time, and this remains the case. One reason is that Sweden has effective strategies to promote the responsible use of antibiotics and limit the spread of antibiotic resistance.
+
+Nevertheless, there is an increase in reported cases of notifiable antibiotic-resistant bacteria. This highlights the importance of continuous and consistent work with antibiotic stewardship and infection prevention and control, in healthcare as well as in the community. In healthcare, there are recurring outbreaks of vancomycin-resistant enterococci and an increasing number of healthcare-associated clusters of ESBL~CARBA~. To prevent healthcare-associated infections, it is crucial that basic hygiene routines are followed and that infection control measures are applied consistently in healthcare settings.
+
+The spread of antibiotic resistance also occurs in the community. In addition to the community spread of MRSA that has been seen over a longer period of time, there are now signs of community spread of ESBL~CARBA~. This emphasises the importance of working with a whole-of-society approach. For example, [Antibiotikasmart Sverige](https://www.folkhalsomyndigheten.se/antibiotikasmart-sverige/){target="_blank"} aims to support everyone — individuals, businesses and decision-makers at various levels — to act antibiotic-smart. 
+
+Antibiotic sales in human medicine in Sweden dropped sharply during the pandemic but rose in 2022 and 2023. In 2024, sales were largely unchanged compared to the previous year. In 2025, sales decreased compared to the previous year and remain below pre-pandemic levels. Antibiotic sales have generally declined since the peak in 1992, with the largest decrease during this period observed in children aged 0–4 years.
+
+In veterinary medicine, antibiotic sales have decreased sharply since the mid-1980s and have stabilised at a relatively low level in recent years. However, sales of aminoglycosides for group treatment have increased significantly since 2022, which is explained by an increased need for treatment of post-weaning diarrhoea in pigs following the withdrawal in 2022 of preventive veterinary medicinal products with a high content of zinc oxide.
+
+Furthermore, the occurrence of resistance among bacteria from animals has generally been low and stable. For some substances and bacteria, the occurrence has even decreased over time. One such example is ESBL-producing *Escherichia coli* in broilers. However, there are exceptions; for example, the occurrence of resistance to ampicillin, sulphonamides and trimethoprim has increased in randomly selected *E. coli* from both broilers and slaughter pigs.
+
+
+
 ## Sales of antibiotics
 
 ### Antibiotic sales in human medicine
 
-The total amount of antibiotics sold in Sweden decreased by 2.8% in 2025 and now stands at 10.67 DDD per 1,000 inhabitants and day, which is approximately the same as the previous year. This includes all antibiotic sales in human medicine. It includes all antibiotics sold on prescription to individuals and on requisition to various healthcare facilities.
+The total amount of antibiotics sold in Sweden decreased by 2.8% in 2025 and now stands at 10.67 DDD per 1 000 inhabitants and day, which is approximately the same as the previous year. This includes all antibiotic sales in human medicine. It includes all antibiotics sold on prescription to individuals and on requisition to various healthcare facilities.
 
 ### Outpatient care
 
-The number of antibiotic prescriptions dispensed at pharmacies during the year was 256 prescriptions per 1,000 inhabitants, a decrease of 5.7% compared to 2024. Among the country's 21 regions, 9 regions achieved the national target of a maximum of 250 prescriptions per 1,000 inhabitants. Sales decreased in all age groups, most notably in the group of children aged 5–14 years, where it decreased by 22% compared to the previous year.
+The number of antibiotic prescriptions dispensed at pharmacies during the year was 256 prescriptions per 1 000 inhabitants, a decrease of 5.7% compared to 2024. Among the country's 21 regions, 9 regions achieved the national target of a maximum of 250 prescriptions per 1 000 inhabitants. Sales decreased in all age groups, most notably in the group of children aged 5–14 years, where it decreased by 22% compared to the previous year.
 
 Antibiotic sales on prescription in dental care decreased by 2.6% in 2025 compared to the previous year, accounting for 7.0% of all dispensed antibiotic prescriptions during the year. Since 2007, antibiotic sales in dental care have decreased by almost half.
 
@@ -72,7 +74,7 @@ Total sales of antibiotics on requisition to healthcare facilities increased in 
 
 ### Antibiotic sales in veterinary medicine
 
-Sales of antibiotics for animals from pharmacies in Sweden amounted to 9,053 kilograms in 2025. Since 2016, sales of most antibiotic classes have decreased or remained stable. However, compared to previous years, sales of aminoglycosides have increased significantly since 2022, although the increase between 2024 and 2025 was more limited. The increase is explained by rising use of aminoglycosides for the treatment of post-weaning diarrhoea as a result of the withdrawal of veterinary medicinal products with a high content of zinc oxide in 2022. Compared to 2024, sales of aminopenicillins also increased, mainly due to increased sales for poultry, and to a lesser extent for pigs, dogs and cats.
+Sales of antibiotics for animals from pharmacies in Sweden amounted to 9 053 kilograms in 2025. Since 2016, sales of most antibiotic classes have decreased or remained stable. However, compared to previous years, sales of aminoglycosides have increased significantly since 2022, although the increase between 2024 and 2025 was more limited. The increase is explained by rising use of aminoglycosides for the treatment of post-weaning diarrhoea as a result of the withdrawal of veterinary medicinal products with a high content of zinc oxide in 2022. Compared to 2024, sales of aminopenicillins also increased, mainly due to increased sales for poultry, and to a lesser extent for pigs, dogs and cats.
 
 Of the total use in 2025, approximately 57% was narrow-spectrum penicillin. Sales of antibiotics that should be used particularly restrictively (fluoroquinolones, third-generation cephalosporins and polymyxins) were already low in 2016 and have since decreased substantially. Over the same ten-year period, the proportion of products for the treatment of individual animals has been around or above 90% of total sales.
 
@@ -92,9 +94,9 @@ ESBL-producing Enterobacterales in humans have been notifiable since 2007. It is
 
 #### Results 2025, Enterobacterales with ESBL
 
-- Number of reported cases: 13,524 (previous year 12,527), relative change: 8.0% increase.
+- Number of reported cases: 13 524 (previous year 12 527), relative change: 8.0% increase.
 
-- Number of bloodstream infections: 1,149 (previous year 1,055).
+- Number of bloodstream infections: 1 149 (previous year 1 055).
 
 - As in previous years, *E. coli* was the most common species at 83%, followed by *Klebsiella pneumoniae* at 12%.
 
@@ -108,7 +110,7 @@ ESBL-producing Enterobacterales in humans have been notifiable since 2007. It is
 
 - *E. coli* was the most common species, at 70%, followed by *K. pneumoniae*, at 25%.
 
-- The number of *E. coli* from blood cultures that were resistant to meropenem was 8 out of 10,571, compared to 5 out of 10,499 in 2024.
+- The number of *E. coli* from blood cultures that were resistant to meropenem was 8 out of 10 571, compared to 5 out of 10 499 in 2024.
 
 Seventy-five clusters, with between two and twenty-one cases each, have been identified using whole genome sequencing. Among the 75 clusters, there are also 28 clusters that had one or more cases before 2025. For 29 of the clusters, one or more cases were reported as healthcare-associated infections in Sweden in 2025, compared to 27 in 2024.
 
@@ -128,7 +130,7 @@ Community-acquired infection has long been the most common type in humans infect
 
 #### Results 2025
 
-- Number of reported cases: 4,147 (previous year 3,937), relative change: 5% increase.
+- Number of reported cases: 4 147 (previous year 3,937), relative change: 5% increase.
 
 - Number of bloodstream infections: 131 (previous year 123).
 
@@ -197,7 +199,7 @@ All data for these compilations are collected automatically via Svebar, a collab
 
 - The proportion of *S. pneumoniae* with penicillin resistance (PRP) from blood cultures was 8.0%.
 
-- *Clostridioides difficile*: The incidence has been relatively stable since 2018 and is now at 60 cases per 100,000 inhabitants and year. Antibiotic resistance was not investigated in 2025.
+- *Clostridioides difficile*: The incidence has been relatively stable since 2018 and is now at 60 cases per 100 000 inhabitants and year. Antibiotic resistance was not investigated in 2025.
 
 
 ## Resistance in clinical isolates from animals

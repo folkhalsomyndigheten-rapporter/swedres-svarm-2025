@@ -1,0 +1,201 @@
+---
+toc: true
+---
+
+```{r}
+#| results: "asis"
+#| echo: false
+#| warning: false
+#| message: false
+source("../_common.R")
+status(type = "ready2publish")
+```
+
+
+# Sammanfattning {.unnumbered}
+
+:::{.callout-note}
+## Viktiga fynd 2025
+
+- Den totala antibiotikaförsäljningen inom humanmedicinen i Sverige minskade med 2,8 procent under 2025 jämfört med 2024.  
+
+- Försäljningen av antibiotika inom tandvården minskade med 2,6 procent under samma period. 
+
+- Antibiotikaförsäljningen inom öppenvården minskade jämfört med året innan och försäljningen av antibiotika på rekvisition till vårdinrättningar ökade under samma period.  
+
+- Sedan 2020 används resistens mot cefotaxim hos *Escherichia coli* (ESBL) och andelen meticillinresistenta *Staphylococcus aureus* (MRSA) isolerade från blod som indikatorer på antibiotikaresistens i Sverige. Både andelen MRSA och andelen *E. coli* som är resistenta mot cefotaxim har långsamt ökat under en tioårsperiod till nuvarande 2,4 respektive 9,0 procent. 
+
+- Antalet rapporterade fall ökade för anmälningspliktiga bakterier med antibiotikaresistens.  
+
+- För ESBL~CARBA~, anmäldes 487 fall, mot 410 år 2024 varav sjuttiofem kluster eller parvis relaterade fall identifierades under 2025 (2–21 fall per kluster). För 29 av de 75 klustren, fanns ett eller flera fall rapporterat som vårdrelaterad smitta i Sverige 2025.  
+
+- För vankomycinresistenta enterokocker förekom sju större (10–80 fall) och tjugonio mindre (2–5 fall) sjukhusrelaterade smittspridningar under 2025. 
+
+- Antal fall av *Neisseria gonorrhoeae* har ökat under en 10-års period.  Resistensen mot cefixim är fortsatt låg men har ökat till 0,7 procent sedan 2024. För fjärde året i rad identifierades ceftriaxon resistenta isolat i Sverige. 
+
+- Försäljningen av antibiotika för användning till djur var stabilt låg och dominerades av penicillin med smalt spektrum. 
+
+- Under året isolerades MRSA från gris i en studie med selektiva odlingsmetoder och sporadiskt i kliniska prov från djurslagen hund, häst och katt.  
+
+- ESBL-bildande *E. coli* är generellt sett ovanliga hos både lantbrukets djur och sällskapsdjur samt på kött.  
+
+- Bakterier som bildar ESBL~CARBA~ har inte bekräftats hos tamdjur i Sverige. 
+
+:::
+
+Under lång tid har Sverige haft en gynnsam situation jämfört med många andra länder när det gäller antibiotikaresistens hos bakterier från människor och det läget kvarstår fortfarande. En av anledningarna är att vi har effektiva strategier för att främja en ansvarsfull användning av antibiotika och begränsa spridningen av antibiotikaresistens.  
+
+Trots det ses en ökning av rapporterade fall av anmälningspliktiga antibiotikaresistenta bakterier och det visar på vikten av ett kontinuerligt och konsekvent arbete mot antibiotikaresistens inom Strama, vårdhygien och smittskydd. Inom sjukvården ses återkommande utbrott av vankomycinresistenta enterokocker och ett ökande antal vårdrelaterade kluster av ESBL~CARBA~. För att förebygga vårdrelaterade infektioner är det avgörande att basala hygienrutiner efterlevs och att smittskyddsåtgärder tillämpas konsekvent i vårdmiljöer. 
+
+Spridning av antibiotikaresistens sker även ute i samhället. Förutom spridning i samhället av MRSA som setts under en längre tid ser vi nu tecken på samhällsspridning av ESBL~CARBA~. Detta betonar vikten av att fortsatt arbeta brett med frågan genom till exempel [Antibiotikasmart Sverige](https://www.folkhalsomyndigheten.se/antibiotikasmart-sverige/){target="_blank"} som syftar till att stödja alla i samhället att agera antibiotikasmart – individer, verksamheter och beslutsfattare på olika nivåer.  
+
+Antibiotikaförsäljningen inom humanmedicinen i Sverige sjönk markant under pandemin, men steg under 2022 och 2023. Under 2024 var försäljningen i stort sett oförändrad jämfört med föregående år. Under 2025 minskade försäljningen jämfört med året innan och ligger fortfarande under prepandemiska nivåer. Antibiotikaförsäljningen har minskat generellt sedan toppen i 1992 och störst minskning under denna period observerades hos barn i åldrarna 0–4 år.  
+
+Inom veterinärmedicinen har antibiotikaförsäljningen minskat kraftigt sedan mitten av åttiotalet för att de senare åren ha stabiliserats på en jämförelsevis låg nivå. Försäljningen av aminoglykosider för gruppbehandling har dock ökat påtagligt sedan 2022, vilket förklaras av ett ökat behov av behandling av avvänjningsdiarré hos gris efter tillbakadragandet under 2022 av förebyggande veterinärmedicinska läkemedel med hög halt av zinkoxid. 
+
+Vidare har förekomsten av resistens bland bakterier från djur generellt sett varit stabilt låg. För vissa substanser och bakterier har förekomsten över tid till och med minskat. Ett sådant exempel är ESBL-bildande *Escherichia coli* hos slaktkyckling. Det finns dock undantag, exempelvis har förekomsten av resistens mot ampicillin, sulfonamider och trimetoprim ökat hos slumpmässigt utvalda *E. coli* hos såväl slaktkyckling som slaktgris. 
+
+
+## Försäljning av antibiotika 
+
+### Antibiotikaförsäljning inom humanmedicin 
+
+Den totala mängden antibiotika som såldes i Sverige minskade med 2,8 procent under 2025 och ligger nu på 10,67 DDD per 1 000 invånare och dag som är ungefär samma som året innan. I detta innefattas all antibiotikaförsäljning inom human medicin. Det inkluderar all antibiotika som sålts på recept till individer och på rekvisition till olika vårdinrättningar. 
+
+### Öppenvård 
+
+Antalet antibiotikarecept som hämtades ut på apotek under året låg på 256 recept per 1 000 invånare, en minskning med 5,7 procent jämfört med 2024. Bland landets 21 regioner uppnådde 9 regioner det nationella målet på högst 250 recept per 1 000 invånare. Försäljningen minskade i samtliga åldersgrupper, mest i gruppen barn i åldern 5–14 år där den minskade med 22 procent jämfört med året innan.  
+
+Försäljningen av antibiotika på recept inom tandvården minskade med 2,6 procent under 2025 jämfört med året innan, och utgör 7,0 procent av alla uthämtade antibiotikarecept under året. Sedan år 2007 har antibiotikaförsäljningen inom tandvården minskat med nästan hälften. 
+
+### Sjukhus och andra vårdformer 
+
+Den totala försäljningen av antibiotika på rekvisition till vårdinrättningar ökade under 2025 med 2,5 procent jämfört med 2024. 
+
+### Antibiotikaförsäljning inom veterinärmedicin 
+
+Försäljningen av antibiotika för djur från apotek i Sverige uppgick 2025 till 9 053 kilogram. Sedan 2016 har försäljningen av de flesta antibiotikaklasser minskat eller förblivit stabil. Jämfört med tidigare år har dock försäljningen av aminoglykosider ökat påtagligt sedan 2022, även om ökningen mellan 2024 och 2025 var mer begränsad. Ökningen förklaras av stigande användning av aminoglykosider för behandling av avvänjningsdiarré som en följd av tillbakadragandet under 2022 av veterinärmedicinska läkemedel med hög halt av zinkoxid. Jämfört med 2024 ökade även försäljningen av aminopenicilliner, framförallt på grund av ökad försäljning för fjäderfä, samt i mindre omfattning för gris, hund och katt. 
+
+Av den totala användningen 2025 var cirka 57 procent penicillin med smalt spektrum. Försäljningen av antibiotika som bör användas särskilt restriktivt (fluorokinoloner, tredje generationens cefalosporiner och polymyxiner) var redan låg 2016 och har sedan dess minskat väsentligt. Under samma tioårsperiod har andelen produkter för behandling av enstaka djur varit omkring eller över 90 procent av den totala försäljningen.   
+
+Den totala försäljningen av antibiotika för djur har minskat med över två tredjedelar sedan 1986, när användningen av tillväxtbefrämjande antibiotika upphörde. Detta är korrigerat för att antalet djur av olika arter har förändrats genom åren. Under 90-talet minskade användningen av antibiotika som läkemedel till hela djurgrupper, och under de senaste två decennierna ses också en minskad användning av antibiotika för behandling av enstaka djur.  
+
+### Jämförelse av försäljning inom human- och veterinärmedicin 
+
+Under 2025 såldes 61,7 ton antibiotika för behandling av människor och 9,0 ton för behandling av djur (inkluderar inte produkter för intramammärt eller intrauterint bruk). Uttryckt i relation till kroppsvikt (milligram aktiv substans per skattad kilogram biomassa) var försäljningen 86,5 milligram per kilogram för människor och 11,8 milligram per kilogram för djur.  
+
+## Anmälningspliktig resistens 
+
+### ESBL-bildande Enterobacterales, människa  
+
+ESBL-bildande Enterobacterales hos människor har varit anmälningspliktigt sedan 2007. Det är den vanligaste av de anmälningspliktiga resistenstyperna. 
+
+### Resultat 2025, Enterobacterales med ESBL 
+
+- Antal rapporterade fall: 13 524 (föregående år 12 527), relativ förändring: 8,0 procent ökning.  
+
+- Antal fall med blodförgiftning: 1 149 (föregående år 1 055).  
+
+- Som tidigare år var *E. coli* den vanligaste arten, 83 procent, följt av *Klebsiella pneumoniae*, 12 procent. 
+
+- Andelen *E. coli* från blododling som var resistenta mot tredje generationens cefalosporiner var 9,0 procent.  
+
+### Resultat 2025, Enterobacterales med ESBL~CARBA~
+
+- Antal rapporterade fall: 487 (föregående år 410), relativ förändring: 19 procent ökning.  
+
+- Antal fall med blodförgiftning: 36 (föregående år 22).  
+
+- *E. coli* var den vanligaste arten, 70 procent, följt av *K. pneumoniae*, 25 procent. 
+
+- Antalet *E. coli* från blododling som var resistenta mot meropenem var 8 av 10 571, jämfört med 5 av 10 499 under 2024. 
+
+Sjuttiofem kluster, med mellan två och tjugoen fall vardera, har identifierats med helgenomsekvensering. Bland de 75 klustren ingår även 28 kluster som haft ett eller flera fall innan 2025. För 29 av klustren, fanns ett eller flera fall rapporterat som vårdrelaterad smitta i Sverige 2025, jämfört med 27 under 2024. 
+
+### ESBL-bildande Enterobacterales, djur 
+
+Bakterier som bildar ESBL är inte anmälningspliktiga vid fynd hos djur. Sådana bakterier är generellt sett ovanliga hos djur i Sverige. Tidigare var förekomsten hos slaktkyckling hög men den har minskat under senare år. Under 2025 undersöktes förekomsten av ESBL-bildande *E. coli* i tarmprov från slaktgris och slaktkyckling samt från köttprov från gris och nöt med selektiva metoder. 
+
+Sådana bakterier hittades i 2 procent av tarmproven från slaktgris och <1 procent av köttproven av gris- respektive nötkött men inte i några av proven av tarmproven från slaktkyckling.  
+
+Bakterier som bildar ESBL~CARBA~ har inte bekräftats hos tamdjur i Sverige. 
+
+### *Staphylococcus aureus* resistenta mot meticillin (MRSA), människa 
+
+Samhällsförvärvad smitta är sedan länge den vanligaste typen hos människor smittade med MRSA i Sverige, med hälften av fallen. Familje-/hushållssmitta och samhällsförvärvad smitta utgjorde 25 procent respektive 23 procent av fallen. 
+
+#### Resultat 2025 
+
+- Antal rapporterade fall: 4 147 (föregående år 3 937), relativ förändring: 5 procent ökning.  
+
+- Antal fall med blodförgiftning: 131 (föregående år 123).   
+
+### *Staphylococcus aureus* resistenta mot meticillin (MRSA), djur 
+
+Under året isolerades MRSA från gris i en studie med selektiva odlingsmetoder och sporadiskt i kliniska prov från djurslagen hund, häst och katt. Förekomsten hos gris är otillräckligt undersökt men i en studie med provtagning av slaktgrisar på slakteri och selektiva odlingsmetoder påvisades MRSA i 29 procent av undersökta slaktgrupper. Hur väl detta reflekterar förekomsten på gård är inte känt. Hos hund och katt var antalet MRSA-fall 10 respektive 6. De typer som dominerar hos dessa är samma som hittas hos människor, vilket tyder på att människor är smittkällan. Hos häst var antalet MRSA-fall 7 vilket är lägre än åren 2020–21 (27 respektive 23 fall), då det förekom utbrott av MRSA på hästsjukhus. 
+
+### *Staphylococcus pseudintermedius* resistenta mot meticillin (MRSP), djur 
+
+Under 2025 var antalet anmälda fall av meticillinresistenta *Staphylococcus pseudintermedius* (MRSP) hos djur på ungefär samma nivå som de senaste åren. Totalt anmäldes 45 fall av MRSP till Jordbruksverket, varav 43 fall från hund samt ett från katt och ett från marsvin. Samtliga isolat utom ett fanns tillgängliga för vidare undersökning. De första åren efter att MRSP hade hittats hos djur i Sverige var i princip alla fall av en viss sekvenstyp (ST71). På senare år förekommer fler olika sekvenstyper, (22 olika 2025) varav ST551 är den vanligaste. 
+
+MRSP är inte anmälningspliktig vid förekomst hos människor. 
+
+### *Streptococcus pneumoniae* resistenta mot penicillin (PRP), människa 
+
+#### Resultat 2025 
+
+- Antal rapporterade fall: 211 (föregående år 148), relativ förändring: 43 procent ökning.  
+
+- Antal fall med blodförgiftning: 13 (föregående år 12).  
+
+### *Enterococcus faecium* och *Enterococcus faecalis* resistenta mot vankomycin (VRE), människa 
+
+Antalet fall av VRE varierar kraftigt mellan år beroende på hur många och hur stora smittspridningar som förekommit på sjukhus. 
+
+#### Resultat 2025 
+
+- Antal rapporterade fall: 516 (föregående år 390), relativ förändring: 32 procent ökning.  
+
+- Antal rapporterade fall av *E. faecium* med vankomycinresistens: 502 (föregående år 372), relativ förändring: 35 procent ökning.  
+
+- Antal rapporterade fall av *E. faecalis* med vankomycinresistens: 14 (föregående år 18).  
+
+- Åtta fall av VRE rapporterades med både *E. faecium* och *E. faecalis*.  
+
+- Antal fall med blodförgiftning: 10 (föregående år 6). 
+
+Under året pågick åtta större sjukhusrelaterade utbrott med 10–37 fall vardera. Dessutom rapporterades om tjugonio smittspridningar med 2–5 fall vardera. 
+
+## Resistens hos zoonotiska bakterier 
+
+*Salmonella* är ovanligt hos djur i Sverige och isolerade stammar är oftast känsliga för antibiotika. Resistens mot fluorokinoloner är ovanlig. Bland 108 isolat från djur 2025 var 85 procent känsliga för alla testade antibiotika. För *Salmonella* arter var resistensen bland faeces- och urinisolat från människor högst mot fluorokinoloner, 21 procent. Ingen resistens mot karbapenemer rapporterades bland *Salmonella* från djur. *Salmonella* från invasiva infektioner hos människor är mer ofta resistenta än isolat från djur i Sverige. Detta beror troligen på att en stor andel av fallen hos människor är smittade utomlands eller via importerade livsmedel.  
+
+*Campylobacter* från djur i Sverige är oftast känsliga för relevanta antibiotika och exempelvis är resistens mot erytromycin mycket ovanligt. Hos *Campylobacter jejuni* från människor var resistensen mot ciprofloxacin 56 procent och mot tetracyklin 30 procent 2025. Resistensen mot erytromycin var 0,8 procent. 
+
+Vanligtvis behandlas inte infektioner som orsakas av *Salmonella* eller *Campylobacter* med antibiotika, hos varken människor eller djur. Hos människor resistensbestäms därför endast en liten andel av isolaten, varav de flesta gäller allvarliga infektioner. 
+
+## Resistens hos kliniska isolat från människor 
+
+Alla data för dessa sammanställningar samlas in automatiserat via Svebar, ett samarbete mellan de kliniskt mikrobiologiska laboratorierna och Folkhälsomyndigheten. 
+
+- *E. coli*: Resistens hos blodisolat mot ceftazidim och cefotaxim var 8,1 respektive 9,0 procent. Resistens mot ciprofloxacin var 15 respektive 12 procent hos isolat från blod respektive urin, ett observandum vid val av empirisk behandling av febril urinvägsinfektion. 
+
+- Vid ålders- och könsfördelning av resultat för *E. coli* från urin ses vissa skillnader mellan grupperna. Speciellt tydligt är den höga ciprofloxacin-resistensen (16–20 procent) hos män, 20 år och äldre. 
+
+- *K. pneumoniae*: Resistens hos blodisolat mot cefotaxim och ceftazidim var 11 procent för respektive antibiotika.  Liksom för *E. coli* är resistensen mot ciprofloxacin nu relativt hög, 15 respektive 12 procent hos isolat från blod och urin. 
+
+- *S. aureus*: Resistens mot cefoxitin (som indikerar MRSA) hos isolat från blod har minskat till 2,4 procent, från 2,6 procent 2024. För prover från hud- och mjukdelar var cefoxitinresistensen 2,9 procent.   
+
+- *E. faecalis* och *E. faecium*: Vankomycin resistensen hos isolat från blod var 0,1 respektive 2,2 procent. För *E. faecium* fortsätter ökningen av höggradig aminoglykosidresistens sedan 2022.
+
+- Andelen *S. pneumoniae* med penicillinresistens (PRP) från blododling var 8,0 procent. 
+
+- *Clostridioides difficile*: Incidensen har legat relativt stabilt sedan 2018 och ligger nu på 60 fall per 100 000 invånare och år. Antibiotikaresistens har inte undersökts 2025. 
+
+## Resistens hos kliniska isolat från djur 
+
+Bakterier som orsakar sjukdom hos djur är fortfarande oftast känsliga för de antibiotika som vanligen används. Till exempel är bakterier som orsakar luftvägsinfektioner hos lantbrukets djur och hästar generellt känsliga för bensylpenicillin men resistens förekommer exempelvis hos Pasteurella multocida från kalv. Penicillinresistens är däremot vanligt hos *Staphylococcus pseudintermedius* från hundar och förekommer hos *S. aureus* från hästar samt *Staphylococcus felis* från katter. Resistens hos *E. coli* från olika djurslag förekommer också och är vanligast hos isolat från träckprover från unga grisar. Resistensundersökning är motiverat för val av lämpligt antibiotikum vid behandling, särskilt för *E. coli* och *Brachyspira* spp. 
+
+## Indikatorbakterier från friska djur 
+
+Resistens hos *E. coli* i tarmfloran hos friska djur kan användas som indikator för utbredningen av antibiotikaresistens hos bakteriefloran i en djurpopulation och indirekt som indikator på omfattningen av antibiotikaanvändning till djuren. I Sverige är förekomsten av resistens hos dessa indikatorbakterier låg hos de flesta undersökta djurslagen och situationen är gynnsam ur ett internationellt perspektiv. Till exempel var 79 respektive 68 procent av *E. coli* från friska slaktkycklingar och slaktgrisar i de senast gjorda undersökningarna känsliga för alla testade substanser. 

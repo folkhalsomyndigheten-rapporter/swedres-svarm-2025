@@ -101,61 +101,6 @@ div.csl-indent {
 <style>html{ scroll-behavior: smooth; }</style>
 
 
-               
-
-<!-- Konfigurera Content Security Policy (CSP)
-
-Mål: Blockera externa script och skydda mot XSS-attacker.
-
-Hur?
-
-
-
-
-
-Lägg till CSP i era HTML-filer:
-
-
-
-I er anpassade header.html (eller direkt i Quarto-dokumenten)
-
-
-
--->
-
-<meta http-equiv="Content-Security-Policy" content="default-src 'self';
-
-               script-src 'self' 'unsafe-inline';
-
-               style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
-
-               img-src 'self' data:;
-
-               font-src 'self' https://fonts.gstatic.com;">
-
-
-
-<!-- 
-
-Förklaring:
-
-
-
-'self': Tillåter endast resurser från er egen domän.
-
-'unsafe-inline': Tillåter inline-script och -stilar (nödvändigt för htmlwidgets).
-
-data:: Tillåter data-URL:er (t.ex. för bilder i diagram).
-
-connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
-
-
-
-
-
--->               
-
-
 <link rel="stylesheet" href="styles.css">
 </head>
 
@@ -330,7 +275,7 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./references.html">Appendices</a></li><li class="breadcrumb-item"><a href="./references.html">References</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./references.html">References</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -397,7 +342,7 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./chapters/samanfattning.html" class="sidebar-item-text sidebar-link">
+  <a href="./chapters/sammanfattning.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Sammanfattning</span></a>
   </div>
 </li>
@@ -535,6 +480,12 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
 </li>
       </ul>
   </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" role="navigation" aria-expanded="true">
@@ -544,12 +495,6 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
           </a> 
       </div>
       <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./references.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">References</span></a>
-  </div>
-</li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapters/technical.html" class="sidebar-item-text sidebar-link">
@@ -570,7 +515,7 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./references.html">Appendices</a></li><li class="breadcrumb-item"><a href="./references.html">References</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">References</h1>
 </div>
@@ -589,436 +534,457 @@ connect-src 'none': Blockera alla externa anslutningar (t.ex. till API:er).
 </header>
 
 
-<div id="refs" class="references csl-bib-body" role="list">
-<div id="ref-pxweb" class="csl-entry" role="listitem">
-<div class="csl-left-margin">1. </div><div class="csl-right-inline">Magnusson M, Kainu M, Huovari J, Lahti L.
-Pxweb: R tools for PX-WEB API. 2019. </div>
-</div>
-<div id="ref-eucast2025breakpoints" class="csl-entry" role="listitem">
-<div class="csl-left-margin">2. </div><div class="csl-right-inline">European Committee on Antimicrobial
-Susceptibility Testing (EUCAST). Breakpoint tables for interpretation of
-<span>MICs</span> and zone diameters [Internet]. Växjö, Sweden: European
-Committee on Antimicrobial Susceptibility Testing; 2025. Available from:
-<a href="https://www.eucast.org/fileadmin/src/media/PDFs/EUCAST_files/Breakpoint_tables/v_15.0_Breakpoint_Tables.pdf">https://www.eucast.org/fileadmin/src/media/PDFs/EUCAST_files/Breakpoint_tables/v_15.0_Breakpoint_Tables.pdf</a></div>
-</div>
-<div id="ref-Wilson1927" class="csl-entry" role="listitem">
-<div class="csl-left-margin">3. </div><div class="csl-right-inline">Wilson EB. Probable inference, the law of
-succession, and statistical inference. Journal of the American
-Statistical Association. 1927;22(158):209–12. </div>
-</div>
-<div id="ref-FOHM2026" class="csl-entry" role="listitem">
-<div class="csl-left-margin">4. </div><div class="csl-right-inline">Folkhälsomyndigheten. Smittsamma sjukdomar –
-statistik [Internet]. Folkhälsomyndigheten; <a href="https://www.folkhalsomyndigheten.se/statistik-och-data/hitta-statistik-och-data/smittsamma-sjukdomar-statistik/" class="uri">https://www.folkhalsomyndigheten.se/statistik-och-data/hitta-statistik-och-data/smittsamma-sjukdomar-statistik/</a>;
-2025. Available from: <a href="https://www.folkhalsomyndigheten.se/statistik-och-data/hitta-statistik-och-data/smittsamma-sjukdomar-statistik/">https://www.folkhalsomyndigheten.se/statistik-och-data/hitta-statistik-och-data/smittsamma-sjukdomar-statistik/</a></div>
-</div>
-<div id="ref-ECDC2023" class="csl-entry" role="listitem">
-<div class="csl-left-margin">5. </div><div class="csl-right-inline">European Centre for Disease Prevention and
-Control. Antimicrobial consumption in the <span>EU/EEA</span>
-(<span>ESAC-Net</span>) – annual epidemiological report 2022 [Internet].
-European Centre for Disease Prevention; Control; 2023. Available from:
-<a href="https://www.ecdc.europa.eu/sites/default/files/documents/AER-antimicrobial-consumption.pdf">https://www.ecdc.europa.eu/sites/default/files/documents/AER-antimicrobial-consumption.pdf</a></div>
-</div>
-<div id="ref-Strama2016" class="csl-entry" role="listitem">
-<div class="csl-left-margin">6. </div><div class="csl-right-inline">Strama. Stramas mål för antibiotikaanvändning
-inom öppen vård [Internet]. Strama; 2016. Available from: <a href="http://strama.se/wp-content/uploads/2016/04/Stramas-mal-for-antibiotikaanvandningen-beskrivning.pdf">http://strama.se/wp-content/uploads/2016/04/Stramas-mal-for-antibiotikaanvandningen-beskrivning.pdf</a></div>
-</div>
-<div id="ref-Strama2026" class="csl-entry" role="listitem">
-<div class="csl-left-margin">7. </div><div class="csl-right-inline">Strama. Bristsituationer [Internet]. Strama;
-2026. Available from: <a href="https://strama.se/behandlingsrekommendationer/bristsituationer/">https://strama.se/behandlingsrekommendationer/bristsituationer/</a></div>
-</div>
-<div id="ref-EMA2019" class="csl-entry" role="listitem">
-<div class="csl-left-margin">8. </div><div class="csl-right-inline">European Medicines Agency. Disabling and
-potentially permanent side effects lead to suspension or restrictions of
-quinolone and fluoroquinolone antibiotics [Internet]. European Medicines
-Agency; 2019. Available from: <a href="https://www.ema.europa.eu/en/medicines/human/referrals/quinolone-fluoroquinolone-containing-medicinal-products">https://www.ema.europa.eu/en/medicines/human/referrals/quinolone-fluoroquinolone-containing-medicinal-products</a></div>
-</div>
-<div id="ref-Lakemedelsverket2008" class="csl-entry" role="listitem">
-<div class="csl-left-margin">9. </div><div class="csl-right-inline">Läkemedelsverket. Farmakologisk behandling av
-nedre luftvägsinfektioner i öppen vård [Internet]. Läkemedelsverket;
-2008. Available from: <a href="https://www.lakemedelsverket.se/48ff44/globalassets/dokument/behandling-och-forskrivning/behandlingsrekommendationer/behandlingsrekommendation/behandlingsrekommendation-antibiotika-vid-nedre-luftvagsinfektion.pdf">https://www.lakemedelsverket.se/48ff44/globalassets/dokument/behandling-och-forskrivning/behandlingsrekommendationer/behandlingsrekommendation/behandlingsrekommendation-antibiotika-vid-nedre-luftvagsinfektion.pdf</a></div>
-</div>
-<div id="ref-Lakemedelsverket2017" class="csl-entry" role="listitem">
-<div class="csl-left-margin">10. </div><div class="csl-right-inline">Läkemedelsverket. Läkemedelsbehandling av
-urinvägsinfektioner i öppenvård – behandlingsrekommendation [Internet].
-Läkemedelsverket; 2017. Available from: <a href="https://www.lakemedelsverket.se/48d71b/globalassets/dokument/behandling-och-forskrivning/behandlingsrekommendationer/behandlingsrekommendation/behandlingsrekommendation-lakemedel-urinvagsinfektioner.pdf">https://www.lakemedelsverket.se/48d71b/globalassets/dokument/behandling-och-forskrivning/behandlingsrekommendationer/behandlingsrekommendation/behandlingsrekommendation-lakemedel-urinvagsinfektioner.pdf</a></div>
-</div>
-<div id="ref-WHO2025" class="csl-entry" role="listitem">
-<div class="csl-left-margin">11. </div><div class="csl-right-inline">World Health Organization. AWaRe classification
-[Internet]. Geneva: World Health Organization; 2025. Available from: <a href="https://www.who.int/publications/i/item/B09489">https://www.who.int/publications/i/item/B09489</a></div>
-</div>
-<div id="ref-EUCouncil2023" class="csl-entry" role="listitem">
-<div class="csl-left-margin">12. </div><div class="csl-right-inline">Council of the European Union. Council
-recommendation on stepping up <span>EU</span> actions to combat
-antimicrobial resistance in a one health approach [Internet]. Council of
-the European Union; 2023. Available from: <a href="https://data.consilium.europa.eu/doc/document/ST-9581-2023-INIT/en/pdf">https://data.consilium.europa.eu/doc/document/ST-9581-2023-INIT/en/pdf</a></div>
-</div>
-<div id="ref-SwedishGovernment2026" class="csl-entry" role="listitem">
-<div class="csl-left-margin">13. </div><div class="csl-right-inline">Government Offices of Sweden. Sveriges strategi
-för att begränsa antibiotikaresistens 2026–2035 (sweden’s strategy to
-curb antimicrobial resistance 2026–2035) [Internet]. Government Offices
-of Sweden; 2026. Available from: <a href="https://www.government.se/contentassets/efa443680a8b48b79ddc24932e277e27/eng-amr_strategi-webb.pdf">https://www.government.se/contentassets/efa443680a8b48b79ddc24932e277e27/eng-amr_strategi-webb.pdf</a></div>
-</div>
-<div id="ref-chen2025fastp" class="csl-entry" role="listitem">
-<div class="csl-left-margin">14. </div><div class="csl-right-inline">Chen S. Fastp 1.0: An ultra-fast all-round tool
-for FASTQ data quality control and preprocessing. iMeta. 2025;4(e70078).
-</div>
-</div>
-<div id="ref-mlst" class="csl-entry" role="listitem">
-<div class="csl-left-margin">15. </div><div class="csl-right-inline">Seemann T. Mlst github [Internet]. Available
-from: <a href="https://github.com/tseemann/mlst">https://github.com/tseemann/mlst</a></div>
-</div>
-<div id="ref-jolley2018open-access" class="csl-entry" role="listitem">
-<div class="csl-left-margin">16. </div><div class="csl-right-inline"><span class="nocase">Jolley K, Bray J, et
-al.</span> Open-access bacterial population genomics: BIGSdb software,
-the PubMLST.org website and their applications. Wellcome Open Research.
-2018;3(124). </div>
-</div>
-<div id="ref-ECDC2025CDTR49" class="csl-entry" role="listitem">
-<div class="csl-left-margin">17. </div><div class="csl-right-inline">European Centre for Disease Prevention and
-Control. Communicable disease threats report, 29 <span>November</span> -
-5 <span>December</span> 2025, week 49 [Internet]. European Centre for
-Disease Prevention; Control; 2025. Available from: <a href="https://www.ecdc.europa.eu/en/publications-data/communicable-disease-threats-report-29-november-5-december-2025-week-49">https://www.ecdc.europa.eu/en/publications-data/communicable-disease-threats-report-29-november-5-december-2025-week-49</a></div>
-</div>
-<div id="ref-ema2025sales2024" class="csl-entry" role="listitem">
-<div class="csl-left-margin">18. </div><div class="csl-right-inline">EMA. European sales and use of antimicrobials
-for veterinary medicine (ESUAvet). Annual surveillance report for 2024.
-2025; Available from: <a href="https://www.ema.europa.eu/en/documents/report/european-sales-use-antimicrobials-veterinary-medicine-annual-surveillance-report-2024_en.pdf">https://www.ema.europa.eu/en/documents/report/european-sales-use-antimicrobials-veterinary-medicine-annual-surveillance-report-2024_en.pdf</a></div>
-</div>
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
 <div id="ref-arosenius2025NNPD" class="csl-entry" role="listitem">
-<div class="csl-left-margin">19. </div><div class="csl-right-inline"><span class="nocase">Arosenius H, Backhans A,
-et al.</span> Bacteriological investigations of suspected NNPD cases in
-sweden. In Proceedings: 15th European Symposium of Porcine Health
-management, Bern, Switzerland, May 21-23. 2025; </div>
+<span class="nocase">Arosenius, H, A Backhans, et al.</span> 2025.
+<span>“Bacteriological Investigations of Suspected NNPD Cases in
+<span>Sweden</span>.”</span> <em>In Proceedings: 15th European Symposium
+of Porcine Health Management, Bern, Switzerland, May 21-23</em>.
 </div>
 <div id="ref-backhans2023mycoplasmabovis" class="csl-entry" role="listitem">
-<div class="csl-left-margin">20. </div><div class="csl-right-inline"><span class="nocase">Backhans A, Hurri E, et
-al.</span> Nytt från SvarmPat: Få behandlingsalternativ mot mycoplasma
-bovis. Svensk Vet Tidn. 2023;3:53. </div>
+<span class="nocase">Backhans, A, E Hurri, et al.</span> 2023.
+<span>“Nytt Från SvarmPat: Få Behandlingsalternativ Mot
+&lt;i&gt;<span>Mycoplasma Bovis</span>&lt;/i&gt; [<span>News</span> from
+SvarmPat: Limited Treatment Options for &lt;i&gt;<span>Mycoplasma
+Bovis</span>&lt;/i&gt;].”</span> <em>Svensk Veterinärtidning</em> 3: 53.
 </div>
 <div id="ref-backhans2020svindysenteri" class="csl-entry" role="listitem">
-<div class="csl-left-margin">21. </div><div class="csl-right-inline">Backhans A, Lindberg M. Spåren av svindysenteri
-kan följas med genteknik. Grisföretagaren. 2020;2:18–9. </div>
+Backhans, A, and M Lindberg. 2020. <span>“Spåren Av Svindysenteri Kan
+Följas Med Genteknik [<span>The</span> Traces of Swine Dysentery Can Be
+Followed Using Genetic Techniques].”</span> <em>Grisföretagaren</em> 2:
+18–19.
 </div>
 <div id="ref-bengtsson2017high" class="csl-entry" role="listitem">
-<div class="csl-left-margin">22. </div><div class="csl-right-inline"><span class="nocase">Bengtsson B, Persson L, et
-al.</span> High occurrence of mecC-MRSA in wild hedgehogs (erinaceus
-europaeus) in sweden. Veterinary Microbiology. 2017;207:103–7. </div>
+<span class="nocase">Bengtsson, B, L Persson, et al.</span> 2017.
+<span>“High Occurrence of mecC-MRSA in Wild Hedgehogs
+(&lt;i&gt;<span>Erinaceus Europaeus</span>&lt;/i&gt;) in
+<span>Sweden</span>.”</span> <em>Veterinary Microbiology</em> 207:
+103–7.
 </div>
 <div id="ref-bharat2022correlation" class="csl-entry" role="listitem">
-<div class="csl-left-margin">23. </div><div class="csl-right-inline"><span class="nocase">Bharat A, Petkau A, et
-al.</span> Correlation between phenotypic and in silico detection of
-antimicrobial resistance in salmonella enterica in canada using staramr.
-Microorganisms. 2022;10:292. </div>
+<span class="nocase">Bharat, A, A Petkau, et al.</span> 2022.
+<span>“Correlation Between Phenotypic and in Silico Detection of
+Antimicrobial Resistance in &lt;i&gt;<span>Salmonella
+Enterica</span>&lt;/i&gt; in <span>Canada</span> Using
+<span>Staramr</span>.”</span> <em>Microorganisms</em> 10: 292.
 </div>
 <div id="ref-bolinger2017" class="csl-entry" role="listitem">
-<div class="csl-left-margin">24. </div><div class="csl-right-inline">Bolinger H, Kathariou S. The current state of
-macrolide resistance in campylobacter spp.: Trends and impact of
-resistance mechanisms. Applied and Environmental Microbiology.
-2017;83:e00416–17. </div>
+Bolinger, H, and S Kathariou. 2017. <span>“The Current State of
+Macrolide Resistance in &lt;i&gt;<span>Campylobacter</span>&lt;/i&gt;
+Spp.: Trends and Impact of Resistance Mechanisms.”</span> <em>Applied
+and Environmental Microbiology</em> 83: e00416–17.
 </div>
 <div id="ref-borjesson2020low" class="csl-entry" role="listitem">
-<div class="csl-left-margin">25. </div><div class="csl-right-inline"><span class="nocase">Börjesson S, Gunnarsson L,
-et al.</span> Low occurrence of extended-spectrum cephalosporinase
-producing enterobacteriaceae and no detection of methicillin-resistant
-coagulase-positive staphylococci in healthy dogs in sweden. Acta
-Veterinaria Scandinavica. 2020;62(1):18. </div>
+<span class="nocase">Börjesson, S, L Gunnarsson, et al.</span> 2020.
+<span>“Low Occurrence of Extended-Spectrum Cephalosporinase Producing
+<span>Enterobacteriaceae</span> and No Detection of
+Methicillin-Resistant Coagulase-Positive Staphylococci in Healthy Dogs
+in <span>Sweden</span>.”</span> <em>Acta Veterinaria Scandinavica</em>
+62 (1): 18.
 </div>
 <div id="ref-borjesson2016limited" class="csl-entry" role="listitem">
-<div class="csl-left-margin">26. </div><div class="csl-right-inline"><span class="nocase">Börjesson S, Ny S, et
-al.</span> Limited dissemination of extended-spectrum beta-lactamase-
-and plasmid-encoded AmpC-producing escherichia coli from food and farm
-animals, sweden. Emerging Infectious Diseases. 2016;22:634–40. </div>
+<span class="nocase">Börjesson, S, S Ny, et al.</span> 2016.
+<span>“Limited Dissemination of Extended-Spectrum Beta-Lactamase- and
+Plasmid-Encoded AmpC-Producing &lt;i&gt;<span>Escherichia
+Coli</span>&lt;/i&gt; from Food and Farm Animals,
+<span>Sweden</span>.”</span> <em>Emerging Infectious Diseases</em> 22:
+634–40.
+</div>
+<div id="ref-chen2025fastp" class="csl-entry" role="listitem">
+Chen, S. 2025. <span>“Fastp 1.0: An Ultra-Fast All-Round Tool for FASTQ
+Data Quality Control and Preprocessing.”</span> <em>iMeta</em> 4
+(e70078).
 </div>
 <div id="ref-clsi2015methods" class="csl-entry" role="listitem">
-<div class="csl-left-margin">27. </div><div class="csl-right-inline">CLSI. Methods for antimicrobial dilution and
-susceptibility testing of infrequently isolated or fastidious bacteria;
-approved guideline - third edition CLSI guideline M45 Ed3. Wayne, PA,
-USA: Clinical; Laboratory Standards Institute; 2015. </div>
+Clinical and Laboratory Standards Institute (CLSI). 2015. <em>Methods
+for Antimicrobial Dilution and Susceptibility Testing of Infrequently
+Isolated or Fastidious Bacteria; Approved Guideline - Third Edition CLSI
+Guideline M45 Ed3</em>. Wayne, PA, USA.
 </div>
 <div id="ref-clsi2020a" class="csl-entry" role="listitem">
-<div class="csl-left-margin">28. </div><div class="csl-right-inline">CLSI. Methods for antimicrobial broth dilution
-and disk diffusion susceptibility testing of bacteria isolated from
-aquatic animals; second edition VET03 Ed2. Wayne, PA, USA: Clinical;
-Laboratory Standards Institute; 2020. </div>
+Clinical and Laboratory Standards Institute (CLSI). 2020a. <em>Methods
+for Antimicrobial Broth Dilution and Disk Diffusion Susceptibility
+Testing of Bacteria Isolated from Aquatic Animals; Second Edition VET03
+Ed2</em>. Wayne, PA, USA.
 </div>
 <div id="ref-clsi2020b" class="csl-entry" role="listitem">
-<div class="csl-left-margin">29. </div><div class="csl-right-inline">CLSI. Performance standards for antimicrobial
-susceptibility testing of bacteria isolated from aquatic animals; third
-edition VET04 Ed3. Wayne, PA, USA: Clinical; Laboratory Standards
-Institute; 2020. </div>
-</div>
-<div id="ref-clsi2024a" class="csl-entry" role="listitem">
-<div class="csl-left-margin">30. </div><div class="csl-right-inline">CLSI. Performance standards for antimicrobial
-disk and dilution susceptibility tests for bacteria isolated from
-animals; sixth edition CLSI standard VET01 Ed6. Wayne, PA, USA:
-Clinical; Laboratory Standards Institute; 2024. </div>
+Clinical and Laboratory Standards Institute (CLSI). 2020b.
+<em>Performance Standards for Antimicrobial Susceptibility Testing of
+Bacteria Isolated from Aquatic Animals; Third Edition VET04 Ed3</em>.
+Wayne, PA, USA.
 </div>
 <div id="ref-clsi2024b" class="csl-entry" role="listitem">
-<div class="csl-left-margin">31. </div><div class="csl-right-inline">CLSI. Performance standards for antimicrobial
-disk and dilution susceptibility tests for bacteria isolated from
-animals; seventh edition CLSI supplement VET01S Ed7. Wayne, PA, USA:
-Clinical; Laboratory Standards Institute; 2024. </div>
+Clinical and Laboratory Standards Institute (CLSI). 2024a.
+<em>Performance Standards for Antimicrobial Disk and Dilution
+Susceptibility Tests for Bacteria Isolated from Animals; Seventh Edition
+CLSI Supplement VET01S Ed7</em>. Wayne, PA, USA.
 </div>
-<div id="ref-cvmp2009reflection" class="csl-entry" role="listitem">
-<div class="csl-left-margin">32. </div><div class="csl-right-inline">CVMP. Reflection paper on MRSA in food
-producing and companion animals in the european union: Epidemiology and
-control options for human and animal health. 2009; Available from: <a href="https://www.emea.europa.eu">www.emea.europa.eu</a></div>
+<div id="ref-clsi2024a" class="csl-entry" role="listitem">
+Clinical and Laboratory Standards Institute (CLSI). 2024b.
+<em>Performance Standards for Antimicrobial Disk and Dilution
+Susceptibility Tests for Bacteria Isolated from Animals; Sixth Edition
+CLSI Standard VET01 Ed6</em>. Wayne, PA, USA.
 </div>
-<div id="ref-debeen2014dissemination" class="csl-entry" role="listitem">
-<div class="csl-left-margin">33. </div><div class="csl-right-inline"><span class="nocase">Been M de, Lanza V, et
-al.</span> Dissemination of cephalosporin resistance genes between
-escherichia coli strains from farm animals and humans by specific
-plasmid lineages. PLoS Genetics. 2014;10:e1004776. </div>
+<div id="ref-EUCouncil2023" class="csl-entry" role="listitem">
+Council of the European Union. 2023. <em>Council Recommendation on
+Stepping up <span>EU</span> Actions to Combat Antimicrobial Resistance
+in a One Health Approach</em>. Recommendation. <a href="https://data.consilium.europa.eu/doc/document/ST-9581-2023-INIT/en/pdf">https://data.consilium.europa.eu/doc/document/ST-9581-2023-INIT/en/pdf</a>.
 </div>
-<div id="ref-efsa2009scientific" class="csl-entry" role="listitem">
-<div class="csl-left-margin">34. </div><div class="csl-right-inline">EFSA. Scientific opinion of the panel on
-biological hazards on a request from the european commission on
-assessment of the public health significance of meticillin resistant
-staphylococcus aureus (MRSA) in animals and foods. EFSA Journal.
-2009;993:1–73. </div>
+<div id="ref-ECDC2023" class="csl-entry" role="listitem">
+European Centre for Disease Prevention and Control (ECDC). 2023.
+<em>Antimicrobial Consumption in the <span>EU/EEA</span>
+(<span>ESAC-Net</span>) – Annual Epidemiological Report 2022</em>. <a href="https://www.ecdc.europa.eu/sites/default/files/documents/AER-antimicrobial-consumption.pdf">https://www.ecdc.europa.eu/sites/default/files/documents/AER-antimicrobial-consumption.pdf</a>.
 </div>
-<div id="ref-efsa2011scientific" class="csl-entry" role="listitem">
-<div class="csl-left-margin">35. </div><div class="csl-right-inline">EFSA. Scientific opinion on the public health
-risks of bacterial strains producing extended-spectrum beta-lactamases
-and/or AmpC beta-lactamases in food and food-producing animals. EFSA
-Journal. 2011;9:2322. </div>
-</div>
-<div id="ref-ema2011trends" class="csl-entry" role="listitem">
-<div class="csl-left-margin">36. </div><div class="csl-right-inline">EMA. Trends in the sales of veterinary
-antimicrobial agents in nine european countries (2005-2009). 2011;
-Available from: <a href="https://www.ema.europa.eu/en/documents/report/trends-sales-veterinary-antimicrobial-agents-nine-european-countries_en.pdf">www.ema.europa.eu/en/documents/report/trends-sales-veterinary-antimicrobial-agents-nine-european-countries_en.pdf</a></div>
-</div>
-<div id="ref-ema2019categorisation" class="csl-entry" role="listitem">
-<div class="csl-left-margin">37. </div><div class="csl-right-inline">EMA. Categorisation of antibiotics in the
-european union. Answer to the request from the european commission for
-updating the scientific advice on the impact on public health and animal
-health of the use of antibiotics in animals. 2019; Available from: <a href="https://www.ema.europa.eu/en/documents/report/categorisation-antibiotics-european-union-answer-request-european-commission-updating-scientific_en.pdf">www.ema.europa.eu/en/documents/report/categorisation-antibiotics-european-union-answer-request-european-commission-updating-scientific_en.pdf</a></div>
-</div>
-<div id="ref-ema2025categorisation" class="csl-entry" role="listitem">
-<div class="csl-left-margin">38. </div><div class="csl-right-inline">EMA. Categorisation of antibiotics in the
-european union: Answer to the request from the european commission for
-updating the scientific advice on the impact on public health and animal
-health of the use of antibiotics in animals. 2025; Available from: <a href="https://www.ema.europa.eu/en/documents/report/categorisation-antibiotics-european-union-answer-request-european-commission-updating-scientific-advice-impact-public-health-animal-health-use-antibiotics-animals_en.pdf">https://www.ema.europa.eu/en/documents/report/categorisation-antibiotics-european-union-answer-request-european-commission-updating-scientific-advice-impact-public-health-animal-health-use-antibiotics-animals_en.pdf</a></div>
+<div id="ref-ECDC2025CDTR49" class="csl-entry" role="listitem">
+European Centre for Disease Prevention and Control (ECDC). 2025.
+<em>Communicable Disease Threats Report, 29 <span>November</span> - 5
+<span>December</span> 2025, Week 49</em>. Weekly Report. <a href="https://www.ecdc.europa.eu/en/publications-data/communicable-disease-threats-report-29-november-5-december-2025-week-49">https://www.ecdc.europa.eu/en/publications-data/communicable-disease-threats-report-29-november-5-december-2025-week-49</a>.
 </div>
 <div id="ref-eu2021reg578" class="csl-entry" role="listitem">
-<div class="csl-left-margin">39. </div><div class="csl-right-inline">European Commission. Commission delegated
-regulation (EU) 2021/578 of 29 january 2021 supplementing regulation
-(EU) 2019/6 of the european parliament and of the council with regard to
-requirements for the collection of data on the volume of sales and on
-the use of antimicrobial medicinal products in animals. 2021; Available
-from: <a href="https://eur-lex.europa.eu/eli/reg_del/2021/578/oj">https://eur-lex.europa.eu/eli/reg_del/2021/578/oj</a></div>
+European Commission. 2021. <em>Commission Delegated Regulation (EU)
+2021/578 of 29 January 2021 Supplementing <span class="nocase">Regulation (EU) 2019/6 of the European Parliament and of
+the Council</span> with Regard to Requirements for the Collection of
+Data on the Volume of Sales and on the Use of Antimicrobial Medicinal
+Products in Animals</em>. <a href="https://eur-lex.europa.eu/eli/reg_del/2021/578/oj">https://eur-lex.europa.eu/eli/reg_del/2021/578/oj</a>.
+</div>
+<div id="ref-eucast2025breakpoints" class="csl-entry" role="listitem">
+European Committee on Antimicrobial Susceptibility Testing (EUCAST).
+2025. <em>Breakpoint Tables for Interpretation of <span>MICs</span> and
+Zone Diameters</em>. Version 15.0. <a href="https://www.eucast.org/fileadmin/src/media/PDFs/EUCAST_files/Breakpoint_tables/v_15.0_Breakpoint_Tables.pdf">https://www.eucast.org/fileadmin/src/media/PDFs/EUCAST_files/Breakpoint_tables/v_15.0_Breakpoint_Tables.pdf</a>.
+</div>
+<div id="ref-efsa2009scientific" class="csl-entry" role="listitem">
+European Food Safety Authority (EFSA). 2009. <span>“Scientific Opinion
+of the Panel on Biological Hazards on a Request from the <span>European
+Commission</span> on Assessment of the Public Health Significance of
+Meticillin Resistant &lt;i&gt;<span>Staphylococcus
+Aureus</span>&lt;/i&gt; (MRSA) in Animals and Foods.”</span> <em>EFSA
+Journal</em> 993: 1–73.
+</div>
+<div id="ref-efsa2011scientific" class="csl-entry" role="listitem">
+European Food Safety Authority (EFSA). 2011. <span>“Scientific Opinion
+on the Public Health Risks of Bacterial Strains Producing
+Extended-Spectrum Beta-Lactamases and/or AmpC Beta-Lactamases in Food
+and Food-Producing Animals.”</span> <em>EFSA Journal</em> 9: 2322.
+</div>
+<div id="ref-ema2011trends" class="csl-entry" role="listitem">
+European Medicines Agency (EMA). 2011. <em>Trends in the Sales of
+Veterinary Antimicrobial Agents in Nine <span>European</span> Countries
+(2005–2009)</em>. Surveillance Report. <a href="https://www.ema.europa.eu/en/documents/report/trends-sales-veterinary-antimicrobial-agents-nine-european-countries_en.pdf">https://www.ema.europa.eu/en/documents/report/trends-sales-veterinary-antimicrobial-agents-nine-european-countries_en.pdf</a>.
+</div>
+<div id="ref-EMA2019" class="csl-entry" role="listitem">
+European Medicines Agency (EMA). 2019. <em>Disabling and Potentially
+Permanent Side Effects Lead to Suspension or Restrictions of Quinolone
+and Fluoroquinolone Antibiotics</em>. Referral. <a href="https://www.ema.europa.eu/en/medicines/human/referrals/quinolone-fluoroquinolone-containing-medicinal-products">https://www.ema.europa.eu/en/medicines/human/referrals/quinolone-fluoroquinolone-containing-medicinal-products</a>.
+</div>
+<div id="ref-ema2025categorisation" class="csl-entry" role="listitem">
+European Medicines Agency (EMA). 2025a. <em>Categorisation of
+Antibiotics in the <span>European Union</span>: Answer to the Request
+from the <span>European Commission</span> for Updating the Scientific
+Advice on the Impact on Public Health and Animal Health of the Use of
+Antibiotics in Animals</em>. Scientific Advice. <a href="https://www.ema.europa.eu/en/documents/report/categorisation-antibiotics-european-union-answer-request-european-commission-updating-scientific-advice-impact-public-health-animal-health-use-antibiotics-animals_en.pdf">https://www.ema.europa.eu/en/documents/report/categorisation-antibiotics-european-union-answer-request-european-commission-updating-scientific-advice-impact-public-health-animal-health-use-antibiotics-animals_en.pdf</a>.
+</div>
+<div id="ref-ema2025sales2024" class="csl-entry" role="listitem">
+European Medicines Agency (EMA). 2025b. <em>European Sales and Use of
+Antimicrobials for Veterinary Medicine (ESUAvet). Annual Surveillance
+Report for 2024</em>. <a href="https://www.ema.europa.eu/en/documents/report/european-sales-use-antimicrobials-veterinary-medicine-annual-surveillance-report-2024_en.pdf">https://www.ema.europa.eu/en/documents/report/european-sales-use-antimicrobials-veterinary-medicine-annual-surveillance-report-2024_en.pdf</a>.
 </div>
 <div id="ref-eu2019reg6" class="csl-entry" role="listitem">
-<div class="csl-left-margin">40. </div><div class="csl-right-inline">European Parliament and Council of the European
-Union. Regulation (EU) 2019/6 of the european parliament and of the
-council of 11 december 2018 on veterinary medicinal products and
-repealing directive 2001/82/EC. 2019; Available from: <a href="http://data.europa.eu/eli/reg/2019/6/oj">http://data.europa.eu/eli/reg/2019/6/oj</a></div>
+European Parliament and Council of the European Union. 2019.
+<em>Regulation (EU) 2019/6 of the <span class="nocase">European
+Parliament and of the Council</span> of 11 December 2018 on Veterinary
+Medicinal Products and Repealing Directive 2001/82/EC</em>. <a href="http://data.europa.eu/eli/reg/2019/6/oj">http://data.europa.eu/eli/reg/2019/6/oj</a>.
 </div>
 <div id="ref-fang2008molecular" class="csl-entry" role="listitem">
-<div class="csl-left-margin">41. </div><div class="csl-right-inline"><span class="nocase">Fang H, Ataker F, et
-al.</span> Molecular epidemiology of extended-spectrum beta-lactamases
-among escherichia coli isolates collected in a swedish hospital and its
-associated health care facilities from 2001 to 2006. Journal of Clinical
-Microbiology. 2008;46:707–12. </div>
+<span class="nocase">Fang, H, F Ataker, et al.</span> 2008.
+<span>“Molecular Epidemiology of Extended-Spectrum Beta-Lactamases Among
+&lt;i&gt;<span>Escherichia</span> Coli&lt;/i&gt; Isolates Collected in a
+<span>Swedish</span> Hospital and Its Associated Health Care Facilities
+from 2001 to 2006.”</span> <em>Journal of Clinical Microbiology</em> 46:
+707–12.
 </div>
 <div id="ref-feldgarden2021amrfinderplus" class="csl-entry" role="listitem">
-<div class="csl-left-margin">42. </div><div class="csl-right-inline"><span class="nocase">Feldgarden M, Brover V, et
-al.</span> AMRFinderPlus and the reference gene catalog facilitate
-examination of the genomic links among antimicrobial resistance, stress
-response, and virulence. Scientific Reports. 2021;11:12728. </div>
+<span class="nocase">Feldgarden, M, V Brover, et al.</span> 2021.
+<span>“AMRFinderPlus and the Reference Gene Catalog Facilitate
+Examination of the Genomic Links Among Antimicrobial Resistance, Stress
+Response, and Virulence.”</span> <em>Scientific Reports</em> 11: 12728.
 </div>
 <div id="ref-garcia2011meticillin" class="csl-entry" role="listitem">
-<div class="csl-left-margin">43. </div><div class="csl-right-inline"><span class="nocase">García-Álvarez L, Holden
-M, et al.</span> Meticillin-resistant staphylococcus aureus with a novel
-mecA homologue in human and bovine populations in the UK and denmark: A
-descriptive study. The Lancet Infectious Diseases. 2011;11:595–603.
+<span class="nocase">García-Álvarez, L, MT Holden, et al.</span> 2011.
+<span>“Meticillin-Resistant &lt;i&gt;<span>Staphylococcus
+Aureus</span>&lt;/i&gt; with a Novel mecA Homologue in Human and Bovine
+Populations in the UK and <span>Denmark</span>: A Descriptive
+Study.”</span> <em>The Lancet Infectious Diseases</em> 11: 595–603.
 </div>
+<div id="ref-ggiraph" class="csl-entry" role="listitem">
+Gohel, David. 2023. <em>Ggiraph: Interactive Graphics for <span class="nocase">ggplot2</span></em>. <a href="https://cran.r-project.org/package=ggiraph">https://cran.r-project.org/package=ggiraph</a>.
 </div>
-<div id="ref-ito2012guidelines" class="csl-entry" role="listitem">
-<div class="csl-left-margin">44. </div><div class="csl-right-inline"><span class="nocase">Ito T, Hiramatsu K, et
-al.</span> Guidelines for reporting novel mecA gene homologues.
-Antimicrobial Agents and Chemotherapy. 2012;56:4997–9. </div>
+<div id="ref-SwedishGovernment2026" class="csl-entry" role="listitem">
+Government Offices of Sweden. 2026. <em>Sveriges Strategi För Att
+Begränsa Antibiotikaresistens 2026–2035 [<span class="nocase">Sweden’s</span> Strategy to Curb Antimicrobial Resistance
+2026–2035]</em>. Strategy Document. <a href="https://www.government.se/contentassets/efa443680a8b48b79ddc24932e277e27/eng-amr_strategi-webb.pdf">https://www.government.se/contentassets/efa443680a8b48b79ddc24932e277e27/eng-amr_strategi-webb.pdf</a>.
+</div>
+<div id="ref-jolley2018open-access" class="csl-entry" role="listitem">
+<span class="nocase">Jolley, KA, JE Bray, et al.</span> 2018.
+<span>“Open-Access Bacterial Population Genomics: BIGSdb Software, the
+PubMLST.org Website and Their Applications.”</span> <em>Wellcome Open
+Research</em> 3 (124).
 </div>
 <div id="ref-karlsson2003antimicrobial" class="csl-entry" role="listitem">
-<div class="csl-left-margin">45. </div><div class="csl-right-inline"><span class="nocase">Karlsson M, Fellström C,
-et al.</span> Antimicrobial susceptibility testing of porcine
-brachyspira (serpulina) species isolates. Journal of Clinical
-Microbiology. 2003;41:2596–604. </div>
+<span class="nocase">Karlsson, M, C Fellström, et al.</span> 2003.
+<span>“Antimicrobial Susceptibility Testing of Porcine
+&lt;i&gt;<span>Brachyspira (Serpulina)</span>&lt;/i&gt; Species
+Isolates.”</span> <em>Journal of Clinical Microbiology</em> 41:
+2596–604.
 </div>
 <div id="ref-kizerwetter-swida2017changes" class="csl-entry" role="listitem">
-<div class="csl-left-margin">46. </div><div class="csl-right-inline"><span class="nocase">Kizerwetter-Świda M,
-Chrobak-Chmiel D, et al.</span> Changes in the population structure of
-canine methicillin-resistant staphylococcus pseudintermedius in poland.
-Veterinary Microbiology. 2017;208:106–9. </div>
+<span class="nocase">Kizerwetter-Świda, M, D Chrobak-Chmiel, et
+al.</span> 2017. <span>“Changes in the Population Structure of Canine
+Methicillin-Resistant &lt;i&gt;<span>Staphylococcus
+Pseudintermedius</span>&lt;/i&gt; in <span>Poland</span>.”</span>
+<em>Veterinary Microbiology</em> 208: 106–9.
 </div>
 <div id="ref-kizerwetter-swida2026tetracycline" class="csl-entry" role="listitem">
-<div class="csl-left-margin">47. </div><div class="csl-right-inline"><span class="nocase">Kizerwetter-Świda M,
-Chrobak-Chmiel D, et al.</span> Tetracycline resistance among canine
-methicillin-resistant staphylococcus pseudintermedius (MRSP) clinical
-isolates: Is minocycline a viable treatment option? Antibiotics.
-2026;15(9). </div>
+<span class="nocase">Kizerwetter-Świda, M, D Chrobak-Chmiel, et
+al.</span> 2026. <span>“Tetracycline Resistance Among Canine
+Methicillin-Resistant &lt;i&gt;<span>Staphylococcus
+Pseudintermedius</span>&lt;/i&gt; (MRSP) Clinical Isolates: Is
+Minocycline a Viable Treatment Option?”</span> <em>Antibiotics</em> 15
+(9).
 </div>
 <div id="ref-Kuusela2025mycoplasmabovis" class="csl-entry" role="listitem">
-<div class="csl-left-margin">48. </div><div class="csl-right-inline">Kuusela J. Nytt från SvarmPat:
-Antibiotikaanvändning vid lunginflammation orsakad av mycoplasma bovis.
-Svensk Veterinärtidning. 2025;2:43. </div>
+Kuusela, J. 2025. <span>“Nytt Från SvarmPat: Antibiotikaanvändning Vid
+Lunginflammation Orsakad Av &lt;i&gt;<span>Mycoplasma
+Bovis</span>&lt;/i&gt; [<span>News</span> from SvarmPat: Antimicrobial
+Use in Pneumonia Caused by &lt;i&gt;<span>Mycoplasma
+Bovis</span>&lt;/i&gt;].”</span> <em>Svensk Veterinärtidning</em> 2: 43.
 </div>
 <div id="ref-kyhlsgard2025slaughter" class="csl-entry" role="listitem">
-<div class="csl-left-margin">49. </div><div class="csl-right-inline">J
-K. Pathogens from pneumonic lesions in swedish pigs at slaughter -
-antibiotic susceptibility of bacteria associated with the porcine
-respiratory disease complex. 2025; Available from: <a href="https://stud.epsilon.slu.se/20905/1/kyhlsgard_j_250128.pdf">https://stud.epsilon.slu.se/20905/1/kyhlsgard_j_250128.pdf</a></div>
+Kyhlsgard, J. 2025. <span>“Pathogens from Pneumonic Lesions in
+<span>Swedish</span> Pigs at Slaughter - Antibiotic Susceptibility of
+Bacteria Associated with the Porcine Respiratory Disease
+Complex.”</span> Master’s thesis, Swedish university of agricultural
+sciences, Uppsala, Sweden. <a href="https://stud.epsilon.slu.se/20905/1/kyhlsgard_j_250128.pdf">https://stud.epsilon.slu.se/20905/1/kyhlsgard_j_250128.pdf</a>.
 </div>
 <div id="ref-larsen2022emergence" class="csl-entry" role="listitem">
-<div class="csl-left-margin">50. </div><div class="csl-right-inline"><span class="nocase">Larsen J, Raisen C, et
-al.</span> Emergence of methicillin resistance predates the clinical use
-of antibiotics. Nature. 2022;602:135–41. </div>
+<span class="nocase">Larsen, J, CL Raisen, et al.</span> 2022.
+<span>“Emergence of Methicillin Resistance Predates the Clinical Use of
+Antibiotics.”</span> <em>Nature</em> 602: 135–41.
 </div>
 <div id="ref-medical2015lakemedelsbehandling" class="csl-entry" role="listitem">
-<div class="csl-left-margin">51. </div><div class="csl-right-inline">Läkemedelsverket. Dosering av antibiotika till
-häst – rekommendation [dosage of antibiotics for horses – treatment
-recommendation]. Information från Läkemedelsverket [Internet].
-2015;26(supplement):4–16. Available from: <a href="https://www.lakemedelsverket.se/globalassets/dokument/behandling-och-forskrivning/behandlingsrekommendationer/behandlingsrekommendation/behandlingsrekommendation-antibiotika-till-hast.pdf">https://www.lakemedelsverket.se/globalassets/dokument/behandling-och-forskrivning/behandlingsrekommendationer/behandlingsrekommendation/behandlingsrekommendation-antibiotika-till-hast.pdf</a></div>
+Medical Products Agency. 2015. <span>“Dosering Av Antibiotika till Häst
+- Behandlingsrekommendation [<span>Dosage</span> of Antibiotics for
+Horses – Treatment Recommendations].”</span> <em>Information Från
+Läkemedelsverket</em> 26 (supplement): 4–16. <a href="https://www.lakemedelsverket.se/globalassets/dokument/behandling-och-forskrivning/behandlingsrekommendationer/behandlingsrekommendation/behandlingsrekommendation-antibiotika-till-hast.pdf">https://www.lakemedelsverket.se/globalassets/dokument/behandling-och-forskrivning/behandlingsrekommendationer/behandlingsrekommendation/behandlingsrekommendation-antibiotika-till-hast.pdf</a>.
 </div>
 <div id="ref-medical2022dosage" class="csl-entry" role="listitem">
-<div class="csl-left-margin">52. </div><div class="csl-right-inline">Medical Products Agency. Dosage of antibiotics
-for pigs – treatment recommendations. 2022; Available from: <a href="https://www.lakemedelsverket.se/antibiotikatillgris">www.lakemedelsverket.se/antibiotikatillgris</a></div>
+Medical Products Agency. 2022. <em>Dosering Av Antibiotika till Gris -
+Behandlingsrekommendation [<span>Dosage</span> of Antibiotics for Pigs –
+Treatment Recommendations]</em>. <a href="https://www.lakemedelsverket.se/globalassets/dokument/behandling-och-forskrivning/behandlingsrekommendationer/behandlingsrekommendation/behandlingsrekommendation-antibiotika-till-gris.pdf">https://www.lakemedelsverket.se/globalassets/dokument/behandling-och-forskrivning/behandlingsrekommendationer/behandlingsrekommendation/behandlingsrekommendation-antibiotika-till-gris.pdf</a>.
 </div>
 <div id="ref-moses2023human" class="csl-entry" role="listitem">
-<div class="csl-left-margin">53. </div><div class="csl-right-inline"><span class="nocase">Moses I, Fernandes Santos
-F, et al.</span> Human colonization and infection by staphylococcus
-pseudintermedius: An emerging and underestimated zoonotic pathogen.
-Microorganisms. 2023;11(581). </div>
+<span class="nocase">Moses, IB, F Fernandes Santos, et al.</span> 2023.
+<span>“Human Colonization and Infection by &lt;i&gt;<span>Staphylococcus
+Pseudintermedius</span>&lt;/i&gt;: An Emerging and Underestimated
+Zoonotic Pathogen.”</span> <em>Microorganisms</em> 11 (581).
 </div>
 <div id="ref-myrenas2024genomic" class="csl-entry" role="listitem">
-<div class="csl-left-margin">54. </div><div class="csl-right-inline"><span class="nocase">Myrenås M, Pedersen K, et
-al.</span> Genomic analyses of methicillin-resistant staphylococcus
-pseudintermedius from companion animals reveal changing clonal
-populations, multidrug resistance, and virulence. Antibiotics.
-2024;13(962). </div>
+<span class="nocase">Myrenås, M, K Pedersen, et al.</span> 2024.
+<span>“Genomic Analyses of Methicillin-Resistant
+&lt;i&gt;<span>Staphylococcus Pseudintermedius</span>&lt;/i&gt; from
+Companion Animals Reveal Changing Clonal Populations, Multidrug
+Resistance, and Virulence.”</span> <em>Antibiotics</em> 13 (962).
+</div>
+<div id="ref-pxweb" class="csl-entry" role="listitem">
+Nettersjö, Oscar, and Markus Öst. 2023. <em>Pxweb: Retrieve Data from
+the <span>PX-WEB</span> <span>API</span></em>. <a href="https://github.com/rOpenGov/pxweb">https://github.com/rOpenGov/pxweb</a>.
 </div>
 <div id="ref-nilsson2020decreased" class="csl-entry" role="listitem">
-<div class="csl-left-margin">55. </div><div class="csl-right-inline"><span class="nocase">Nilsson O, Börjesson S, et
-al.</span> Decreased detection of ESBL- or pAmpC-producing escherichia
-coli in broiler breeders imported into sweden. Acta Veterinaria
-Scandinavica. 2020;62:33. </div>
+<span class="nocase">Nilsson, O, S Börjesson, et al.</span> 2020.
+<span>“Decreased Detection of ESBL- or pAmpC-Producing
+&lt;i&gt;<span>Escherichia Coli</span>&lt;/i&gt; in Broiler Breeders
+Imported into <span>Sweden</span>.”</span> <em>Acta Veterinaria
+Scandinavica</em> 62: 33.
 </div>
 <div id="ref-papic2021genomic" class="csl-entry" role="listitem">
-<div class="csl-left-margin">56. </div><div class="csl-right-inline"><span class="nocase">Papić B, Golob M, et
-al.</span> Genomic insights into the emergence and spread of
-methicillin-resistant staphylococcus pseudintermedius in veterinary
-clinics. Veterinary Microbiology. 2021;258:109–19. </div>
+<span class="nocase">Papić, B, M Golob, et al.</span> 2021.
+<span>“Genomic Insights into the Emergence and Spread of
+Methicillin-Resistant &lt;i&gt;<span>Staphylococcus
+Pseudintermedius</span>&lt;/i&gt; in Veterinary Clinics.”</span>
+<em>Veterinary Microbiology</em> 258: 109–19.
 </div>
 <div id="ref-perez2002detection" class="csl-entry" role="listitem">
-<div class="csl-left-margin">57. </div><div class="csl-right-inline">Perez-Perez F, Hanson N. Detection of
-plasmid-mediated AmpC beta-lactamase genes in clinical isolates by using
-multiplex PCR. Journal of Clinical Microbiology. 2002;40:2153–62. </div>
+Perez-Perez, FJ, and ND Hanson. 2002. <span>“Detection of
+Plasmid-Mediated AmpC Beta-Lactamase Genes in Clinical Isolates by Using
+Multiplex PCR.”</span> <em>Journal of Clinical Microbiology</em> 40:
+2153–62.
 </div>
 <div id="ref-persson2021no" class="csl-entry" role="listitem">
-<div class="csl-left-margin">58. </div><div class="csl-right-inline"><span class="nocase">Persson Y, Börjesson S, et
-al.</span> No detection of methicillin-resistant staphylococcus aureus
-in dairy goats. Dairy. 2021;2:65–70. </div>
+<span class="nocase">Persson, Y, S Börjesson, et al.</span> 2021.
+<span>“No Detection of Methicillin-Resistant
+&lt;i&gt;<span>Staphylococcus Aureus</span>&lt;/i&gt; in Dairy
+Goats.”</span> <em>Dairy</em> 2: 65–70.
 </div>
 <div id="ref-Pettersson2017ex" class="csl-entry" role="listitem">
-<div class="csl-left-margin">59. </div><div class="csl-right-inline">Pettersson L. Försäljning av antibiotika för
-hund och katt i sverige under 2005 och 2006. Department of pharmacy,
-Uppsala university, Uppsala, Sweden; 2007. </div>
+Pettersson, L. 2007. <em>Försäljning Av Antibiotika För Hund Och Katt i
+<span>Sverige</span> Under 2005 Och 2006 [<span>Sales</span> of
+Antibiotics for Dogs and Cats in <span>Sweden</span> During 2005 and
+2006]</em>. Department of pharmacy, Uppsala university, Uppsala, Sweden.
+</div>
+<div id="ref-pichon2012development" class="csl-entry" role="listitem">
+<span class="nocase">Pichon, B, R Hill, et al.</span> 2012.
+<span>“Development of a Real-Time Quadruplex PCR Assay for Simultaneous
+Detection of Nuc, Panton-Valentine Leucocidin (PVL), mecA and Homologue
+mecALGA251.”</span> <em>Journal of Antimicrobial Chemotherapy</em> 67:
+2338–41.
+</div>
+<div id="ref-quarto" class="csl-entry" role="listitem">
+Posit Software, PBC. 2026. <em>Quarto</em>. <a href="https://quarto.org/">https://quarto.org/</a>.
 </div>
 <div id="ref-pringle2012antimicrobial" class="csl-entry" role="listitem">
-<div class="csl-left-margin">60. </div><div class="csl-right-inline"><span class="nocase">Pringle M, Landén A, et
-al.</span> Antimicrobial susceptibility of porcine brachyspira
-hyodysenteriae and brachyspira pilosicoli isolated in sweden between
-1990 and 2010. Acta Veterinaria Scandinavica. 2012;54:54. </div>
+<span class="nocase">Pringle, M, A Landén, et al.</span> 2012.
+<span>“Antimicrobial Susceptibility of Porcine
+&lt;i&gt;<span>Brachyspira Hyodysenteriae</span>&lt;/i&gt; and
+&lt;i&gt;<span>Brachyspira Pilosicoli</span>&lt;/i&gt; Isolated in
+<span>Sweden</span> Between 1990 and 2010.”</span> <em>Acta Veterinaria
+Scandinavica</em> 54: 54.
+</div>
+<div id="ref-FOHM2026" class="csl-entry" role="listitem">
+Public Health Agency of Sweden. 2025. <em>Smittsamma Sjukdomar –
+Statistik [<span>Communicable</span> Diseases - Statistics]</em>. <a href="https://www.folkhalsomyndigheten.se/statistik-och-data/hitta-statistik-och-data/smittsamma-sjukdomar-statistik/">https://www.folkhalsomyndigheten.se/statistik-och-data/hitta-statistik-och-data/smittsamma-sjukdomar-statistik/</a>.
+</div>
+<div id="ref-Behandlingsrekommendation" class="csl-entry" role="listitem">
+Public Health Agency of Sweden, Swedish Medical Products Agency, and
+Strama. 2014. <em>Behandlingsrekommendation För Vanliga Infektioner i
+Öppenvård [<span>Recommendations</span> for Treatment of Common
+Infections in Outpatient Care]</em>. Behandlingsrekommendation. <a href="https://www.folkhalsomyndigheten.se/contentassets/246aa17721b44c5380a0117f6d0aba40/behandlingsrekommendationer-oppenvard.pdf">https://www.folkhalsomyndigheten.se/contentassets/246aa17721b44c5380a0117f6d0aba40/behandlingsrekommendationer-oppenvard.pdf</a>.
 </div>
 <div id="ref-rasmussen2019european" class="csl-entry" role="listitem">
-<div class="csl-left-margin">61. </div><div class="csl-right-inline"><span class="nocase">Rasmussen S, Larsen J, et
-al.</span> European hedgehogs (erinaceus europaeus) as a natural
-reservoir of methicillin-resistant staphylococcus aureus carrying mecC
-in denmark. PLoS One. 2019;e0222031. </div>
+<span class="nocase">Rasmussen, SL, J Larsen, et al.</span> 2019.
+<span>“European Hedgehogs (&lt;i&gt;<span>Erinaceus
+Europaeus</span>&lt;/i&gt;) as a Natural Reservoir of
+Methicillin-Resistant &lt;i&gt;<span>Staphylococcus
+Aureus</span>&lt;/i&gt; Carrying mecC in <span>Denmark</span>.”</span>
+<em>PLoS One</em>, e0222031.
 </div>
 <div id="ref-rincongracia2026hirae" class="csl-entry" role="listitem">
-<div class="csl-left-margin">62. </div><div class="csl-right-inline"><span class="nocase">Rincón Gracia M, Backhans
-A, et al.</span> Antibiotic susceptibility of enterococcus hirae from
-piglets with NNPD. In Proceedings: 16th European Symposium of Porcine
-Health management, Florence, Italy, May 13-15. 2026; </div>
+<span class="nocase">Rincón Gracia, M, A Backhans, et al.</span> 2026.
+<span>“Antibiotic Susceptibility of &lt;i&gt;<span>Enterococcus
+Hirae</span>&lt;/i&gt; from Piglets with NNPD.”</span> <em>In
+Proceedings: 16th European Symposium of Porcine Health Management,
+Florence, Italy, May 13-15</em>.
+</div>
+<div id="ref-mlst" class="csl-entry" role="listitem">
+Seemann, T. n.d. <em>Mlst Github</em>. <a href="https://github.com/tseemann/mlst">https://github.com/tseemann/mlst</a>.
 </div>
 <div id="ref-seligsohn2026luft" class="csl-entry" role="listitem">
-<div class="csl-left-margin">63. </div><div class="csl-right-inline"><span class="nocase">Seligsohn D, Gustafsson K,
-et al.</span> Nytt från SvarmPat: Virus sannolikt av underordnad
-betydelse vid lunginflammation hos får. Svensk Veterinärtidning.
-2026;5:48–9. </div>
-</div>
-<div id="ref-shore2011detection" class="csl-entry" role="listitem">
-<div class="csl-left-margin">64. </div><div class="csl-right-inline"><span class="nocase">Shore A, Deasy E, et
-al.</span> Detection of staphylococcal cassette chromosome mec type XI
-carrying highly divergent mecA, mecI, mecR1, blaZ, and ccr genes in
-human clinical isolates of clonal complex 130 methicillin-resistant
-staphylococcus aureus. Antimicrobial Agents and Chemotherapy.
-2011;55:3765–73. </div>
+<span class="nocase">Seligsohn, D, K Gustafsson, et al.</span> 2026.
+<span>“Nytt Från SvarmPat: Virus Sannolikt Av Underordnad Betydelse Vid
+Lunginflammation Hos Får [<span>News</span> from SvarmPat: Viruses Are
+Likely of Minor Importance in Pneumonia in Sheep].”</span> <em>Svensk
+Veterinärtidning</em> 5: 48–49.
 </div>
 <div id="ref-Sjolund2015" class="csl-entry" role="listitem">
-<div class="csl-left-margin">65. </div><div class="csl-right-inline"><span class="nocase">Sjölund M, Backhans A, et
-al.</span> Antimicrobial usage in 60 swedish farrow-to-finish pig herds.
-Preventive Veterinary Medicine. 2015;121:257–64. </div>
-</div>
-<div id="ref-solvang2026kalv" class="csl-entry" role="listitem">
-<div class="csl-left-margin">66. </div><div class="csl-right-inline"><span class="nocase">Solvang A, Tråvén M, et
-al.</span> Ct-värden och luftvägssmitta hos kalv. Nytt från SvarmPat.
-Svensk Veterinärtidning. 2025;10:33. </div>
-</div>
-<div id="ref-souvorov2018skesa" class="csl-entry" role="listitem">
-<div class="csl-left-margin">67. </div><div class="csl-right-inline"><span class="nocase">Souvorov A, Agarwala R, et
-al.</span> SKESA: Strategic k-mer extension for scrupulous assemblies.
-Genome Biology. 2018;19:153. </div>
-</div>
-<div id="ref-sveriges2025" class="csl-entry" role="listitem">
-<div class="csl-left-margin">68. </div><div class="csl-right-inline">Sveriges Veterinärförbund. Sveriges
-veterinärförbunds riktlinjer [Internet]. 2025. Available from: <a href="https://www.svf.se/veterinarmedicin/svfs-riktlinjer">https://www.svf.se/veterinarmedicin/svfs-riktlinjer</a></div>
+<span class="nocase">Sjölund, M, A Backhans, et al.</span> 2015.
+<span>“Antimicrobial Usage in 60 <span>Swedish</span> Farrow-to-Finish
+Pig Herds.”</span> <em>Preventive Veterinary Medicine</em> 121: 257–64.
 </div>
 <div id="ref-soderlund2018genome" class="csl-entry" role="listitem">
-<div class="csl-left-margin">69. </div><div class="csl-right-inline"><span class="nocase">Söderlund R, Hakhverdyan
-M, et al.</span> Genome analysis provides insights into the epidemiology
-of infection with flavobacterium psychrophilum among farmed salmonid
-fish in sweden. Microbial Genomics. 2018;4(12):e000241. </div>
+<span class="nocase">Söderlund, R, M Hakhverdyan, et al.</span> 2018.
+<span>“Genome Analysis Provides Insights into the Epidemiology of
+Infection with &lt;i&gt;<span>Flavobacterium
+Psychrophilum</span>&lt;/i&gt; Among Farmed Salmonid Fish in
+<span>Sweden</span>.”</span> <em>Microbial Genomics</em> 4 (12):
+e000241.
 </div>
 <div id="ref-soderlund2019linked" class="csl-entry" role="listitem">
-<div class="csl-left-margin">70. </div><div class="csl-right-inline"><span class="nocase">Söderlund R, Jernberg C,
-et al.</span> Linked seasonal outbreaks of salmonella typhimurium among
-passerine birds, domestic cats and humans, sweden, 2009 to 2016.
-Eurosurveillance. 2019;24(34):1900074. </div>
+<span class="nocase">Söderlund, R, C Jernberg, et al.</span> 2019.
+<span>“Linked Seasonal Outbreaks of &lt;i&gt;<span>Salmonella
+Typhimurium</span>&lt;/i&gt; Among Passerine Birds, Domestic Cats and
+Humans, <span>Sweden</span>, 2009 to 2016.”</span>
+<em>Eurosurveillance</em> 24 (34): 1900074.
+</div>
+<div id="ref-solvang2026kalv" class="csl-entry" role="listitem">
+<span class="nocase">Solvang, A, M Tråvén, et al.</span> 2025.
+<span>“Nytt Från SvarmPat: Ct-Värden Och Luftvägssmitta Hos Kalv
+[<span>News</span> from SvarmPat: Ct Values and Respiratory Tract
+Infections in Calves].”</span> <em>Svensk Veterinärtidning</em> 10: 33.
+</div>
+<div id="ref-souvorov2018skesa" class="csl-entry" role="listitem">
+<span class="nocase">Souvorov, A, R Agarwala, et al.</span> 2018.
+<span>“SKESA: Strategic k-Mer Extension for Scrupulous
+Assemblies.”</span> <em>Genome Biology</em> 19: 153.
+</div>
+<div id="ref-Strama2016" class="csl-entry" role="listitem">
+Strama. 2025. <em>Stramas Mål För Antibiotikaanvändning Inom Öppen Vård
+[<span>Strama</span> Targets for Antibiotic Use in Primary Care]</em>.
+Report. <a href="https://strama.se/wp-content/uploads/2025/04/stramas-mal-for-antibiotikaanvandningen-beskrivning.pdf">https://strama.se/wp-content/uploads/2025/04/stramas-mal-for-antibiotikaanvandningen-beskrivning.pdf</a>.
+</div>
+<div id="ref-Strama2026" class="csl-entry" role="listitem">
+Strama. 2026. <em>Bristsituationer [<span>Medicine</span>
+Shortages]</em>. Behandlingsrekommendation. <a href="https://strama.se/behandlingsrekommendationer/bristsituationer/">https://strama.se/behandlingsrekommendationer/bristsituationer/</a>.
+</div>
+<div id="ref-sveriges2025" class="csl-entry" role="listitem">
+Sveriges Veterinärförbund. 2025. <em>Sveriges Veterinärförbunds
+Riktlinjer</em>. <a href="https://www.svf.se/veterinarmedicin/svfs-riktlinjer">https://www.svf.se/veterinarmedicin/svfs-riktlinjer</a>.
 </div>
 <div id="ref-unnerstad2018suspected" class="csl-entry" role="listitem">
-<div class="csl-left-margin">71. </div><div class="csl-right-inline"><span class="nocase">Unnerstad H, Mieziewska K,
-et al.</span> Suspected transmission and subsequent spread of MRSA from
-farmer to dairy cows. Veterinary Microbiology. 2018;225:114–9. </div>
+<span class="nocase">Unnerstad, HE, K Mieziewska, et al.</span> 2018.
+<span>“Suspected Transmission and Subsequent Spread of MRSA from Farmer
+to Dairy Cows.”</span> <em>Veterinary Microbiology</em> 225: 114–19.
 </div>
 <div id="ref-werinder2026neomycin" class="csl-entry" role="listitem">
-<div class="csl-left-margin">72. </div><div class="csl-right-inline"><span class="nocase">Werinder A, Backhans A, et
-al.</span> Nytt från SvarmPat: Neomycinresistens hos e. Coli från grisar
-med avvänjningsdiarré. Svensk Veterinärtidning. 2026;2:51–2. </div>
+<span class="nocase">Werinder, A, A Backhans, et al.</span> 2026.
+<span>“Nytt Från SvarmPat: Neomycinresistens Hos &lt;i&gt;<span>E.
+Coli</span>&lt;/i&gt; Från Grisar Med Avvänjningsdiarré
+[<span>News</span> from SvarmPat: Neomycin Resistance in
+&lt;i&gt;<span>E. Coli</span>&lt;/i&gt; from Pigs with Post-Weaning
+Diarrhoea].”</span> <em>Svensk Veterinärtidning</em> 2: 51–52.
+</div>
+<div id="ref-ggplot2" class="csl-entry" role="listitem">
+Wickham, Hadley. 2016. <em>Ggplot2: Elegant Graphics for Data
+Analysis</em>. Springer-Verlag New York. <a href="https://ggplot2.tidyverse.org">https://ggplot2.tidyverse.org</a>.
+</div>
+<div id="ref-tidyverse" class="csl-entry" role="listitem">
+Wickham, Hadley, Mara Averick, Jennifer Bryan, et al. 2019.
+<span>“Welcome to the <span class="nocase">tidyverse</span>.”</span>
+<em>Journal of Open Source Software</em> 4 (43): 1686. <a href="https://doi.org/10.21105/joss.01686">https://doi.org/10.21105/joss.01686</a>.
+</div>
+<div id="ref-Wilson1927" class="csl-entry" role="listitem">
+Wilson, Edwin Bidwell. 1927. <span>“Probable Inference, the Law of
+Succession, and Statistical Inference.”</span> <em>Journal of the
+American Statistical Association</em> 22 (158): 209–12.
 </div>
 <div id="ref-wood2019improved" class="csl-entry" role="listitem">
-<div class="csl-left-margin">73. </div><div class="csl-right-inline"><span class="nocase">Wood D, Lu J, et
-al.</span> Improved metagenomic analysis with kraken 2. Genome Biology.
-2019;20:257. </div>
+<span class="nocase">Wood, DE, J Lu, et al.</span> 2019. <span>“Improved
+Metagenomic Analysis with <span>Kraken</span> 2.”</span> <em>Genome
+Biology</em> 20: 257.
 </div>
 <div id="ref-woodford2006multiplex" class="csl-entry" role="listitem">
-<div class="csl-left-margin">74. </div><div class="csl-right-inline"><span class="nocase">Woodford N, Fagan E, et
-al.</span> Multiplex PCR for rapid detection of genes encoding CTX-m
-extended-spectrum (beta)-lactamases. Journal of Antimicrobial
-Chemotherapy. 2006;57:154–5. </div>
+<span class="nocase">Woodford, N, EJ Fagan, et al.</span> 2006.
+<span>“Multiplex PCR for Rapid Detection of Genes Encoding CTX-m
+Extended-Spectrum (Beta)-Lactamases.”</span> <em>Journal of
+Antimicrobial Chemotherapy</em> 57: 154–55.
 </div>
-<div id="ref-zankari2012identification" class="csl-entry" role="listitem">
-<div class="csl-left-margin">75. </div><div class="csl-right-inline"><span class="nocase">Zankari E, Hasman H, et
-al.</span> Identification of acquired antimicrobial resistance genes.
-Journal of Antimicrobial Chemotherapy. 2012;67:2640–4. </div>
+<div id="ref-WHO2025" class="csl-entry" role="listitem">
+World Health Organization (WHO). 2025. <em>AWaRe Classification</em>.
+Report. Geneva. <a href="https://www.who.int/publications/i/item/B09489">https://www.who.int/publications/i/item/B09489</a>.
+</div>
+<div id="ref-dt" class="csl-entry" role="listitem">
+Xie, Yihui, Joe Cheng, and Xianying Tan. 2023. <em><span>DT</span>: A
+Wrapper of the JavaScript Library <span>’DataTables’</span></em>. <a href="https://rstudio.github.io/DT/">https://rstudio.github.io/DT/</a>.
 </div>
 <div id="ref-zankari2017pointfinder" class="csl-entry" role="listitem">
-<div class="csl-left-margin">76. </div><div class="csl-right-inline"><span class="nocase">Zankari E, Allesøe R, et
-al.</span> PointFinder: A novel web tool for WGS-based detection of
-antimicrobial resistance associated with chromosomal point mutations in
-bacterial pathogens. Journal of Antimicrobial Chemotherapy.
-2017;72:2764–8. </div>
+<span class="nocase">Zankari, E, R Allesøe, et al.</span> 2017.
+<span>“PointFinder: A Novel Web Tool for WGS-Based Detection of
+Antimicrobial Resistance Associated with Chromosomal Point Mutations in
+Bacterial Pathogens.”</span> <em>Journal of Antimicrobial
+Chemotherapy</em> 72: 2764–68.
+</div>
+<div id="ref-zankari2012identification" class="csl-entry" role="listitem">
+<span class="nocase">Zankari, E, H Hasman, et al.</span> 2012.
+<span>“Identification of Acquired Antimicrobial Resistance
+Genes.”</span> <em>Journal of Antimicrobial Chemotherapy</em> 67:
+2640–44.
 </div>
 </div>
 
@@ -1111,7 +1077,7 @@ bacterial pathogens. Journal of Antimicrobial Chemotherapy.
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/www\.sva\.se\/djurhaelsa\/antibiotika\/oevervakning\/swedres-svarm\/");
+        var filterRegex = new RegExp("https:\/\/folkhalsomyndigheten-rapporter\.github\.io\/swedres-svarm-2025");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
@@ -1454,7 +1420,7 @@ bacterial pathogens. Journal of Antimicrobial Chemotherapy.
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">
-<p><img src="./Folkhalsomyndigheten_L_RGB_ENG.png" alt="PHAS Logo" style="height:60px;"> <img src="./SVA_logo_English_margin.png" alt="SVA Logo" style="height:60px;"></p>
+<p><img src="./Folkhalsomyndigheten_L_RGB_ENG.png" alt="PHAS Logo" style="height:60px;"> <img src="./SVA logo English crop.png" alt="SVA Logo" style="height:40px;"></p>
 </div>   
     <div class="nav-footer-center">
       <ul class="footer-items list-unstyled">

@@ -4,6 +4,4 @@ format: html
 
 # Acknowledgement of technical tools used {.unnumbered}
 
-This report was build using `quarto` and contains elements build with `ggplot2`, `ggiraph`, `DT` among others.
-
-SCB data was retrieved via `pxweb` @pxweb.
+We are grateful to the open-source community for developing and maintaining the tools used in this report. This report was built using **Quarto** [@quarto]. Data analysis and visualization were performed in R using the **tidyverse** ecosystem [@tidyverse], with **ggplot2** [@ggplot2] for static visualizations and **ggiraph** [@ggiraph] for interactive graphics. Interactive tables were created using the **dt** package [@dt]. SCB data was retrieved via the **pxweb** package [@pxweb]. The source code for this Quarto book is available on GitHub.

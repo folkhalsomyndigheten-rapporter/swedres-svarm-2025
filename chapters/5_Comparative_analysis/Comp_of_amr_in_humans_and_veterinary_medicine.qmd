@@ -16,17 +16,17 @@ execute:
 #| warning: false
 #| message: false
 source("../../_common.R")
-status(type = "polishing")
+status(type = "ready2publish")
 ```
 
 ## Comparison of antibiotic resistance in human and veterinary medicine {#sec-cashv}
 
 
-### ESBL-producing enterobacterales
+### ESBL-producing Enterobacterales
 
-Enterobacterales with ESBL~A~ or ESBL~M~, and their corresponding genes, can transfer between animals and humans @efsa2011scientific, @debeen2014dissemination. The main route would be via food, but the possibility for direct transfer when handling animals should be kept in mind. 
+Enterobacterales with ESBL~A~ or ESBL~M~, and their corresponding genes, can transfer between animals and humans [@efsa2011scientific, @debeen2014dissemination]. The main route would be via food, but the possibility for direct transfer when handling animals should be kept in mind. 
 
-The available data show that ESBL-producing bacteria are generally rare in animals and food in Sweden. Previously, the occurrence in intestinal samples from broilers was high but it has decreased considerably in recent years. Moreover, previous investigations when the occurrence was higher has shown that ESBL~A~- or ESBL~M~-producing *E. coli* constitute a small part of all the *E. coli* in the intestinal flora in a majority of the broiler samples. Finally, it has previously been shown that most isolates from humans in Sweden are not of the same types of ESBL~A~ or ESBL~M~ as in broilers. Hence, nothing indicates a need to revise the conclusion that food on the Swedish market is a limited source for ESBLs for humans @borjesson2016limited. Nevertheless, continued vigilance is warrented to prevent the development of reservoirs of ESBL-producing Enterobacterales in animals. 
+The available data show that ESBL-producing bacteria are generally rare in animals and food in Sweden. Previously, the occurrence in intestinal samples from broilers was high but it has decreased considerably in recent years. Moreover, previous investigations when the occurrence was higher has shown that ESBL~A~- or ESBL~M~-producing *E. coli* constitute a small part of all the *E. coli* in the intestinal flora in a majority of the broiler samples. Finally, it has previously been shown that most isolates from humans in Sweden are not of the same types of ESBL~A~ or ESBL~M~ as in broilers. Hence, nothing indicates a need to revise the conclusion that food on the Swedish market is a limited source for ESBLs for humans [@borjesson2016limited]. Nevertheless, continued vigilance is warrented to prevent the development of reservoirs of ESBL-producing Enterobacterales in animals. 
 
 
 ### MRSA
@@ -43,19 +43,19 @@ In Sweden, human cases of MRSA CC398 are rare. In 2025, among all MRSA cases wit
 
 #### MRSA with *mec*C 
 
-Isolates of MRSA with *mec*C were first reported internationally from dairy cows and humans in 2011 @garcia2011meticillin, @shore2011detection, @ito2012guidelines. Throughout the years, MRSA with *mec*C have been isolated from several animal species (cat, cow, dog, hedgehog, goat, pig and sheep). The total number of cases are low even if there are a number of isolates from hedgehogs in research projects and from goats in an outbreak at a zoo.  
+Isolates of MRSA with *mec*C were first reported internationally from dairy cows and humans in 2011 [@garcia2011meticillin, @shore2011detection, @ito2012guidelines]. Throughout the years, MRSA with *mec*C have been isolated from several animal species (cat, cow, dog, hedgehog, goat, pig and sheep). The total number of cases are low even if there are a number of isolates from hedgehogs in research projects and from goats in an outbreak at a zoo.  
 
 Human cases of *mec*C-positive MRSA are also uncommon in Sweden. Five reported cases with the following *spa*-types were identified in 2025: t843 (n=2), t16761 (n=2) and t208 (n=1). In addition, another *mec*C case was typed to ST130 by whole genome sequencing. The epidemiological information concerning possible animal contacts is scarce but some of the *spa*-types in cases from humans have also been found in cases from animals. However, even if there would be zoonotic transfer, it is not currently considered a public health problem, as the number of cases of MRSA with *mec*C in humans in Sweden is low. 
 
 #### MRSA-types typically associated with humans 
 
-MRSA isolated from dogs and cats often belong to *spa*-types seen in MRSA from humans. This supports the view that humans often are the source of MRSA in companion animals @efsa2009scientific, @cvmp2009reflection. Spread can subsequently occur from animals to humans. However, the impact of companion animals as vectors for spread between humans is not known.  
+MRSA isolated from dogs and cats often belong to *spa*-types seen in MRSA from humans. This supports the view that humans often are the source of MRSA in companion animals [@efsa2009scientific, @cvmp2009reflection]. Spread can subsequently occur from animals to humans. However, the impact of companion animals as vectors for spread between humans is not known.  
 
 #### Conclusions 
 
 The MRSA situation in Sweden is in general still favourable both in humans and in animals. Biosecurity, with caution in trade of live animals and measures to prevent introduction by indirect routes, is important for preventing introduction and spread of MRSA in animal populations. However, with the detection of MRSA in the Swedish pig production, further emphasis need to be put not only on these matters to reduce further spread but also on hygiene measures to prevent spread from farms to the general public. Furthermore, antibiotic stewardship as well as hygiene and infection prevention and control measures are important to prevent healthcare-related spread between people, between animals or between people and animals. 
 
-For more information on MRSA in Sweden, see @sec-arh (Antibiotic resistance in humans) and @sec-ara (Antbiotic resistance in animals). 
+For more information on MRSA in Sweden, see @sec-arh -[Antibiotic resistance in humans](#sec-arh) and @sec-ara - [Antbiotic resistance in animals](#sec-ara). 
 
 ### MRSP 
 
@@ -80,11 +80,11 @@ Resistance to erythromycin, the drug of choice for treatment of human campylobac
 
 ### Clinical resistance in  *Escherichia coli* from humans and animals
 
-Comparison of resistance in bacteria from humans and different animal categories may indicate the magnitude of possible transfer of resistance between sectors and give insight into the drivers for resistance in the specific populations. However, in Swedres-Svarm, direct comparison of resistance is problematic as different interpretative criteria are used for bacteria from humans and animals. Data for bacteria from humans are interpreted with clinical breakpoints and presented as the proportion of isolates with clinical resistance. In contrast, data for bacteria from animals are mainly interpreted with epidemiological cut-off values (ECOFF) and presented as the proportion of isolates of non-wild type. For further information on interpretive criteria, see sections [Guidance for readers](#sec-g4r) and [Materials and methods](#sec-backdatamm). 
+Comparison of resistance in bacteria from humans and different animal categories may indicate the magnitude of possible transfer of resistance between sectors and give insight into the drivers for resistance in the specific populations. However, in Swedres-Svarm, direct comparison of resistance is problematic as different interpretative criteria are used for bacteria from humans and animals. Data for bacteria from humans are interpreted with clinical breakpoints and presented as the proportion of isolates with clinical resistance. In contrast, data for bacteria from animals are mainly interpreted with epidemiological cut-off values (ECOFF) and presented as the proportion of isolates of non-wild type. For further information on interpretive criteria, see sections [Guidance for readers](#sec-g4r) and @sec-backdatamm - [Materials and methods](#sec-backdatamm). 
 
 For the purpose of the comparison in this section, some data sets for *E. coli* from animals presented in Swedres-Svarm have been interpreted using clinical breakpoints for humans (@tbl-5-3). 
 
-Resistance was generally more common in *E. coli* from humans than in isolates from animals (@tbl-5-3). Notably, clinical resistance to fluoroquinolones or 3rd generation cephalosporins was considerably more common in *E. coli* from humans than in isolates from animals, with the highest occurrence in blood stream isolates from humans (@tbl-5-3). This is in line with the very low use of these antibiotic classes in animals (see Sales of antibiotics for animals @sec-ara). However, although few isolates of *E. coli* from animals show clinical resistance to fluoroquinolones, reduced susceptibility (i.e. non-wild type) is more common in some categories of diseased and healthy animals (see Antibiotic resistance in animals @sec-asa) and previous reports). Possibly, the selection pressure from use of fluoroquinolones in animal populations is not sufficient to select for further mutations to clinical resistance in isolates with reduced susceptibility. 
+Resistance was generally more common in *E. coli* from humans than in isolates from animals (@tbl-5-3). Notably, clinical resistance to fluoroquinolones or 3rd generation cephalosporins was considerably more common in *E. coli* from humans than in isolates from animals, with the highest occurrence in blood stream isolates from humans (@tbl-5-3). This is in line with the very low use of these antibiotic classes in animals (see @sec-ara - [Sales of antibiotics for animals](#sec-ara)). However, although few isolates of *E. coli* from animals show clinical resistance to fluoroquinolones, reduced susceptibility (i.e. non-wild type) is more common in some categories of diseased and healthy animals (see @sec-asa - [Antibiotic resistance in animals](#sec-asa) and previous reports). Possibly, the selection pressure from use of fluoroquinolones in animal populations is not sufficient to select for further mutations to clinical resistance in isolates with reduced susceptibility. 
 
 For the antibiotics commonly used in both animals and humans, e.g. ampicillin and trimethoprim, resistance is more frequent. In particular, the occurrence of resistance is high among clinical isolates from calves, pigs and humans (@tbl-5-3, @fig-5-2 and @fig-5-3). When comparing resistance to trimethoprim, it should be considered that for some categories (i.e. clinical isolates from animals and blood isolates from humans), trimethoprim-sulphamethoxazole was tested. This could possibly result in a lower occurrence of resistance than if susceptibility to only trimethoprim had been tested.
 
@@ -92,7 +92,6 @@ Occurrence of resistance to ampicillin or trimethoprim could also be due to co-s
 
 Moreover, the high occurrence of resistance to ampicillin or trimethoprim may be influenced in some categories by a low number of isolates and possible sampling bias, where animals are sampled due to therapeutic failures, inferring a selection of problematic cases. 
 
-@fig-5-2 is Figure_5.2_Ampicillin.xlsx
 
 ::: panel-tabset
 ###### Figure
@@ -159,8 +158,6 @@ df |>
 ```
 :::
 
-@fig-5-3 is Figure_5.3_Trimethoprim.xlsx
-
 ::: panel-tabset
 ###### Figure
 ```{r}
@@ -225,7 +222,6 @@ df |>
 ```
 :::
 
-@tbl-5-3 is Table_5.3_resistance_various_Ecoli.xlsx
 
 ```{r}
 #| message: false

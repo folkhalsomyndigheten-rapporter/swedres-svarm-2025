@@ -24,25 +24,16 @@ status(type = "drafting")
 
 ## Introduction {.unnumbered}
 
-This chapter provides an overview of the current trends in antimicrobial resistance (AMR) in Sweden, based on data collected in 2024. Understanding these trends is crucial for informing public health policies, clinical guidelines, and infection control measures. The chapter focuses on the most commonly isolated bacteria and their resistance patterns, as well as regional variations and temporal changes.^[I haven't found this formally documented ]
+This chapter presents data on antibiotic sales for humans in Sweden, describing total sales, sales by healthcare sector and trends over time. Together with data on resistance patterns, these findings support exploring the relationship between antibiotic use and antimicrobial resistance in humans.
 
 ---
 
 ## Key Findings {.unnumbered}
 
 ::: {.callout-tip}
-- **Increasing Resistance:** Resistance to third-generation cephalosporins in *Escherichia coli* increased by 5% compared to 2023, reaching 12% nationally.
-- **Regional Variations:** The highest resistance rates for methicillin-resistant *Staphylococcus aureus* (MRSA) were observed in Skåne (8%), while the lowest were in Norrbotten (2%).
-- **Antibiotic Consumption:** Total antibiotic consumption in outpatient care decreased by 3%, but the use of broad-spectrum antibiotics, such as carbapenems, rose by 2%.
-- **Emerging Threats:** A notable increase in resistance to fluoroquinolones was detected in *Klebsiella pneumoniae*, particularly in hospital settings.
+- In 2025, total sales of antibiotics for humans decreased by 2.8% compared with 2024.
+- Antibiotic sales decreased in outpatient care, including dentistry. However, sales of antibiotics in inpatient care increased.
+- Access group antibiotics made up 77% of all antibiotic sales (J01 excluding methenamine J01XX05).   
 :::
 
 ---
-
-## What to Expect in This Chapter {.unnumbered}
-
-- **Section 1:** National trends in AMR for key bacterial pathogens.
-- **Section 2:** Regional analysis of resistance patterns and antibiotic consumption.
-- **Section 3:** Discussion of emerging threats and recommendations for clinical practice and policy.
-
-

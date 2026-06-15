@@ -1,12 +1,5 @@
 ---
-#title: "Sales of antibiotics in humans" # Main
 format: html
-#author: 
-#  - name: "Jennifer Jagdmann"
-#    affiliations: "Public Health Agency of Sweden"
-#acronyms:
-#  insert_loa: false
-#  insert_links: false
 ---
 
 # Sales of antibiotics in humans {#sec-ash}
@@ -20,6 +13,3 @@ format: html
 {{< include International_recommended_targets_for_antibiotic_consumption.qmd >}}
 
 {{< include Adverse_reactions_antibiotic_use.qmd >}}
-
-
-

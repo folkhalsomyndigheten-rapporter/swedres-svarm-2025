@@ -2,7 +2,6 @@
 format:
   html:
     embed-resources: false
-
 execute:
   cache: false
   echo: false
@@ -23,7 +22,7 @@ execute:
 #| warning: false
 #| message: false
 source("../../_common.R")
-status(type = "polishing")
+status(type = "ready2publish")
 ```
 
 ## Brief comments on data sources, methodology and confidentiality 
@@ -32,15 +31,15 @@ In Sweden, all veterinary medicinal products are sold by pharmacies. All pharmac
 
 For confidentiality reasons, sales of antibiotic classes with less than three products on the market have been aggregated in @tbl-21. 
 
-The sales of veterinary medicinal products for mixing into feed used in aquaculture for food production are not included in the data referred to above, as such feed is traded from other countries. Data on prescriptions for fish are collected through a separate system, described in Comments by animal species, Fish (@sec-sales-fish). 
+The sales of veterinary medicinal products for mixing into feed used in aquaculture for food production are not included in the data referred to above, as such feed is traded from other countries. Data on prescriptions for fish are collected through a separate system, described in [Comments by animal species, Fish](#sec-sales-fish). 
 
-Further details on data sources and inclusion criteria are given in [Materials and methods, sales of antibiotics](#sec-mms).  
+Further details on data sources and inclusion criteria are given in @#sec-backdatamm - [Materials and methods, sales of antibiotics](#sec-mms).  
 
 ## Trends in animal populations 
 
 Changes in the numbers of animals may affect trends in antibiotics sales statistics. Compared to 2016, the number of pigs slaughtered in 2025 was approximately the same, while the number of broilers increased by 13%. The number of dairy cows decreased by 11% during the same period. The number of horses was estimated to <span class="nobr">355 500</span> in 2016. In January 2026, the number of dogs was estimated to <span class="nobr">951 000</span> and the number of cats to <span class="nobr">1 582 000</span>. 
 
-Further details on animal numbers and data sources can be found in [Demographics and denominator data](#sec-demographics). 
+Further details on animal numbers and data sources can be found in @#sec-backdatamm - [Demographics and denominator data](#sec-demographics). 
 
 ## Completeness of data 
 
@@ -85,7 +84,7 @@ Of the overall sales expressed as kg active substance, around 90% are products f
 
 Since 2016, sales of most classes of antibiotics have decreased or remained relatively stable (@tbl-21). Compared to 2024, however, sales of aminopenicillins increased in 2025, mainly due to increased sales for poultry, as well as proportionally smaller increases in sales for pigs, dogs and cats. 
 
-Since the withdrawal of veterinary medicinal products with high levels of zinc oxide in 2022, sales of aminoglycosides have increased in Sweden, reflecting an increased use of aminoglycosides for treatment of post-weaning diarrhoea in pigs. After reaching a peak in 2023, sales decreased in 2024 followed by a slight increase in 2025, see Comments on data by animal species, Pigs (@sec-sales-pigs). 
+Since the withdrawal of veterinary medicinal products with high levels of zinc oxide in 2022, sales of aminoglycosides have increased in Sweden, reflecting an increased use of aminoglycosides for treatment of post-weaning diarrhoea in pigs. After reaching a peak in 2023, sales decreased in 2024 followed by a slight increase in 2025, see [Comments on data by animal species, Pigs](#sec-sales-pigs). 
 
 #### Sales on special license 
 
@@ -116,10 +115,9 @@ names(dat_21$fig_data) <- c("Year", "Total")
 
 df_fig_21 <- dat_21$fig_data |>
   mutate(tooltip_l = glue::glue('<b>{Year}</b>'),
-         tooltip_p = paste0("<b>Year:</b> ", Year, "<br><b>Proportion (%) of LIC:</b> ", round(Total, 2)), data_id = paste(Total, Year, sep = "_"),
+         tooltip_p = paste0("<b>Year:</b> ", Year, "<br><b>Proportion of LIC:</b> ", round(Total, 2),"%"),
+         data_id = paste(Total, Year, sep = "_"),
          one_col = "Total sales as kg")
-
-yrs <- sort(unique(df_fig_21$Year))
 
 p_21 <- df_fig_21 |> 
   ggplot(aes(x = factor(Year), 
@@ -127,24 +125,18 @@ p_21 <- df_fig_21 |>
              group=one_col,
              color=one_col,
              data_id = data_id)) +
-  geom_line_interactive(aes(tooltip=tooltip_l)) +
+  geom_line_interactive(aes(tooltip=tooltip_l),lwd=0.5) +
   geom_point_interactive(aes(tooltip = tooltip_p),hover_nearest = T) + 
   scale_color_manual(values= one_color_SweSva[[1]]) +
-  scale_x_discrete(#breaks = yrs, minor_breaks = NULL,
-    expand=c(0,0.2)) +
+  scale_x_discrete(expand=c(0,0.2)) +
   scale_y_continuous(limits = c(0, 25),
                      breaks = perc_25,
                      expand=c(0,0.2),
-                     #labels = function(x) paste0(x, "%")
                      ) +
-  #scale_color_SweSva() +
   labs(x ="Year",
        y = "Proportion (%)",
        color = NULL) +
   theme_SweSva() +
-  #theme(#axis.text.x = element_text(angle = 45, hjust = 1, vjust = 1), 
-   # legend.position = "none",
-   #     plot.subtitle = element_text(vjust = +2)) +
   add_sva_caption()
 
 make_dynamic_plot(plot = p_21, filename = "Fig2-1")
@@ -153,6 +145,7 @@ make_dynamic_plot(plot = p_21, filename = "Fig2-1")
 ###### Data
 ```{r}
 dat_21$fig_data |> 
+    rename("Proportion (%)" = Total) |> 
   make_table_data_tab(file_name = "Fig2-1")
 ```
 :::
@@ -162,9 +155,6 @@ dat_21$fig_data |>
 To correct for changes in the numbers of animals over time, a population correction unit (PCU), described in a publication from the European Medicines Agency (EMA), was applied [@ema2011trends]. The PCU is a purely technical term representing an approximation of the summed live weight of the major animal populations, excluding companion animals. 
 
 In @fig-22, the total sales of antibiotics for animals (including sales for companion animals) from 1980 onwards are presented as mg of active substance per PCU, using figures for 2024 as a proxy for PCU in 2025. As sales for use in aquaculture are not included in the data presented, fish have been excluded from the PCU given in the annual [ESUAvet reports](https://www.ema.europa.eu/en/veterinary-regulatory-overview/antimicrobial-resistance-veterinary-medicine/european-sales-use-antimicrobials-veterinary-medicine-esuavet-annual-surveillance-reports){target="_blank"} and the previous [ESVAC reports](https://www.ema.europa.eu/en/veterinary-regulatory-overview/antimicrobial-resistance-veterinary-medicine/european-surveillance-veterinary-antimicrobial-consumption-esvac-2009-2023){target="_blank"}. Another difference from data published in the ESUAvet and ESVAC reports is that data on products for use in companion animals are included in @fig-22. 
-
-
-FIXME the footnotes need some kind of formatting solution.
 
 
 ```{r}
@@ -183,7 +173,7 @@ fig_22_fn <- c("Data from 2010-2015 are uncertain because of a lack of completen
 #| label: fig-22
 #| message: false
 #| warning: false
-#| fig-cap: !expr make_fig_caption(fig_22_cap, fig_22_fn) # figure has a footnote so using a helper
+#| fig-cap: !expr fig_22_cap
 #| fig-alt: !expr fig_22_alt
 
 dat_22_long <- dat_22$fig_data |> 
@@ -194,22 +184,23 @@ df_fig_22 <- dat_22_long |>
   mutate(stack_order = dplyr::case_when(`Treatment type` == "Individual treatment" ~ 3,
                                         `Treatment type` == "Group treatment" ~ 2, 
                                         `Treatment type` == "Growth promotion" ~ 1), 
-         tooltip = paste0("Year: ", Year, "<br>Treatment type: ", `Treatment type`, 
-                          "<br>Value: ", round(Value, 2)), data_id = paste(`Treatment type`, Year, sep = "_"))
+         tooltip = paste0("<b>Year:</b> ", Year, "<br><b>Treatment type:</b> ", `Treatment type`, 
+                          "<br><b>Yearly sales:</b> ", round(Value, 2),"mg per PCU"), 
+         data_id = paste(`Treatment type`, Year, sep = "_"))
 
 p_22 <- ggplot(df_fig_22,
                aes(x = factor(Year),
                    y = Value,
                    fill = `Treatment type`,
                    group = stack_order)) +
-  geom_bar_interactive(aes(tooltip = tooltip, data_id = data_id), stat = "identity", position = "stack") +
+  geom_bar_interactive(aes(tooltip = tooltip, data_id = data_id), 
+                       stat = "identity", position = "stack") +
   scale_fill_SweSva() +
   scale_y_continuous(expand = c(0,0.2), limits=c(0,50)) +
   labs(x = "Year",
-       y = "mg per PCU", fill = NULL) +
+       y = "Sales as mg per PCU") +
   theme_SweSva() +
   theme_SweSva_rotate() +
-  #theme(axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.5)) +
   add_sva_caption()
 
 make_dynamic_plot(plot = p_22, filename = "Fig2-2")
@@ -220,10 +211,11 @@ make_dynamic_plot(plot = p_22, filename = "Fig2-2")
 
 ```{r}
 dat_22_long |>
+  rename("Yearly sales as mg per PCU" = Value) |> 
   make_table_data_tab(file_name = "Fig2-2")
 ```
 :::
 
 Measured in mg per PCU, the overall sales were around 70% lower in 2025 compared to the average for 1980-1984 (i.e. before the Swedish ban on growth-promoting antimicrobials in 1986). This is explained first by the removal of growth-promoting antimicrobials in 1986, followed by a gradual but major decrease in the sales of veterinary products for group medication via feed or water from the mid-1990s onward. A decrease in sales of products for individual medication was also noted in the past two decades.
 
-The Antimicrobial ad hoc expert group (AMEG) of EMA considers 3rd generation cephalosporins, fluoroquinolones and polymyxins to be classes of antibiotics for which there should be special restrictions regarding their use in animals (category B; restrict) [@ema2019categorisation]. Since 2016, the sales of these antibiotics, expressed as mg/PCU, have decreased considerably and remained below, or well below, 0.1 mg/PCU. For the 3rd generation cephalosporins and fluoroquinolones, the decrease is explained by a Swedish regulation that, since 2013, has limited veterinarians’ rights to prescribe or use these types of antimicrobials (SJVFS 2023:21). Regarding polymyxins, the findings of transferable resistance to colistin were communicated to stakeholders during 2016 and onwards. An awareness among prescribers of the importance of this class of antimicrobials for public health, and of the potential consequences of transferable resistance, is a probable explanation for the observed decrease. Use of colistin has increasingly been replaced with use of antibiotics in other classes, e.g. aminoglycosides. Since late 2023, veterinarians’ right to prescribe polymyxins has also been restricted by regulation SJVFS 2023:21. 
+The Antimicrobial ad hoc expert group (AMEG) of EMA considers 3rd generation cephalosporins, fluoroquinolones and polymyxins to be classes of antibiotics for which there should be special restrictions regarding their use in animals (category B; restrict) [@ema2025categorisation]. Since 2016, the sales of these antibiotics, expressed as mg/PCU, have decreased considerably and remained below, or well below, 0.1 mg/PCU. For the 3rd generation cephalosporins and fluoroquinolones, the decrease is explained by a Swedish regulation that, since 2013, has limited veterinarians’ rights to prescribe or use these types of antimicrobials (SJVFS 2023:21). Regarding polymyxins, the findings of transferable resistance to colistin were communicated to stakeholders during 2016 and onwards. An awareness among prescribers of the importance of this class of antimicrobials for public health, and of the potential consequences of transferable resistance, is a probable explanation for the observed decrease. Use of colistin has increasingly been replaced with use of antibiotics in other classes, e.g. aminoglycosides. Since late 2023, veterinarians’ right to prescribe polymyxins has also been restricted by regulation SJVFS 2023:21. 

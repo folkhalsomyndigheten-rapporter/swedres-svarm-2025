@@ -84,6 +84,8 @@ make_dynamic_plot(plot = p, filename = "Fig1-17")
 ###### Data
 ```{r}
 df |> 
+  rename("Antibiotic" = antibiotic_group,
+         "DDD/1 000 inhabitants per day"=value) |> 
   make_table_data_tab(file_name = "Fig1-17")
 ```
 :::

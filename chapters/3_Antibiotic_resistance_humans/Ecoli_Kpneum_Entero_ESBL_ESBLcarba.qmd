@@ -19,7 +19,7 @@ source("../../_common.R")
 status(type = "ready2publish")
 ```
 
-## *Escherichia coli*, *Klebsiella pneumoniae*, and other Enterobacterales with ESBL and ESBL~CARBA~
+## *Escherichia coli*, *Klebsiella pneumoniae* and other Enterobacterales with ESBL and ESBL~CARBA~
 
 ### Mandatory reporting of ESBL-producing Enterobacterales
 
@@ -69,7 +69,7 @@ p <- df |>
                         lwd=.5) +
   geom_point_interactive(aes(tooltip=tooltip_p),
                          hover_nearest = TRUE) +
-  scale_y_continuous(expand = c(0,0),
+  scale_y_continuous(expand = c(0,0.2),
                      labels = scales::label_number(),
                      limits = c(0,150)) +
   scale_x_discrete(expand=c(0,0.2)) +
@@ -128,8 +128,8 @@ p <- df |>
                          hover_nearest = TRUE,
   ) +
   scale_x_discrete(expand=c(0,0.2)) +
-  scale_y_continuous(expand = c(0,0),
-                     limits=c(0,12)) +
+  scale_y_continuous(limits=c(0,12),
+                     expand=c(0,0.2)) +
   labs(x="Year",
        y = "Incidence (cases/100 000 inhabitants)") +
   scale_color_SweSva() + 
@@ -221,7 +221,8 @@ p <- df |>
                         lwd=.5) +
   geom_point_interactive(aes(tooltip=tooltip_p),
                          hover_nearest = TRUE) +
-  scale_y_continuous(expand = c(0,0.1),limits=c(0,6)) +
+  scale_y_continuous(expand = c(0,0.2),
+                     limits=c(0,6)) +
   scale_x_discrete(expand=c(0,0.2)) +
   labs(y= "Incidence (cases/100 000 inhabitants)",
        x= "Year") +
@@ -275,7 +276,7 @@ p <- df |>
                         lwd=.5) +
   geom_point_interactive(aes(tooltip=tooltip_p),
                          hover_nearest = TRUE) +
-  scale_y_continuous(expand = c(0,0),
+  scale_y_continuous(expand = c(0,0.2),
                      limits=c(0,200)) +
   scale_x_discrete(expand=c(0,0.2)) +
   labs(y= "Number of cases",
@@ -617,7 +618,8 @@ p <- df |>
   ) +
   scale_x_discrete(expand = c(0,0.2)) +
   scale_y_continuous(limits=c(0,25),
-                     breaks = perc_25) +
+                     breaks = perc_25,
+                     expand=c(0,0.2)) +
   guides(color=guide_legend(nrow=3)) +
   labs(x="Year",
        y="Resistance (%)") +
@@ -634,6 +636,7 @@ make_dynamic_plot(plot = p,
 ###### Data
 ```{r}
 df |> 
+  transmute(antibiotic, year, "Total number" = tot_antal, "Resistance (%)"=r_perc, "95% CI" = ci) |> 
   make_table_data_tab(file_name = "Fig3-13")
 ```
 :::
@@ -776,6 +779,7 @@ make_dynamic_plot(plot = p,
 ###### Data
 ```{r}
 df |> 
+    transmute(antibiotic, year, "Total number" = tot_antal, "Resistance (%)"=r_perc, "95% CI" = ci) |> 
   make_table_data_tab(file_name = "Fig3-15")
 ```
 :::
@@ -815,7 +819,7 @@ p <- df |>
   filter(age_cat != "Total") |> 
   mutate(data_id = row_number(),
          tooltip_b = glue::glue('<b>Antibiotic:</b> {antibiotic}
-                                    <b>Sex:</b> {sex}
+                                    <b>Gender:</b> {sex}
                                      <b>Age category:</b> {age_cat}
                                     <b>Resistance:</b> {round(r_perc,2)}%
                                 <b>Confidence interval:</b>{ci}'
@@ -832,7 +836,6 @@ p <- df |>
   scale_x_continuous(expand=c(0,0.2)) +
   scale_y_discrete(limits=rev) +
   facet_grid(cols=vars(sex), scales ="free_y") +
-  #scale_fill_fohm() +
   scale_fill_SweSva() + 
   guides(fill=guide_legend(nrow=2)) +
   theme_SweSva() +
@@ -856,6 +859,8 @@ make_dynamic_plot(plot = p, filename = "Fig3-16")
 ###### Data
 ```{r}
 df |> 
+    transmute(antibiotic,Gender = sex,"Age category"=age_cat,  "Total number" = tot_antal, "Resistance (%)"=r_perc, "95% CI" = ci) |> 
+
   make_table_data_tab(file_name = "Fig3-16")
 ```
 
@@ -968,6 +973,7 @@ make_dynamic_plot(plot = p,
 ###### Data
 ```{r}
 df |> 
+      transmute(antibiotic, year, "Total number" = tot_antal, "Resistance (%)"=r_perc, "95% CI" = ci) |>
   make_table_data_tab(file_name = "Fig3-17")
 ```
 :::
@@ -1046,6 +1052,7 @@ make_dynamic_plot(plot = p,
 ###### Data
 ```{r}
 df |> 
+      transmute(antibiotic, year, "Total number" = tot_antal, "Resistance (%)"=r_perc, "95% CI" = ci) |>
   make_table_data_tab(file_name = "Fig3-18")
 ```
 :::

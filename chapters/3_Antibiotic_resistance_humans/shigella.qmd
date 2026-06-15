@@ -2,7 +2,6 @@
 format:
   html:
     embed-resources: false
-
 execute:
   cache: false
   echo: false
@@ -89,7 +88,8 @@ tooltip_p = glue::glue('<b>Year:</b> {year}
   ) +
   scale_x_discrete(expand = c(0,0.2)) +
     scale_y_continuous(breaks = perc_100,
-                       limits=c(0,100)) +
+                       limits=c(0,100),
+                       expand=c(0,0.2)) +
     guides(color=guide_legend(nrow=3)) +
 
   labs(x="Year",
@@ -107,6 +107,7 @@ make_dynamic_plot(plot = p,
 ###### Data
 ```{r}
 df |> 
+    transmute(antibiotic, year, "Total number" = tot_antal, "Resistance (%)"=r_perc, "95% CI" = ci) |> 
   make_table_data_tab(file_name = "Fig3-37")
 ```
 :::
@@ -116,7 +117,7 @@ df |>
 
 In total, 20 isolates were received in 2025 within the microbiological surveillance programme for *Shigella sonnei* and *Shigella* spp. with resistance to ciprofloxacin and cefotaxime and/or ceftazidime.
 
-Whole genome sequencing and subsequent SNP-analysis confirmed that six of the 20 received isolates belonged to a cluster with a total of 34 isolates. The cluster is genetically related to a multidrug-resistant and internationally spread *S. sonnei* carrying a *bla*~CTX-M-15~ gene, reported by the Netherlands on June 2023 and the United Kingdom on December 2023, mainly affecting men who have sex with men @ECDC2025CDTR49.
+Whole genome sequencing and subsequent SNP-analysis confirmed that six of the 20 received isolates belonged to a cluster with a total of 34 isolates. The cluster is genetically related to a multidrug-resistant and internationally spread *S. sonnei* carrying a *bla*~CTX-M-15~ gene, reported by the Netherlands on June 2023 and the United Kingdom on December 2023, mainly affecting men who have sex with men [@ECDC2025CDTR49].
 
 
 

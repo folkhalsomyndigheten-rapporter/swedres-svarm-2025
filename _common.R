@@ -63,13 +63,20 @@ make_table_data_tab <- function(
     page_length = 5) {
   # Clean the data
   cleaned_data <- data %>%
+    ## round all numeric columns in a dataframe to 2 decimal places
+    mutate(across(where(is.numeric), ~ round(., 2))) |> 
     # Capitalize column names (replace underscores with spaces and capitalize)
     rename_with(~ str_replace_all(., "(^|_).", str_to_upper)) %>%
     # Remove temporary columns
-    dplyr::select(-contains(".tmp")) |>
+    dplyr::select(-contains(".tmp")) %>%
     # remoce all markdown character
-    mutate(across(everything(), ~ str_remove_all(., "\\\\|\\*|\\**|\\||<sub>|</sub>|~|<br>")))
-
+    #mutate(across(everything(), ~ str_remove_all(., "\\\\|\\*|\\*\\*|\\||<sub>|</sub>|~|<br>")))
+    rename_with(~ str_replace_all(., "&gt;", ">") %>% str_remove_all("\\\\|\\*+|\\||<sub>.*?</sub>|<sup>.*?</sup>|~|<br>")) %>%
+    mutate(across(everything(),
+                  ~ str_replace_all(., "&gt;", ">") %>% str_remove_all("\\\\|\\*+|\\||<sub>.*?</sub>|<sup>.*?</sup>|~|<br>"))) 
+  
+  
+  
   # Create the DT datatable with buttons and options
   dt_table <- datatable(
     cleaned_data,
@@ -79,8 +86,8 @@ make_table_data_tab <- function(
       autoWidth = TRUE,
       buttons = list(
         list(extend = "copy"),
-        list(extend = "csv", filename = file_name),
-        list(extend = "excel", filename = file_name)
+        list(extend = "csv", filename = paste0("SwedresSvarm2025_Data_",file_name)),
+        list(extend = "excel", filename = paste0("SwedresSvarm2025_Data_",file_name))
       ),
       pageLength = page_length,
       lengthMenu = list(c(5, 10, 25, 50, -1), c(5, 10, 25, 50, "All")),
@@ -203,7 +210,7 @@ make_dynamic_plot <- function(plot, filename = "filename", width = 8, height = 5
       opts_toolbar(
         position = "top",
         saveaspng = TRUE,
-        pngname = paste0("SwedresSvarm2025_figure_", filename),
+        pngname = paste0("SwedresSvarm2025_",filename),
         delay_mouseout = 2000
       )
     )

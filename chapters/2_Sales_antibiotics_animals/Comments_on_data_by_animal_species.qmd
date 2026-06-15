@@ -2,7 +2,6 @@
 format:
   html:
     embed-resources: false
-
 execute:
   cache: false
   echo: false
@@ -12,7 +11,7 @@ execute:
 
 <style>
 .nobr {
-  white-space: nowrap;
+white-space: nowrap;
 }
 </style>
 
@@ -23,10 +22,10 @@ execute:
 #| warning: false
 #| message: false
 source("../../_common.R")
-status(type = "polishing")
+status(type = "ready2publish")
 ```
 
-## Comments on data by animal species
+## Comments on data by animal species {#sec-use-comments}
 
 ### Pigs {#sec-sales-pigs}
 
@@ -34,7 +33,7 @@ Antibiotics for pigs are predominantly sold on veterinary prescription by pharma
 
 In 2016 and 2025, the sales of antibiotics for pigs (pet pigs included) were <span class="nobr">2 874</span> and <span class="nobr">3 297</span> kg active substance, respectively, or 12.3 and 13.2 mg/kg slaughtered pig. Around 76% of the total sales for pigs were products for use in individual animals, and of these, 67% were products containing benzylpenicillin. Sales of fluoroquinolones were negligible, and no cephalosporins were sold for pigs in 2025. In Sweden, products with polymyxins (colistin) for oral use are only used for pigs. As noted under @sec-sales-population Population corrected data, a marked decrease in sales has been noted since 2016 and sales are today very low and most likely limited to cases where no alternatives are available. 
 
-The apparent increase in total consumption is largely explained by an increased need to treat post-weaning diarrhoea following the 2022 withdrawal of products with high levels of zinc oxide, which were previously used in feed for diarrhoea prevention. Sales of products containing aminoglycosides for oral group treatment have increased, and notably, the occurrence of neomycin resistance in *Escherichia coli* from pigs (see Antibiotic resistance in animals, Clinical isolates from Animals, Pigs @sec-clinical-pigs) has recently necessitated the introduction of apramycin use in Sweden. 
+The apparent increase in total consumption is largely explained by an increased need to treat post-weaning diarrhoea following the 2022 withdrawal of products with high levels of zinc oxide, which were previously used in feed for diarrhoea prevention. Sales of products containing aminoglycosides for oral group treatment have increased, and notably, the occurrence of neomycin resistance in *Escherichia coli* from pigs (see [Antibiotic resistance in animals, Clinical isolates from Animals, Pigs](#sec-clinical-pigs) has recently necessitated the introduction of apramycin use in Sweden. 
 
 The sales of relevant products, containing neomycin, paromomycin, apramycin or colistin for oral group treatment, classified under ATCvet code QA07AA and all sold on special license, both on prescription requisition, have been explored. Course doses were calculated by multiplying the dosage indicated in the product information of each product by an assumed standard weight of 12 kg for weaner pigs and a treatment duration of 3 days. The number of course doses sold in one month was divided by the number of pigs slaughtered five months later and the average number of course doses per 1 000 slaughtered pigs per quarter from 2019 to Q1 2026 is shown in @fig-23. When interpreting the data, it is important to note that actual use of the products may take place later than the sales.  
 
@@ -80,10 +79,11 @@ p_23 <- ggplot(dat_23_long,
                                 stat = "identity", position = "stack") +
   scale_x_discrete(labels = \(x) gsub(" Q", "\nQ", x)) +
   scale_fill_SweSva() +
-  labs(x = NULL,
-       y = "Average number of course doses/1000 slaughtered pigs", 
-       fill = NULL) +
-  scale_y_continuous(limits = c(0, 250), breaks = seq(0, 250, by = 50), expand=c(0,0.2)) +
+  labs(x = "Year and quarter",
+       y = "Average number of course doses/1000 slaughtered pigs") +
+  scale_y_continuous(limits = c(0, 250),
+                     breaks = seq(0, 250, by = 50),
+                     expand=c(0,0.2)) +
   theme_SweSva() +
   theme(axis.text.x = element_text(size = 9, hjust = 0.5, vjust = 0.5, margin = margin(t = 5))) +
   add_sva_caption()
@@ -96,6 +96,8 @@ make_dynamic_plot(plot = p_23, filename = "Fig2-3", width = 10)
 
 ```{r}
 dat_23_inter |>
+  rename("Year and quarter" = Quarter,
+        "Average number of course doses/1000 slaughtered pigs"=Value) |> 
   make_table_data_tab(file_name = "Fig2-3")
 ```
 :::
@@ -189,18 +191,18 @@ p_24 <- ggplot(df_fig_24,
                      expand=c(0,0.2)) +
   scale_x_discrete(expand=c(0,0.2)) +
   labs(x = "Year",
-       y = "Kg medicated feed/tonne of liveweight fish slaughtered", fill = NULL) +
+       y = "Kg medicated feed/tonne of liveweight fish slaughtered") +
   theme_SweSva() +
-  #theme(axis.text.x = element_text(angle = 45, hjust = 1, vjust = 1)) +
   add_sva_caption()
-make_dynamic_plot(plot = p_24, filename = "Fig2-4")
 
+make_dynamic_plot(plot = p_24, filename = "Fig2-4")
 ```
 
 ###### Data
 
 ```{r}
 dat_24_long |>
+  rename("Kg medicated feed/tonne of liveweight fish slaughtered"=Value) |> 
   make_table_data_tab(file_name = "Fig2-4")
 ```
 :::
@@ -245,31 +247,26 @@ fig_25_alt <- dat_25$fig_alt
 names(dat_25$fig_data) <- c("Year", "Total")
 
 df_fig_25 <- dat_25$fig_data |>
-  mutate(tooltip = paste0("<b>Year:</b> ", Year, "<br><b>Packages per 1000 dogs:</b> ", Total), data_id = paste(Total, Year, sep = "_"),
-          one_col = "Sales of antibiotics for oral medication")
+  mutate(tooltip = paste0("<b>Year:</b> ", Year, "<br><b>Packages per 1000 dogs:</b> ", Total),
+         data_id = paste(Total, Year, sep = "_"),
+         one_col = "Sales of antibiotics for oral medication")
 
-yrs <- sort(unique(df_fig_25$Year))
 
-#need to manually set the color to not have a black line
 p_25 <- ggplot(df_fig_25, 
                aes(x = factor(Year),
                    y = Total,
                    group=one_col,
                    color=one_col)) +
   geom_line_interactive(aes(tooltip=glue::glue('{Year}'))) +
-  ggiraph::geom_point_interactive(aes(tooltip = tooltip, data_id = data_id))+
-  #scale_x_continuous(breaks = yrs, minor_breaks = NULL) +
+  geom_point_interactive(aes(tooltip = tooltip, data_id = data_id))+
   scale_y_continuous(limits = c(0, 650), breaks = seq(0, 600, by = 100))+
-  #scale_color_SweSva() +
   scale_color_manual(values= one_color_SweSva[[1]]) +
   scale_y_continuous(limits = c(0,600))+
-scale_x_discrete(expand=c(0,0.2)) +
+  scale_x_discrete(expand=c(0,0.2)) +
   labs(x = "Year",
        y = "Packages per thousand dogs",) +
   theme_SweSva() +
-
   theme_SweSva_rotate() +
-
   add_sva_caption() 
 
 make_dynamic_plot(plot = p_25, filename = "Fig2-5")
@@ -278,6 +275,7 @@ make_dynamic_plot(plot = p_25, filename = "Fig2-5")
 ###### Data
 ```{r}
 dat_25$fig_data |> 
+  rename("Sales of antibiotics for oral medication"="Total") |> 
   make_table_data_tab(file_name = "Fig2-5")
 ```
 :::

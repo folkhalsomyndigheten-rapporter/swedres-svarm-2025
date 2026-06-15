@@ -16,7 +16,7 @@ execute:
 #| warning: false
 #| message: false
 source("../../_common.R")
-status(type = "polishing")
+status(type = "ready2publish")
 ```
 
 ## Antibiotics in outpatient care
@@ -40,22 +40,17 @@ status(type = "polishing")
 
 #### Comments
 
-The sales of antibiotics have decreased by 54% since 1992, when the prescription of antibiotics peaked. The greatest decrease during this period was observed in children aged 0-4 years, dropping from 1 328 prescriptions per 1 000 inhabitants in 1992 to 238 in 2025, a decrease of 82%. In 2020 the national long-term target of 250 prescriptions per 1 000 inhabitants per year was achieved nationally for the first time @Strama2016. Nine of 21 regions reached this annual target in 2025. The sales of fluoroquinolones (J01MA) decreased in 2023 and continued to decrease in 2024 and 2025, compared to both 2024 and 2019, which is in line with recommendations for restrictive use due to known risks of side effects @EMA2019. The increase observed in a number of antibiotic groups was greatest for for amoxicillin (J01CA04) and can be attributed to the availability of the product in the swedish market after a period of shortage. 
+The sales of antibiotics have decreased by 54% since 1992, when the prescription of antibiotics peaked. The greatest decrease during this period was observed in children aged 0-4 years, dropping from 1 328 prescriptions per 1 000 inhabitants in 1992 to 238 in 2025, a decrease of 82%. In 2020 the national long-term target of 250 prescriptions per 1 000 inhabitants per year was achieved nationally for the first time [@Strama2016]. Nine of 21 regions reached this annual target in 2025. The sales of fluoroquinolones (J01MA) decreased in 2023 and continued to decrease in 2024 and 2025, compared to both 2024 and 2019, which is in line with recommendations for restrictive use due to known risks of side effects [@EMA2019]. The increase observed in a number of antibiotic groups was greatest for for amoxicillin (J01CA04) and can be attributed to the availability of the product in the swedish market after a period of shortage. 
 
 
 ::: panel-tabset
 ###### Figure
 ```{r}
-# Medskick: linjen alla åldersgrupper får gärna skiljas ut lite noga. 
-
 data <- load_from_excel(path_file = "data/fig-1-2.xlsx")
 
 df <- data$fig_data |>
   head(n=5) |> 
   mutate(across(-`Age group`, ~as.numeric(.))) |> 
- # mutate_at(-`Age group`,as.numeric)
-  # mutate_if(is.character,as.numeric)
-  #dplyr::select("Age group","1987":"2025") |> 
   pivot_longer(cols = -"Age group", names_to = "year") |> 
   mutate(age_group = factor(`Age group`))
 ```
@@ -70,7 +65,7 @@ p <- df |>
          tooltip_l = glue::glue('{age_group}'),
          tooltip_p  = glue::glue('<b>Year:</b> {year}
                                    <b>Age group:</b> {age_group}
-                                   <b>DDD/1 000 inhabitants per day:</b> {round(value,2)}')) |> 
+                                   <b>Prescriptions/1 000 inhabitants per year:</b> {round(value,2)}')) |> 
   ggplot(aes(x=factor(year), 
              y=value,
              color=age_group,
@@ -82,7 +77,7 @@ p <- df |>
                          hover_nearest = TRUE,
   ) +
   scale_y_continuous(expand = c(0,0.2),
-                     limits=c(0,1500), #round(max(df$value)*1.1,-2)),
+                     limits=c(0,1500), 
                      labels = scales::label_number()) +
   scale_x_discrete(expand=c(0,0.2))+
   scale_linetype_manual(values = c("TRUE" = "dashed", "FALSE" = "solid")) +
@@ -91,8 +86,7 @@ p <- df |>
        x="Year") +
   scale_color_SweSva() + 
   add_fohm_caption() +
-  #theme_SweSva() +
-  theme_SweSva() + #_nicelabs() +
+  theme_SweSva() + 
   theme_SweSva_rotate()
 
 make_dynamic_plot(plot = p, filename = "Fig1-2")
@@ -101,6 +95,7 @@ make_dynamic_plot(plot = p, filename = "Fig1-2")
 ```{r}
 df |> 
   dplyr::select(-age_group) |> 
+  rename("Prescriptions/1 000 inhabitants per year" = value) |> 
   make_table_data_tab(file_name = "Fig1-2")
 ```
 :::
@@ -113,8 +108,7 @@ data <- load_from_excel(path_file = "data/fig-1-3.xlsx")
 df <- data$fig_data |> 
   dplyr::select(`Antibiotic classes`,"2021":"2025") |> 
   pivot_longer(cols = -`Antibiotic classes`,names_to = "year") |> 
-  mutate(ab_classes = factor(`Antibiotic classes`, levels = rev(unique(`Antibiotic classes`)))) #|> 
-  #mutate(ab_classes = rev(ab_classes))#,ordered = T))
+  mutate(ab_classes = factor(`Antibiotic classes`, levels = rev(unique(`Antibiotic classes`)))) 
 ```
 
 ```{r}
@@ -123,24 +117,19 @@ df <- data$fig_data |>
 #| fig-alt: !expr glue::glue("{data$fig_alt}")
 #| warning: false
 p <- df |> 
-   mutate(data_id = row_number(),
-          tooltip_b = glue::glue('<b>Year:</b> {year}
+  mutate(data_id = row_number(),
+         tooltip_b = glue::glue('<b>Year:</b> {year}
                                     <b>Antibiotic classes:</b> {ab_classes}
                                     <b>DDD/1 000 inhabitants per year:</b> {round(value,2)}')) |> 
-
+  
   ggplot(aes(y = ab_classes,
              x = value, 
              fill=year,
              data_id = data_id)) +
   geom_col_interactive(aes(tooltip = tooltip_b),width = 0.5, position = position_dodge(0.7)) +
-  #geom_bar_interactive(aes(tooltip = tooltip_b, width = .8),
-  #         position="dodge", stat="identity") +
   labs(y=NULL,
        x = "DDD/1 000 inhabitants per year") +
-      scale_x_continuous(expand = c(0,0),limits=c(0,round(max(df$value)*1.1,-2))) +
-#theme(axis.text.y = element_text(hjust=0))+
-#  scale_y_continuous(expand=c(0,.1)) +
-  #scale_fill_fohm() +
+  scale_x_continuous(expand = c(0,0),limits=c(0,round(max(df$value)*1.1,-2))) +
   scale_fill_SweSva() + 
   theme_SweSva() +
   theme(axis.text.y = element_text(hjust=1)) +
@@ -153,6 +142,7 @@ make_dynamic_plot(plot = p, filename = "Fig1-3")
 ```{r}
 df |> 
   dplyr::select(-ab_classes) |> 
+  rename("DDD/1 000 inhabitants per year"=value) |> 
   make_table_data_tab(file_name = "Fig1-3")
 ```
 :::
@@ -169,7 +159,7 @@ df <- data$fig_data |>
   dplyr::select(region,"2021":"2025") |> 
   pivot_longer(-region,names_to = "year") |> 
   mutate(sort_fct.tmp = case_when(region=="Sweden" ~ 1,
-                              .default = 2))
+                                  .default = 2))
 ```
 
 ```{r}
@@ -180,35 +170,29 @@ df <- data$fig_data |>
 
 order <- df |> filter(year==max(year)) |> arrange(-value) |> pull(region)
 p <- df |> 
-   mutate(data_id = row_number(),
-          tooltip_b = glue::glue('<b>Year:</b> {year}
+  mutate(data_id = row_number(),
+         tooltip_b = glue::glue('<b>Year:</b> {year}
                                     <b>Region:</b> {region}
-                                    <b>DDD/1 000 inhabitants per year:</b> {round(value,2)}'),
-          region = factor(region, levels = order)) |> 
-
-  ggplot(aes(x = region,#fct_reorder(region,sort_fct.tmp),
+                                    <b>Prescriptions/1 000 inhabitants per year:</b> {round(value,2)}'),
+         region = factor(region, levels = order)) |> 
+  
+  ggplot(aes(x = region,
              y = value, 
              fill=factor(year),
              data_id = data_id)) +
-    geom_col_interactive(aes(tooltip = tooltip_b),width = 0.5, position = position_dodge(0.7)) +
-
-  #geom_bar_interactive(aes(tooltip = label_point,width = .9),
-  #         position="dodge", stat="identity") +
+  geom_col_interactive(aes(tooltip = tooltip_b),width = 0.5, position = position_dodge(0.7)) +
   geom_hline_interactive(yintercept = 250,linewidth = 1.5,
                          colour = "red",tooltip_fill = "red",
                          alpha=.7,
                          hover_nearest = TRUE,
                          tooltip = "The red line indicates the national target of 250 prescriptions or less per 1 000 inhabitants per year.") +
-  labs(x=NULL,
+  labs(x="Region",
        y = "Prescriptions/1 000 inhabitants per year") +
   scale_y_continuous(expand=c(0,.1)) +
   scale_fill_SweSva() + 
   theme_SweSva() +
   theme_SweSva_rotate() +
   add_fohm_caption() +
-  #  scale_x_discrete(
-  #  labels = ifelse(order=="Sweden","**Sweden**",order)
-  #) +
   theme(axis.text.x = ggtext::element_markdown())
 
 make_dynamic_plot(plot = p, filename = "Fig1-4")
@@ -216,6 +200,7 @@ make_dynamic_plot(plot = p, filename = "Fig1-4")
 ###### Data
 ```{r}
 df |> 
+  rename("Prescriptions/1 000 inhabitants per year"=value) |> 
   make_table_data_tab(file_name = "Fig1-4")
 ```
 :::
@@ -233,7 +218,7 @@ df <- data$fig_data |>
   dplyr::select(region,"2021":"2025") |> 
   pivot_longer(-region,names_to = "year") |> 
   mutate(sort_fct.tmp = case_when(region=="Sweden" ~ 1,
-                              .default = 2))
+                                  .default = 2))
 ```
 
 ```{r}
@@ -244,36 +229,25 @@ df <- data$fig_data |>
 
 order <- df |> filter(year==max(year)) |> arrange(-value) |> pull(region)
 p <- df |> 
-   mutate(data_id = row_number(),
-          tooltip_b = glue::glue('<b>Year:</b> {year}
+  mutate(data_id = row_number(),
+         tooltip_b = glue::glue('<b>Year:</b> {year}
                                     <b>Region:</b> {region}
-                                    <b>DDD/1 000 inhabitants per year:</b> {round(value,2)}'),
-          region = factor(region, levels = order)) |> 
-
-  ggplot(aes(x = region,#fct_reorder(region,sort_fct.tmp),
+                                    <b>Proportion inhabitants:</b> {round(value,2)}%'),
+         region = factor(region, levels = order)) |> 
+  
+  ggplot(aes(x = region,
              y = value, 
              fill=factor(year),
              data_id = data_id)) +
-    geom_col_interactive(aes(tooltip = tooltip_b),width = 0.5, position = position_dodge(0.7)) +
-
-  #geom_bar_interactive(aes(tooltip = label_point,width = .9),
-  #         position="dodge", stat="identity") +
-  #geom_hline_interactive(yintercept = 250,linewidth = 1.5,
-  #                       colour = "red",
-  #                       alpha=.7,
-  ##                       hover_nearest = TRUE,
-  #                       tooltip = "The red line indicates the national target of 250 prescriptions or less per 1 000 inhabitants per year.") +
-  labs(x=NULL,
+  geom_col_interactive(aes(tooltip = tooltip_b),width = 0.5, position = position_dodge(0.7)) +
+  labs(x="Region",
        y = "Proportion (%) inhabitants") +
-   scale_y_continuous(expand=c(0,.2),
+  scale_y_continuous(expand=c(0,.2),
                      limits = c(0,20)) +
   scale_fill_SweSva() + 
   theme_SweSva() +
   theme_SweSva_rotate() +
   add_fohm_caption() +
- #   scale_x_discrete(
-#    labels = ifelse(order=="Sweden","**Sweden**",order)
-#  ) +
   theme(axis.text.x = ggtext::element_markdown())
 
 make_dynamic_plot(plot = p, filename = "Fig1-5")
@@ -281,6 +255,7 @@ make_dynamic_plot(plot = p, filename = "Fig1-5")
 ###### Data
 ```{r}
 df |> 
+    rename("Proportion (%) inhabitants"=value) |> 
   make_table_data_tab(file_name = "Fig1-5")
 ```
 :::
@@ -310,7 +285,7 @@ df <- data$fig_data |>
   dplyr::select(region,"RTI":"Acne") |> 
   pivot_longer(-region,names_to = "feature") |> 
   mutate(sort_fct.tmp = case_when(region=="Sweden" ~ 1,
-                              .default = 2))
+                                  .default = 2))
 ```
 
 ```{r}
@@ -319,54 +294,55 @@ df <- data$fig_data |>
 #| fig-alt: !expr glue::glue("{data$fig_alt}")
 #| warning: false
 
-#spec_order <- df |> 
-#  filter(feature=="RTI") |> 
-#  arrange(-value) |> pull(region)
-
 spec_order <- df |> 
   group_by(region) |> 
   summarise(total = sum(value)) |> 
   arrange(-total) |> pull(region)
-
+## stack sort works for geom_bar but not geom_bar_interactive; is not sorting -> workaround via 1_:4_ and manual fill
 stack_order <- c("RTI", "UTI", "SSTI",  "Acne")
 
 df_tmp <- df |> 
-    mutate(region = factor(region, levels = spec_order),
-           feature = forcats::fct_relevel(feature, stack_order)
-
-           ) |> 
-
-   mutate(data_id = row_number(),
-          tooltip_b = glue::glue('<b>Disease:</b> {feature}
+  mutate(region = factor(region, levels = spec_order),
+         #feature = forcats::fct_relevel(feature, stack_order)
+         feature = case_when(feature=="RTI" ~ "4_RTI",
+                             feature=="UTI" ~ "3_UTI",
+                             feature=="SSTI" ~ "2_SSTI",
+                             feature=="Acne" ~ "1_Acne",
+                             .default = NA
+                             ),
+         #feature = factor(feature,
+        #                  levels=c("4_RTI","3_UTI","2_SSTI","1_Acne"),
+         #                 labels = c("RTI","UTI","SSTI","Acne"))
+  ) |> 
+  mutate(test = gsub(".*_","",feature)) |> 
+  
+  mutate(data_id = row_number(),
+         tooltip_b = glue::glue('<b>Infection type:</b> {feature}
                                     <b>Region:</b> {region}
-                                    <b>DDD/1 000 inhabitants per year:</b> {round(value,2)}')) #|> 
+                                    <b>Prescriptions/1 000 inhabitants per year:</b> {round(value,2)}')) #|> 
 
 p <- df_tmp |> 
-  ggplot(aes(x = region,#fct_reorder(factor(region),value),
+  ggplot(aes(x = region,
              y = value, 
-             fill = feature,#factor(feature, levels = stack_order), #factor(feature, levels=stack_order),#feature,
+             fill = feature,
              data_id = data_id)) +
-  #geom_bar(stat="identity") 
-  ## COMMENT JULIUS 2026-05-27: geom_bar_interactive is not sorting
-
-      geom_bar_interactive(aes(tooltip = tooltip_b),
-                           stat="identity") +
-  labs(x=NULL,
+  geom_bar_interactive(aes(tooltip = tooltip_b),
+                       stat="identity") +
+  labs(x="Region",
        y = "Prescriptions/1 000 inhabitants per year") +
-
+  
   scale_x_discrete(expand=c(0,0.2)) +
   scale_y_continuous(expand=c(0,.1),
                      labels = scales::label_number(),
-                     limits=c(0,300)
-                     ) +
-  scale_fill_SweSva() + 
+                     limits=c(0,300)) +
   theme_SweSva() +
   theme_SweSva_rotate() +
   add_fohm_caption()+
-#    scale_x_discrete(
- #   labels = ifelse(spec_order=="Sweden","**Sweden**",spec_order)
-#  ) +
-  theme(axis.text.x = ggtext::element_markdown())
+  theme(axis.text.x = ggtext::element_markdown()) +
+    scale_fill_manual(labels = function(x) gsub(".*_", "", x),
+                        values = c("4_RTI"="#0065AC","3_UTI"="#FA6400","2_SSTI"="#009284","1_Acne"="#951B81")
+                      ) 
+
 
 make_dynamic_plot(plot = p, filename = "Fig1-6")
 ```
@@ -376,6 +352,8 @@ make_dynamic_plot(plot = p, filename = "Fig1-6")
 ###### Data
 ```{r}
 df |> 
+  rename("Prescriptions/1 000 inhabitants per year" = value,
+         "Infection type" = feature) |> 
   make_table_data_tab(file_name = "Fig1-6")
 ```
 :::
@@ -392,7 +370,7 @@ df |>
 
 #### Comments
 
-The recommended first-line treatment for lower RTIs in Sweden is penicillin V (J01CE02) @Lakemedelsverket2008. In 2025, the total sales of antibiotics commonly used to treat RTIs were lower than in 2024, and remain lower than pre-pandemic levels. Trend analysis based on data during the period 2000-2025 showed a significant decrease in the sales of penicillin, cephalosporines, macrolides and doxycycline. Amoxicillin with an enzyme inhibitor (J01CR02) showed an increase since 2017. For amoxicillin, however, there is a significant increase at the beginning of the period (between the years 2000 and 2001) followed by a decrease during the period 2002–2025.
+The recommended first-line treatment for lower RTIs in Sweden is penicillin V (J01CE02) [@Behandlingsrekommendation]. In 2025, the total sales of antibiotics commonly used to treat RTIs were lower than in 2024, and remain lower than pre-pandemic levels. Trend analysis based on data during the period 2000-2025 showed a significant decrease in the sales of penicillin, cephalosporines, macrolides and doxycycline. Amoxicillin with an enzyme inhibitor (J01CR02) showed an increase since 2017. For amoxicillin, however, there is a significant increase at the beginning of the period (between the years 2000 and 2001) followed by a decrease during the period 2002–2025.
 
 ::: panel-tabset
 ###### Figure
@@ -405,8 +383,8 @@ data <- load_from_excel(path_file = "data/fig-1-7.xlsx")
 
 df <- data$fig_data |> 
   rename(antibiotic = Antibiotic) |>
-    dplyr::select(antibiotic,"2000":"2025") |> 
-    mutate(across(-antibiotic, ~as.numeric(.))) |> 
+  dplyr::select(antibiotic,"2000":"2025") |> 
+  mutate(across(-antibiotic, ~as.numeric(.))) |> 
   pivot_longer(-antibiotic,names_to = "year") 
 ```
 
@@ -430,19 +408,17 @@ p <- df |>
   geom_point_interactive(aes(tooltip=tooltip_p),
                          hover_nearest = TRUE) +
   scale_y_continuous(expand = c(0,0),limits=c(0,200)) +
-    scale_x_discrete(expand=c(0,0.2)) + 
-
+  scale_x_discrete(expand=c(0,0.2)) + 
+  
   labs(y= "Prescriptions/1 000 inhabitants per year",
        x="Year") +  
   guides(color=guide_legend(nrow=3)) +
-
+  
   scale_color_SweSva() + 
   add_fohm_caption() +
   theme_SweSva() +
   theme_SweSva_rotate() +
   theme(plot.subtitle = element_text(vjust = -15)) 
-  #theme_SweSva_full_legend()
-
 
 make_dynamic_plot(plot = p, filename = "Fig1-7")
 ```
@@ -450,6 +426,7 @@ make_dynamic_plot(plot = p, filename = "Fig1-7")
 ###### Data
 ```{r}
 df |> 
+  rename("Prescriptions/1 000 inhabitants per year"=value) |> 
   make_table_data_tab(file_name = "Fig1-7")
 ```
 :::
@@ -461,7 +438,7 @@ df |>
 #### Results
 
 - Sales of antibiotics commonly used to treat UTIs decreased by 2.4% in 2025 among women aged 15-79 compared to 2024. Sales of pivmecillinam (J01CA08) and trimethoprim (J01EA) increased by 5.3% and 1.5% respectively, whereas nitrofurantoin (J01XE) and ciprofloxacin (J01MA02) decreased by 11% and 5.8%, @fig-1-8.
- 
+
 - In men aged 65 or older, the sales of antibiotics commonly used to treat UTIs increased marginally by 0.2% in 2025 compared to 2024. The greatest relative change was observed for pivmecillinam (J01CA08) and trimethoprim (J01EA) increased by 6.8% and 5.7% respectively, @fig-1-9.
 
 - At the national level, just over 10% of the antibiotics commonly prescribed for UTIs in women aged 18-79 in 2025 consisted of ciprofloxacin. This proportion ranged from 7.0% in Jönköping region to 13% in Västernorrland region, @fig-1-10.
@@ -469,11 +446,11 @@ df |>
 
 #### Comments
 
-According to national treatment recommendations, pivmecillinam and nitrofurantoin are first-line treatments for UTIs in women aged 15 or older and in men with afebrile symptomatic UTIs @Lakemedelsverket2017.
-In line with treatment recommendations, 87% of the antibiotics commonly prescribed for UTIs that were sold to women aged 15-79 in 2025 consisted of these two antibiotics. The increase in sales of pivmecillinam (J01CA08) can be attributed to a recommendation from Strama to use it instead of nitrofurantoin (J01XE) when appropriate, due to a risk of shortage for pivmecillinam @Strama2026. This guidance has been withdrawn, as nitrofurantoin is no longer considered to be at risk for shortages.
+According to national treatment recommendations, pivmecillinam and nitrofurantoin are first-line treatments for UTIs in women aged 15 or older and in men with afebrile symptomatic UTIs [@Behandlingsrekommendation].
+In line with treatment recommendations, 87% of the antibiotics commonly prescribed for UTIs that were sold to women aged 15-79 in 2025 consisted of these two antibiotics. The increase in sales of pivmecillinam (J01CA08) can be attributed to a recommendation from Strama to use it instead of nitrofurantoin (J01XE) when appropriate, due to a risk of shortage for pivmecillinam [@Strama2026]. This guidance has been withdrawn, as nitrofurantoin is no longer considered to be at risk for shortages.
 In men aged 65 or older, fluoroquinolones made up 33% of the UTI antibiotics sold in 2025. In this group, the trend analysis shows a significant increase in the sales of nitrofurantoin and trimethoprim with sulphonamides during the period 2000-2025. Sales of fluoroquinolones and trimethoprim show a significant decrease since the beginning of the 2000s. Sales of pivmecillinam increased in this population since 2005, according to trend analysis. Note that since 2021, norfloxacin (J01MA06) has been removed from the market and only ciprofloxacin (J01MA02) remains among the fluoroquinolones. 
 
-According to Strama’s quality indicator for outpatient care, a maximum of 10% of antibiotics prescribed to treat UTIs in women aged 18-79 years should consist of fluoroquinolones @Strama2016. This target was achieved by nine of 21 regions in 2025.  
+According to Strama’s quality indicator for outpatient care, a maximum of 10% of antibiotics prescribed to treat UTIs in women aged 18-79 years should consist of fluoroquinolones [@Strama2016]. This target was achieved by nine of 21 regions in 2025.  
 
 
 ::: panel-tabset
@@ -487,8 +464,8 @@ data <- load_from_excel(path_file = "data/fig-1-8.xlsx")
 
 df <- data$fig_data |> 
   rename(antibiotic = Antibiotic) |> 
-    dplyr::select(antibiotic,"2000":"2025") |> 
-    mutate(across(-antibiotic, ~as.numeric(.))) |> 
+  dplyr::select(antibiotic,"2000":"2025") |> 
+  mutate(across(-antibiotic, ~as.numeric(.))) |> 
   pivot_longer(-antibiotic,names_to = "year") 
 ```
 
@@ -524,14 +501,13 @@ p <- df |>
   theme_SweSva_rotate() +
   theme(plot.subtitle = element_text(vjust = -7)) 
 
-    #theme_SweSva_full_legend()
-
 make_dynamic_plot(plot = p, filename = "Fig1-8")
 ```
 
 ###### Data
 ```{r}
 df |> 
+  rename("Prescriptions/1 000 inhabitants per year"=value) |> 
   make_table_data_tab(file_name = "Fig1-8")
 ```
 :::
@@ -548,8 +524,8 @@ data <- load_from_excel(path_file = "data/fig-1-9.xlsx")
 
 df <- data$fig_data |> 
   rename(antibiotic = Antibiotics) |> 
-    dplyr::select(antibiotic,"2000":"2025") |> 
-    mutate(across(-antibiotic, ~as.numeric(.))) |> 
+  dplyr::select(antibiotic,"2000":"2025") |> 
+  mutate(across(-antibiotic, ~as.numeric(.))) |> 
   head(n=5) |> 
   pivot_longer(-antibiotic,names_to = "year") 
 ```
@@ -585,8 +561,6 @@ p <- df |>
   theme_SweSva() +
   theme_SweSva_rotate() +
   theme(plot.subtitle = element_text(vjust = -15)) 
-  #  theme_SweSva_full_legend()
-
 
 make_dynamic_plot(plot = p, filename = "Fig1-9")
 ```
@@ -594,6 +568,7 @@ make_dynamic_plot(plot = p, filename = "Fig1-9")
 ###### Data
 ```{r}
 df |> 
+  rename("Prescriptions/1 000 inhabitants per year"=value) |> 
   make_table_data_tab(file_name = "Fig1-9")
 ```
 :::
@@ -610,9 +585,7 @@ data <- load_from_excel(path_file = "data/fig-1-10.xlsx")
 df <- data$fig_data |> 
   rename(region = Region) |> 
   dplyr::select(region,"2018-2022":"2025") |> 
-  pivot_longer(-region,names_to = "year") #|> 
-  #mutate(sort_fct.tmp = case_when(region=="Sweden" ~ 1,
-   #                           .default = 2))
+  pivot_longer(-region,names_to = "year") 
 ```
 
 ```{r}
@@ -621,56 +594,40 @@ df <- data$fig_data |>
 #| fig-alt: !expr glue::glue("{data$fig_alt}")
 #| warning: false
 
-#order <- df |> filter(year==max(year)) |> arrange(-value) |> pull(region)
 spec_order <- df |> 
   filter(year==max(year)) |> 
   arrange(-value) |> pull(region)
 
-#spec_order <- data$fig_data |> pull(Region)
 
 p <- df |> 
-    mutate(region = factor(region, levels = spec_order)) |> 
-#mutate(region = ifelse(region=="Sweden","**Sweden**",region)) |> 
-   mutate(data_id = row_number(),
-          comment = case_when(year=="*2018-2022"~"Average proportion is presented for the time period 2018-2022",
-                              .default = ""),
-          tooltip_b = glue::glue('<b>Year:</b> {year}
-                                 {comment}
+  mutate(region = factor(region, levels = spec_order)) |> 
+  mutate(data_id = row_number(),
+         comment = case_when(year=="*2018-2022"~"<br>Average proportion is presented for the time period 2018-2022",
+                             .default = ""),
+         tooltip_b = glue::glue('<b>Year:</b> {year}{comment}
                                     <b>Region:</b> {region}
-                                    <b>DDD/1 000 inhabitants per year:</b> {round(value,2)}'),
-          
-          #region = factor(region, levels = order)
-          ) |> 
-
-  ggplot(aes(x = region, #fct_reorder(region, value,.desc = T),#region,#fct_reorder(region,sort_fct.tmp),
+                                    <b>Proportion fluoroquinolones:</b> {round(value,2)}%'),
+  ) |> 
+  
+  ggplot(aes(x = region, 
              y = value, 
              fill=factor(year),
              data_id = data_id)) +
-    geom_col_interactive(aes(tooltip = tooltip_b),width = 0.5, position = position_dodge(0.7)) +
-
-  #geom_bar_interactive(aes(tooltip = label_point,width = .9),
-  #         position="dodge", stat="identity") +
+  geom_col_interactive(aes(tooltip = tooltip_b),width = 0.5, position = position_dodge(0.7)) +
   geom_hline_interactive(yintercept = 10,linewidth = 1.5,
                          colour = "red",
                          tooltip_fill = "red",
                          alpha=.7,
                          hover_nearest = TRUE,
                          tooltip = "The red line indicates Strama’s target of maximum 10% fluoroquinolones.") +
-  labs(x=NULL,
+  labs(x="Region",
        y = "Proportion (%)  fluoroquinolones") +
   scale_y_continuous(expand=c(0,.2),
-                     #breaks=perc_25,
                      limits = c(0,15)) +
   scale_x_discrete(expand=c(0,0.2)) +
   scale_fill_SweSva() + 
-  
-  theme_SweSva() + #markdown = c("axis.text.x")) +
-    theme_SweSva_rotate() +
-
-  #scale_x_discrete(
-    #breaks = c(100, 200, 300),
-   # labels = ifelse(spec_order=="Sweden","**Sweden**",spec_order)
-  #) +
+  theme_SweSva() + 
+  theme_SweSva_rotate() +
   theme(axis.text.x = ggtext::element_markdown()) +
   add_fohm_caption()
 
@@ -680,21 +637,10 @@ make_dynamic_plot(plot = p, filename = "Fig1-10")
 ###### Data
 ```{r}
 df |> 
+  rename("Proportion (%)  fluoroquinolones"=value) |> 
   make_table_data_tab(file_name = "Fig1-10")
 ```
 :::
-
-
-
-```{r}
-#| results: "asis"
-#| echo: false
-#| warning: false
-#| message: false
-source("../../_common.R")
-status(type = "polishing")
-```
-
 
 ### Age and gender comparisons
 
@@ -727,19 +673,19 @@ order <- data$fig_data |> pull(`Age group`)
 #| fig-alt: !expr glue::glue("{data$fig_alt}")
 #| warning: false
 p <- df |> 
-   mutate(data_id = row_number(),
+  mutate(data_id = row_number(),
          
-          tooltip_b = glue::glue('<b>Age group:</b> {age_group}
+         tooltip_b = glue::glue('<b>Age category:</b> {age_group}
                                  <b>Gender:</b> {gender}
                                  <b>Prescriptions/1 000 inhabitants per year:</b> {round(value,2)}'),
-          age_group = factor(age_group, levels=order),
-          gender = factor(gender, levels = c("Women","Men"))
-          ) |> 
+         age_group = factor(age_group, levels=order),
+         gender = factor(gender, levels = c("Women","Men"))
+  ) |> 
   ggplot(aes(x = age_group,
              y = value, 
              fill=factor(gender,ordered = T),
              data_id = data_id)) +
-    geom_col_interactive(aes(tooltip = tooltip_b),width = 0.5, position = position_dodge(0.7)) +
+  geom_col_interactive(aes(tooltip = tooltip_b),width = 0.5, position = position_dodge(0.7)) +
   labs(x="Age categories",
        y = "Prescriptions/1 000 inhabitants per year") +
   scale_y_continuous(expand=c(0,.2),
@@ -754,7 +700,9 @@ make_dynamic_plot(plot = p, filename = "Fig1-11")
 ###### Data
 ```{r}
 df |> 
-  make_table_data_tab(file_name = "test")
+  rename("Prescriptions/1 000 inhabitants per year"=value,
+         "Age categories" = age_group) |> 
+  make_table_data_tab(file_name = "Fig1-11")
 ```
 :::
 
@@ -771,9 +719,7 @@ Results
 
 #### Comments
 
-The proportion of children aged 0-6 years treated with at least one course of antibiotics decreased in all regions during 2025 compared to 2024. According to Strama’s quality indicator for outpatient care, at least 80% of antibiotics prescribed for RTIs in children aged 0-6 years should consist of penicillin V @Strama2016. To calculate this indicator, the following antibiotics are included in the denominator: amoxicillin (J01CA04), penicillin V (J01CE02), amoxicillin with clavulanic acid (J01CR02), cephalosporins (J01DB-DE excl. ceftibuten J01DD14), doxycycline (J01AA02; excluding packages larger than 50 tablets) and macrolides (J01FA). In 2025, one of the 21 regions achieved this target.
-
-
+The proportion of children aged 0-6 years treated with at least one course of antibiotics decreased in all regions during 2025 compared to 2024. According to Strama’s quality indicator for outpatient care, at least 80% of antibiotics prescribed for RTIs in children aged 0-6 years should consist of penicillin V [@Strama2016]. To calculate this indicator, the following antibiotics are included in the denominator: amoxicillin (J01CA04), penicillin V (J01CE02), amoxicillin with clavulanic acid (J01CR02), cephalosporins (J01DB-DE excl. ceftibuten J01DD14), doxycycline (J01AA02; excluding packages larger than 50 tablets) and macrolides (J01FA). In 2025, one of the 21 regions achieved this target.
 
 
 
@@ -798,34 +744,33 @@ df <- data$fig_data |>
 
 order <- df |> filter(year==max(year)) |> arrange(-value) |> pull(region)
 p <- df |> 
-   mutate(data_id = row_number(),
-          tooltip_b = glue::glue('<b>Year:</b> {year}
+  mutate(data_id = row_number(),
+         tooltip_b = glue::glue('<b>Year:</b> {year}
                                     <b>Region:</b> {region}
-                                    <b>DDD/1 000 inhabitants per year:</b> {round(value,2)}'),
-          region = factor(region, levels = order)) |> 
-
-  ggplot(aes(x = region,#fct_reorder(region,sort_fct.tmp),
+                                    <b>Proportion inhabitants:</b> {round(value,2)}%'),
+         region = factor(region, levels = order)) |> 
+  ggplot(aes(x = region,
              y = value, 
              fill=factor(year),
              data_id = data_id)) +
-    geom_col_interactive(aes(tooltip = tooltip_b),width = 0.5, position = position_dodge(0.7)) +
-  labs(x=NULL,
+  geom_col_interactive(aes(tooltip = tooltip_b),width = 0.5, position = position_dodge(0.7)) +
+  labs(x="Region",
        y = "Proportion (%) inhabitants") +
   scale_y_continuous(expand=c(0,.2),
                      limits = c(0,25)) +
-    scale_x_discrete(expand=c(0,0.2)) +
-
+  scale_x_discrete(expand=c(0,0.2)) +
   scale_fill_SweSva() + 
   theme_SweSva() +
   theme_SweSva_rotate() +
   add_fohm_caption() +
-    theme(axis.text.x = ggtext::element_markdown()) 
+  theme(axis.text.x = ggtext::element_markdown()) 
 
 make_dynamic_plot(plot = p, filename = "Fig1-12")
 ```
 ###### Data
 ```{r}
 df |> 
+  rename("Proportion (%) inhabitants"=value) |> 
   make_table_data_tab(file_name = "Fig1-12")
 ```
 :::
@@ -844,7 +789,7 @@ df <- data$fig_data |>
   dplyr::select(region,"2018-22":"2025") |> 
   pivot_longer(-region,names_to = "year") |> 
   mutate(sort_fct.tmp = case_when(region=="Sweden" ~ 1,
-                              .default = 2))
+                                  .default = 2))
 ```
 
 ```{r}
@@ -855,42 +800,40 @@ df <- data$fig_data |>
 
 order <- df |> filter(year==max(year)) |> arrange(-value) |> pull(region)
 p <- df |> 
-   mutate(data_id = row_number(),
-          tooltip_b = glue::glue('<b>Year:</b> {year}
+  mutate(data_id = row_number(),
+         tooltip_b = glue::glue('<b>Year:</b> {year}
                                     <b>Region:</b> {region}
-                                    <b>DDD/1 000 inhabitants per year:</b> {round(value,2)}'),
-          region = factor(region, levels = order)) |> 
-
+                                    <b>Proportion penicillin V:</b> {round(value,2)}%'),
+         region = factor(region, levels = order)) |> 
+  
   ggplot(aes(x = region,
              y = value, 
              fill=factor(year),
              data_id = data_id)) +
-    geom_col_interactive(aes(tooltip = tooltip_b),width = 0.5, position = position_dodge(0.7)) +
-
-  #geom_bar_interactive(aes(tooltip = label_point,width = .9),
-  #         position="dodge", stat="identity") +
+  geom_col_interactive(aes(tooltip = tooltip_b),width = 0.5, position = position_dodge(0.7)) +
+  
   geom_hline_interactive(yintercept = 80,linewidth = 1.5,
                          colour = "red",tooltip_fill = "red",
                          alpha=.7,
                          hover_nearest = TRUE,
                          tooltip = "The red line indicates the national target of 80%.") +
-  labs(x=NULL,
+  labs(x="Region",
        y = "Proportion (%) penicillin V") +
   scale_y_continuous(expand=c(0,.1), 
                      limits=c(0,100)) +
-    scale_x_discrete(expand=c(0,0.2)) +
+  scale_x_discrete(expand=c(0,0.2)) +
   scale_fill_SweSva() + 
   theme_SweSva() +
   theme_SweSva_rotate() +
   add_fohm_caption() +
-      theme(axis.text.x = ggtext::element_markdown()) 
-
+  theme(axis.text.x = ggtext::element_markdown()) 
 
 make_dynamic_plot(plot = p, filename = "Fig1-13")
 ```
 ###### Data
 ```{r}
 df |> 
+  rename("Proportion (%) penicillin V"=value) |> 
   make_table_data_tab(file_name = "Fig1-13")
 ```
 :::
@@ -935,18 +878,16 @@ df <- data$fig_data |>
 #| fig-alt: !expr glue::glue("{data$fig_alt}")
 #| warning: false
 p <- df |> 
-   mutate(data_id = row_number(),
-          tooltip_b = glue::glue('<b>Year:</b> {year}
+  mutate(data_id = row_number(),
+         tooltip_b = glue::glue('<b>Year:</b> {year}
                                     <b>Antibiotic:</b> {antibiotic}
                                     <b>Prescriptions/1 000 inhabitants per year:</b> {round(value,2)}')) |> 
-
+  
   ggplot(aes(x = year,
              y = value, 
              fill=factor(antibiotic),
              data_id = data_id)) +
-      geom_bar_interactive(aes(tooltip = tooltip_b),position="stack", stat="identity") +
-
-    #geom_col_interactive(aes(tooltip = tooltip_b),width = 0.5, position = position_dodge(0.7)) +
+  geom_bar_interactive(aes(tooltip = tooltip_b),position="stack", stat="identity") +
   labs(x="Year",
        y = "Prescriptions/1 000 inhabitants per year") +
   guides(fill=guide_legend(nrow=3)) +
@@ -962,6 +903,7 @@ make_dynamic_plot(plot = p, filename = "Fig1-14")
 ###### Data
 ```{r}
 df |> 
+  rename("Prescriptions/1 000 inhabitants per year"=value) |> 
   make_table_data_tab(file_name = "Fig1-14")
 ```
 :::
@@ -987,35 +929,35 @@ df <- data$fig_data |>
 
 order <- df |> filter(year==max(year)) |> arrange(-value) |> pull(region)
 p <- df |> 
-   mutate(data_id = row_number(),
-          tooltip_b = glue::glue('<b>Year:</b> {year}
+  mutate(data_id = row_number(),
+         tooltip_b = glue::glue('<b>Year:</b> {year}
                                     <b>Region:</b> {region}
                                     <b>Prescriptions/1 000 inhabitants per year:</b> {round(value,2)}'),
-          region = factor(region, levels = order)) |> 
-
-  ggplot(aes(x = region,#fct_reorder(region,sort_fct.tmp),
+         region = factor(region, levels = order)) |> 
+  
+  ggplot(aes(x = region,
              y = value, 
              fill=factor(year),
              data_id = data_id)) +
-    geom_col_interactive(aes(tooltip = tooltip_b),width = 0.5, position = position_dodge(0.7)) +
-  labs(x=NULL,
+  geom_col_interactive(aes(tooltip = tooltip_b),width = 0.5, position = position_dodge(0.7)) +
+  labs(x="Region",
        y = "Prescriptions/1 000 inhabitants per year") +
   scale_y_continuous(expand=c(0,.2),
                      limits=c(0,25)) +
-    scale_x_discrete(expand=c(0,0.2)) +
-
+  scale_x_discrete(expand=c(0,0.2)) +
+  
   scale_fill_SweSva() + 
   theme_SweSva() +
   theme_SweSva_rotate() +
   add_fohm_caption() +
-      theme(axis.text.x = ggtext::element_markdown()) 
-
+  theme(axis.text.x = ggtext::element_markdown()) 
 
 make_dynamic_plot(plot = p, filename = "Fig1-15")
 ```
 ###### Data
 ```{r}
 df |> 
+  rename("Prescriptions/1 000 inhabitants per year"=value) |> 
   make_table_data_tab(file_name = "Fig1-15")
 ```
 :::
@@ -1027,7 +969,7 @@ df |>
 data <- load_from_excel(path_file = "data/fig-1-16.xlsx")
 
 df <- data$fig_data |> 
-  dplyr::select(Year:"85 - years") |> 
+  dplyr::select(Year:"85+ years") |> 
   pivot_longer(-Year,names_to = "group") 
 order <- df |> distinct(group) |> pull(group)
 
@@ -1040,21 +982,20 @@ order <- df |> distinct(group) |> pull(group)
 #| warning: false
 
 p <- df |> 
-   mutate(data_id = row_number(),
-          tooltip_b = glue::glue('<b>Year:</b> {Year}
+  mutate(data_id = row_number(),
+         tooltip_b = glue::glue('<b>Year:</b> {Year}
                                     <b>Group:</b> {group}
                                     <b>Prescriptions/1 000 inhabitants and year :</b> {round(value,2)}'),
-          group = factor(group, levels = order)
-          ) |> 
-
+         group = factor(group, levels = order)
+  ) |> 
   ggplot(aes(x = group,
              y = value, 
              fill=factor(Year),
              data_id = data_id)) +
-    geom_col_interactive(aes(tooltip = tooltip_b),width = 0.5, position = position_dodge(0.7)) +
+  geom_col_interactive(aes(tooltip = tooltip_b),width = 0.5, position = position_dodge(0.7)) +
   labs(x="Age categories",
-       y = "Prescriptions/1 000 inhabitants and year ") +
-    scale_y_continuous(expand=c(0,.2),
+       y = "Prescriptions/1 000 inhabitants and year") +
+  scale_y_continuous(expand=c(0,.2),
                      limits = c(0,40)) +
   scale_x_discrete(expand=c(0,0.2)) +
   scale_fill_SweSva() + 
@@ -1066,6 +1007,8 @@ make_dynamic_plot(plot = p, filename = "Fig1-16")
 ###### Data
 ```{r}
 df |> 
+  rename("Prescriptions/1 000 inhabitants and year"=value,
+         "Age categories" = group) |> 
   make_table_data_tab(file_name = "Fig1-16")
 ```
 :::

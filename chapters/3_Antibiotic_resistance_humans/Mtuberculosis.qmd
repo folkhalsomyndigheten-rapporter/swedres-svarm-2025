@@ -69,7 +69,6 @@ p <- df |>
     scale_x_discrete(expand = c(0,0.2)) +
   scale_color_SweSva() + 
   theme_SweSva(markdown = "legend.text") +
-#  theme(plot.subtitle = element_text(vjust = -7)) +
   add_fohm_caption()
 
 make_dynamic_plot(plot = p, filename = "Fig3-38")

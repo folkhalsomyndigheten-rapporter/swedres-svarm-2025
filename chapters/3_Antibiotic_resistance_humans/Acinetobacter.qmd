@@ -2,7 +2,6 @@
 format:
   html:
     embed-resources: false
-
 execute:
   cache: false
   echo: false
@@ -29,8 +28,6 @@ In 2025, 123 isolates of *Acinetobacter* spp. from blood were reported to Svebar
 ### Microbiological surveillance programme, *Acinetobacter* spp.
 
 In total, 37 unique (per patient, year, species and sequence type) isolates were received in 2025 within the microbiological surveillance programme for *Acinetobacter* spp. with reduced susceptibility to meropenem (I+R). This is a decrease compared to what was seen in 2024 (n=54), but similar to what was observed in 2023 (n=42). Of the 37 isolates, 28 carried species-specific *bla*~OXA~-genes (23, 24 or 58-like), eight harboured a combination of *bla*~OXA~ (23, 24 or 58-like) and *bla*~NDM~ and in one isolate, no carbapenemase gene was detected. Four clusters were active during 2025, with the number of unique isolates ranging from 2-6.
-
-
 
 
 ::: panel-tabset
@@ -88,7 +85,8 @@ p <- df |>
   ) +
   scale_x_discrete(expand = c(0,0.2)) +
     scale_y_continuous(breaks = perc_25,
-                       limits=c(0,25)) +
+                       limits=c(0,25),
+                       expand=c(0,0.2)) +
   labs(x="Year",
        y="Resistance (%)") +
   scale_color_SweSva() +
@@ -102,12 +100,7 @@ make_dynamic_plot(plot = p,
 ###### Data
 ```{r}
 df |> 
-  transmute(antibiotic,
-            year,
-            "number of total tests" = tot_antal,
-            "number of resistent tests" = r_antal,
-            "% resistent" = r_perc,
-            "Confidence interval" = ci) |> 
+   transmute(antibiotic, year, "Total number" = tot_antal, "Resistance (%)"=r_perc, "95% CI" = ci) |> 
   make_table_data_tab(file_name = "Fig3-34")
 ```
 :::
