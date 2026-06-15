@@ -19,7 +19,7 @@ source("../../_common.R")
 status(type = "ready2publish")
 ```
 
-## Material and methods for resistance in bacteria from animals {#sec-mmr}
+## Material and methods, resistance in bacteria from animals {#sec-mmr}
 
 ### Isolation and identification of bacteria 
 
