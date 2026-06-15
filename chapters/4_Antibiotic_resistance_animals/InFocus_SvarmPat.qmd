@@ -20,7 +20,7 @@ source("../../_common.R")
 status(type = "ready2publish")
 ```
 
-::: {.callout .callout-infocus #infoc-svarmpat .unnumbered}
+::: {.callout .callout-infocus #infoc-svarmpat}
 
 ## [In-focus]{.in-focus} - SvarmPat {.unnumbered}
 

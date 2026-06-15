@@ -21,7 +21,7 @@ source("../../_common.R")
 status(type = "ready2publish")
 ```
 
-::: {.callout .callout-infocus #infoc-salestopical .unnumbered}
+::: {.callout .callout-infocus #infoc-salestopical}
 
 ## [In-focus]{.in-focus} - Sales of topical antimicrobial products {.unnumbered}
 

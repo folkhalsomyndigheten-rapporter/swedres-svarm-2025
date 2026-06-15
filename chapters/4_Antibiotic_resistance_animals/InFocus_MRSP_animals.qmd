@@ -20,7 +20,7 @@ source("../../_common.R")
 status(type = "ready2publish")
 ```
 
-::: {.callout .callout-infocus #infoc-mrsp .unnumbered}
+::: {.callout .callout-infocus #infoc-mrsp}
 
 ## [In-focus]{.in-focus} - MRSP clonal populations in Swedish dogs and cats {.unnumbered}
 

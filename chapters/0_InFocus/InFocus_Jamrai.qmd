@@ -20,7 +20,7 @@ status(type = "ready2publish")
 
 ```
 
-::: {.callout .callout-infocus #infoc-jamrai .unnumbered}
+::: {.callout .callout-infocus #infoc-jamrai }
 
 ## [In-focus]{.in-focus} - JAMRAI 2 {.unnumbered}  
 
