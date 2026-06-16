@@ -84,14 +84,14 @@ p_2IF1 <- ggplot(dat_2IF1_long,
   theme(axis.text.x = element_text(hjust = 0.5)) +
   add_sva_caption()
   
-make_dynamic_plot(plot = p_2IF1, filename = "fig-2IF1")
+make_dynamic_plot(plot = p_2IF1, filename = "InFocus-SalesTopicalAntibicrobials-Fig1")
 
 ```
 
 ###### Data
 ```{r}
 df_fig_413 |>
-  make_table_data_tab()
+  make_table_data_tab(file_name = "InFocus-SalesTopicalAntibicrobials-Fig1")
 ```
 :::
 
@@ -143,13 +143,13 @@ p_2IF2 <- ggplot(dat_2IF2_long, aes(x = Species, y = `Packages sold`, fill = `Ta
   add_sva_caption()
 
   
-make_dynamic_plot(plot = p_2IF2, filename = "fig-2IF2")
+make_dynamic_plot(plot = p_2IF2, filename = "InFocus-SalesTopicalAntibicrobials-Fig2")
 ```
 
 ###### Data
 ```{r}
 dat_2IF2_long |>
-  make_table_data_tab()
+  make_table_data_tab(file_name = "InFocus-SalesTopicalAntibicrobials-Fig1")
 ```
 :::
 
@@ -201,13 +201,13 @@ p_2IF3 <- ggplot(dat_2IF3_long,
   add_sva_caption()
 
   
-make_dynamic_plot(plot = p_2IF3, filename = "fig-2IF3")
+make_dynamic_plot(plot = p_2IF3, filename = "InFocus-SalesTopicalAntibicrobials-Fig3")
 ```
 
 ###### Data
 ```{r}
 dat_2IF3_long |>
-  make_table_data_tab()
+  make_table_data_tab(file_name = "InFocus-SalesTopicalAntibicrobials-Fig3")
 ```
 :::
 
@@ -258,13 +258,13 @@ p_2IF4 <- ggplot(dat_2IF4_long,
   theme_SweSva() +
   add_sva_caption()
 
-make_dynamic_plot(plot = p_2IF4, filename = "fig-2IF4")
+make_dynamic_plot(plot = p_2IF4, filename = "InFocus-SalesTopicalAntibicrobials-Fig4")
 ```
 
 ###### Data
 ```{r}
 dat_2IF4_long |>
-  make_table_data_tab()
+  make_table_data_tab(file_name = "InFocus-SalesTopicalAntibicrobials-Fig4")
 ```
 :::
 
@@ -336,14 +336,14 @@ p_21F5 <- dat_2IF5_long |>
         ) +
   add_sva_caption() 
 
-make_dynamic_plot(plot = p_21F5, filename = "Fig2-IF5")
+make_dynamic_plot(plot = p_21F5, filename = "InFocus-SalesTopicalAntibicrobials-Fig5")
 ```
 
 
 ###### Data
 ```{r}
 dat_2IF5_long |>
-  make_table_data_tab(file_name = "Fig2-IF5")
+  make_table_data_tab(file_name = "InFocus-SalesTopicalAntibicrobials-Fig5")
 ```
 :::
 
