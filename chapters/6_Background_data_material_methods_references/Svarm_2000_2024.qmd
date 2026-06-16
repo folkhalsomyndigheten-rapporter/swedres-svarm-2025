@@ -21,5 +21,5 @@ status(type = "ready2publish")
 
 ## Svarm 2000-2025
 
-The number of isolates of different matrices reported in Svarm since 2000 is available as supplementary material on the 
-[SVA web page](https://www.sva.se/en/what-we-do/antibiotics/svarm-resistance-monitoring/supplementary-material/).
+The number of isolates of different matrices reported in Svarm since 2000 is available as  
+[Supplementary material on the SVA web page](https://www.sva.se/en/what-we-do/antibiotics/svarm-resistance-monitoring/supplementary-material/).

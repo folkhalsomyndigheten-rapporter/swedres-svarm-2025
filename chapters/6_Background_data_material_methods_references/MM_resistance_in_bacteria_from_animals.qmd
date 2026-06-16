@@ -19,7 +19,7 @@ source("../../_common.R")
 status(type = "ready2publish")
 ```
 
-## Material and methods for resistance in bacteria from animals {#sec-mmr}
+## Material and methods, resistance in bacteria from animals {#sec-mmr}
 
 ### Isolation and identification of bacteria 
 
@@ -108,7 +108,7 @@ Susceptibility of *Mycoplasma bovis* was tested with broth microdilution in Myco
 
 ### Genotyping 
 
-Suspected index isolates of MRSA and MRSP were confirmed by detection of the *mecA* or *mecC* genes, applying real-time PCR as described by Pichon et al. [@pichon2012development]. Isolates of Enterobacterales with AmpC phenotypes were subjected to PCR, detecting genes encoding ESBL~M~ [@perez2002detection] and ESBL~A~ [@woodford2006multiplex]; [@fang2008molecular]. Isolates positive in PCR for ESBL-encoding genes, *mecA*, *mecC*, phenotypically confirmed as ESBL~A~ or suspected of being ESBL~CARBA~ were subjected to genome sequence analysis. 
+Suspected index isolates of MRSA and MRSP were confirmed by detection of the *mecA* or *mecC* genes, applying real-time PCR as described by Pichon et al. [@pichon2012development]. Isolates of Enterobacterales with AmpC phenotypes were subjected to PCR, detecting genes encoding ESBL~M~ [@perez2002detection] and ESBL~A~ [@woodford2006multiplex; @fang2008molecular]. Isolates positive in PCR for ESBL-encoding genes, *mecA*, *mecC*, phenotypically confirmed as ESBL~A~ or suspected of being ESBL~CARBA~ were subjected to genome sequence analysis. 
 
  
 
@@ -138,7 +138,7 @@ Records such as source of cultured sample, identification results, antibiotic su
 
 ### Cut-off values for resistance 
 
-For interpretation of MICs from susceptibility testing of zoonotic bacteria (*Salmonella* and *Campylobacter*) and indicator bacteria (*Escherichia coli* and enterococci), epidemiological cut-off values (ECOFFs) issued by EUCAST (www.eucast.org) or values suggested by the European Food Safety Authority are used. For some antibiotics, values based on MIC distributions obtained in Svarm are used. 
+For interpretation of MICs from susceptibility testing of zoonotic bacteria (*Salmonella* and *Campylobacter*) and indicator bacteria (*Escherichia coli* and enterococci), epidemiological cut-off values (ECOFFs) issued by [EUCAST](www.eucast.org) or values suggested by the European Food Safety Authority are used. For some antibiotics, values based on MIC distributions obtained in Svarm are used. 
 
  
 

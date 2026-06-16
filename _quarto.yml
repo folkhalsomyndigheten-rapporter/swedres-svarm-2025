@@ -16,7 +16,8 @@ book:
       site-url: https://www.sva.se/
       email: info@sva.se
 
-  date: now #last-modified #now #today
+  date: "June 17, 2026"
+  #date: now #last-modified #now #today
 #  date-format: "DD-MM-YYY" #"YYYY-MM-DD HH:mm:ssZ"
   version: 2025.0
   description: "A report on Swedish Antibiotic Sales and Resistance in Human Medicine (Swedres) and Swedish Veterinary Antibiotic Resistance Monitoring (Svarm)." #"This is our working draft—let’s keep it within the team for now."
@@ -28,8 +29,8 @@ book:
       - text: "License"
         href: license.qmd
       #- text: "This book was built with [Quarto](https://quarto.org/)."
-   # left: "<img src='/Folkhalsomyndigheten_L_RGB_ENG.png' alt='PHAS Logo' style='height:60px;'> <img src='/SVA_logo_English_margin.png' alt='SVA Logo' style='height:60px;'>"
-    left: "<img src='/Folkhalsomyndigheten_L_RGB_ENG.png' alt='PHAS Logo' style='height:60px;'> <img src='/SVA logo English crop.png' alt='SVA Logo' style='height:40px;'>"
+    left: "<img src='/logo_fohm_sva.png' alt='PHAS and SVA Logo' style='height:60px;'>"
+    #left: "<img src='/Folkhalsomyndigheten_L_RGB_ENG.png' alt='PHAS Logo' style='height:60px;'> <img src='/SVA logo English crop.png' alt='SVA Logo' style='height:40px;'>"
     right: "This book was built with [Quarto](https://quarto.org/)."
   #downloads: [pdf, epub]
   cover-image: cover2025.png
@@ -122,7 +123,7 @@ crossref:
   custom:
     - kind: float
       key: infoc
-      reference-prefix: In FOCUS 
+      reference-prefix: In-focus 
       #caption-prefix: InFocus
       #space-before-numbering: false 
 

@@ -20,7 +20,7 @@ status(type = "ready2publish")
 
 ## Overview of sampling and culture results
 
-Denominator data comes from Svebar. Over the last four years (2022–2025), we included data from 22 clinical laboratories, covering approximately 90% of Sweden’s population. @fig-3-2 shows annual counts for total cultures, blood cultures, urine cultures, nasopharyngeal cultures, and throat cultures. Reported culture numbers remained relatively stable throughout the period, with a slight decline in 2025 compared to 2024, partly due to one laboratory providing only 8 months of complete data.
+Denominator data comes from Svebar. Over the last four years (2022–2025), we included data from 22 clinical laboratories, covering approximately 90% of Sweden’s population. @fig-3-2 shows annual counts for blood cultures, urine cultures, nasopharyngeal cultures, and throat cultures. Reported culture numbers remained relatively stable throughout the period, with a slight decline in 2025 compared to 2024, partly due to one laboratory providing only 8 months of complete data.
 The number of bacteria reported to EARS-Net yearly is shown in @fig-3-3.
 
 
@@ -32,7 +32,12 @@ data <- load_from_excel(path_file = "data/Figure_3.2_Svebar.xlsx")
 df <- data$fig_data |> 
   group_by(type,provtagnings_year) |> 
   summarise(n = sum(n)) |> 
-  filter(provtagnings_year>2015)
+  filter(provtagnings_year>2015) |>
+  mutate(type = case_when(type == "Blod" ~ "Blood cultures",
+                          type == "Urin" ~ "Urine cultures",
+                          type == "Nasofarynxsekret" ~ "Nasopharyngeal cultures",
+                          type=="Svalgsekret"~"Throat cultures",
+                          .default=NA))
 ```
 
 ###### Figure
@@ -44,7 +49,6 @@ df <- data$fig_data |>
 #| warning: false
 
 p <- df |> 
-  
   mutate(data_id = row_number(),
          tooltip_b = glue::glue('<b>Sampling year:</b> {provtagnings_year}
                                     <b>Type:</b> {type}
@@ -53,7 +57,7 @@ p <- df |>
              y=n,
              group=type, 
              fill=type)) +
-  geom_bar_interactive(aes(tooltip = tooltip_b),position="stack", stat="identity") +
+  geom_bar_interactive(aes(tooltip = tooltip_b), position="stack", stat="identity") +
   labs(y="Number of reported cultures",
        x="Year") +
   scale_y_continuous(expand=c(0,.2),

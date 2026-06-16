@@ -2,6 +2,7 @@
 format:
   html:
     embed-resources: false
+    toc: false
 
 execute:
   cache: false
@@ -20,9 +21,9 @@ source("../../_common.R")
 status(type = "ready2publish")
 ```
 
-::: {.callout .callout-infocus #infoc-mrsp}
+::: {.note .callout-infocus}
 
-## [In-focus]{.in-focus} - MRSP clonal populations in Swedish dogs and cats {.unnumbered}
+## [In-focus]{.in-focus} - MRSP clonal populations in Swedish dogs and cats {.unnumbered #infoc-mrsp}
 
 ### Methicillin-resistant *Staphylococcus pseudintermedius* (MRSP) clonal population structures in isolates from Swedish dogs and cats 
 

@@ -2,6 +2,7 @@
 format:
   html:
     embed-resources: false
+    toc: false
 
 execute:
   cache: false
@@ -20,9 +21,9 @@ source("../../_common.R")
 status(type = "ready2publish")
 ```
 
-::: {.callout .callout-infocus #infoc-svarmpat}
+::: {.note .callout-infocus}
 
-## [In-focus]{.in-focus} - SvarmPat {.unnumbered}
+## [In-focus]{.in-focus} - SvarmPat {.unnumbered #infoc-svarmpat}
 
 ### SvarmPat – monitoring of resistance in pathogens from farm animals
 

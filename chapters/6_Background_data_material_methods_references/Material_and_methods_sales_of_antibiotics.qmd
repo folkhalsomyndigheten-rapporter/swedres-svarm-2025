@@ -54,7 +54,7 @@ For antibiotics sold in Sweden on a special license, information regarding stren
 
 ### Trend analysis 
 
-In the report, some general regression models were executed in @sec-ash - [Sales of antibiotics in humans](#sec-ash). Time was used as explanatory variable and the outcome was the sales of antibiotics, adjusted for population size in Sweden, data on population provided by the eHealth Agency. The analyses were executed on a basis of a negative binomial distribution. 
+In the report, some general regression models were executed in [Chapter 1 - Sales of antibiotics in humans](#sec-ash). Time was used as explanatory variable and the outcome was the sales of antibiotics, adjusted for population size in Sweden, data on population provided by the eHealth Agency. The analyses were executed on a basis of a negative binomial distribution. 
 
 ### The Swedish Prescribed Drug Register 
 
