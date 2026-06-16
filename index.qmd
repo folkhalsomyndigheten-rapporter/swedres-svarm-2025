@@ -2,10 +2,14 @@
 format: html
 toc: false
 article-number: "26034"
+#updated: "June 17, 2026"
+#date-modified: today
+
 ---
 
 <div class="quarto-title-meta">
-  <strong>Article number:</strong> {{< meta article-number >}}
+  <span class="article-number-label">Article number</span>
+  <div>{{< meta article-number >}}</div>
 </div>
 
 

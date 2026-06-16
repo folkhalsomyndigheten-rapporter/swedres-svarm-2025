@@ -30,12 +30,12 @@ The WHO has set a target for at least 60% of all antibiotics consumed in each co
 
 #### Consumption of Access, Watch, and Reserve antibiotics in Sweden
 
-77% of antibiotics (J01 excluding methenamine J01XX05) sold in 2025 were Access antibiotics, while Watch antibiotics made up 23% of all antibiotics sold and the remaining 0.3% consisted of antibiotics from the Reserve group. As expected, the proportion of Watch antibiotics was higher in inpatient care than in outpatient care, i.e. 32% versus 22% @fig-1-19. Most Reserve antibiotics were sold to inpatient care, but a small proportion was also prescribed in outpatient care and consisted mainly of linezolid, colistin and aztreonam. The sector classified as “inpatient care” also includes antibiotics supplied to other care providers than hospitals, such as some elderly homes and dental care. Thus, it is reasonable to assume that the proportions of Watch and Reserve antibiotics used in hospitals may be higher in reality than the estimates presented here. In addition, since certain antibiotics prescribed and sold on license could not be included (see [Methods section, sales of antibiotics](#sec-mms)), it is reasonable to assume that the overall proportions of prescription for these antibiotics may be somewhat underestimated.
+77% of antibiotics (J01 excluding methenamine J01XX05) sold in 2025 were Access antibiotics, while Watch antibiotics made up 23% of all antibiotics sold and the remaining 0.3% consisted of antibiotics from the Reserve group. As expected, the proportion of Watch antibiotics was higher in inpatient care than in outpatient care, i.e. 32% versus 22% @fig-1-19. Most Reserve antibiotics were sold to inpatient care, but a small proportion was also prescribed in outpatient care and consisted mainly of linezolid, colistin and aztreonam. The sector classified as “inpatient care” also includes antibiotics supplied to other care providers than hospitals, such as some elderly homes and dental care. Thus, it is reasonable to assume that the proportions of Watch and Reserve antibiotics used in hospitals may be higher in reality than the estimates presented here. In addition, since certain antibiotics prescribed and sold on license could not be included (see [Chapter 6 - Methods section, sales of antibiotics](#sec-mms)), it is reasonable to assume that the overall proportions of prescription for these antibiotics may be somewhat underestimated.
 
 
 Over the last 20 years, the proportion of Access antibiotics has stayed somewhat stable between 77-80%, @fig-1-20. Simultaneously, the proportion of Watch antibiotics increased, while the prescribing of Reserve antibiotics has gradually increased since the early 2000s, as these proportions are smaller in general (@fig-1-21 and @fig-1-22). In 2025, the proportion of Access antibiotics sold was substantially unchanged while the sales of Watch as well as Reserve antibiotics increased. 
 
-Sweden exceeds the WHO minimum target for Access antibiotics of 60%, the Council of the EU recommended national target for Access antibiotics of at least 65% as well as the new national target of maintaining a level above 75% according to the new national strategy against antimicrobial resistance in Sweden @SwedishGovernment2026. Note that the Council of the EU uses data from ESAC-Net, which includes methenamine (J01XX05) in AWaRe analysis [@ECDC2023]. Including methenamine, Sweden continues to exceed the Council of the EU recommended target of at least 65% Access group antibiotics. Although the consumption of Reserve group antibiotics seems to be low, the increased prescribing of these substances merits further review. 
+Sweden exceeds the WHO minimum target for Access antibiotics of 60%, the Council of the EU recommended national target for Access antibiotics of at least 65% as well as the new national target of maintaining a level above 75% according to the new national strategy against antimicrobial resistance in Sweden [@SwedishGovernment2026]. Note that the Council of the EU uses data from ESAC-Net, which includes methenamine (J01XX05) in AWaRe analysis [@ECDC2023]. Including methenamine, Sweden continues to exceed the Council of the EU recommended target of at least 65% Access group antibiotics. Although the consumption of Reserve group antibiotics seems to be low, the increased prescribing of these substances merits further review. 
 
 
 
@@ -127,8 +127,7 @@ p <- df |>
   geom_line_interactive(aes(tooltip=tooltip_l),
                         lwd=.5) +
   geom_point_interactive(aes(tooltip=tooltip_p),
-                         hover_nearest = TRUE,
-                         size=.5) +
+                         hover_nearest = TRUE) +
   scale_y_continuous(expand = c(0,0.2), 
                      limits=c(0,100)) + 
   scale_x_discrete(expand=c(0,0.2)) +

@@ -2,7 +2,7 @@
 format:
   html:
     embed-resources: false
-    toc: true
+    toc: false
 
 execute:
   cache: false
@@ -21,15 +21,15 @@ source("../../_common.R")
 status(type = "ready2publish")
 ```
 
-::: {.callout .callout-infocus #infoc-salestopical}
+::: {.note .callout-infocus}
 
-## [In-focus]{.in-focus} - Sales of topical antimicrobial products {.unnumbered}
+## [In-focus]{.in-focus} - Sales of topical antimicrobial products {.unnumbered #infoc-salestopical}
 
 ### Sales of antimicrobial products formulated for topical use
   
 Topical use of antimicrobial products in individual animals is expected to have a lower impact on antimicrobial resistance at population level than parenteral or oral use [@ema2025categorisation]. Therefore, topical products are not included in the scope of the monitoring of sales of antibiotics annually presented in Swedres-Svarm. Nevertheless, topical use of antimicrobials can select for resistance in individuals or (sub)populations and is part of antimicrobial stewardship. As trends in amounts and prescription patterns might differ compared to systemic treatments, a brief overview of sales of topical products with antibiotics, antifungals and antivirals for animals in Sweden is given. A comparison with historical data is also presented for products with at least one antibiotic substance. 
 
-Data on sales of antimicrobial human and veterinary medicinal products were retrieved from the database of the Swedish eHealth Agency for the years 2020-2025. Only products sold for use in animals and formulated for topical use were included. For prescribed products, animal species as given on the prescription was included. “Antimicrobial” was defined as products with ATC codes defined as such by the [Medical Products Agency](https://www.lakemedelsverket.se/sv/lakemedel-for-djur/antimikrobiella-lakemedel){target="_blank"}. Compared to the inclusion as per Regulation (EU) 2021/578 [@eu2021reg578], products with only antiseptics, such as boric acid or chlorhexidine, were excluded, while products with antibiotics and/or antifungals with e.g. ATC codes (Q)D07C were included.  
+Data on sales of antimicrobial human and veterinary medicinal products were retrieved from the database of the Swedish eHealth Agency for the years 2020-2025. Only products sold for use in animals and formulated for topical use were included. For prescribed products, animal species as given on the prescription was included. “Antimicrobial” was defined as products with ATC codes defined as such by the [Swedish Medical Products Agency](https://www.lakemedelsverket.se/sv/lakemedel-for-djur/antimikrobiella-lakemedel){target="_blank"}. Compared to the inclusion as per Regulation (EU) 2021/578 [@eu2021reg578], products with only antiseptics, such as boric acid or chlorhexidine, were excluded, while products with antibiotics and/or antifungals with e.g. ATC codes (Q)D07C were included.  
 
 The products sold were categorised as dermatological, ophthalmological or otological use based on ATC codes. Products with ATC codes in (Q)S03 were categorised as ophthalmological. The unit of measurement was number of packages sold for each product presentation. Product presentations formulated for long duration (seven-day dosing interval) were calculated to the smallest package size of the respective product.  
 

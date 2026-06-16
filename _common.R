@@ -22,13 +22,6 @@ library(janitor)
 
 ## weblinks: {target="_blank"}
 
-# if (!require(fohmR)) renv::install("H:/Projects/R-package-builds/fohmR_0.1.0.tar.gz")
-# library(fohmr)
-
-# install.packages("pak")
-# pak::pkg_install("git::https://git.folkhalsomyndigheten.se/sb-za/fohmr.git")
-
-# scale_fill_SweSva <-  function(){fohmR::scale_fill_fohm()}
 
 scale_fill_SweSva <- function() {
    if ("fohmR" %in% installed.packages()) {
@@ -344,33 +337,7 @@ add_sva_caption <- function(caption = "Source: Swedish Veterinary Agency") {
   labs(caption = caption)
 }
 
-# status <- function(type) {
-#  status <- switch(
-#    type,
-#    polishing = "should be readable but is currently undergoing final polishing",
-#    restructuring = "is undergoing heavy restructuring and may be confusing or incomplete",
-#    drafting = "is currently a dumping ground for ideas, and we don't recommend reading it",
-#    complete = "is largely complete and just needs final proof reading",
-#    stop("Invalid `type`", call. = FALSE)
-#  )
-#  class <- switch(
-#    type,
-#    polishing = "note",
-#    restructuring = "important",
-#    drafting = "important",
-#    complete = "note"
-#  )
-#  cat(paste0(
-#    "\n",
-#    ":::: status\n",
-#    "::: callout-", class, "\n",
-#    "You are reading the work-in-progress version of the Swedres-Svarm report 2025. ",
-#    "This part ", status, ". ",
-#    "You can find last years report <https://www.sva.se/media/amupibfr/swedres-svarm-2024-webb.pdf>.\n",
-#    ":::\n",
-#    "::::\n"
-#  ))
-# }
+
 
 status <- function(type) {
   if (type == "ready2publish") {
