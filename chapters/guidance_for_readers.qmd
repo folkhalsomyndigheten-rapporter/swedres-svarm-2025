@@ -94,7 +94,7 @@ Since the first report from Svarm, the interpretive criteria for some combinatio
 
 #### Indicator bacteria in animals 
 
-In Svarm, *Escherichia coli*, and sometimes *Enterococcus faecalis* and *E. faecium* serve as indicators for presence of antibiotic resistance in the enteric flora of healthy animals and in the flora contaminating food. The prevalence of acquired resistance in such commensal bacteria in animals indicates the magnitude of the selective pressure from use of antibiotics in an animal population. Most bacteria of the enteric flora are unlikely to cause disease, but they can be reservoirs for resistance genes that can spread to bacteria that cause infections in animals or humans. Prevalence of resistance in indicator bacteria contaminating meat indicates the magnitude of the potential human exposure to such reservoirs in food producing animals. 
+In Svarm, *Escherichia coli*, and sometimes *Enterococcus faecalis* and *E. faecium*, serve as indicators for presence of antibiotic resistance in the enteric flora of healthy animals and in the flora contaminating food. The prevalence of acquired resistance in such commensal bacteria in animals indicates the magnitude of the selective pressure from use of antibiotics in an animal population. Most bacteria of the enteric flora are unlikely to cause disease, but they can be reservoirs for resistance genes that can spread to bacteria that cause infections in animals or humans. Prevalence of resistance in indicator bacteria contaminating meat indicates the magnitude of the potential human exposure to such reservoirs in food producing animals. 
 
 #### Multidrug resistance 
 

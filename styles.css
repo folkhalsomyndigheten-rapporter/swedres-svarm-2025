@@ -109,3 +109,7 @@
 .callout-infocus .callout-body {
   margin-top: 0.5rem;
 }
+
+.quarto-color-scheme-toggle {
+  display: none !important;
+}
