@@ -109,3 +109,16 @@
 .callout-infocus .callout-body {
   margin-top: 0.5rem;
 }
+
+.quarto-color-scheme-toggle {
+  display: none !important;
+}
+
+.article-number-label {
+  text-transform: uppercase;
+  margin-top: 1em;
+  font-size: .8em;
+  opacity: .8;
+  font-weight: 400;
+  display: block;
+}
