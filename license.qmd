@@ -21,9 +21,6 @@ Under the following conditions:
 - **Attribution** — You must give appropriate credit, provide a link to the license, and indicate if changes were made.
 - **ShareAlike** — If you remix, transform, or build upon the material, you must distribute your contributions under the same license as the original.
 
-### Additional Restriction
-
-**This work and its contents may not be used to train, fine-tune, or otherwise develop artificial intelligence models, machine learning systems, or similar technologies, regardless of whether such use is commercial or non-commercial.**
 
 For the full legal text, see the [CC BY-SA 4.0 license](https://creativecommons.org/licenses/by-sa/4.0/legalcode).
 :::

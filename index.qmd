@@ -1,7 +1,13 @@
 ---
 format: html
 toc: false
+article-number: "26034"
 ---
+
+<div class="quarto-title-meta">
+  <strong>Article number:</strong> {{< meta article-number >}}
+</div>
+
 
 ```{r}
 #| results: "asis"
@@ -86,7 +92,7 @@ Public Health Agency of Sweden & The Swedish Veterinary Agency of Sweden. (2025)
 ``` bibtex
 @report{SwedresSvarm2025,
     title     = {Swedres-Svarm 2025: Consumption of Antibiotics and Occurrence of Antibiotic Resistance in Sweden},
-    author    = {{Public Health Agency of Sweden & The Swedish Veterinary Agency of Sweden}},
+    author    = {Public Health Agency of Sweden & The Swedish Veterinary Agency of Sweden},
     year      = {2025},
     institution = {Folkhälsomyndigheten},
     address   = {Stockholm, Sweden},
@@ -95,7 +101,7 @@ Public Health Agency of Sweden & The Swedish Veterinary Agency of Sweden. (2025)
 ```
 
 ### Archive
-This title and Previous Swedres and Svarm reports are available for download at: [www.sva.se/swedres-svarm](www.sva.se/swedres-svarm/){target="_blank"}.
+Previous Swedres and Svarm reports are available for download at: [www.sva.se/swedres-svarm](www.sva.se/swedres-svarm/){target="_blank"}.
 
 ### Cover acknowledgment
 Cover designed by Ingvar Westerdahl and Thomas Isaksson.
