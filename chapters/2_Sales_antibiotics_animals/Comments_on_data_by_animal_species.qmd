@@ -188,7 +188,7 @@ p_24 <- ggplot(df_fig_24,
   scale_fill_SweSva() +
   scale_y_continuous(limits = c(0, 9), 
                      breaks = seq(0, 10, by = 1), 
-                     expand=c(0,0.2)) +
+                     expand=c(0,0)) +
   scale_x_discrete(expand=c(0,0.2)) +
   labs(x = "Year",
        y = "Kg medicated feed/tonne of liveweight fish slaughtered") +

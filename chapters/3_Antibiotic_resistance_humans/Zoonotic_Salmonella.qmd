@@ -208,7 +208,7 @@ p <- df |>
   scale_color_SweSva() +
   theme_SweSva() +
   theme(plot.subtitle = element_text(vjust = -15),
-        legend.text = element_text(size=8)) +
+        legend.text = element_text(size=10)) +
   add_fohm_caption()
 
 make_dynamic_plot(plot = p, 

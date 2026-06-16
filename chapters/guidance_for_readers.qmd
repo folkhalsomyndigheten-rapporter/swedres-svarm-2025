@@ -32,12 +32,15 @@ Data on resistance in bacteria from humans are mainly obtained from clinical mic
 
 Resistance in bacteria from humans and sales for humans to the left and resistance in bacteria from animals and food and sales for animals to the right (@fig-guidance).
 
+
 ```{r}
 #| label: fig-guidance
-#| echo: false
-#| fig-width: 30
-#| fig-cap: "Schematic view of antimicrobial sales and resistance monitored in Sweden 2025. Resistance in bacteria from humans and sales for humans to the left and resistance in bacteria from animals and food and sales for animals to the right."
-#| fig-alt: "Schematic view of antimicrobial sales and resistance monitored in Sweden 2025."
+#| fig-alt: Schematic view of antimicrobial sales and resistance monitored in Sweden 2025.
+#| fig-cap: Schematic view of antimicrobial sales and resistance monitored in Sweden 2025. Resistance in bacteria from humans and sales for humans to the left and resistance in bacteria from animals and food and sales for animals to the right.
+#| fig-dpi: 300
+#| fig-height: 6
+#| fig-width: 8
+
 knitr::include_graphics("images/FigurAntibioticResistanceSwedres2025.png", dpi = 600)
 ```
 

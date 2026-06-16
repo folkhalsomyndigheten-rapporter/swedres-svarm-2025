@@ -29,7 +29,7 @@ book:
       - text: "License"
         href: license.qmd
       #- text: "This book was built with [Quarto](https://quarto.org/)."
-    left: "<img src='/logo_fohm_sva.png' alt='PHAS and SVA Logo' style='height:60px;'>"
+    left: "<img src='/logo_fohm_sva.svg' alt='PHAS and SVA Logo' style='height:60px;'>"
     #left: "<img src='/Folkhalsomyndigheten_L_RGB_ENG.png' alt='PHAS Logo' style='height:60px;'> <img src='/SVA logo English crop.png' alt='SVA Logo' style='height:40px;'>"
     right: "This book was built with [Quarto](https://quarto.org/)."
   #downloads: [pdf, epub]
