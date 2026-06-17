@@ -124,4 +124,4 @@ For questions or to report issues, please use the GitHub issue tracker.
 For questions about the data or report content:
 
 - Folkhälsomyndigheten: [info@folkhalsomyndigheten.se](mailto:info@folkhalsomyndigheten.se)
-- SVA: [infom@sva.se](mailto:info@sva.se)
+- SVA: [info@sva.se](mailto:info@sva.se)
