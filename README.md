@@ -68,7 +68,7 @@ Rendered output will be in the `docs/` directory.
 This repository supports open science principles by providing:
 
 - **Full reproducibility**: All source code, data processing scripts, and configuration files are included
-- **Transparent methodology**: Complete documentation of analysis methods in the report chapters
+- **Transparent methodology**: Complete documentation of report building
 - **Open access**: The published report is freely available without paywalls
 - **Version control**: All changes are tracked via Git, enabling full audit trails
 
@@ -123,5 +123,5 @@ For questions or to report issues, please use the GitHub issue tracker.
 
 For questions about the data or report content:
 
-- Folkhälsomyndigheten: [swedres@folkhalsomyndigheten.se](mailto:swedres@folkhalsomyndigheten.se)
-- SVA: [svarm@sva.se](mailto:svarm@sva.se)
+- Folkhälsomyndigheten: [info@folkhalsomyndigheten.se](mailto:info@folkhalsomyndigheten.se)
+- SVA: [infom@sva.se](mailto:info@sva.se)
