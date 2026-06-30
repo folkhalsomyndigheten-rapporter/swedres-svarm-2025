@@ -536,19 +536,19 @@ make_dynamic_plot(plot = p, filename = "Fig3-12-ndm")
 ##### Data
 ```{r}
 df |> 
-    mutate(species = str_replace_all(species, "\\*|<sub>|</sub>", ""),
+  mutate(species = str_replace_all(species, "\\*|<sub>|</sub>", ""),
          gene = str_replace_all(gene, "\\*|<sub>|</sub>|~", "")) |> 
-  mutate(value = case_when(species=="E. coli" & gene=="blaKPC" ~ NA,
-                         species=="K. pneumoniae" & 
-                           gene %in% c("blaOXA-48-like","blaNDM","blaKPC") &
-                           str_detect(antibiotic,"\\*") ~ NA,
-                         .default = value
+  mutate(value = case_when(species=="E. coli" & gene=="blaKPC" ~ "-",
+                           species=="K. pneumoniae" & gene %in% c("blaOXA-48-like","blaNDM","blaKPC") & str_detect(antibiotic,"a\\)") ~ "-",
+                         .default = as.character(round(value,3))
                          
   )) |> 
+ # filter(#antibiotic=="Nitrofurantoin a)",
+  #       species=="K. pneumoniae")
   transmute(antibiotic,
             species,
             gene,
-            "Resistance (%)" = round(value,3)) |> 
+            "Resistance (%)" = value) |> 
   make_table_data_tab(file_name = "Fig3-12")
 ```
 :::
