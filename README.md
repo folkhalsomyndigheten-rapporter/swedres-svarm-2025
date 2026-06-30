@@ -2,7 +2,7 @@
 
 A [Quarto](https://quarto.org/) book containing the **Swedres-Svarm Report 2025** — a collaborative publication analyzing Swedish antibiotic sales and resistance in human medicine (Swedres) and veterinary monitoring (Svarm).
 
-The report is published on GitHub Pages: [https://www.folkhalsomyndigheten-rapporter.github.io/swedres-svarm-2025](https://www.folkhalsomyndigheten-rapporter.github.io/swedres-svarm-2025)
+The report is published on GitHub Pages: [https://www.folkhalsomyndigheten-rapporter.github.io/swedres-svarm-2025](https://folkhalsomyndigheten-rapporter.github.io/swedres-svarm-2025/](https://folkhalsomyndigheten-rapporter.github.io/swedres-svarm-2025/)
 
 ## About
 
