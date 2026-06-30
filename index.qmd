@@ -2,7 +2,7 @@
 format: html
 toc: false
 article-number: "26034"
-#updated: "June 17, 2026"
+date-modified: "June 30, 2026"
 #date-modified: today
 
 ---
@@ -39,6 +39,7 @@ The new edition of this annual report has undergone a comprehensive update, feat
 - Dynamic figures to enhance data visualisation and interactivity
 - Data download options for each figure, enabling deeper analysis
 
+The digitisation of this report was funded by JAMRAI. For more information about JAMRAI, see [[In-focus]{.in-focus} - JAMRAI 2](#infoc-jamrai).
 :::
 :::
 :::
