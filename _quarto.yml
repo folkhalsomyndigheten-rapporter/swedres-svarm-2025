@@ -114,6 +114,7 @@ language:
 citation: true
 #doi: "26034 (PHAS)" #, SVAKOM230.2024 (SVA)"
 bibliography: references/references.bib
+csl: references/begell-house-chicago-author-date.csl
 #csl: references/vancouver.csl    
 #call-number: "26034 (PHAS)"
 #edition: 26
