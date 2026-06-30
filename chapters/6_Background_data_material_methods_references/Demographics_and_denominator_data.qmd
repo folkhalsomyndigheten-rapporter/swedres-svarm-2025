@@ -73,7 +73,9 @@ Estimates of the number of dogs and cats are available from the Board of Agricul
 data <- load_from_excel(path_file = "data/Kap6_Demographics_table_6_3_2025_260416.xlsx")
 
 df <- data$fig_data |>
-  mutate(across(-1, as.numeric)) 
+  mutate(across(-1, as.numeric),
+         across(where(is.numeric), ~ round(., 0)))
+
 ```
 
 ```{r}
@@ -92,7 +94,8 @@ data <- load_from_excel(path_file = "data/Kap6_Demographics_table_6_4_2025_26041
 
 
 df <- data$fig_data |> 
-  mutate(across(-1, as.numeric)) 
+    mutate(across(-1, as.numeric),
+         across(where(is.numeric), ~ round(., 0))) 
 ```
 
 ```{r}
@@ -109,7 +112,8 @@ df |>
 data <- load_from_excel(path_file = "data/Kap6_Demographics_table_6_5 2025_260416.xlsx")
 
 df <- data$fig_data |> 
-   mutate(across(-1, as.numeric)) 
+     mutate(across(-1, as.numeric),
+         across(where(is.numeric), ~ round(., 0))) 
 ```
 
 ```{r}
@@ -127,7 +131,8 @@ df |>
 data <- load_from_excel(path_file = "data/Kap6_Demographics_table_6_6_2025_260416.xlsx")
 
 df <- data$fig_data |> 
-   mutate(across(-1, as.numeric)) 
+     mutate(across(-1, as.numeric),
+         across(where(is.numeric), ~ round(., 0)))
 ```
 
 
